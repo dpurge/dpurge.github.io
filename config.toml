@@ -1,0 +1,4 @@
+baseURL = 'https://dpurge.github.io/'
+languageCode = 'en-us'
+title = 'DPurge notebook'
+theme = 'book'
