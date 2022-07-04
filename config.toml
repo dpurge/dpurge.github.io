@@ -1,4 +1,33 @@
 baseURL = 'https://dpurge.github.io/'
 languageCode = 'en-us'
-title = 'DPurge notebook'
+title = 'Notebook'
 theme = 'dpurge'
+
+disablePathToLower = true
+enableGitInfo = true
+
+[markup]
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.tableOfContents]
+  startLevel = 1
+
+[menu]
+[[menu.after]]
+  name = "Github"
+  url = "https://github.com/dpurge/dpurge.github.io"
+  weight = 100
+
+[params]
+  BookTheme = 'light'
+  BookToC = true
+  BookSection = 'docs'
+  BookRepo = 'https://github.com/dpurge/dpurge.github.io'
+  BookEditPath = 'edit/main'
+  BookDateFormat = 'January 2, 2006'
+  BookSearch = true
+  BookComments = false
+  BookPortableLinks = true
+  BookServiceWorker = true
+  BookTranslatedOnly = false

@@ -1,8 +1,13 @@
 ---
-title: Introduction
 type: docs
 ---
 
-# DPurge notebook
+# Notebook
 
-{{< columns >}}
+## Purpose
+
+This is my personal notebook, to be available wherever i need it.
+
+## Subjects
+
+DevOps, programming and linguistics.
