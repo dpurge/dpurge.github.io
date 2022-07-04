@@ -1,6 +1,6 @@
 {
-  "name": "DPurge notebook",
-  "short_name": "DPurge notebook",
+  "name": "Notebook",
+  "short_name": "Notebook",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
