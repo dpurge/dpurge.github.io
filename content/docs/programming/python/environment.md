@@ -4,6 +4,8 @@ TODO
 
 ## Venv
 
+Create and activate virtual environment:
+
 {{< tabs "venv-setup" >}}
 
 {{< tab "Bash" >}}
@@ -17,7 +19,8 @@ echo Hello
 {{< tab "Powershell" >}}
 
 ```pwsh
-echo Hello
+python -m venv .venv
+.venv\Scripts\activate.ps1
 ```
 
 {{< /tab >}}
@@ -31,6 +34,19 @@ echo Hello
 {{< /tab >}}
 
 {{< /tabs >}}
+
+Upgrade `pip` and install `requirements.txt`:
+
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+Deactivate virtual environment:
+
+```bash
+deactivate
+```
 
 ## Pipenv
 
