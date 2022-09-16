@@ -2,40 +2,27 @@
 
 ## WSL2
 
+Enable Windows subsystem for Linux:
+
 ```pwsh
 Enable-WindowsOptionalFeature -Online -NoRestart -FeatureName Microsoft-Windows-Subsystem-Linux
 Enable-WindowsOptionalFeature -Online -NoRestart -FeatureName VirtualMachinePlatform
-Invoke-WebRequest https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi -OutFile c:\wsl_update_x64.msi -UseBasicParsing
 ```
 
-Reboot and install `c:\wsl_update_x64.msi`.
-
-Set WSL2 as default: `wsl --set-default-version 2`
-
-## Ubuntu 20.04
+Enable version 2 of WSL:
 
 ```pwsh
-Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile c:\ubuntu2004.appx -UseBasicParsing 
-Add-AppxPackage c:\ubuntu2004.appx
-# DISM.EXE /Online /Add-ProvisionedAppxPackage /PackagePath:c:\\ubuntu2004.appx /SkipLicense --AllUsers
+Invoke-WebRequest https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi -OutFile c:\wsl_update_x64.msi -UseBasicParsing
+Invoke-WebRequest https://... -OutFile D:\dat\WSL\kernel\vmlinux -UseBasicParsing
+start D:\dat\WSL\wsl_update_x64.msi
+wsl --set-default-version 2
 ```
 
-Start Ubuntu 20.04 console to install the base system, and then run:
+Configure non-default kernel in `%USERPROFILE%\.wslconfig`:
 
-```bash
-sudo apt update
-sudo apt upgrade
 ```
-
-## Docker in Ubuntu 20.04
-
-```bash
-sudo apt install --no-install-recommends apt-transport-https ca-certificates curl gnupg2 net-tools
-source /etc/os-release
-curl -fsSL https://download.docker.com/linux/${ID}/gpg | sudo apt-key add -
-echo "deb [arch=amd64] https://download.docker.com/linux/${ID} ${VERSION_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/docker.list
-sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io docker-compose
+[wsl2]
+kernel=D:\\dat\\WSL\\kernel\\vmlinux
 ```
 
 ## Import Ubuntu image from docker
