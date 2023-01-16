@@ -3,4 +3,6 @@ az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx az aks get-cr
 kubectl create namespace my-namespace-name -o yaml --dry-run=client Create deployment YAML:
 kubectl create deployment image-name --image=acrname001.azurecr.io/image_name:1.0.0 -o yaml --dry-run=client Apply namespace YAML:
 kubectl apply -f namespace.yaml kubectl get namespaces Apply deployment YAML:
-kubectl apply -f image-name-deployment.yaml kubectl logs -f deployment/image-name --namespace my-namespace-name List pods:</description></item></channel></rss>
+kubectl apply -f image-name-deployment.yaml kubectl logs -f deployment/image-name --namespace my-namespace-name List pods:</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/installation/</guid><description> Installation # Linux # TODO
+Install Helm:
+export HELM_VERSION=3.9.2 cd /tmp curl \ -sSL https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz \ -o helm.tar.gz tar xf helm.tar.gz linux-amd64/helm mv linux-amd64/helm /usr/local/bin/helm rmdir linux-amd64 rm helm.tar.gz</description></item></channel></rss>
