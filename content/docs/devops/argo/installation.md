@@ -7,6 +7,10 @@ kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
+```sh
+helm repo add argo https://argoproj.github.io/argo-helm
+```
+
 Forward port:
 
 ```sh
