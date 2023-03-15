@@ -32,6 +32,7 @@ helm install mysql bitnami/mysql
 helm list
 helm uninstall mysql
 ```
+
 Find chart values:
 
 ```sh
