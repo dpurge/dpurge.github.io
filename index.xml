@@ -52,7 +52,13 @@ python -m pip install --upgrade pip pip install -r requirements.txt Deactivate v
 deactivate Pipenv # TODO</description></item><item><title/><link>https://dpurge.github.io/docs/programming/python/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/installation/</guid><description>Installation # PyEnv on Linux # Install build dependencies:
 sudo apt update sudo apt install \ build-essential \ libssl-dev \ zlib1g-dev \ libbz2-dev \ libreadline-dev \ libsqlite3-dev \ curl \ llvm \ libncursesw5-dev \ xz-utils \ tk-dev \ libxml2-dev \ libxmlsec1-dev \ libffi-dev \ liblzma-dev Install PyEnv scripts:
 curl https://pyenv.run | bash Add to ~/.profile:
-export PATH=&amp;#34;$HOME/.pyenv/bin:$PATH&amp;#34; if command -v pyenv 1&amp;gt;/dev/null 2&amp;gt;&amp;amp;1; then eval &amp;#34;$(pyenv init -)&amp;#34; fi PyEnv on Windows # Copy pyenv-win from https://github.</description></item><item><title/><link>https://dpurge.github.io/docs/programming/typescript/nodejs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/typescript/nodejs/</guid><description>NodeJS # Installation on Linux # git clone https://github.com/nvm-sh/nvm.git /opt/nvm cd /opt/nvm git checkout v0.39.3 Add to ~/.profile:
+export PATH=&amp;#34;$HOME/.pyenv/bin:$PATH&amp;#34; if command -v pyenv 1&amp;gt;/dev/null 2&amp;gt;&amp;amp;1; then eval &amp;#34;$(pyenv init -)&amp;#34; fi PyEnv on Windows # Copy pyenv-win from https://github.</description></item><item><title/><link>https://dpurge.github.io/docs/programming/sqlite/data/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/sqlite/data/</guid><description> Data manipulations # CVS data # Example data in data.csv:
+index, code, name
+1, EX1, Example 1
+2, EX2, Example 2
+3, EX3, Example 3 Start new database:
+sqlite3 data.db Load data into table and delete headers in sqlite shell:
+create table data (index, code, name); .mode csv .headers ON .separator , .import data.csv data delete from data where index = &amp;#39;index&amp;#39;; select * from data limit 60;</description></item><item><title/><link>https://dpurge.github.io/docs/programming/typescript/nodejs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/typescript/nodejs/</guid><description>NodeJS # Installation on Linux # git clone https://github.com/nvm-sh/nvm.git /opt/nvm cd /opt/nvm git checkout v0.39.3 Add to ~/.profile:
 export NVM_DIR=&amp;#34;$HOME/.nvm&amp;#34; if [ -s &amp;#34;$NVM_DIR/nvm.sh&amp;#34; ]; then . &amp;#34;$NVM_DIR/nvm.sh&amp;#34; fi if [ -s &amp;#34;$NVM_DIR/bash_completion&amp;#34; ]; then . &amp;#34;$NVM_DIR/bash_completion&amp;#34; fi Install NodeJS:
 nvm install node nvm install-latest-npm npm install -g yarn Installation on Windows # Install NVM for Windows
 Settings:
