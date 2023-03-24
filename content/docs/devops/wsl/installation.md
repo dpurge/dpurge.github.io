@@ -47,3 +47,21 @@ Create directory in WSL: `mkdir /src`
 Edit `/etc/fstab` and add line: `C:/src /src drvfs defaults 0 0`
 
 Reload the fstab file: `sudo mount -a`
+
+## Enable SystemD
+
+Install store version of WSL: https://aka.ms/wslstorepage
+
+Enable systemd inside distribution by editting `/etc/wsl.conf`:
+
+```
+[boot]
+systemd=true
+```
+
+Reboot WSL and test:
+
+```sh
+systemctl list-units --type=service
+systemctl list-unit-files --type=service
+```
