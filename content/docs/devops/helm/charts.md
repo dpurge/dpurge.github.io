@@ -43,7 +43,7 @@ Files containing named templates have names starting with underscore.
 
 Example of named template in `_shared.tpl`:
 
-```
+```yml
 {{ define "example" }}
 - name: xxx
   value: yyy
@@ -52,14 +52,14 @@ Example of named template in `_shared.tpl`:
 
 Using named template:
 
-```
+```yml
 mylist:
 {{- include "example" . | indent 2}}
 ```
 
 Prefix k8s object names with release name:
 
-```
+```yml
 metadata:
   name: {{ .Release.Name }}-webapp
 ```
