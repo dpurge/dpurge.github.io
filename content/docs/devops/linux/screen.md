@@ -1,4 +1,4 @@
-# Managing `screen` sessions
+# Screen
 
 ## Basics
 
