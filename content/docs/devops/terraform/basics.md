@@ -22,4 +22,5 @@ terraform fmt
 terraform state list
 terraform state mv
 terraform state show
+terraform state rm \<type\>.\<resource\>
 ```
