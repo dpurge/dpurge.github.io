@@ -11,12 +11,12 @@
 ```pwsh
 function Test-GlobMatch {
   param (
-    [string] $Value,
+    [string] $value,
     [string] $pattern
   )
   
+  $position = 0
   foreach ($char in $pattern.toCharArray()) {
-    $position = 0
     Switch ($char)
     {
       '?' { continue }
