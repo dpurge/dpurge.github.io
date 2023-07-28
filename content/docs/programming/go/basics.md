@@ -50,3 +50,8 @@ Run project:
 ```sh
 go run .
 ```
+
+## Taskfile
+
+- [Task file home](https://taskfile.dev/)
+- [Task file repository](https://github.com/go-task/task)
