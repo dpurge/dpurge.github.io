@@ -53,18 +53,18 @@ Environment variables:
 | PYENV_ROOT | E:\pgm\pyenv-win |
 | PYENV      | E:\pgm\pyenv-win |
 
-Add to PATH: 
+Add to PATH:
 
 - `E:\pgm\pyenv-win\bin`
 - `E:\pgm\pyenv-win\shims`
 
 List available versions: `pyenv install -l`
 
-Install chosen version: `pyenv install 3.11.1`
+Install chosen version: `pyenv install 3.11.4`
 
-Set global Python version: `pyenv global 3.11.1`
+Set global Python version: `pyenv global 3.11.4`
 
-Set local Python version: `pyenv local 3.11.1`
+Set local Python version: `pyenv local 3.11.4`
 
 ## Install basic packages
 
@@ -74,3 +74,10 @@ pip install pipenv
 ```
 
 Create environment variable `PIPENV_VENV_IN_PROJECT=1`.
+
+## Install additional packages
+
+```sh
+pip install jupyterlab
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
+```
