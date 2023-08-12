@@ -1,20 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS on Notebook</title><link>https://dpurge.github.io/docs/devops/aws/</link><description>Recent content in AWS on Notebook</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/aws/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/aws/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/aws/architecture/</guid><description>Learn architecture # Exercises in simple application architecture design.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS on Notebook</title><link>https://dpurge.github.io/docs/devops/aws/</link><description>Recent content in AWS on Notebook</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/aws/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/aws/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/aws/architecture/</guid><description> Learn architecture # Exercises in simple application architecture design.
 Tutorial: AWS Prescriptive Guidance
-Static website # Browser
-&amp;lt;--&amp;gt; Route53
-&amp;lt;-- CloudFront
-&amp;lt;-- S3 Web application with relational database # Browser
-&amp;lt;--&amp;gt; Load Balancer
-&amp;lt;--&amp;gt; (VPC + ECS + ECR)
-&amp;lt;--&amp;gt; RDS Data processing # Data stream
---&amp;gt; App?
---&amp;gt; Kinesis Firehose
-(save 5min/5MB chunks of data)
---&amp;gt; S3
-(put notification: location and name of the file)
---&amp;gt; Lambda function
-(get file content and parse)
-(send data structure to be indexed)
---&amp;gt; ElasticSearch
-&amp;lt;--&amp;gt; Kibana
-(display dashboards from ElasticSerach) Serverless data source monitoring # Problems:</description></item><item><title/><link>https://dpurge.github.io/docs/devops/aws/aws-cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/aws/aws-cli/</guid><description> AWS command line interface # GitHub project</description></item></channel></rss>
+Static website # Web application with relational database # Use Fargate for ECS.
+Data processing # Serverless data source monitoring # Problems:
+Monitoring Statistics Secrets management Configuration for Lambda functions Feature: process changes in the data source Scenario: data source has changes Given for each $currentValue in $batchOfChanges And $previousValue of $currentValue When $currenValue != $previousValue Then save $currentValue in the data index Scenario: data source has no changes Given new batch of changes When current value equals previous value Feature: notify users about interesting changes Scenario: the change is interesting Given data source has changed When the change is small Then do nothing Scenario: the change is not interesting Given data source has changed When the change is big Then send email to the user Feature: show monitoring dashboard Scenario: new event saved to data index</description></item><item><title/><link>https://dpurge.github.io/docs/devops/aws/aws-cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/aws/aws-cli/</guid><description> AWS command line interface # GitHub project</description></item></channel></rss>
