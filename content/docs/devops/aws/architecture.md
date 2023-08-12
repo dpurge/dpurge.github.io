@@ -14,40 +14,17 @@ Tutorial: [AWS Prescriptive Guidance](https://aws.amazon.com/prescriptive-guidan
 
 ## Static website
 
-```ascii
-Browser
-    <--> Route53
-        <--  CloudFront
-            <-- S3
-```
-
-![image info](https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/aws/architecture_static_website.drawio.svg)
+![static web application](https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/aws/architecture_static_website.drawio.svg)
 
 ## Web application with relational database
 
-```ascii
-Browser
-    <--> Load Balancer
-        <--> (VPC + ECS + ECR)
-            <--> RDS
-```
+Use Fargate for ECS.
+
+![web application with relational database](https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/aws/architecture_webapp_with_database.drawio.svg)
 
 ## Data processing
 
-```ascii
-Data stream
---> App?
-    --> Kinesis Firehose
-        (save 5min/5MB chunks of data)
-        --> S3
-            (put notification: location and name of the file)
-            --> Lambda function
-                (get file content and parse)
-                (send data structure to be indexed)
-                --> ElasticSearch
-                    <--> Kibana
-                         (display dashboards from ElasticSerach)
-```
+![data processing application](https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/aws/architecture_data_processing.drawio.svg)
 
 ## Serverless data source monitoring
 
@@ -58,7 +35,7 @@ Problems:
 - Secrets management
 - Configuration for Lambda functions
 
-![image info](https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/aws/architecture_rest_data_monitoring.drawio.svg)
+![serverless application for monitoring rest data over time](https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/aws/architecture_rest_data_monitoring.drawio.svg)
 
 ```gherkin
 Feature: process changes in the data source
