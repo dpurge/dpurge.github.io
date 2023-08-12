@@ -1,4 +1,4 @@
-# Application blueprints
+# Learn architecture
 
 <!--
 See:
@@ -56,7 +56,7 @@ Problems:
 - Secrets management
 - Configuration for Lambda functions
 
-![image info](https://raw.githubusercontent.com/dpurge/dpurge.github.io/blob/gh-pages/docs/devops/aws/blueprint_rest_data_monitoring.drawio.svg)
+![image info](https://raw.githubusercontent.com/dpurge/dpurge.github.io/blob/gh-pages/docs/devops/aws/architecture_rest_data_monitoring.drawio.svg)
 
 ```gherkin
 Feature: process changes in the data source
