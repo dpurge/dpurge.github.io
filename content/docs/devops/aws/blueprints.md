@@ -56,7 +56,7 @@ Problems:
 - Secrets management
 - Configuration for Lambda functions
 
-![image info](./img/blueprint_rest_data_monitoring.drawio.svg)
+![image info](https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/aws/img/blueprint_rest_data_monitoring.drawio.svg)
 
 ```gherkin
 Feature: process changes in the data source
