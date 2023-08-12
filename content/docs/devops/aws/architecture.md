@@ -21,6 +21,8 @@ Browser
             <-- S3
 ```
 
+![image info](https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/aws/architecture_static_website.drawio.svg)
+
 ## Web application with relational database
 
 ```ascii
