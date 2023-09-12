@@ -112,10 +112,10 @@ foreach($batch in $batches) {
   $outfile = "../batch-{0:d2}.pdf" -f $batchnr
   $printBatch = @()
   foreach ($i in 0..($batch.length / 4 - 1)) {
-    $printBatch += $batch[(2 * $i)]
-    $printBatch += $batch[(2 * $i + 1)]
-    $printBatch += $batch[($pages - 1 - 2 * $i - 1)]
-    $printBatch += $batch[($pages - 1 - 2 * $i)]
+    $printBatch += $batch[($pages - 1 - 2 * $i)]       # last page
+    $printBatch += $batch[(2 * $i)]                    # first page
+    $printBatch += $batch[(2 * $i + 1)]                # second page
+    $printBatch += $batch[($pages - 1 - 2 * $i - 1)]   # last-but-one page
   }
   Write-Host $outfile
   Write-Host $printBatch.basename
