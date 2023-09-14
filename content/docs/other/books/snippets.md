@@ -91,3 +91,34 @@ foreach($pngfile in $files) {
   potrace.exe -s -a0 $bmpfile
 }
 ```
+
+## Print scanned book for binding
+
+```pwsh
+$sheets = 8
+$pages = 4 * $sheets
+
+$files = Get-ChildItem -Filter *.png
+$blank = $files[0]
+
+$batches=for($i=0; $i -lt $files.length; $i+=$pages){ ,($files[$i..($i + $pages - 1)])}
+foreach ($i in 1..($pages - $batches[-1].length)) {
+  $batches[-1] += $blank
+}
+
+$batchnr = 0
+foreach($batch in $batches) {
+  $batchnr += 1
+  $outfile = "../batch-{0:d2}.pdf" -f $batchnr
+  $printBatch = @()
+  foreach ($i in 0..($batch.length / 4 - 1)) {
+    $printBatch += $batch[($pages - 1 - 2 * $i)]       # last page
+    $printBatch += $batch[(2 * $i)]                    # first page
+    $printBatch += $batch[(2 * $i + 1)]                # second page
+    $printBatch += $batch[($pages - 1 - 2 * $i - 1)]   # last-but-one page
+  }
+  Write-Host $outfile
+  Write-Host $printBatch.basename
+  D:\pgm\ImageMagick\convert.exe $printBatch $outfile
+}
+```
