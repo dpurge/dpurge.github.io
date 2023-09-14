@@ -1,5 +1,8 @@
 # K3d
 
+K3d is a wrapper of K3s.
+K3d deploys docker based k3s clusters.
+
 ## Installation
 
 K3d CLI binaries:
