@@ -63,6 +63,9 @@ Vagrant.configure("2") do |config|
       node.vm.synced_folder ".", "/vagrant", disabled: true
 
       node.vm.provision "shell", path: "./scripts/configure-static-ip.sh", :args => "#{srv[:ip]} #{gateway}"
+      servers.each do |host|
+        node.vm.provision "shell", path: "./scripts/add-hosts-entry.sh", :args => "#{host[:ip]} #{host[:hostname]}"
+      end
       node.vm.provision :reload
 
       node.vm.provider :hyperv do |h|
@@ -76,6 +79,19 @@ Vagrant.configure("2") do |config|
     end
   end
 end
+```
+
+Script to update `/etc/hosts` file in `scripts/add-hosts-entry.sh`:
+
+```sh
+#!/bin/sh
+
+echo -n 'Adding IP to hosts file: '
+echo $1
+echo -n 'Host name is: '
+echo $2
+
+echo "$1 $2" >> /etc/hosts
 ```
 
 ## Ubuntu `scripts/configure-static-ip.sh`
