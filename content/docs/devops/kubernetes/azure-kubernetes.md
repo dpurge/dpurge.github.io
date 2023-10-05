@@ -5,7 +5,7 @@
 Connect to Azure container registry:
 
 ```sh
-az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+az account set --subscription $SubscriptionID
 az aks get-credentials --resource-group ResGrp-Name001 --name acrname001
 ```
 
@@ -33,6 +33,15 @@ Apply deployment YAML:
 ```sh
 kubectl apply -f image-name-deployment.yaml
 kubectl logs -f deployment/image-name --namespace my-namespace-name
+```
+
+Check deployments:
+
+```sh
+kubectl get deployments --all-namespaces=true
+kubectl get deployments --namespace $CurrentNamespace
+kubectl describe deployment $CurrentDeployment --namespace $CurrentNamespace
+kubectl logs -l $LabelKey=$LabelValue
 ```
 
 List pods:
