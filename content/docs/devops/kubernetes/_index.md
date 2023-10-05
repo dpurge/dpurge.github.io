@@ -32,16 +32,26 @@ Master node runs `Control Plane` processes necessary for managing the cluster:
 
 ## Components
 
-- [`Pod`](https://kubernetes.io/docs/concepts/workloads/pods/) (abstraction of container runtime for a container)
-- `Service` (a permanent IP address and load balancer for Pods)
+- [`Pod`](https://kubernetes.io/docs/concepts/workloads/pods/)
+  Abstraction of container runtime for one or more containers.
+  Smallest unit of computing that is assigned an individual IP address and can be deployed and managed.
+- `Service`
+  A permanent IP address and load balancer for Pods.
+  Publishes its own virtual address either as an environment variable in every Pod or, if cluster is using CoreDNS, as a DNS entry.
+  Services can abstract access not only to Pods, but also to databases, external host or other services.
 - `Ingress` (forwards requests using domain name to a specific Service)
 - `ConfigMap` (external configuration for application)
 - `Secret` (stores secret configuration data encoded in base64)
-- [`Deployment`](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) (an abstraction of a set of Pod replicas that can be scaled)
+- [`Deployment`](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+  An abstraction allowing to manage the state of a set of Pods or Replica Sets.
+  It allows to run a group of identical Pods with a common configuration.
 - `Volume` (external disk storage - local or remote - connected to the cluster)
 - [`Job`](https://kubernetes.io/docs/concepts/workloads/controllers/job/) (???)
 - [`CronJob`](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) (???)
-- [`StatefulSet`](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) (an abstraction of a set of Pods that have a shared state, eg. data)
-- [`DaemonSet`](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) (ensures that all matching Nodes run a copy of a Pod)
-- [`ReplicaSet`](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) (???)
+- [`StatefulSet`](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
+  Provides unique network identifiers, persistent storage, ordered deployment and scaling.
+- [`DaemonSet`](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
+  Ensures that all matching Nodes run a copy of a Pod.
+- [`ReplicaSet`](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
+  A group of duplicated identical pods.
 - [`ReplicationController`](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/) (???)
