@@ -29,3 +29,25 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 kubectl get pods --all-namespaces
 helm ls --all-namespaces
 ```
+
+Install in LXD container:
+
+```sh
+sudo su -
+cd /tmp
+curl https://get.k3s.io/ -o k3s.sh
+chmod +x k3s.sh
+./k3s.sh
+systemctl status k3s
+k3s check-config
+```
+
+Troubleshooting:
+
+```sh
+cat /etc/os-release
+ip a s
+tail /var/log/syslog
+journalctl -u k3s.service
+/usr/local/bin/k3s-uninstall.sh
+```
