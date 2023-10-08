@@ -11,3 +11,10 @@ cd /usr/local/bin
 unzip /tmp/packer_linux_amd64.zip
 rm /tmp/packer_linux_amd64.zip
 ```
+
+Example:
+
+```sh
+packer validate src/build-agent-ubuntu.pkr.hcl
+packer build src/build-agent-ubuntu.pkr.hcl
+```

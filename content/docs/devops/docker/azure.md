@@ -58,3 +58,14 @@ rm /storage-container/test/hello-blob.txt
 rmdir /storage-container/test
 ```
 
+Example:
+
+```sh
+az login
+az account set --subscription "DEV environment"
+az acr login -n devdockercr001
+docker pull devdockercr001.azurecr.io/devops-tools
+
+docker pull postgres
+docker run  -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -d -p 5432:5432 postgres
+```

@@ -55,3 +55,22 @@ argocd app rollback <appname> # Rollback to a previous version
 argocd app set <appname>      # Set the application’s configuration.
 argocd app delete <appname>   # Delete an Argo CD application.
 ```
+
+Cleanup:
+
+```sh
+kubectl delete CustomResourceDefinition applications.argoproj.io
+kubectl delete CustomResourceDefinition applicationsets.argoproj.io
+kubectl delete CustomResourceDefinition appprojects.argoproj.io
+```
+
+Examples:
+
+```sh
+helm template infra-cluster001/ | kubectl apply -f -
+
+argocd app create argo-cd   --repo https://xxx/homelab.git   --path environments/dev/argo-cd   --dest-server https://kubernetes.default.svc   --dest-namespace argocd
+argocd proj create infra --description 'Infrastructure' --dest '*,*' --src '*' --allow-cluster-resource '*/*'
+argocd repocreds add https://xxx/_git/infrastructure-helm-charts --username infrastructure-helm-charts --password xxxxxxxxxxxx
+argocd app create root --repo https://xxx/_git/infrastructure-helm-charts --path infra-cluster001 --dest-namespace default --dest-server https://kubernetes.default.svc
+```
