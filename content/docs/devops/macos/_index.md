@@ -8,5 +8,5 @@ Install:
 - Homebrew
 - Taskfile
 - [Multipass](https://multipass.run/install)
-- Terraform
+- [Terraform](https://developer.hashicorp.com/terraform/install)
 - Terragrunt
