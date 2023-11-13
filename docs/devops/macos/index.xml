@@ -3,8 +3,9 @@ It installs in /opt/homebrew.
 Configuration # Add line to ~/.zprofile:
 eval &amp;#34;$(/opt/homebrew/bin/brew shellenv)&amp;#34; Usage # brew help brew analytics off brew doctor brew update brew shellenv brew cleanup brew install xxx brew reinstall xxx brew uninstall xxx brew bundle dump brew bundle install --file ./Brewfile</description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/multipass/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/multipass/</guid><description>Multipass # Install with package from https://multipass.run/install.
 The command is installed in /usr/local/bin/multipass.
+Logs are in /Library/Logs/Multipass/multipassd.log.
 Usage:
-multipass networks multipass set local.bridged-network=en0 multipass launch docker --name jdp --cpus 2 --memory 6G --disk 50G --bridged multipass list multipass info jdp multipass shell jdp multipass delete jdp multipass purge Config # Add to ~/.zprofile:
+multipass networks multipass set local.bridged-network=en0 multipass launch docker --name jdp --cpus 2 --memory 6G --disk 50G --bridged multipass list multipass info jdp multipass shell jdp multipass restart jdp multipass delete jdp multipass purge Config # Add to ~/.zprofile:
 PATH=&amp;#34;${PATH}:/Users/david/Library/Application Support/multipass/bin&amp;#34; Applications to install:
 KubeCtl K3D Inside Ubuntu, install additional tools:
-# kubectl curl -LO https://dl.k8s.io/release/v1.28.3/bin/linux/arm64/kubectl sudo chmod +x kubectl sudo mv kubectl /usr/local/bin # K3D sudo curl -sfL https://github.</description></item></channel></rss>
+# kubectl curl -LO https://dl.</description></item></channel></rss>
