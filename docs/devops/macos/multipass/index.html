@@ -2,18 +2,12 @@
 The command is installed in /usr/local/bin/multipass.
 Logs are in /Library/Logs/Multipass/multipassd.log.
 Usage:
-multipass networks multipass set local.bridged-network=en0 multipass launch docker --name jdp --cpus 2 --memory 6G --disk 50G --bridged multipass list multipass info jdp multipass shell jdp multipass restart jdp multipass delete jdp multipass purge Config # Add to ~/.zprofile:
-PATH=&#34;${PATH}:/Users/david/Library/Application Support/multipass/bin&#34; Applications to install:
-KubeCtl K3D Inside Ubuntu, install additional tools:
-# kubectl curl -LO https://dl."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Multipass # Install with package from https://multipass.run/install.
+multipass networks multipass set local.bridged-network=en0 multipass launch docker --name jdp --cpus 2 --memory 6G --disk 50G --bridged multipass info jdp multipass shell jdp multipass start jdp multipass restart jdp multipass stop jdp multipass delete jdp multipass launch docker --cpus 2 --memory 6G --disk 50G multipass list multipass info --all multipass purge Config # Add to ~/."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Multipass # Install with package from https://multipass.run/install.
 The command is installed in /usr/local/bin/multipass.
 Logs are in /Library/Logs/Multipass/multipassd.log.
 Usage:
-multipass networks multipass set local.bridged-network=en0 multipass launch docker --name jdp --cpus 2 --memory 6G --disk 50G --bridged multipass list multipass info jdp multipass shell jdp multipass restart jdp multipass delete jdp multipass purge Config # Add to ~/.zprofile:
-PATH=&#34;${PATH}:/Users/david/Library/Application Support/multipass/bin&#34; Applications to install:
-KubeCtl K3D Inside Ubuntu, install additional tools:
-# kubectl curl -LO https://dl."><meta property="og:type" content="article"><meta property="og:url" content="https://dpurge.github.io/docs/devops/macos/multipass/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-11-13T19:14:02+01:00"><title>Multipass | Notebook</title>
-<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.638e31e025a2b30588f0aa860f25d92ea14bf60ac5c689cbc11189a3d014c331.js integrity="sha256-Y44x4CWiswWI8KqGDyXZLqFL9grFxonLwRGJo9AUwzE=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+multipass networks multipass set local.bridged-network=en0 multipass launch docker --name jdp --cpus 2 --memory 6G --disk 50G --bridged multipass info jdp multipass shell jdp multipass start jdp multipass restart jdp multipass stop jdp multipass delete jdp multipass launch docker --cpus 2 --memory 6G --disk 50G multipass list multipass info --all multipass purge Config # Add to ~/."><meta property="og:type" content="article"><meta property="og:url" content="https://dpurge.github.io/docs/devops/macos/multipass/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-11-13T19:48:16+01:00"><title>Multipass | Notebook</title>
+<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.4ef3517474dbe677c977d4a14e807058370c9bd18e43d1f0ec99e78da0bda707.js integrity="sha256-TvNRdHTb5nfJd9ShToBwWDcMm9GOQ9Hw7JnnjaC9pwc=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Notebook</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-2af6a70294eb0b54b31a050af16e50d4 class=toggle checked>
 <label for=section-2af6a70294eb0b54b31a050af16e50d4 class="flex justify-between"><a role=button>Devops</a></label><ul><li><input type=checkbox id=section-e7cb4d162d83ee52b6a454abc6cde393 class=toggle>
 <label for=section-e7cb4d162d83ee52b6a454abc6cde393 class="flex justify-between"><a role=button>Ansible</a></label><ul><li><a href=/docs/devops/ansible/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-99a96d2adca1e15f690e62fb46e9058e class=toggle>
@@ -54,11 +48,16 @@ KubeCtl K3D Inside Ubuntu, install additional tools:
 <a class=anchor href=#multipass>#</a></h1><p>Install with package from <code>https://multipass.run/install</code>.</p><p>The command is installed in <code>/usr/local/bin/multipass</code>.</p><p>Logs are in <code>/Library/Logs/Multipass/multipassd.log</code>.</p><p>Usage:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>multipass networks
 </span></span><span style=display:flex><span>multipass set local.bridged-network<span style=color:#f92672>=</span>en0
 </span></span><span style=display:flex><span>multipass launch docker --name jdp --cpus <span style=color:#ae81ff>2</span> --memory 6G --disk 50G --bridged
-</span></span><span style=display:flex><span>multipass list
 </span></span><span style=display:flex><span>multipass info jdp
 </span></span><span style=display:flex><span>multipass shell jdp
+</span></span><span style=display:flex><span>multipass start jdp
 </span></span><span style=display:flex><span>multipass restart jdp
+</span></span><span style=display:flex><span>multipass stop jdp
 </span></span><span style=display:flex><span>multipass delete jdp
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>multipass launch docker --cpus <span style=color:#ae81ff>2</span> --memory 6G --disk 50G
+</span></span><span style=display:flex><span>multipass list
+</span></span><span style=display:flex><span>multipass info --all
 </span></span><span style=display:flex><span>multipass purge
 </span></span></code></pre></div><h2 id=config>Config
 <a class=anchor href=#config>#</a></h2><p>Add to <code>~/.zprofile</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>PATH<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>PATH<span style=color:#e6db74>}</span><span style=color:#e6db74>:/Users/david/Library/Application Support/multipass/bin&#34;</span>
@@ -68,16 +67,16 @@ KubeCtl K3D Inside Ubuntu, install additional tools:
 </span></span><span style=display:flex><span>sudo mv kubectl /usr/local/bin
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># K3D</span>
-</span></span><span style=display:flex><span>sudo curl -sfL https://github.com/k3d-io/k3d/releases/download/v5.6.0/k3d-linux-amd64 --output k3d
+</span></span><span style=display:flex><span>sudo curl -sfL https://github.com/k3d-io/k3d/releases/download/v5.6.0/k3d-linux-arm64 --output k3d
 </span></span><span style=display:flex><span>sudo chmod +x k3d
 </span></span><span style=display:flex><span>sudo mv k3d /usr/local/bin
 </span></span></code></pre></div><p>In MacOS terminal:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>multipass mount $HOME jdp
 </span></span><span style=display:flex><span>multipass mount /opt/jdp/src jdp
-</span></span><span style=display:flex><span>multipass alias jdp:kubectl kubectl
-</span></span><span style=display:flex><span>multipass alias jdp:k3d k3d
+</span></span><span style=display:flex><span>multipass alias docker:kubectl kubectl
+</span></span><span style=display:flex><span>multipass alias docker:k3d k3d
 </span></span></code></pre></div><p>MacOS firewall
 <a href=https://github.com/canonical/multipass/issues/2387>has problems</a>.</p><p>On unmanaged Mac:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>/usr/libexec/ApplicationFirewall/socketfilterfw --add /usr/libexec/bootpd
 </span></span><span style=display:flex><span>/usr/libexec/ApplicationFirewall/socketfilterfw --unblock /usr/libexec/bootpd
-</span></span></code></pre></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/commit/a6c25e8a76d29a44e9c5fe8fdfa36bfff7d389c7 title='Last modified by D. Purge | November 13, 2023' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+</span></span></code></pre></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/commit/a46ea7fb3b33ec4bc07d92998aa1d626458e0b83 title='Last modified by D. Purge | November 13, 2023' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>November 13, 2023</span></a></div><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/edit/main/content/docs/devops/macos/multipass.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
 <span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#multipass>Multipass</a><ul><li><a href=#config>Config</a></li></ul></li></ul></nav></div></aside></main></body></html>
