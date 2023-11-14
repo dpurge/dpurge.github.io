@@ -63,7 +63,7 @@ multipass alias docker:k3d k3d
 
 MacOS firewall [has problems](https://github.com/canonical/multipass/issues/2387).
 
-If you see errors related to `/var/db/dhcp_leases` your firewall is likely blocking the `bootpd` process.
+If you see errors related to `/var/db/dhcpd_leases` your firewall is likely blocking the `bootpd` process.
 
 On unmanaged Mac, you can try to unblock bootpd from the MacOS builtin firewall:
 
