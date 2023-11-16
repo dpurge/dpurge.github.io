@@ -5,6 +5,7 @@
 ```sh
 git config --global user.name "D. Purge"
 git config --global user.email "my@email.com"
+git config --global core.autocrlf false
 ```
 
 ## SSH checkouts from Azure DevOps
