@@ -1,5 +1,15 @@
 # Installation of WSL
 
+Basic commands:
+
+```pwsh
+wsl --list --online
+wsl --list
+wsl --install -d <distro>
+wsl -d <distro>
+wsl --terminate <distro>
+```
+
 ## WSL2
 
 Enable Windows subsystem for Linux:
