@@ -1,6 +1,8 @@
 # Installation
 
-# Linux
+{{< tabs "tf-setup" >}}
+
+{{< tab "Linux" >}}
 
 Install `tfswitch`:
 
@@ -30,3 +32,14 @@ cd /usr/local/bin
 unzip /tmp/tflint_linux_amd64.zip
 rm /tmp/tflint_linux_amd64.zip
 ```
+
+{{< /tab >}}
+
+{{< tab "MacOS" >}}
+```sh
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+```
+{{< /tab >}}
+
+{{< /tabs >}}

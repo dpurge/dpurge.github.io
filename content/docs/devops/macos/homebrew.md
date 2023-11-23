@@ -29,3 +29,18 @@ brew uninstall xxx
 brew bundle dump
 brew bundle install --file ./Brewfile
 ```
+## Hashicorp tools
+
+Install:
+
+```sh
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+```
+
+Upgrade:
+
+```sh
+brew update
+brew upgrade hashicorp/tap/terraform
+```
