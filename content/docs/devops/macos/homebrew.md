@@ -23,6 +23,8 @@ brew doctor
 brew update
 brew shellenv
 brew cleanup
+brew search xxx
+brew info xxx
 brew install xxx
 brew reinstall xxx
 brew uninstall xxx
