@@ -66,12 +66,19 @@ ip a s ifconfig -a Static IP in /etc/netplan/10-hostname.yaml:
 network: version: 2 ethernets: eth0: dhcp4: false dhcp6: false dhcp-identifier: mac addresses: - 192.168.0.11/24 routes: - to: default via: 192.168.0.1 nameservers: addresses: - 192.168.0.1 Check disk size:
 lsblk --scsi sudo fdisk -l /dev/sda sudo parted -l df -h Check memory:
 free Resize logical volume to all disk:
-vgdisplay lvdisplay lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/homebrew/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/homebrew/</guid><description> Homebrew # Install # Download package from https://github.com/Homebrew/brew/releases/.
+vgdisplay lvdisplay lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/homebrew/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/homebrew/</guid><description>Homebrew # Install # Download package from https://github.com/Homebrew/brew/releases/.
 It installs in /opt/homebrew.
 Configuration # Add line to ~/.zprofile:
-eval &amp;#34;$(/opt/homebrew/bin/brew shellenv)&amp;#34; Usage # brew help brew analytics off brew doctor brew update brew shellenv brew cleanup brew install xxx brew reinstall xxx brew uninstall xxx brew bundle dump brew bundle install --file ./Brewfile Hashicorp tools # Install:
-brew tap hashicorp/tap brew install hashicorp/tap/terraform Upgrade:
-brew update brew upgrade hashicorp/tap/terraform</description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/multipass/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/multipass/</guid><description>Multipass # Install with package from https://multipass.run/install.
+eval &amp;#34;$(/opt/homebrew/bin/brew shellenv)&amp;#34; Usage # brew help brew analytics off brew doctor brew update brew shellenv brew cleanup brew search xxx brew info xxx brew install xxx brew reinstall xxx brew uninstall xxx brew bundle dump brew bundle install --file ./Brewfile Hashicorp tools # Install:
+brew tap hashicorp/tap brew install hashicorp/tap/terraform Upgrade:</description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/java/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/java/</guid><description> Java on MacOS # Install with homebrew:
+brew search java brew info java brew install java sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk Check:
+ls -lsah /Library/Java/JavaVirtualMachines/ java -version /usr/libexec/java_home -V Setup JAVA_HOME in ~/.zshenv:
+export JAVA_HOME=$(/usr/libexec/java_home -v&amp;#34;21.0.1&amp;#34;) Refresh shell: source ~/.zshenv
+Install Maven:
+brew install maven mvn -version brew list maven Settings are in /opt/homebrew/opt/maven/libexec/conf/settings.xml.
+To upgrade or uninstall:
+brew upgrade maven brew uninstall maven Install Java 8:
+brew search openjdk brew install openjdk@8 # Cannot install - it requires x86_64 architecture</description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/multipass/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/multipass/</guid><description>Multipass # Install with package from https://multipass.run/install.
 The command is installed in /usr/local/bin/multipass.
 Logs are in /Library/Logs/Multipass/multipassd.log.
 Usage:
