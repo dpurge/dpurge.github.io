@@ -15,4 +15,8 @@ The command is installed in /usr/local/bin/multipass.
 Logs are in /Library/Logs/Multipass/multipassd.log.
 Or use brew to install:
 brew install --cask multipass Usage:
-multipass networks multipass set local.bridged-network=en0 multipass launch docker --name jdp --cpus 2 --memory 6G --disk 50G --bridged multipass info jdp multipass shell jdp multipass start jdp multipass restart jdp multipass stop jdp multipass delete jdp multipass launch docker --cpus 2 --memory 6G --disk 50G multipass list multipass info --all multipass purge Config # Add to ~/.</description></item></channel></rss>
+multipass networks multipass set local.bridged-network=en0 multipass launch docker --name jdp --cpus 2 --memory 6G --disk 50G --bridged multipass info jdp multipass shell jdp multipass start jdp multipass restart jdp multipass stop jdp multipass delete jdp multipass launch docker --cpus 2 --memory 6G --disk 50G multipass list multipass info --all multipass purge Config # Add to ~/.</description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/python/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/python/</guid><description> Python on MacOS # brew update brew install pyenv Check:
+pyenv root Install python:
+pyenv install -l pyenv install 3.12.0 pyenv global 3.12.0 pyenv version Add to ~/.zshenv: eval &amp;quot;$(pyenv init -)&amp;quot;
+Install packages:
+pip install --upgrade pip pip install awscli</description></item></channel></rss>
