@@ -6,6 +6,12 @@ The command is installed in `/usr/local/bin/multipass`.
 
 Logs are in `/Library/Logs/Multipass/multipassd.log`.
 
+Or use `brew` to install:
+
+```sh
+brew install --cask multipass
+```
+
 Usage:
 
 ```sh
