@@ -3,6 +3,14 @@
 ```sh
 brew update
 brew install pyenv
+brew install pyenv-virtualenv
+```
+
+Add to `~/.zshenv`:
+
+```sh
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 ```
 
 Check:
@@ -20,7 +28,13 @@ pyenv global 3.12.0
 pyenv version
 ```
 
-Add to `~/.zshenv`: `eval "$(pyenv init -)"`
+Prepare virtual environment for LLM:
+
+```sh
+pyenv virtualenv 3.12.0 llm
+pyenv global llm
+pip install langchain
+```
 
 Install packages:
 
