@@ -14,6 +14,13 @@ curl -Lo /usr/local/bin/kubectl "https://dl.k8s.io/release/$(curl -L -s https://
 chmod a+x /usr/local/bin/kubectl
 ```
 
+## Maintenance
+
+```sh
+sudo k3s crictl images
+sudo k3s crictl rmi --prune
+```
+
 ## Test
 
 Start server:
