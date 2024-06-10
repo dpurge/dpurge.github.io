@@ -50,3 +50,58 @@ lvdisplay
 lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
 resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
 ```
+
+## Generalize cloud image
+
+```sh
+sudo cloud-init clean
+sudo rm -rf /var/lib/cloud/instances
+sudo truncate -s 0 /etc/machine-id
+sudo rm /var/lib/dbus/machine-id
+sudo ln -s /etc/machine-id /var/lib/dbus/machine-id
+sudo poweroff
+```
+
+## LXC server setup
+
+Add user and install basic software:
+
+```sh
+adduser david
+usermod -aG sudo david
+sudo apt update
+sudo apt dist-upgrade
+sudo apt install curl wget git neovim mc tmux python3 jq golang sqlite3 autofs ca-certificates net-tools
+
+sudo wget https://github.com/mikefarah/yq/releases/download/v4.44.1/yq_linux_amd64 -O /usr/local/bin/yq
+sudo chmod +x /usr/local/bin/yq
+
+wget https://github.com/google/go-jsonnet/releases/download/v0.20.0/jsonnet-go_0.20.0_linux_amd64.deb -O /tmp/jsonnet.deb
+sudo apt install /tmp/jsonnet.deb
+rm /tmp/jsonnet.deb
+
+curl --fail --location --progress-bar --output /tmp/deno.zip https://github.com/denoland/deno/releases/download/v1.44.1/deno-x86_64-unknown-linux-gnu.zip
+sudo unzip -d /usr/local/bin -o /tmp/deno.zip
+rm /tmp/deno.zip
+
+wget https://github.com/go-task/task/releases/download/v3.37.2/task_linux_amd64.deb -O /tmp/task.deb
+sudo apt install /tmp/task.deb
+rm /tmp/task.deb
+```
+
+Generalize image:
+
+```sh
+sudo apt clean
+sudo apt autoremove
+sudo rm /etc/ssh/ssh_host_*
+sudo truncate -s 0 /etc/machine-id
+sudo poweroff
+```
+
+Prepare container after creation from image:
+
+```sh
+sudo dpkg-reconfigure openssh-server
+
+```
