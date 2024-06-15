@@ -105,3 +105,44 @@ Prepare container after creation from image:
 sudo dpkg-reconfigure openssh-server
 
 ```
+
+Install K3s in Proxmox LXC container:
+
+In Proxmox host, change `/etc/sysctl.conf`:
+
+```sh
+net.ipv4.ip_forward=1
+vm.swapiness=0
+```
+
+Disable swap in `/etc/fstab` and on command line: `swapoff -a`
+
+Edit container confirguration in `/etc/pve/lxc/$ContainerID.conf`:
+
+```sh
+features: nesting=1
+swap: 0
+lxc.apparmor.profile: unconfined
+lxc.cgroup2.devices.allow: a
+lxc.cap.drop:
+lxc.mount.auto: "proc:rw sys:rw"
+```
+
+Create `/etc/rc.local`:
+
+```sh
+#!/bin/sh -e
+if [ ! -e /dev/kmsg ]; then
+  ln -s /dev/console /dev/kmsg
+fi
+mount --make-rshared /
+```
+
+Make it executable nad run it:
+
+```sh
+chmod +x /etc/rc.local
+/etc/rc.local
+```
+
+Install K3s: `curl -sfL https://get.k3s.io | sh -`
