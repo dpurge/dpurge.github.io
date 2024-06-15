@@ -103,7 +103,6 @@ Prepare container after creation from image:
 
 ```sh
 sudo dpkg-reconfigure openssh-server
-
 ```
 
 Install K3s in Proxmox LXC container:
@@ -145,4 +144,10 @@ chmod +x /etc/rc.local
 /etc/rc.local
 ```
 
-Install K3s: `curl -sfL https://get.k3s.io | sh -`
+Install K3s:
+
+```sh
+curl -sfL https://get.k3s.io | sh -
+systemctl status k3s
+sudo cat /etc/rancher/k3s/k3s.yaml
+```
