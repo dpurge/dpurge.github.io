@@ -151,3 +151,33 @@ curl -sfL https://get.k3s.io | sh -
 systemctl status k3s
 sudo cat /etc/rancher/k3s/k3s.yaml
 ```
+
+Setup NFS storage for persistent volumes:
+
+Check that storage is exported: `showmount -e xxx`
+
+Create `/var/lib/rancher/k3s/server/manifests/nfs.yaml`:
+
+```sh
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nfs
+---
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: nfs
+  namespace: nfs
+spec:
+  chart: nfs-subdir-external-provisioner
+  repo: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+  targetNamespace: nfs
+  set:
+    nfs.server: x.x.x.x
+    nfs.path: /Kubernetes
+    storageClass.name: nfs
+```
+
+Check `kubectl get storageclasses`.
