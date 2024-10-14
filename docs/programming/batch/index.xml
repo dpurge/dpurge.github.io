@@ -1,3 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Batch on Notebook</title><link>https://dpurge.github.io/docs/programming/batch/</link><description>Recent content in Batch on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/batch/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/batch/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/batch/basics/</guid><description> Batch basics # Map drive to directory # Create mapping:
-subst G: C:\jdp\src\github.com\dpurge Remove mapping:
-subst G: /D</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Batch on Notebook</title><link>https://dpurge.github.io/docs/programming/batch/</link><description>Recent content in Batch on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/batch/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/batch/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/batch/basics/</guid><description>&lt;h1 id="batch-basics">
+ Batch basics
+ &lt;a class="anchor" href="#batch-basics">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="map-drive-to-directory">
+ Map drive to directory
+ &lt;a class="anchor" href="#map-drive-to-directory">#&lt;/a>
+&lt;/h2>
+&lt;p>Create mapping:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cmd" data-lang="cmd">&lt;span style="display:flex;">&lt;span>subst G: C:\jdp\src\github.com\dpurge
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Remove mapping:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cmd" data-lang="cmd">&lt;span style="display:flex;">&lt;span>subst G: /D
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

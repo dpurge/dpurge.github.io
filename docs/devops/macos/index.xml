@@ -1,23 +1,121 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MacOS on Notebook</title><link>https://dpurge.github.io/docs/devops/macos/</link><description>Recent content in MacOS on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/macos/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/macos/homebrew/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/homebrew/</guid><description>Homebrew # Install # Download package from https://github.com/Homebrew/brew/releases/.
-It installs in /opt/homebrew.
-Configuration # Add line to ~/.zprofile:
-eval &amp;#34;$(/opt/homebrew/bin/brew shellenv)&amp;#34; Usage # brew help brew analytics off brew doctor brew update brew shellenv brew cleanup brew search xxx brew info xxx brew install xxx brew reinstall xxx brew uninstall xxx brew bundle dump brew bundle install --file ./Brewfile Hashicorp tools # Install:
-brew tap hashicorp/tap brew install hashicorp/tap/terraform Upgrade:</description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/java/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/java/</guid><description> Java on MacOS # Install with homebrew:
-brew search java brew info java brew install java sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk Check:
-ls -lsah /Library/Java/JavaVirtualMachines/ java -version /usr/libexec/java_home -V Setup JAVA_HOME in ~/.zshenv:
-export JAVA_HOME=$(/usr/libexec/java_home -v&amp;#34;21.0.1&amp;#34;) Refresh shell: source ~/.zshenv
-Install Maven:
-brew install maven mvn -version brew list maven Settings are in /opt/homebrew/opt/maven/libexec/conf/settings.xml.
-To upgrade or uninstall:
-brew upgrade maven brew uninstall maven Install Java 8:
-brew search openjdk brew install openjdk@8 # Cannot install - it requires x86_64 architecture</description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/multipass/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/multipass/</guid><description>Multipass # Install with package from https://multipass.run/install.
-The command is installed in /usr/local/bin/multipass.
-Logs are in /Library/Logs/Multipass/multipassd.log.
-Or use brew to install:
-brew install --cask multipass Usage:
-multipass networks multipass set local.bridged-network=en0 multipass launch docker --name jdp --cpus 2 --memory 6G --disk 50G --bridged multipass info jdp multipass shell jdp multipass start jdp multipass restart jdp multipass stop jdp multipass delete jdp multipass launch docker --cpus 2 --memory 6G --disk 50G multipass list multipass info --all multipass purge Config # Add to ~/.</description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/python/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/python/</guid><description> Python on MacOS # brew update brew install pyenv brew install pyenv-virtualenv Add to ~/.zshenv:
-eval &amp;#34;$(pyenv init -)&amp;#34; eval &amp;#34;$(pyenv virtualenv-init -)&amp;#34; Check:
-pyenv root Install python:
-pyenv install -l pyenv install 3.12.0 pyenv global 3.12.0 pyenv version Prepare virtual environment for LLM:
-pyenv virtualenv 3.12.0 llm pyenv global llm pip install langchain Install packages:
-pip install --upgrade pip pip install awscli</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MacOS on Notebook</title><link>https://dpurge.github.io/docs/devops/macos/</link><description>Recent content in MacOS on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/macos/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/macos/homebrew/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/homebrew/</guid><description>&lt;h1 id="homebrew">
+ Homebrew
+ &lt;a class="anchor" href="#homebrew">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="install">
+ Install
+ &lt;a class="anchor" href="#install">#&lt;/a>
+&lt;/h2>
+&lt;p>Download package from &lt;code>https://github.com/Homebrew/brew/releases/&lt;/code>.&lt;/p>
+&lt;p>It installs in &lt;code>/opt/homebrew&lt;/code>.&lt;/p>
+&lt;h2 id="configuration">
+ Configuration
+ &lt;a class="anchor" href="#configuration">#&lt;/a>
+&lt;/h2>
+&lt;p>Add line to &lt;code>~/.zprofile&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>eval &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>/opt/homebrew/bin/brew shellenv&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="usage">
+ Usage
+ &lt;a class="anchor" href="#usage">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>brew help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew analytics off
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew doctor
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew shellenv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew cleanup
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew search xxx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew info xxx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install xxx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew reinstall xxx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew uninstall xxx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew bundle dump
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew bundle install --file ./Brewfile
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="hashicorp-tools">
+ Hashicorp tools
+ &lt;a class="anchor" href="#hashicorp-tools">#&lt;/a>
+&lt;/h2>
+&lt;p>Install:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>brew tap hashicorp/tap
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install hashicorp/tap/terraform
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Upgrade:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/java/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/java/</guid><description>&lt;h1 id="java-on-macos">
+ Java on MacOS
+ &lt;a class="anchor" href="#java-on-macos">#&lt;/a>
+&lt;/h1>
+&lt;p>Install with homebrew:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>brew search java
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew info java
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install java
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Check:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>ls -lsah /Library/Java/JavaVirtualMachines/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>java -version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/usr/libexec/java_home -V
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Setup &lt;code>JAVA_HOME&lt;/code> in &lt;code>~/.zshenv&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>export JAVA_HOME&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>/usr/libexec/java_home -v&lt;span style="color:#e6db74">&amp;#34;21.0.1&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Refresh shell: &lt;code>source ~/.zshenv&lt;/code>&lt;/p>
+&lt;p>Install Maven:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>brew install maven
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mvn -version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew list maven
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Settings are in &lt;code>/opt/homebrew/opt/maven/libexec/conf/settings.xml&lt;/code>.&lt;/p>
+&lt;p>To upgrade or uninstall:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>brew upgrade maven
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew uninstall maven
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Install Java 8:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>brew search openjdk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install openjdk@8
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Cannot install - it requires x86_64 architecture&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/multipass/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/multipass/</guid><description>&lt;h1 id="multipass">
+ Multipass
+ &lt;a class="anchor" href="#multipass">#&lt;/a>
+&lt;/h1>
+&lt;p>Install with package from &lt;code>https://multipass.run/install&lt;/code>.&lt;/p>
+&lt;p>The command is installed in &lt;code>/usr/local/bin/multipass&lt;/code>.&lt;/p>
+&lt;p>Logs are in &lt;code>/Library/Logs/Multipass/multipassd.log&lt;/code>.&lt;/p>
+&lt;p>Or use &lt;code>brew&lt;/code> to install:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>brew install --cask multipass
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Usage:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>multipass networks
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multipass set local.bridged-network&lt;span style="color:#f92672">=&lt;/span>en0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multipass launch docker --name jdp --cpus &lt;span style="color:#ae81ff">2&lt;/span> --memory 6G --disk 50G --bridged
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multipass info jdp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multipass shell jdp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multipass start jdp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multipass restart jdp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multipass stop jdp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multipass delete jdp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multipass launch docker --cpus &lt;span style="color:#ae81ff">2&lt;/span> --memory 6G --disk 50G
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multipass list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multipass info --all
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>multipass purge
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="config">
+ Config
+ &lt;a class="anchor" href="#config">#&lt;/a>
+&lt;/h2>
+&lt;p>Add to &lt;code>~/.zprofile&lt;/code>:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/macos/python/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/macos/python/</guid><description>&lt;h1 id="python-on-macos">
+ Python on MacOS
+ &lt;a class="anchor" href="#python-on-macos">#&lt;/a>
+&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>brew update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install pyenv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install pyenv-virtualenv
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Add to &lt;code>~/.zshenv&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>eval &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>pyenv init -&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>eval &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>pyenv virtualenv-init -&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Check:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>pyenv root
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Install python:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>pyenv install -l
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pyenv install 3.12.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pyenv global 3.12.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pyenv version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Prepare virtual environment for LLM:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>pyenv virtualenv 3.12.0 llm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pyenv global llm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pip install langchain
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Install packages:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>pip install --upgrade pip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pip install awscli
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

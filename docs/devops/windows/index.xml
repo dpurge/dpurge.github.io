@@ -1,1 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on Notebook</title><link>https://dpurge.github.io/docs/devops/windows/</link><description>Recent content in Windows on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/windows/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/windows/ime/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/windows/ime/</guid><description> Input methods # Xiaohe shuangpin 小鹤双拼 # Windows Registry Editor Version 5.00[HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputMethod\Settings\CHS]&amp;#34;Enable Double Pinyin&amp;#34;=dword:00000001&amp;#34;DoublePinyinScheme&amp;#34;=dword:0000000a&amp;#34;UserDefinedDoublePinyinScheme0&amp;#34;=&amp;#34;小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt&amp;#34;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/windows/winget/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/windows/winget/</guid><description>Winget # winget.exe install --id Microsoft.Powershell --source winget Git # winget install --id Git.Git -e --source winget After installation, copy SSH keys to ~\.ssh.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on Notebook</title><link>https://dpurge.github.io/docs/devops/windows/</link><description>Recent content in Windows on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/windows/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/windows/ime/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/windows/ime/</guid><description>&lt;h1 id="input-methods">
+ Input methods
+ &lt;a class="anchor" href="#input-methods">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="xiaohe-shuangpin-小鹤双拼">
+ Xiaohe shuangpin 小鹤双拼
+ &lt;a class="anchor" href="#xiaohe-shuangpin-%e5%b0%8f%e9%b9%a4%e5%8f%8c%e6%8b%bc">#&lt;/a>
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code>Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputMethod\Settings\CHS]
+&amp;#34;Enable Double Pinyin&amp;#34;=dword:00000001
+&amp;#34;DoublePinyinScheme&amp;#34;=dword:0000000a
+&amp;#34;UserDefinedDoublePinyinScheme0&amp;#34;=&amp;#34;小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt&amp;#34;
+&lt;/code>&lt;/pre></description></item><item><title/><link>https://dpurge.github.io/docs/devops/windows/winget/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/windows/winget/</guid><description>&lt;h1 id="winget">
+ Winget
+ &lt;a class="anchor" href="#winget">#&lt;/a>
+&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cmd" data-lang="cmd">&lt;span style="display:flex;">&lt;span>winget.exe install --id Microsoft.Powershell --source winget
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="git">
+ Git
+ &lt;a class="anchor" href="#git">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cmd" data-lang="cmd">&lt;span style="display:flex;">&lt;span>winget install --id Git.Git -e --source winget
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After installation, copy SSH keys to &lt;code>~\.ssh&lt;/code>.&lt;/p></description></item></channel></rss>

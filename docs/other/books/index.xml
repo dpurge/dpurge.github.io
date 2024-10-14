@@ -1,1 +1,118 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Books on Notebook</title><link>https://dpurge.github.io/docs/other/books/</link><description>Recent content in Books on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/other/books/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/other/books/snippets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/other/books/snippets/</guid><description>Snippets # Export PDF to PNG # Import-Module -Name D:\src\github.com\dpurge\jdp-psmodule\src\JdpBookbind Invoke-Book2Image -OutputDirectory img -InputFile book.pdf Merge two directories with images # $a = Get-ChildItem -Filter *.png ./img1 $b = Get-ChildItem -Filter *.png ./img2 $imgs = $a + $b $i = 0 foreach ($img in $imgs) { $f = &amp;#34;./img/page-{0:d3}.png&amp;#34; -f $i Write-Host &amp;#34;$img -&amp;gt; $f&amp;#34; Move-Item -Path $img -Destination $f $i++ } Render PDF pages # 0..350 | %{D:\pgm\ImageMagick\convert.exe -density 300 book.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Books on Notebook</title><link>https://dpurge.github.io/docs/other/books/</link><description>Recent content in Books on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/other/books/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/other/books/snippets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/other/books/snippets/</guid><description>&lt;h1 id="snippets">
+ Snippets
+ &lt;a class="anchor" href="#snippets">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="export-pdf-to-png">
+ Export PDF to PNG
+ &lt;a class="anchor" href="#export-pdf-to-png">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>Import-Module -Name D:\src\github.com\dpurge\jdp-psmodule\src\JdpBookbind
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-Book2Image -OutputDirectory img -InputFile book.pdf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="merge-two-directories-with-images">
+ Merge two directories with images
+ &lt;a class="anchor" href="#merge-two-directories-with-images">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$a = Get-ChildItem -Filter *.png ./img1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$b = Get-ChildItem -Filter *.png ./img2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$imgs = $a + $b
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$i = &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span> ($img &lt;span style="color:#66d9ef">in&lt;/span> $imgs) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $f = &lt;span style="color:#e6db74">&amp;#34;./img/page-{0:d3}.png&amp;#34;&lt;/span> &lt;span style="color:#f92672">-f&lt;/span> $i
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write-Host &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$img&lt;span style="color:#e6db74"> -&amp;gt; &lt;/span>$f&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Move-Item -Path $img -Destination $f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $i++
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="render-pdf-pages">
+ Render PDF pages
+ &lt;a class="anchor" href="#render-pdf-pages">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">0&lt;/span>.&lt;span style="color:#ae81ff">.350&lt;/span> | %{D:\pgm\ImageMagick\convert.exe -density &lt;span style="color:#ae81ff">300&lt;/span> book.pdf[$_] -quality &lt;span style="color:#ae81ff">100&lt;/span> (&lt;span style="color:#e6db74">&amp;#34;./img/page-{0:d3}.tif&amp;#34;&lt;/span> &lt;span style="color:#f92672">-f&lt;/span> $_)}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">0&lt;/span>.&lt;span style="color:#ae81ff">.350&lt;/span> | %{D:\pgm\ImageMagick\convert.exe -density &lt;span style="color:#ae81ff">300&lt;/span> book.pdf[$_] -quality &lt;span style="color:#ae81ff">100&lt;/span> -type Grayscale -filter Lanczos (&lt;span style="color:#e6db74">&amp;#34;./img/page-{0:d3}.png&amp;#34;&lt;/span> &lt;span style="color:#f92672">-f&lt;/span> $_)}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="convert-to-grayscale">
+ Convert to grayscale
+ &lt;a class="anchor" href="#convert-to-grayscale">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$files = Get-ChildItem -Filter *.png
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span>($file &lt;span style="color:#66d9ef">in&lt;/span> $files) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $outfile = &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${pwd}&lt;span style="color:#e6db74">\out\&lt;/span>$($file.Name)&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write-Host &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$file&lt;span style="color:#e6db74"> -&amp;gt; &lt;/span>$outfile&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># D:\pgm\ImageMagick\convert.exe -grayscale Rec709Luminance $file $outfile&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> D:\pgm\ImageMagick\convert.exe -negate $file $outfile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># D:\pgm\ImageMagick\convert.exe $file -depth 4 -colorspace gray -define png:color-type=0 -define png:bit-depth=4 $outfile&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="convert-flac-to-mp3">
+ Convert FLAC to MP3
+ &lt;a class="anchor" href="#convert-flac-to-mp3">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$files = Get-ChildItem -Filter *.flac
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span>($file &lt;span style="color:#66d9ef">in&lt;/span> $files) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $outfile = ($file.Fullname &lt;span style="color:#f92672">-replace&lt;/span> &lt;span style="color:#e6db74">&amp;#39;.flac$&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;.mp3&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write-Host &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$file&lt;span style="color:#e6db74"> -&amp;gt; &lt;/span>$outfile&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> D:\pgm\ffmpeg\bin\ffmpeg.exe -i $file -ab 320k -map_metadata &lt;span style="color:#ae81ff">0&lt;/span> -id3v2_version &lt;span style="color:#ae81ff">3&lt;/span> $outfile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="convert-wma-to-mp3">
+ Convert WMA to MP3
+ &lt;a class="anchor" href="#convert-wma-to-mp3">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$files = Get-ChildItem -Filter *.wma
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span>($file &lt;span style="color:#66d9ef">in&lt;/span> $files) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $outfile = ($file.Fullname &lt;span style="color:#f92672">-replace&lt;/span> &lt;span style="color:#e6db74">&amp;#39;.wma$&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;.mp3&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write-Host &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$file&lt;span style="color:#e6db74"> -&amp;gt; &lt;/span>$outfile&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> D:\pgm\ffmpeg\bin\ffmpeg.exe -i $file -ab 192k $outfile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="convert-webm-to-mp3">
+ Convert WEBM to MP3
+ &lt;a class="anchor" href="#convert-webm-to-mp3">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>D:\pgm\ffmpeg\bin\ffmpeg.exe -i nagranie.webm -vn -ab 128k -ar &lt;span style="color:#ae81ff">44100&lt;/span> -y nagranie.mp3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="download-from-youtube">
+ Download from YouTube
+ &lt;a class="anchor" href="#download-from-youtube">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>youtube-dl -x --audio-format mp3 &amp;lt;Video-URL&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>youtube-dl &lt;span style="color:#f92672">-f&lt;/span> bestaudio[ext=m4a] --embed-thumbnail --add-metadata &amp;lt;Video-URL&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="convert-png-to-svg">
+ Convert PNG to SVG
+ &lt;a class="anchor" href="#convert-png-to-svg">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$files = Get-ChildItem -Filter *.png
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span>($pngfile &lt;span style="color:#66d9ef">in&lt;/span> $files) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $bmpfile = ($pngfile.Fullname &lt;span style="color:#f92672">-replace&lt;/span> &lt;span style="color:#e6db74">&amp;#39;([^.]).png&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;.bmp&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $svgfile = ($pngfile.Fullname &lt;span style="color:#f92672">-replace&lt;/span> &lt;span style="color:#e6db74">&amp;#39;([^.]).png&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;.svg&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write-Host &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$pngfile&lt;span style="color:#e6db74"> -&amp;gt; &lt;/span>$bmpfile&lt;span style="color:#e6db74"> -&amp;gt; &lt;/span>$svgfile&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> D:\pgm\ImageMagick\convert.exe $pngfile $bmpfile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> potrace.exe -s -a0 $bmpfile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="print-scanned-book-for-binding">
+ Print scanned book for binding
+ &lt;a class="anchor" href="#print-scanned-book-for-binding">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$sheets = &lt;span style="color:#ae81ff">8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$pages = &lt;span style="color:#ae81ff">4&lt;/span> * $sheets
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$files = Get-ChildItem -Filter *.png
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$blank = $files[&lt;span style="color:#ae81ff">0&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$batches=&lt;span style="color:#66d9ef">for&lt;/span>($i=&lt;span style="color:#ae81ff">0&lt;/span>; $i &lt;span style="color:#f92672">-lt&lt;/span> $files.length; $i+=$pages){ ,($files[$i..($i + $pages - &lt;span style="color:#ae81ff">1&lt;/span>)])}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span> ($i &lt;span style="color:#66d9ef">in&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>..($pages - $batches[&lt;span style="color:#ae81ff">-1&lt;/span>].length)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $batches[&lt;span style="color:#ae81ff">-1&lt;/span>] += $blank
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$batchnr = &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span>($batch &lt;span style="color:#66d9ef">in&lt;/span> $batches) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $batchnr += &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $outfile = &lt;span style="color:#e6db74">&amp;#34;../batch-{0:d2}.pdf&amp;#34;&lt;/span> &lt;span style="color:#f92672">-f&lt;/span> $batchnr
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $printBatch = @()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">foreach&lt;/span> ($i &lt;span style="color:#66d9ef">in&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>..($batch.length / &lt;span style="color:#ae81ff">4&lt;/span> - &lt;span style="color:#ae81ff">1&lt;/span>)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $printBatch += $batch[($pages - &lt;span style="color:#ae81ff">1&lt;/span> - &lt;span style="color:#ae81ff">2&lt;/span> * $i)] &lt;span style="color:#75715e"># last page&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $printBatch += $batch[(&lt;span style="color:#ae81ff">2&lt;/span> * $i)] &lt;span style="color:#75715e"># first page&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $printBatch += $batch[(&lt;span style="color:#ae81ff">2&lt;/span> * $i + &lt;span style="color:#ae81ff">1&lt;/span>)] &lt;span style="color:#75715e"># second page&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $printBatch += $batch[($pages - &lt;span style="color:#ae81ff">1&lt;/span> - &lt;span style="color:#ae81ff">2&lt;/span> * $i - &lt;span style="color:#ae81ff">1&lt;/span>)] &lt;span style="color:#75715e"># last-but-one page&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write-Host $outfile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write-Host $printBatch.basename
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> D:\pgm\ImageMagick\convert.exe $printBatch $outfile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

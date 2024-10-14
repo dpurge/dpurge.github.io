@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GCP on Notebook</title><link>https://dpurge.github.io/docs/devops/gcp/</link><description>Recent content in GCP on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/gcp/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/gcp/gcloud/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/gcloud/</guid><description>&lt;h1 id="gcloud">
+ GCloud
+ &lt;a class="anchor" href="#gcloud">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="install">
+ Install
+ &lt;a class="anchor" href="#install">#&lt;/a>
+&lt;/h2>
+&lt;p>To install the Google Cloud SDK, you can follow these steps:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># using snapcraft&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl status snapd
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>snap search google-cloud-sdk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo snap install google-cloud-sdk --classic
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo snap remove google-cloud-sdk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rm -rf ~/.config/gcloud
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># check&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>which gcloud
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>which gsutil
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>which bq
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud help
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="initialize-environment">
+ Initialize environment
+ &lt;a class="anchor" href="#initialize-environment">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud init
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud auth list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="get-information">
+ Get information
+ &lt;a class="anchor" href="#get-information">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud info
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config configurations list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="modify-installation">
+ Modify installation
+ &lt;a class="anchor" href="#modify-installation">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud components list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components install COMPONENT &lt;span style="color:#75715e"># COMPONENT: compute, appengine or kubernetes etc..&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components remove COMPONENT &lt;span style="color:#75715e"># remove a component from the installation, e.g., gcloud compute&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="switch-project">
+ Switch project
+ &lt;a class="anchor" href="#switch-project">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud projects list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config get-value project
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config set project PROJECT_ID &lt;span style="color:#75715e"># replace with your Project ID.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

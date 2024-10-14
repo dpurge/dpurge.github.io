@@ -1,10 +1,93 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Notebook</title><link>https://dpurge.github.io/docs/programming/python/</link><description>Recent content in Python on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/python/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/python/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/basics/</guid><description>Python basics # Application structure # TODO
-Class structure # TODO
-Executable module # TODO</description></item><item><title/><link>https://dpurge.github.io/docs/programming/python/environment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/environment/</guid><description>Virtual environment # TODO
-Venv # Create and activate virtual environment:
-Bash echo Hello Powershell python -m venv .venv .venv\Scripts\activate.ps1 Cmd echo Hello Upgrade pip and install requirements.txt:
-python -m pip install --upgrade pip pip install -r requirements.txt Deactivate virtual environment:
-deactivate Pipenv # TODO</description></item><item><title/><link>https://dpurge.github.io/docs/programming/python/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/installation/</guid><description>Installation # PyEnv on Linux # Install build dependencies:
-sudo apt update sudo apt install \ build-essential \ libssl-dev \ zlib1g-dev \ libbz2-dev \ libreadline-dev \ libsqlite3-dev \ curl \ llvm \ libncursesw5-dev \ xz-utils \ tk-dev \ libxml2-dev \ libxmlsec1-dev \ libffi-dev \ liblzma-dev Install PyEnv scripts:
-curl https://pyenv.run | bash Add to ~/.profile:
-export PATH=&amp;#34;$HOME/.pyenv/bin:$PATH&amp;#34; if command -v pyenv 1&amp;gt;/dev/null 2&amp;gt;&amp;amp;1; then eval &amp;#34;$(pyenv init -)&amp;#34; fi PyEnv on Windows # Copy pyenv-win from https://github.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Notebook</title><link>https://dpurge.github.io/docs/programming/python/</link><description>Recent content in Python on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/python/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/python/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/basics/</guid><description>&lt;h1 id="python-basics">
+ Python basics
+ &lt;a class="anchor" href="#python-basics">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="application-structure">
+ Application structure
+ &lt;a class="anchor" href="#application-structure">#&lt;/a>
+&lt;/h2>
+&lt;p>TODO&lt;/p>
+&lt;h2 id="class-structure">
+ Class structure
+ &lt;a class="anchor" href="#class-structure">#&lt;/a>
+&lt;/h2>
+&lt;p>TODO&lt;/p>
+&lt;h2 id="executable-module">
+ Executable module
+ &lt;a class="anchor" href="#executable-module">#&lt;/a>
+&lt;/h2>
+&lt;p>TODO&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/programming/python/environment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/environment/</guid><description>&lt;h1 id="virtual-environment">
+ Virtual environment
+ &lt;a class="anchor" href="#virtual-environment">#&lt;/a>
+&lt;/h1>
+&lt;p>TODO&lt;/p>
+&lt;h2 id="venv">
+ Venv
+ &lt;a class="anchor" href="#venv">#&lt;/a>
+&lt;/h2>
+&lt;p>Create and activate virtual environment:&lt;/p>
+
+
+
+
+&lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-venv-setup" id="tabs-venv-setup-0" checked="checked" />
+ &lt;label for="tabs-venv-setup-0">Bash&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>echo Hello
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-venv-setup" id="tabs-venv-setup-1" />
+ &lt;label for="tabs-venv-setup-1">Powershell&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>python -m venv .venv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.venv\Scripts\activate.ps1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-venv-setup" id="tabs-venv-setup-2" />
+ &lt;label for="tabs-venv-setup-2">Cmd&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cmd" data-lang="cmd">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">echo&lt;/span> Hello
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;/div>
+
+&lt;p>Upgrade &lt;code>pip&lt;/code> and install &lt;code>requirements.txt&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>python -m pip install --upgrade pip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pip install -r requirements.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Deactivate virtual environment:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>deactivate
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pipenv">
+ Pipenv
+ &lt;a class="anchor" href="#pipenv">#&lt;/a>
+&lt;/h2>
+&lt;p>TODO&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/programming/python/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/installation/</guid><description>&lt;h1 id="installation">
+ Installation
+ &lt;a class="anchor" href="#installation">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="pyenv-on-linux">
+ PyEnv on Linux
+ &lt;a class="anchor" href="#pyenv-on-linux">#&lt;/a>
+&lt;/h2>
+&lt;p>Install build dependencies:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> build-essential &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libssl-dev &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> zlib1g-dev &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libbz2-dev &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libreadline-dev &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libsqlite3-dev &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> curl &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> llvm &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libncursesw5-dev &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> xz-utils &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> tk-dev &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libxml2-dev &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libxmlsec1-dev &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libffi-dev &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> liblzma-dev
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Install PyEnv scripts:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>curl https://pyenv.run | bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Add to &lt;code>~/.profile&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>export PATH&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>$HOME&lt;span style="color:#e6db74">/.pyenv/bin:&lt;/span>$PATH&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> command -v pyenv 1&amp;gt;/dev/null 2&amp;gt;&amp;amp;1; &lt;span style="color:#66d9ef">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> eval &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>pyenv init -&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pyenv-on-windows">
+ PyEnv on Windows
+ &lt;a class="anchor" href="#pyenv-on-windows">#&lt;/a>
+&lt;/h2>
+&lt;p>Copy &lt;code>pyenv-win&lt;/code> from 
+ &lt;a href="https://github.com/pyenv-win/pyenv-win/archive/master.zip">https://github.com/pyenv-win/pyenv-win/archive/master.zip&lt;/a> to &lt;code>E:\pgm\pyenv-win&lt;/code>.&lt;/p></description></item></channel></rss>

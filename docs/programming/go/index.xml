@@ -1,6 +1,109 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go on Notebook</title><link>https://dpurge.github.io/docs/programming/go/</link><description>Recent content in Go on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/go/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/go/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/go/basics/</guid><description> Go Basics # Project template # Set up:
-mkdir example-project cd ./example-project go mod init ./.gitignore:
-./Makefile:
-.PHONY: clean build test clean: echo &amp;#34;Not implemented&amp;#34; build: echo &amp;#34;Not implemented&amp;#34; test: echo &amp;#34;Not implemented&amp;#34; install: echo &amp;#34;Not implemented&amp;#34; ./main.go:
-package main import &amp;#34;fmt&amp;#34; func main() { fmt.Println(&amp;#34;Hello, World!&amp;#34;) } Run project:
-go run . Taskfile # Task file home Task file repository</description></item><item><title/><link>https://dpurge.github.io/docs/programming/go/cgi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/go/cgi/</guid><description> CGI # Simple CGI app # package main import ( &amp;#34;bytes&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;os&amp;#34; &amp;#34;time&amp;#34; ) func main() { var buf bytes.Buffer fmt.Fprintf(&amp;amp;buf, &amp;#34;Time at %s: %s\n&amp;#34;, os.Getenv(&amp;#34;SERVER_NAME&amp;#34;), time.Now().Format(time.RFC1123)) fmt.Println(&amp;#34;Content-type: text/plain&amp;#34;) fmt.Printf(&amp;#34;Content-Length: %d\n\n&amp;#34;, buf.Len()) buf.WriteTo(os.Stdout) }</description></item><item><title/><link>https://dpurge.github.io/docs/programming/go/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/go/installation/</guid><description>Installation # Linux ```shsudo apt updatesudo apt upgrade -ysudo apt install golang -y```Windows $go_version = &amp;quot;1.21.4&amp;quot;$go_archive = &amp;quot;https://dl.google.com/go/go${go_version}.windows-amd64.zip&amp;quot;Invoke-WebRequest -Uri $go_archive -OutFile &amp;quot;${pwd}/go${go_version}.windows-amd64.zip&amp;quot;Add-Type -Assembly System.IO.Compression.FileSystem[System.IO.Compression.ZipFile]::ExtractToDirectory(&amp;quot;${pwd}/go${go_version}.windows-amd64.zip&amp;quot;, &amp;quot;${pwd}&amp;quot;)Remove-Item -Path &amp;quot;${pwd}/go${go_version}.windows-amd64.zip&amp;quot;$path_list = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine') -split ';'if ($path_list -notcontains &amp;quot;${pwd}\go\bin&amp;quot;) {$path_string = ($path_list + &amp;quot;${pwd}\go\bin&amp;quot;) -join ';'[System.Environment]::SetEnvironmentVariable('PATH', $path_string, 'Machine')}Check version: go version</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go on Notebook</title><link>https://dpurge.github.io/docs/programming/go/</link><description>Recent content in Go on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/go/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/go/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/go/basics/</guid><description>&lt;h1 id="go-basics">
+ Go Basics
+ &lt;a class="anchor" href="#go-basics">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="project-template">
+ Project template
+ &lt;a class="anchor" href="#project-template">#&lt;/a>
+&lt;/h2>
+&lt;p>Set up:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>mkdir example-project
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd ./example-project
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>go mod init
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./.gitignore&lt;/code>:&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-gitignore" data-lang="gitignore">&lt;/code>&lt;/pre>&lt;p>&lt;code>./Makefile&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-make" data-lang="make">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">.PHONY&lt;/span>&lt;span style="color:#f92672">:&lt;/span> clean build test
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">clean&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo &lt;span style="color:#e6db74">&amp;#34;Not implemented&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">build&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo &lt;span style="color:#e6db74">&amp;#34;Not implemented&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">test&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo &lt;span style="color:#e6db74">&amp;#34;Not implemented&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">install&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo &lt;span style="color:#e6db74">&amp;#34;Not implemented&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>./main.go&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">package&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#e6db74">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Hello, World!&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Run project:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>go run .
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="taskfile">
+ Taskfile
+ &lt;a class="anchor" href="#taskfile">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+ &lt;a href="https://taskfile.dev/">Task file home&lt;/a>&lt;/li>
+&lt;li>
+ &lt;a href="https://github.com/go-task/task">Task file repository&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title/><link>https://dpurge.github.io/docs/programming/go/cgi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/go/cgi/</guid><description>&lt;h1 id="cgi">
+ CGI
+ &lt;a class="anchor" href="#cgi">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="simple-cgi-app">
+ Simple CGI app
+ &lt;a class="anchor" href="#simple-cgi-app">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">package&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;bytes&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;os&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;time&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">func&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">buf&lt;/span> &lt;span style="color:#a6e22e">bytes&lt;/span>.&lt;span style="color:#a6e22e">Buffer&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Fprintf&lt;/span>(&lt;span style="color:#f92672">&amp;amp;&lt;/span>&lt;span style="color:#a6e22e">buf&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Time at %s: %s\n&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">os&lt;/span>.&lt;span style="color:#a6e22e">Getenv&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;SERVER_NAME&amp;#34;&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">time&lt;/span>.&lt;span style="color:#a6e22e">Now&lt;/span>().&lt;span style="color:#a6e22e">Format&lt;/span>(&lt;span style="color:#a6e22e">time&lt;/span>.&lt;span style="color:#a6e22e">RFC1123&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Content-type: text/plain&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Content-Length: %d\n\n&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">buf&lt;/span>.&lt;span style="color:#a6e22e">Len&lt;/span>())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">buf&lt;/span>.&lt;span style="color:#a6e22e">WriteTo&lt;/span>(&lt;span style="color:#a6e22e">os&lt;/span>.&lt;span style="color:#a6e22e">Stdout&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/programming/go/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/go/installation/</guid><description>&lt;h1 id="installation">
+ Installation
+ &lt;a class="anchor" href="#installation">#&lt;/a>
+&lt;/h1>
+
+
+
+
+&lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-go-setup" id="tabs-go-setup-0" checked="checked" />
+ &lt;label for="tabs-go-setup-0">Linux&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;pre>&lt;code> ```sh
+ sudo apt update
+ sudo apt upgrade -y
+ sudo apt install golang -y
+ ```
+&lt;/code>&lt;/pre>
+&lt;/div>&lt;input type="radio" class="toggle" name="tabs-go-setup" id="tabs-go-setup-1" />
+ &lt;label for="tabs-go-setup-1">Windows&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;pre>&lt;code> $go_version = &amp;quot;1.21.4&amp;quot;
+ $go_archive = &amp;quot;https://dl.google.com/go/go${go_version}.windows-amd64.zip&amp;quot;
+ Invoke-WebRequest -Uri $go_archive -OutFile &amp;quot;${pwd}/go${go_version}.windows-amd64.zip&amp;quot;
+
+ Add-Type -Assembly System.IO.Compression.FileSystem
+ [System.IO.Compression.ZipFile]::ExtractToDirectory(&amp;quot;${pwd}/go${go_version}.windows-amd64.zip&amp;quot;, &amp;quot;${pwd}&amp;quot;)
+ Remove-Item -Path &amp;quot;${pwd}/go${go_version}.windows-amd64.zip&amp;quot;
+
+ $path_list = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine') -split ';'
+ if ($path_list -notcontains &amp;quot;${pwd}\go\bin&amp;quot;) {
+ $path_string = ($path_list + &amp;quot;${pwd}\go\bin&amp;quot;) -join ';'
+ [System.Environment]::SetEnvironmentVariable('PATH', $path_string, 'Machine')
+ }
+&lt;/code>&lt;/pre>
+&lt;/div>&lt;/div>
+
+&lt;p>Check version: &lt;code>go version&lt;/code>&lt;/p></description></item></channel></rss>

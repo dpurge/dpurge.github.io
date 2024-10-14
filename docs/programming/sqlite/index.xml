@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SQLite on Notebook</title><link>https://dpurge.github.io/docs/programming/sqlite/</link><description>Recent content in SQLite on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/sqlite/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/sqlite/data/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/sqlite/data/</guid><description> Data manipulations # CVS data # Example data in data.csv:
-index, code, name1, EX1, Example 12, EX2, Example 23, EX3, Example 3 Start new database:
-sqlite3 data.db Load data into table and delete headers in sqlite shell:
-create table data (index, code, name); .mode csv .headers ON .separator , .import data.csv data delete from data where index = &amp;#39;index&amp;#39;; select * from data limit 60;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SQLite on Notebook</title><link>https://dpurge.github.io/docs/programming/sqlite/</link><description>Recent content in SQLite on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/sqlite/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/sqlite/data/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/sqlite/data/</guid><description>&lt;h1 id="data-manipulations">
+ Data manipulations
+ &lt;a class="anchor" href="#data-manipulations">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="cvs-data">
+ CVS data
+ &lt;a class="anchor" href="#cvs-data">#&lt;/a>
+&lt;/h2>
+&lt;p>Example data in &lt;code>data.csv&lt;/code>:&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-csv" data-lang="csv">index, code, name
+1, EX1, Example 1
+2, EX2, Example 2
+3, EX3, Example 3
+&lt;/code>&lt;/pre>&lt;p>Start new database:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sqlite3 data.db
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Load data into table and delete headers in sqlite shell:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>create table data &lt;span style="color:#f92672">(&lt;/span>index, code, name&lt;span style="color:#f92672">)&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.mode csv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.headers ON
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.separator ,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.import data.csv data
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>delete from data where index &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;index&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">select&lt;/span> * from data limit 60;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

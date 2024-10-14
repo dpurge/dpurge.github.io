@@ -1,9 +1,94 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>WSL on Notebook</title><link>https://dpurge.github.io/docs/devops/wsl/</link><description>Recent content in WSL on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/wsl/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/wsl/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/wsl/installation/</guid><description>Installation of WSL # Basic commands:
-wsl --list --online wsl --list wsl --install -d &amp;lt;distro&amp;gt; wsl -d &amp;lt;distro&amp;gt; wsl --terminate &amp;lt;distro&amp;gt; WSL2 # Enable Windows subsystem for Linux:
-Enable-WindowsOptionalFeature -Online -NoRestart -FeatureName Microsoft-Windows-Subsystem-Linux Enable-WindowsOptionalFeature -Online -NoRestart -FeatureName VirtualMachinePlatform Enable version 2 of WSL:
-Invoke-WebRequest https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi -OutFile c:\wsl_update_x64.msi -UseBasicParsing Invoke-WebRequest https://... -OutFile D:\dat\WSL\kernel\vmlinux -UseBasicParsing start D:\dat\WSL\wsl_update_x64.msi wsl --set-default-version 2 Configure non-default kernel in %USERPROFILE%\.wslconfig:
-[wsl2] kernel=D:\\dat\\WSL\\kernel\\vmlinux Import Ubuntu image from docker # Download image: Invoke-WebRequest https://raw.</description></item><item><title/><link>https://dpurge.github.io/docs/devops/wsl/ubuntu2004/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/wsl/ubuntu2004/</guid><description>Ubuntu 20.04 # Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile c:\ubuntu2004.appx -UseBasicParsing Add-AppxPackage c:\ubuntu2004.appx # DISM.EXE /Online /Add-ProvisionedAppxPackage /PackagePath:c:\\ubuntu2004.appx /SkipLicense --AllUsers Start Ubuntu 20.04 console to install the base system, and then run:
-sudo apt update sudo apt upgrade Docker in Ubuntu 20.04 # sudo apt install --no-install-recommends apt-transport-https ca-certificates curl gnupg2 net-tools source /etc/os-release curl -fsSL https://download.docker.com/linux/${ID}/gpg | sudo apt-key add - echo &amp;#34;deb [arch=amd64] https://download.docker.com/linux/${ID} ${VERSION_CODENAME} stable&amp;#34; | sudo tee /etc/apt/sources.</description></item><item><title/><link>https://dpurge.github.io/docs/devops/wsl/ubuntu2204/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/wsl/ubuntu2204/</guid><description>Ubuntu 22.04 # Update the system:
-sudo apt update sudo apt -y upgrade RDP connections # Install xrdp and xwindows:
-sudo apt install -y xrdp sudo apt install -y xfce4 xfce4-goodies sudo sed -i &amp;#39;s/3389/3390/g&amp;#39; /etc/xrdp/xrdp.ini sudo sed -i &amp;#39;s/max_bpp=32/max_bpp=128/g&amp;#39; /etc/xrdp/xrdp.ini sudo sed -i &amp;#39;s/xserverbpp=24/xserverbpp=128/g&amp;#39; /etc/xrdp/xrdp.ini echo xfce4-session &amp;gt; ~/.xsession Comment out and add line in /etc/xrdp/startwm.sh:
-# test -x /etc/X11/Xsession &amp;amp;&amp;amp; exec /etc/X11/Xsession # exec /bin/sh /etc/X11/Xsession startxfce4 Start XRDP:</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>WSL on Notebook</title><link>https://dpurge.github.io/docs/devops/wsl/</link><description>Recent content in WSL on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/wsl/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/wsl/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/wsl/installation/</guid><description>&lt;h1 id="installation-of-wsl">
+ Installation of WSL
+ &lt;a class="anchor" href="#installation-of-wsl">#&lt;/a>
+&lt;/h1>
+&lt;p>Basic commands:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>wsl --list --online
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wsl --list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wsl --install -d &amp;lt;distro&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wsl -d &amp;lt;distro&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wsl --terminate &amp;lt;distro&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="wsl2">
+ WSL2
+ &lt;a class="anchor" href="#wsl2">#&lt;/a>
+&lt;/h2>
+&lt;p>Enable Windows subsystem for Linux:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>Enable-WindowsOptionalFeature -Online -NoRestart -FeatureName Microsoft-Windows-Subsystem-Linux
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enable-WindowsOptionalFeature -Online -NoRestart -FeatureName VirtualMachinePlatform
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Enable version 2 of WSL:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>Invoke-WebRequest https&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>//wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi -OutFile c:\wsl_update_x64.msi -UseBasicParsing
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-WebRequest https&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>//... -OutFile D:\dat\WSL\kernel\vmlinux -UseBasicParsing
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>start D:\dat\WSL\wsl_update_x64.msi
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wsl --set-default-version &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Configure non-default kernel in &lt;code>%USERPROFILE%\.wslconfig&lt;/code>:&lt;/p>
+&lt;pre tabindex="0">&lt;code>[wsl2]
+kernel=D:\\dat\\WSL\\kernel\\vmlinux
+&lt;/code>&lt;/pre>&lt;h2 id="import-ubuntu-image-from-docker">
+ Import Ubuntu image from docker
+ &lt;a class="anchor" href="#import-ubuntu-image-from-docker">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Download image: &lt;code>Invoke-WebRequest https://raw.githubusercontent.com/tianon/docker-brew-ubuntu-core/fbca80af7960ffcca085d509c20f53ced1697ade/kinetic/ubuntu-kinetic-oci-amd64-root.tar.gz -OutFile C:\ubuntu-kinetic-oci-amd64-root.tar.gz -UseBasicParsing&lt;/code>&lt;/li>
+&lt;li>Import image: &lt;code>wsl --import jdp-ubuntu C:\dat\WSL\jdp-ubuntu C:\ubuntu-kinetic-oci-amd64-root.tar.gz&lt;/code>&lt;/li>
+&lt;li>Update system: &lt;code>apt-get update&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="import-arch-image-from-docker">
+ Import Arch image from docker
+ &lt;a class="anchor" href="#import-arch-image-from-docker">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Download image: &lt;code>Invoke-WebRequest https://gitlab.archlinux.org/archlinux/archlinux-docker/-/package_files/2816/download -OutFile C:\arch-base-20220704.0.66039.tar.zst -UseBasicParsing&lt;/code>&lt;/li>
+&lt;li>Import image: &lt;code>wsl --import jdp-arch C:\dat\WSL\jdp-arch C:\arch-base-20220704.0.66039.tar&lt;/code>&lt;/li>
+&lt;li>Uncomment locale file: &lt;code>/etc/locale.gen&lt;/code>&lt;/li>
+&lt;li>Generate locale: &lt;code>locale-gen&lt;/code>&lt;/li>
+&lt;li>Initialize key: &lt;code>pacman-key --init&lt;/code>&lt;/li>
+&lt;li>Update system: &lt;code>pacman -Syu&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="mount-host-directory">
+ Mount host directory
+ &lt;a class="anchor" href="#mount-host-directory">#&lt;/a>
+&lt;/h2>
+&lt;p>Create directory in WSL: &lt;code>mkdir /src&lt;/code>&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/wsl/ubuntu2004/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/wsl/ubuntu2004/</guid><description>&lt;h1 id="ubuntu-2004">
+ Ubuntu 20.04
+ &lt;a class="anchor" href="#ubuntu-2004">#&lt;/a>
+&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>Invoke-WebRequest -Uri https&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>//aka.ms/wslubuntu2004 -OutFile c:\ubuntu2004.appx -UseBasicParsing 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Add-AppxPackage c:\ubuntu2004.appx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># DISM.EXE /Online /Add-ProvisionedAppxPackage /PackagePath:c:\\ubuntu2004.appx /SkipLicense --AllUsers&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Start Ubuntu 20.04 console to install the base system, and then run:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt upgrade
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="docker-in-ubuntu-2004">
+ Docker in Ubuntu 20.04
+ &lt;a class="anchor" href="#docker-in-ubuntu-2004">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install --no-install-recommends apt-transport-https ca-certificates curl gnupg2 net-tools
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>source /etc/os-release
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl -fsSL https://download.docker.com/linux/&lt;span style="color:#e6db74">${&lt;/span>ID&lt;span style="color:#e6db74">}&lt;/span>/gpg | sudo apt-key add -
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;deb [arch=amd64] https://download.docker.com/linux/&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>ID&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74"> &lt;/span>&lt;span style="color:#e6db74">${&lt;/span>VERSION_CODENAME&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74"> stable&amp;#34;&lt;/span> | sudo tee /etc/apt/sources.list.d/docker.list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install docker-ce docker-ce-cli containerd.io docker-compose
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/wsl/ubuntu2204/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/wsl/ubuntu2204/</guid><description>&lt;h1 id="ubuntu-2204">
+ Ubuntu 22.04
+ &lt;a class="anchor" href="#ubuntu-2204">#&lt;/a>
+&lt;/h1>
+&lt;p>Update the system:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt -y upgrade
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="rdp-connections">
+ RDP connections
+ &lt;a class="anchor" href="#rdp-connections">#&lt;/a>
+&lt;/h2>
+&lt;p>Install xrdp and xwindows:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install -y xrdp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install -y xfce4 xfce4-goodies
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo sed -i &lt;span style="color:#e6db74">&amp;#39;s/3389/3390/g&amp;#39;&lt;/span> /etc/xrdp/xrdp.ini
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo sed -i &lt;span style="color:#e6db74">&amp;#39;s/max_bpp=32/max_bpp=128/g&amp;#39;&lt;/span> /etc/xrdp/xrdp.ini
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo sed -i &lt;span style="color:#e6db74">&amp;#39;s/xserverbpp=24/xserverbpp=128/g&amp;#39;&lt;/span> /etc/xrdp/xrdp.ini
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo xfce4-session &amp;gt; ~/.xsession
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Comment out and add line in &lt;code>/etc/xrdp/startwm.sh&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># test -x /etc/X11/Xsession &amp;amp;&amp;amp; exec /etc/X11/Xsession&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># exec /bin/sh /etc/X11/Xsession&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>startxfce4
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Start XRDP:&lt;/p></description></item></channel></rss>

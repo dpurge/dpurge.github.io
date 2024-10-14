@@ -1,18 +1,249 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on Notebook</title><link>https://dpurge.github.io/docs/devops/kubernetes/</link><description>Recent content in Kubernetes on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/azure-kubernetes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/azure-kubernetes/</guid><description>Kubernetes on Azure # Deployment to cluster # Connect to Azure container registry:
-az account set --subscription $SubscriptionID az aks get-credentials --resource-group ResGrp-Name001 --name acrname001 Create namespace YAML:
-kubectl create namespace my-namespace-name -o yaml --dry-run=client Create deployment YAML:
-kubectl create deployment image-name --image=acrname001.azurecr.io/image_name:1.0.0 -o yaml --dry-run=client Apply namespace YAML:
-kubectl apply -f namespace.yaml kubectl get namespaces Apply deployment YAML:
-kubectl apply -f image-name-deployment.yaml kubectl logs -f deployment/image-name --namespace my-namespace-name Check deployments:</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/design-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/design-patterns/</guid><description> Kubernetes design patterns # Foundational # Health probe # Every container should implement APIs allowing the platform to observe and manage the application.
-Predictable demands # Every container should declare its resource requirements and runtime dependencies and stay confined to them.
-Automated placement # Declarative Deployment # Managed Lifecycle # Structural # Init Container # Sidecar # Adapter # Ambassador # Configuration # EnvVar Configuration # Immutable Configuration # Configuration Template # Configuration Resource # Behavioral # Batch Job # Stateful Service # Service Discovery # Periodic Job # Stateless Service # Singleton Service # Higher Level # Controller # Operator # Serverless Serving # Serverless Eventing # Elastic Scale # Image Builder #</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/k9s/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/k9s/</guid><description> K9s # Home page GitHub repository Releases Installation # Windows $K9s_Version = &amp;#34;0.27.4&amp;#34; $K2s_Archive = &amp;#34;https://github.com/derailed/k9s/releases/download/v${K9s_Version}/k9s_Windows_amd64.zip&amp;#34; Invoke-WebRequest -Uri $K2s_Archive -OutFile &amp;#34;${pwd}/k9s_Windows_amd64_${K9s_Version}.zip&amp;#34; Add-Type -Assembly System.IO.Compression.FileSystem $zip = [IO.Compression.ZipFile]::OpenRead(&amp;#34;${pwd}/k9s_Windows_amd64_${K9s_Version}.zip&amp;#34;) $Executables = $zip.Entries | Where-Object {$_.Name -like &amp;#39;*.exe&amp;#39;} foreach ($Executable in $Executables) { [System.IO.Compression.ZipFileExtensions]::ExtractToFile($Executable, &amp;#34;${pwd}/$($Executable.Name)&amp;#34;, $True) } $zip.Dispose() Remove-Item -Path &amp;#34;${pwd}/k9s_Windows_amd64_${K9s_Version}.zip&amp;#34; Linux TODO</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/kubectl-config/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/kubectl-config/</guid><description>KubeCtl configuration # Configuration files # Default file:
-~/.kube/config %USERPROFILE%\.kube\config Multiple files defined in environment variable:
-set KUBECONFIG=%USERPROFILE%\.kube\config;%USERPROFILE%\.kube\jdpnas02.yaml KUBECONFIG=~/.kube/config:~/.kube/jdpnas02.yaml Display configured contexts:
-kubectl config get-contexts Display merged configs:
-kubectl config view Show current context:
-kubectl config current-context Set default context:
-kubectl config use-context jdpnas02 Examples:
-az account set --subscription xxxxxxxxxxx az aks get-credentials --resource-group ResGrp-xxx-K8s --name xxxx kubectl config current-context kubectl get all --namespace xxx kubectl get cronjob --namespace xxx kubectl describe cronjob --namespace xxx kubectl get pods --namespace xxx kubectl logs --namespace xxx integration-sync-28023457-cbg4j kubectl delete job --namespace xxx integration-sync-28023332 kubectl delete cronjob integration-sync --namespace xxx kubectl exec --stdin --tty xxx-867d77f465-tkcdk --namespace xxx -- /bin/bash curl -X POST 127.</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/minikube/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/minikube/</guid><description> Minikube # minikube delete minikube start --memory 4096 Edit service xxx:
-kubectl edit svc xxx</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/sealed-secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/sealed-secrets/</guid><description> Sealed secrets # Install kubeseal # Command line:
-curl -sSL https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.3/kubeseal-0.19.3-linux-amd64.tar.gz -o kubeseal-linux-amd64.tar.gz tar -xf kubeseal-linux-amd64.tar.gz kubeseal mv kubeseal /usr/local/bin/ kubeseal --version Controller:
-kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.3/controller.yaml kubectl get pods -n kube-system | grep sealed-secrets-controller kubectl logs sealed-secrets-controller-xxx-xxx -n kube-system kubectl get secret -n kube-system -l sealedsecrets.bitnami.com/sealed-secrets-key -o yaml</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on Notebook</title><link>https://dpurge.github.io/docs/devops/kubernetes/</link><description>Recent content in Kubernetes on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/azure-kubernetes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/azure-kubernetes/</guid><description>&lt;h1 id="kubernetes-on-azure">
+ Kubernetes on Azure
+ &lt;a class="anchor" href="#kubernetes-on-azure">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="deployment-to-cluster">
+ Deployment to cluster
+ &lt;a class="anchor" href="#deployment-to-cluster">#&lt;/a>
+&lt;/h2>
+&lt;p>Connect to Azure container registry:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>az account set --subscription $SubscriptionID
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az aks get-credentials --resource-group ResGrp-Name001 --name acrname001
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create namespace YAML:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl create namespace my-namespace-name -o yaml --dry-run&lt;span style="color:#f92672">=&lt;/span>client
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create deployment YAML:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl create deployment image-name --image&lt;span style="color:#f92672">=&lt;/span>acrname001.azurecr.io/image_name:1.0.0 -o yaml --dry-run&lt;span style="color:#f92672">=&lt;/span>client
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Apply namespace YAML:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl apply -f namespace.yaml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get namespaces
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Apply deployment YAML:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl apply -f image-name-deployment.yaml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl logs -f deployment/image-name --namespace my-namespace-name
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Check deployments:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/design-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/design-patterns/</guid><description>&lt;h1 id="kubernetes-design-patterns">
+ Kubernetes design patterns
+ &lt;a class="anchor" href="#kubernetes-design-patterns">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="foundational">
+ Foundational
+ &lt;a class="anchor" href="#foundational">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="health-probe">
+ Health probe
+ &lt;a class="anchor" href="#health-probe">#&lt;/a>
+&lt;/h3>
+&lt;p>Every container should implement APIs allowing the platform to observe and manage the application.&lt;/p>
+&lt;h3 id="predictable-demands">
+ Predictable demands
+ &lt;a class="anchor" href="#predictable-demands">#&lt;/a>
+&lt;/h3>
+&lt;p>Every container should declare its resource requirements and runtime dependencies and stay confined to them.&lt;/p>
+&lt;h3 id="automated-placement">
+ Automated placement
+ &lt;a class="anchor" href="#automated-placement">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="declarative-deployment">
+ Declarative Deployment
+ &lt;a class="anchor" href="#declarative-deployment">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="managed-lifecycle">
+ Managed Lifecycle
+ &lt;a class="anchor" href="#managed-lifecycle">#&lt;/a>
+&lt;/h3>
+&lt;h2 id="structural">
+ Structural
+ &lt;a class="anchor" href="#structural">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="init-container">
+ Init Container
+ &lt;a class="anchor" href="#init-container">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="sidecar">
+ Sidecar
+ &lt;a class="anchor" href="#sidecar">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="adapter">
+ Adapter
+ &lt;a class="anchor" href="#adapter">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="ambassador">
+ Ambassador
+ &lt;a class="anchor" href="#ambassador">#&lt;/a>
+&lt;/h3>
+&lt;h2 id="configuration">
+ Configuration
+ &lt;a class="anchor" href="#configuration">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="envvar-configuration">
+ EnvVar Configuration
+ &lt;a class="anchor" href="#envvar-configuration">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="immutable-configuration">
+ Immutable Configuration
+ &lt;a class="anchor" href="#immutable-configuration">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="configuration-template">
+ Configuration Template
+ &lt;a class="anchor" href="#configuration-template">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="configuration-resource">
+ Configuration Resource
+ &lt;a class="anchor" href="#configuration-resource">#&lt;/a>
+&lt;/h3>
+&lt;h2 id="behavioral">
+ Behavioral
+ &lt;a class="anchor" href="#behavioral">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="batch-job">
+ Batch Job
+ &lt;a class="anchor" href="#batch-job">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="stateful-service">
+ Stateful Service
+ &lt;a class="anchor" href="#stateful-service">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="service-discovery">
+ Service Discovery
+ &lt;a class="anchor" href="#service-discovery">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="periodic-job">
+ Periodic Job
+ &lt;a class="anchor" href="#periodic-job">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="stateless-service">
+ Stateless Service
+ &lt;a class="anchor" href="#stateless-service">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="singleton-service">
+ Singleton Service
+ &lt;a class="anchor" href="#singleton-service">#&lt;/a>
+&lt;/h3>
+&lt;h2 id="higher-level">
+ Higher Level
+ &lt;a class="anchor" href="#higher-level">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="controller">
+ Controller
+ &lt;a class="anchor" href="#controller">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="operator">
+ Operator
+ &lt;a class="anchor" href="#operator">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="serverless-serving">
+ Serverless Serving
+ &lt;a class="anchor" href="#serverless-serving">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="serverless-eventing">
+ Serverless Eventing
+ &lt;a class="anchor" href="#serverless-eventing">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="elastic-scale">
+ Elastic Scale
+ &lt;a class="anchor" href="#elastic-scale">#&lt;/a>
+&lt;/h3>
+&lt;h3 id="image-builder">
+ Image Builder
+ &lt;a class="anchor" href="#image-builder">#&lt;/a>
+&lt;/h3></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/k9s/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/k9s/</guid><description>&lt;h1 id="k9s">
+ K9s
+ &lt;a class="anchor" href="#k9s">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>
+ &lt;a href="https://k9scli.io/">Home page&lt;/a>&lt;/li>
+&lt;li>
+ &lt;a href="https://github.com/derailed/k9s">GitHub repository&lt;/a>&lt;/li>
+&lt;li>
+ &lt;a href="https://github.com/derailed/k9s/releases">Releases&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation">
+ Installation
+ &lt;a class="anchor" href="#installation">#&lt;/a>
+&lt;/h2>
+
+
+
+
+&lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-k9s-setup" id="tabs-k9s-setup-0" checked="checked" />
+ &lt;label for="tabs-k9s-setup-0">Windows&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$K9s_Version = &lt;span style="color:#e6db74">&amp;#34;0.27.4&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$K2s_Archive = &lt;span style="color:#e6db74">&amp;#34;https://github.com/derailed/k9s/releases/download/v&lt;/span>${K9s_Version}&lt;span style="color:#e6db74">/k9s_Windows_amd64.zip&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-WebRequest -Uri $K2s_Archive -OutFile &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${pwd}&lt;span style="color:#e6db74">/k9s_Windows_amd64_&lt;/span>${K9s_Version}&lt;span style="color:#e6db74">.zip&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Add-Type -Assembly System.IO.Compression.FileSystem
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$zip = [&lt;span style="color:#66d9ef">IO.Compression.ZipFile&lt;/span>]::OpenRead(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>${pwd}&lt;span style="color:#e6db74">/k9s_Windows_amd64_&lt;/span>${K9s_Version}&lt;span style="color:#e6db74">.zip&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Executables = $zip.Entries | Where-Object {$_.Name &lt;span style="color:#f92672">-like&lt;/span> &lt;span style="color:#e6db74">&amp;#39;*.exe&amp;#39;&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span> ($Executable &lt;span style="color:#66d9ef">in&lt;/span> $Executables) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [&lt;span style="color:#66d9ef">System.IO.Compression.ZipFileExtensions&lt;/span>]::ExtractToFile($Executable, &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${pwd}&lt;span style="color:#e6db74">/&lt;/span>$($Executable.Name)&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, $True)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$zip.Dispose()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Remove-Item -Path &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${pwd}&lt;span style="color:#e6db74">/k9s_Windows_amd64_&lt;/span>${K9s_Version}&lt;span style="color:#e6db74">.zip&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-k9s-setup" id="tabs-k9s-setup-1" />
+ &lt;label for="tabs-k9s-setup-1">Linux&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">TODO&lt;/div>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/kubectl-config/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/kubectl-config/</guid><description>&lt;h1 id="kubectl-configuration">
+ KubeCtl configuration
+ &lt;a class="anchor" href="#kubectl-configuration">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="configuration-files">
+ Configuration files
+ &lt;a class="anchor" href="#configuration-files">#&lt;/a>
+&lt;/h2>
+&lt;p>Default file:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>~/.kube/config&lt;/code>&lt;/li>
+&lt;li>&lt;code>%USERPROFILE%\.kube\config&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Multiple files defined in environment variable:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cmd" data-lang="cmd">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> KUBECONFIG=%USERPROFILE%\.kube\config;%USERPROFILE%\.kube\jdpnas02.yaml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>KUBECONFIG&lt;span style="color:#f92672">=&lt;/span>~/.kube/config:~/.kube/jdpnas02.yaml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Display configured contexts:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl config get-contexts
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Display merged configs:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl config view
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Show current context:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl config current-context
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Set default context:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl config use-context jdpnas02
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>az account set --subscription xxxxxxxxxxx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az aks get-credentials --resource-group ResGrp-xxx-K8s --name xxxx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl config current-context
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get all --namespace xxx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get cronjob --namespace xxx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl describe cronjob --namespace xxx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get pods --namespace xxx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl logs --namespace xxx integration-sync-28023457-cbg4j
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete job --namespace xxx integration-sync-28023332
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete cronjob integration-sync --namespace xxx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl exec --stdin --tty xxx-867d77f465-tkcdk --namespace xxx -- /bin/bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl -X POST 127.0.0.1/sync --data &lt;span style="color:#e6db74">&amp;#39;{&amp;#34;time_to_sync&amp;#34;: 240}&amp;#39;&lt;/span> --header &lt;span style="color:#e6db74">&amp;#34;Content-Type: application/json&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/minikube/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/minikube/</guid><description>&lt;h1 id="minikube">
+ Minikube
+ &lt;a class="anchor" href="#minikube">#&lt;/a>
+&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>minikube delete
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>minikube start --memory &lt;span style="color:#ae81ff">4096&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Edit service xxx:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl edit svc xxx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/sealed-secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/sealed-secrets/</guid><description>&lt;h1 id="sealed-secrets">
+ Sealed secrets
+ &lt;a class="anchor" href="#sealed-secrets">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="install-kubeseal">
+ Install &lt;code>kubeseal&lt;/code>
+ &lt;a class="anchor" href="#install-kubeseal">#&lt;/a>
+&lt;/h2>
+&lt;p>Command line:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>curl -sSL https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.3/kubeseal-0.19.3-linux-amd64.tar.gz -o kubeseal-linux-amd64.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar -xf kubeseal-linux-amd64.tar.gz kubeseal
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mv kubeseal /usr/local/bin/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubeseal --version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Controller:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.3/controller.yaml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get pods -n kube-system | grep sealed-secrets-controller
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl logs sealed-secrets-controller-xxx-xxx -n kube-system
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get secret -n kube-system -l sealedsecrets.bitnami.com/sealed-secrets-key -o yaml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

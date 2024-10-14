@@ -1,1 +1,116 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Powershell on Notebook</title><link>https://dpurge.github.io/docs/programming/powershell/</link><description>Recent content in Powershell on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/powershell/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/powershell/azdo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/powershell/azdo/</guid><description>Azure DevOps # URIs and authentication header # $AccessToken = $env:AZDO_ADMIN_TOKEN $Organization = &amp;#34;MyOrganization&amp;#34; $AuthenicationHeader = @{ Authorization = &amp;#39;Basic &amp;#39; + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(&amp;#34;:${AccessToken}&amp;#34;)) } $OrganizationUri = &amp;#34;https://dev.azure.com/${Organization}/&amp;#34; $ProjectsUri = &amp;#34;${OrganizationUri}_apis/projects?api-version=5.1&amp;#34; $RepositoriesUri = &amp;#34;${OrganizationUri}_apis/git/repositories?api-version=7.0&amp;#34; AzDO projects # $Projects = Invoke-RestMethod -Uri $ProjectsUri -Method get -Headers $AuthenicationHeader foreach ($Project in $Projects.Value) { $ProjectName = $Project.name $ProjectUri = $Project.url Write-Host &amp;#34;${ProjectName}: ${ProjectUri}&amp;#34; } AzDO repositories # $Repositories = Invoke-RestMethod -Uri $RepositoriesUri -Method get -Headers $AuthenicationHeader foreach ($Repository in $Repositories.</description></item><item><title/><link>https://dpurge.github.io/docs/programming/powershell/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/powershell/basics/</guid><description> Powershell basics #</description></item><item><title/><link>https://dpurge.github.io/docs/programming/powershell/snippets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/powershell/snippets/</guid><description>Powershell snippets # Get unix timestamp # [int](Get-Date -UFormat %s -Millisecond 0) Match glob pattern # function Test-GlobMatch { param ( [string] $value, [string] $pattern ) $position = 0 foreach ($char in $pattern.toCharArray()) { Switch ($char) { &amp;#39;?&amp;#39; { continue } &amp;#39;*&amp;#39; { foreach ($i in $value.Length .. $position) { if (Test-GlobMatch $value.Substring($i) $pattern.Substring($position + 1)) { return $True } } return $False } default { if ($value.Length -eq $position -or $pattern[$position] -ne $value[$position]) { return $False } } } $position++ } return $value.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Powershell on Notebook</title><link>https://dpurge.github.io/docs/programming/powershell/</link><description>Recent content in Powershell on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/powershell/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/powershell/azdo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/powershell/azdo/</guid><description>&lt;h1 id="azure-devops">
+ Azure DevOps
+ &lt;a class="anchor" href="#azure-devops">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="uris-and-authentication-header">
+ URIs and authentication header
+ &lt;a class="anchor" href="#uris-and-authentication-header">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$AccessToken = $env:AZDO_ADMIN_TOKEN
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Organization = &lt;span style="color:#e6db74">&amp;#34;MyOrganization&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$AuthenicationHeader = @{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Authorization = &lt;span style="color:#e6db74">&amp;#39;Basic &amp;#39;&lt;/span> + [&lt;span style="color:#66d9ef">Convert&lt;/span>]::ToBase64String([&lt;span style="color:#66d9ef">Text.Encoding&lt;/span>]::ASCII.GetBytes(&lt;span style="color:#e6db74">&amp;#34;:&lt;/span>${AccessToken}&lt;span style="color:#e6db74">&amp;#34;&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$OrganizationUri = &lt;span style="color:#e6db74">&amp;#34;https://dev.azure.com/&lt;/span>${Organization}&lt;span style="color:#e6db74">/&amp;#34;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ProjectsUri = &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${OrganizationUri}&lt;span style="color:#e6db74">_apis/projects?api-version=5.1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$RepositoriesUri = &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${OrganizationUri}&lt;span style="color:#e6db74">_apis/git/repositories?api-version=7.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="azdo-projects">
+ AzDO projects
+ &lt;a class="anchor" href="#azdo-projects">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$Projects = Invoke-RestMethod -Uri $ProjectsUri -Method get -Headers $AuthenicationHeader
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span> ($Project &lt;span style="color:#66d9ef">in&lt;/span> $Projects.Value) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ProjectName = $Project.name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ProjectUri = $Project.url
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write-Host &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${ProjectName}&lt;span style="color:#e6db74">: &lt;/span>${ProjectUri}&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="azdo-repositories">
+ AzDO repositories
+ &lt;a class="anchor" href="#azdo-repositories">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$Repositories = Invoke-RestMethod -Uri $RepositoriesUri -Method get -Headers $AuthenicationHeader
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span> ($Repository &lt;span style="color:#66d9ef">in&lt;/span> $Repositories.value) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $ProjectName = $Repository.Project.name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $RepositoryName = $Repository.name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $RepositoryWebUri = $Repository.webUrl
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $RepositoryIsActive = &lt;span style="color:#f92672">-not&lt;/span> $Repository.IsDisabled
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ($RepositoryIsActive) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $Folder = Join-Path -Path $PWD -ChildPath $ProjectName
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#f92672">-not&lt;/span> (Test-Path $Folder)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> New-Item $Folder -ItemType Directory | Out-Null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Push-Location -Path $Folder
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write-Host &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${ProjectName}&lt;span style="color:#e6db74">/&lt;/span>${RepositoryName}&lt;span style="color:#e6db74"> ...&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> git clone --depth &lt;span style="color:#ae81ff">1&lt;/span> $RepositoryWebUri
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Pop-Location
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/programming/powershell/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/powershell/basics/</guid><description>&lt;h1 id="powershell-basics">
+ Powershell basics
+ &lt;a class="anchor" href="#powershell-basics">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/programming/powershell/snippets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/powershell/snippets/</guid><description>&lt;h1 id="powershell-snippets">
+ Powershell snippets
+ &lt;a class="anchor" href="#powershell-snippets">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="get-unix-timestamp">
+ Get unix timestamp
+ &lt;a class="anchor" href="#get-unix-timestamp">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>[&lt;span style="color:#66d9ef">int&lt;/span>](Get-Date -UFormat &lt;span style="color:#66d9ef">%&lt;/span>s -Millisecond &lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="match-glob-pattern">
+ Match glob pattern
+ &lt;a class="anchor" href="#match-glob-pattern">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">function&lt;/span> Test-GlobMatch {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">param&lt;/span> (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [&lt;span style="color:#66d9ef">string&lt;/span>] $value,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [&lt;span style="color:#66d9ef">string&lt;/span>] $pattern
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $position = &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">foreach&lt;/span> ($char &lt;span style="color:#66d9ef">in&lt;/span> $pattern.toCharArray()) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">Switch&lt;/span> ($char)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span> { &lt;span style="color:#66d9ef">continue&lt;/span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;*&amp;#39;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">foreach&lt;/span> ($i &lt;span style="color:#66d9ef">in&lt;/span> $value.Length .. $position) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (Test-GlobMatch $value.Substring($i) $pattern.Substring($position + &lt;span style="color:#ae81ff">1&lt;/span>)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> $True
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> $False
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">default&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> ($value.Length &lt;span style="color:#f92672">-eq&lt;/span> $position &lt;span style="color:#f92672">-or&lt;/span> $pattern[$position] &lt;span style="color:#f92672">-ne&lt;/span> $value[$position]) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> $False
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $position++
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> $value.Length &lt;span style="color:#f92672">-eq&lt;/span> $position
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="remove-git-directories">
+ Remove git directories
+ &lt;a class="anchor" href="#remove-git-directories">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>Get-ChildItem -Recurse -Directory -Hidden -Include &lt;span style="color:#e6db74">&amp;#39;.git&amp;#39;&lt;/span> | Remove-Item -Force -Recurse
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="compress-as-standard-zip">
+ Compress as standard zip
+ &lt;a class="anchor" href="#compress-as-standard-zip">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span> ($item &lt;span style="color:#66d9ef">in&lt;/span> (Get-ChildItem -Directory)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 7z a -mm=Deflate -mfb=&lt;span style="color:#ae81ff">258&lt;/span> -mpass=&lt;span style="color:#ae81ff">15&lt;/span> -r &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${item}&lt;span style="color:#e6db74">.zip&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${item}&lt;span style="color:#e6db74">/*&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="compress-maximally">
+ Compress maximally
+ &lt;a class="anchor" href="#compress-maximally">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span> ($item &lt;span style="color:#66d9ef">in&lt;/span> (Get-ChildItem -Directory)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 7z a -t7z -mx=&lt;span style="color:#ae81ff">9&lt;/span> -mfb=&lt;span style="color:#ae81ff">273&lt;/span> -ms -md=&lt;span style="color:#ae81ff">31&lt;/span> -myx=&lt;span style="color:#ae81ff">9&lt;/span> -mtm=- -mmt -mmtf -md=&lt;span style="color:#ae81ff">1536m&lt;/span> -mmf=bt3 -mmc=&lt;span style="color:#ae81ff">10000&lt;/span> -mpb=&lt;span style="color:#ae81ff">0&lt;/span> -mlc=&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${item}&lt;span style="color:#e6db74">.7z&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${item}&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

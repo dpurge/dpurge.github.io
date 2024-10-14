@@ -1,4 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Packer on Notebook</title><link>https://dpurge.github.io/docs/devops/packer/</link><description>Recent content in Packer on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/packer/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/packer/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/packer/installation/</guid><description> Installation # Windows $pkr_version = &amp;ldquo;1.9.4&amp;rdquo; $pkr_archive = &amp;ldquo; https://releases.hashicorp.com/packer/${pkr_version}/packer_${pkr_version}_windows_amd64.zip" Invoke-WebRequest -Uri $pkr_archive -OutFile &amp;ldquo;${pwd}/packer_${pkr_version}_windows_amd64.zip&amp;rdquo;
-Add-Type -Assembly System.IO.Compression.FileSystem $zip = [IO.Compression.ZipFile]::OpenRead(&amp;quot;${pwd}/packer_${pkr_version}windows_amd64.zip&amp;rdquo;) $Executables = $zip.Entries | Where-Object {$.Name -like &amp;lsquo;*.exe&amp;rsquo;} foreach ($Executable in $Executables) { [System.IO.Compression.ZipFileExtensions]::ExtractToFile($Executable, &amp;ldquo;${pwd}/$($Executable.Name)&amp;rdquo;, $True) } $zip.Dispose() Remove-Item -Path &amp;ldquo;${pwd}/packer_${pkr_version}_windows_amd64.zip&amp;rdquo;
-Linux export PACKER_VERSION=1.7.10 curl \ -sSL https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip \ -o /tmp/packer_linux_amd64.zip cd /usr/local/bin unzip /tmp/packer_linux_amd64.zip rm /tmp/packer_linux_amd64.zip Example:
-packer validate src/build-agent-ubuntu.pkr.hcl packer build src/build-agent-ubuntu.pkr.hcl</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Packer on Notebook</title><link>https://dpurge.github.io/docs/devops/packer/</link><description>Recent content in Packer on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/packer/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/packer/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/packer/installation/</guid><description>&lt;h1 id="installation">
+ Installation
+ &lt;a class="anchor" href="#installation">#&lt;/a>
+&lt;/h1>
+
+
+
+
+&lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-packer-setup" id="tabs-packer-setup-0" checked="checked" />
+ &lt;label for="tabs-packer-setup-0">Windows&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;p>$pkr_version = &amp;ldquo;1.9.4&amp;rdquo;
+$pkr_archive = &amp;ldquo;
+ &lt;a href="https://releases.hashicorp.com/packer/$%7bpkr_version%7d/packer_$%7bpkr_version%7d_windows_amd64.zip%22">https://releases.hashicorp.com/packer/${pkr_version}/packer_${pkr_version}_windows_amd64.zip"&lt;/a>
+Invoke-WebRequest -Uri $pkr_archive -OutFile &amp;ldquo;${pwd}/packer_${pkr_version}_windows_amd64.zip&amp;rdquo;&lt;/p>
+&lt;p>Add-Type -Assembly System.IO.Compression.FileSystem
+$zip = [IO.Compression.ZipFile]::OpenRead(&amp;quot;${pwd}/packer_${pkr_version}&lt;em>windows_amd64.zip&amp;rdquo;)
+$Executables = $zip.Entries | Where-Object {$&lt;/em>.Name -like &amp;lsquo;*.exe&amp;rsquo;}
+foreach ($Executable in $Executables) {
+[System.IO.Compression.ZipFileExtensions]::ExtractToFile($Executable, &amp;ldquo;${pwd}/$($Executable.Name)&amp;rdquo;, $True)
+}
+$zip.Dispose()
+Remove-Item -Path &amp;ldquo;${pwd}/packer_${pkr_version}_windows_amd64.zip&amp;rdquo;&lt;/p>
+&lt;/div>&lt;input type="radio" class="toggle" name="tabs-packer-setup" id="tabs-packer-setup-1" />
+ &lt;label for="tabs-packer-setup-1">Linux&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>export PACKER_VERSION&lt;span style="color:#f92672">=&lt;/span>1.7.10
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -sSL https://releases.hashicorp.com/packer/&lt;span style="color:#e6db74">${&lt;/span>PACKER_VERSION&lt;span style="color:#e6db74">}&lt;/span>/packer_&lt;span style="color:#e6db74">${&lt;/span>PACKER_VERSION&lt;span style="color:#e6db74">}&lt;/span>_linux_amd64.zip &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -o /tmp/packer_linux_amd64.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /usr/local/bin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip /tmp/packer_linux_amd64.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rm /tmp/packer_linux_amd64.zip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;/div>
+
+&lt;p>Example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>packer validate src/build-agent-ubuntu.pkr.hcl
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>packer build src/build-agent-ubuntu.pkr.hcl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
