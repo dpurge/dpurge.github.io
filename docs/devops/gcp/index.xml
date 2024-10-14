@@ -6,7 +6,8 @@
  Install
  &lt;a class="anchor" href="#install">#&lt;/a>
 &lt;/h2>
-&lt;p>To install the Google Cloud SDK, you can follow these steps:&lt;/p>
+&lt;p>
+ &lt;a href="https://cloud.google.com/sdk/docs/install-sdk">Google documentation&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># using snapcraft&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl status snapd
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>snap search google-cloud-sdk
