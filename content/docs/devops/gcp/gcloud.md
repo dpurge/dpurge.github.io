@@ -2,7 +2,7 @@
 
 ## Install
 
-To install the Google Cloud SDK, you can follow these steps:
+[Google documentation](https://cloud.google.com/sdk/docs/install-sdk)
 
 ```sh
 # using snapcraft
