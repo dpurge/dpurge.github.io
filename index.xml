@@ -458,8 +458,8 @@ It is used by Docker Desktop backend to store images and volumes.&lt;/p>
  &lt;a class="anchor" href="#modify-installation">#&lt;/a>
 &lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud components list
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components install COMPONENT &lt;span style="color:#75715e"># COMPONENT: compute, appengine or kubernetes etc..&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components remove COMPONENT &lt;span style="color:#75715e"># remove a component from the installation, e.g., gcloud compute&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components install COMPONENT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components remove COMPONENT
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components update
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="switch-project">
  Switch project
@@ -467,8 +467,30 @@ It is used by Docker Desktop backend to store images and volumes.&lt;/p>
 &lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud projects list
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config get-value project
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config set project PROJECT_ID &lt;span style="color:#75715e"># replace with your Project ID.&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/git/branches/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/git/branches/</guid><description>&lt;h1 id="branches">
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config set project PROJECT_ID
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="switch-account">
+ Switch account
+ &lt;a class="anchor" href="#switch-account">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud config configurations list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config configurations activate ACCOUNT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls ~/.config/gcloud/configurations
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config configurations describe ACCOUNT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># you can delete non-active configuration&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config configurations delete ACCOUNT
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="connect-to-cloud-shell">
+ Connect to Cloud Shell
+ &lt;a class="anchor" href="#connect-to-cloud-shell">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># create key-pair and connect&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud alpha cloud-shell ssh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="create-a-vpc">
+ Create a VPC
+ &lt;a class="anchor" href="#create-a-vpc">#&lt;/a>
+&lt;/h2>
+&lt;p>In Google Cloud VPC is global, it spans multiple regions.
+Subnets are regional and span multiple zones within a region.
+This is different from AWS.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/git/branches/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/git/branches/</guid><description>&lt;h1 id="branches">
  Branches
  &lt;a class="anchor" href="#branches">#&lt;/a>
 &lt;/h1>

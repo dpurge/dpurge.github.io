@@ -40,8 +40,8 @@ gcloud config configurations list
   #
 
 gcloud components list
-gcloud components install COMPONENT  # COMPONENT: compute, appengine or kubernetes etc..
-gcloud components remove COMPONENT  # remove a component from the installation, e.g., gcloud compute
+gcloud components install COMPONENT
+gcloud components remove COMPONENT
 gcloud components update
 
   Switch project
@@ -49,10 +49,32 @@ gcloud components update
 
 gcloud projects list
 gcloud config get-value project
-gcloud config set project PROJECT_ID  # replace with your Project ID.
-"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://dpurge.github.io/docs/devops/gcp/gcloud/"><meta property="og:site_name" content="Notebook"><meta property="og:title" content="Notebook"><meta property="og:description" content=" GCloud # Install # Google documentation
-# using snapcraft sudo systemctl status snapd snap search google-cloud-sdk sudo snap install google-cloud-sdk --classic sudo snap remove google-cloud-sdk rm -rf ~/.config/gcloud # check which gcloud which gsutil which bq gcloud version gcloud help Initialize environment # gcloud init gcloud auth list Get information # gcloud info gcloud config list gcloud config configurations list Modify installation # gcloud components list gcloud components install COMPONENT # COMPONENT: compute, appengine or kubernetes etc.. gcloud components remove COMPONENT # remove a component from the installation, e.g., gcloud compute gcloud components update Switch project # gcloud projects list gcloud config get-value project gcloud config set project PROJECT_ID # replace with your Project ID. "><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2024-10-14T16:52:17+02:00"><title>Gcloud | Notebook</title>
-<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.57bcae5986ed84b1107d268ee1cd8267d33aa4900ca017d5f53a23b077ad0c24.js integrity="sha256-V7yuWYbthLEQfSaO4c2CZ9M6pJAMoBfV9TojsHetDCQ=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+gcloud config set project PROJECT_ID
+
+  Switch account
+  #
+
+gcloud config configurations list
+gcloud config configurations activate ACCOUNT
+ls ~/.config/gcloud/configurations
+gcloud config configurations describe ACCOUNT
+# you can delete non-active configuration
+gcloud config configurations delete ACCOUNT
+
+  Connect to Cloud Shell
+  #
+
+# create key-pair and connect
+gcloud alpha cloud-shell ssh
+
+  Create a VPC
+  #
+
+In Google Cloud VPC is global, it spans multiple regions.
+Subnets are regional and span multiple zones within a region.
+This is different from AWS."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://dpurge.github.io/docs/devops/gcp/gcloud/"><meta property="og:site_name" content="Notebook"><meta property="og:title" content="Notebook"><meta property="og:description" content=" GCloud # Install # Google documentation
+# using snapcraft sudo systemctl status snapd snap search google-cloud-sdk sudo snap install google-cloud-sdk --classic sudo snap remove google-cloud-sdk rm -rf ~/.config/gcloud # check which gcloud which gsutil which bq gcloud version gcloud help Initialize environment # gcloud init gcloud auth list Get information # gcloud info gcloud config list gcloud config configurations list Modify installation # gcloud components list gcloud components install COMPONENT gcloud components remove COMPONENT gcloud components update Switch project # gcloud projects list gcloud config get-value project gcloud config set project PROJECT_ID Switch account # gcloud config configurations list gcloud config configurations activate ACCOUNT ls ~/.config/gcloud/configurations gcloud config configurations describe ACCOUNT # you can delete non-active configuration gcloud config configurations delete ACCOUNT Connect to Cloud Shell # # create key-pair and connect gcloud alpha cloud-shell ssh Create a VPC # In Google Cloud VPC is global, it spans multiple regions. Subnets are regional and span multiple zones within a region. This is different from AWS."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2024-10-15T16:20:50+02:00"><title>Gcloud | Notebook</title>
+<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.7f539f70179bae03bfb8986b99a0f79ee9708c0bd5c6238eda663b3cc04fdb01.js integrity="sha256-f1OfcBebrgO/uJhrmaD3nulwjAvVxiOO2mY7PMBP2wE=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Notebook</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-749497e15d97e060a688abbb8e008e3a class=toggle checked>
 <label for=section-749497e15d97e060a688abbb8e008e3a class="flex justify-between"><a role=button>Devops</a></label><ul><li><input type=checkbox id=section-50999497f0e27fdba1c9e2dc3c444cf2 class=toggle>
 <label for=section-50999497f0e27fdba1c9e2dc3c444cf2 class="flex justify-between"><a role=button>Ansible</a></label><ul><li><a href=/docs/devops/ansible/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-9c5f1eb01a8c593106ce220aa0920de8 class=toggle>
@@ -93,7 +115,7 @@ gcloud config set project PROJECT_ID  # replace with your Project ID.
 <label for=section-a7951f4ea6115fa557f0ca9a84bc0cfc class="flex justify-between"><a role=button>SQLite</a></label><ul><li><a href=/docs/programming/sqlite/data/>Data</a></li></ul></li><li><input type=checkbox id=section-274a68fdfb79a16e14bd48bda2db09aa class=toggle>
 <label for=section-274a68fdfb79a16e14bd48bda2db09aa class="flex justify-between"><a role=button>Typescript</a></label><ul><li><a href=/docs/programming/typescript/nodejs/>Nodejs</a></li></ul></li></ul></li></ul><ul><li><a href=/posts/>Blog</a></li><li><a href=https://github.com/dpurge/dpurge.github.io target=_blank rel=noopener>Github</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
 </label><strong>Gcloud</strong>
-<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#gcloud>GCloud</a><ul><li><a href=#install>Install</a></li><li><a href=#initialize-environment>Initialize environment</a></li><li><a href=#get-information>Get information</a></li><li><a href=#modify-installation>Modify installation</a></li><li><a href=#switch-project>Switch project</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=gcloud>GCloud
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#gcloud>GCloud</a><ul><li><a href=#install>Install</a></li><li><a href=#initialize-environment>Initialize environment</a></li><li><a href=#get-information>Get information</a></li><li><a href=#modify-installation>Modify installation</a></li><li><a href=#switch-project>Switch project</a></li><li><a href=#switch-account>Switch account</a></li><li><a href=#connect-to-cloud-shell>Connect to Cloud Shell</a></li><li><a href=#create-a-vpc>Create a VPC</a></li><li><a href=#virtual-machines>Virtual machines</a></li><li><a href=#managed-instance-groups>Managed instance groups</a></li><li><a href=#instance-group-autoscaling>Instance group autoscaling</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=gcloud>GCloud
 <a class=anchor href=#gcloud>#</a></h1><h2 id=install>Install
 <a class=anchor href=#install>#</a></h2><p><a href=https://cloud.google.com/sdk/docs/install-sdk>Google documentation</a></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#75715e># using snapcraft</span>
 </span></span><span style=display:flex><span>sudo systemctl status snapd
@@ -118,13 +140,48 @@ gcloud config set project PROJECT_ID  # replace with your Project ID.
 </span></span><span style=display:flex><span>gcloud config configurations list
 </span></span></code></pre></div><h2 id=modify-installation>Modify installation
 <a class=anchor href=#modify-installation>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>gcloud components list
-</span></span><span style=display:flex><span>gcloud components install COMPONENT  <span style=color:#75715e># COMPONENT: compute, appengine or kubernetes etc..</span>
-</span></span><span style=display:flex><span>gcloud components remove COMPONENT  <span style=color:#75715e># remove a component from the installation, e.g., gcloud compute</span>
+</span></span><span style=display:flex><span>gcloud components install COMPONENT
+</span></span><span style=display:flex><span>gcloud components remove COMPONENT
 </span></span><span style=display:flex><span>gcloud components update
 </span></span></code></pre></div><h2 id=switch-project>Switch project
 <a class=anchor href=#switch-project>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>gcloud projects list
 </span></span><span style=display:flex><span>gcloud config get-value project
-</span></span><span style=display:flex><span>gcloud config set project PROJECT_ID  <span style=color:#75715e># replace with your Project ID.</span>
-</span></span></code></pre></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/commit/e1080d2f92c135fd3a500787d480bc6e538af43b title='Last modified by David P | October 14, 2024' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
-<span>October 14, 2024</span></a></div><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/edit/main/content/docs/devops/gcp/gcloud.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
-<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#gcloud>GCloud</a><ul><li><a href=#install>Install</a></li><li><a href=#initialize-environment>Initialize environment</a></li><li><a href=#get-information>Get information</a></li><li><a href=#modify-installation>Modify installation</a></li><li><a href=#switch-project>Switch project</a></li></ul></li></ul></nav></div></aside></main></body></html>
+</span></span><span style=display:flex><span>gcloud config set project PROJECT_ID
+</span></span></code></pre></div><h2 id=switch-account>Switch account
+<a class=anchor href=#switch-account>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>gcloud config configurations list
+</span></span><span style=display:flex><span>gcloud config configurations activate ACCOUNT
+</span></span><span style=display:flex><span>ls ~/.config/gcloud/configurations
+</span></span><span style=display:flex><span>gcloud config configurations describe ACCOUNT
+</span></span><span style=display:flex><span><span style=color:#75715e># you can delete non-active configuration</span>
+</span></span><span style=display:flex><span>gcloud config configurations delete ACCOUNT
+</span></span></code></pre></div><h2 id=connect-to-cloud-shell>Connect to Cloud Shell
+<a class=anchor href=#connect-to-cloud-shell>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#75715e># create key-pair and connect</span>
+</span></span><span style=display:flex><span>gcloud alpha cloud-shell ssh
+</span></span></code></pre></div><h2 id=create-a-vpc>Create a VPC
+<a class=anchor href=#create-a-vpc>#</a></h2><p>In Google Cloud VPC is global, it spans multiple regions.
+Subnets are regional and span multiple zones within a region.
+This is different from AWS.</p><p>Subnets have unique names across all VPCs.
+You need to allow access to the subnet by creating firewall rules.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>gcloud compute networks create vpc-1 --description <span style=color:#e6db74>&#34;Testing&#34;</span> --subnet-mode custom
+</span></span><span style=display:flex><span>gcloud compute firewall-rules create vpc1-fw-allow-ssh --network vpc-1 --allow tcp:22
+</span></span><span style=display:flex><span>gcloud compute networks subnets create vpc1-euw2-1 --network vpc-1 --region europe-west2 --range 10.0.1.0/24
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>gcloud compute networks list
+</span></span><span style=display:flex><span>gcloud compute networks subnets list
+</span></span><span style=display:flex><span>gcloud compute networks subnets list --network vpc-1
+</span></span></code></pre></div><p>Subnets and networks can be deleted if there are no resources running in them.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>gcloud compute networks subnets delete vpc1-euw2-1 --region europe-west2
+</span></span><span style=display:flex><span>gcloud compute firewall-rules delete vpc1-fw-allow-ssh
+</span></span><span style=display:flex><span>gcloud compute networks delete vpc-1
+</span></span></code></pre></div><h2 id=virtual-machines>Virtual machines
+<a class=anchor href=#virtual-machines>#</a></h2><p>Connect to the VM:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>gcloud compute instances list
+</span></span><span style=display:flex><span>gcloud compute ssh vm-1
+</span></span></code></pre></div><p>Stop the VM before creating a disk snapshot.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#75715e># todo</span>
+</span></span></code></pre></div><h2 id=managed-instance-groups>Managed instance groups
+<a class=anchor href=#managed-instance-groups>#</a></h2><ul><li>create instance template</li><li>create instance groups and add instances to it</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#75715e># todo</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># gcloud compute instance-templates create my-template --image-family centos-7 --machine-type f2-micro</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># gcloud compute target-pools create MY_POOL --target-http-proxies PROXY</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># gcloud compute instance-groups managed create my-ig --zone us-central1-a —target-size TARGET_SIZE</span>
+</span></span></code></pre></div><h2 id=instance-group-autoscaling>Instance group autoscaling
+<a class=anchor href=#instance-group-autoscaling>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#75715e># todo</span>
+</span></span></code></pre></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/commit/3ed32cf8db344e6bef6ab794e7cf7d664f6aa3df title='Last modified by David P | October 15, 2024' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>October 15, 2024</span></a></div><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/edit/main/content/docs/devops/gcp/gcloud.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#gcloud>GCloud</a><ul><li><a href=#install>Install</a></li><li><a href=#initialize-environment>Initialize environment</a></li><li><a href=#get-information>Get information</a></li><li><a href=#modify-installation>Modify installation</a></li><li><a href=#switch-project>Switch project</a></li><li><a href=#switch-account>Switch account</a></li><li><a href=#connect-to-cloud-shell>Connect to Cloud Shell</a></li><li><a href=#create-a-vpc>Create a VPC</a></li><li><a href=#virtual-machines>Virtual machines</a></li><li><a href=#managed-instance-groups>Managed instance groups</a></li><li><a href=#instance-group-autoscaling>Instance group autoscaling</a></li></ul></li></ul></nav></div></aside></main></body></html>
