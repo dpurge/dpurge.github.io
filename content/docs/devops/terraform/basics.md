@@ -7,6 +7,9 @@ terraform init
 terraform plan
 terraform apply
 terraform destroy
+
+terraform graph
+terraform output
 ```
 
 ## Work with code
