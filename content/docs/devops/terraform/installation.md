@@ -36,13 +36,17 @@ rm /tmp/tflint_linux_amd64.zip
 {{< /tab >}}
 
 {{< tab "MacOS" >}}
+
 ```sh
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
 ```
+
 {{< /tab >}}
 
 {{< tab "Windows" >}}
+
+```pwsh
 $tf_version = "1.6.4"
 $tf_archive = "https://releases.hashicorp.com/terraform/${tf_version}/terraform_${tf_version}_windows_amd64.zip"
 Invoke-WebRequest -Uri $tf_archive -OutFile "${pwd}/terraform_${tf_version}_windows_amd64.zip"
@@ -55,6 +59,8 @@ foreach ($Executable in $Executables) {
 }
 $zip.Dispose()
 Remove-Item -Path "${pwd}/terraform_${tf_version}_windows_amd64.zip"
+```
+
 {{< /tab >}}
 
 {{< /tabs >}}
