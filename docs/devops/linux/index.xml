@@ -76,7 +76,36 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo touch /etc/systemd/system/caddy.service
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chmod &lt;span style="color:#ae81ff">644&lt;/span> /etc/systemd/system/caddy.service
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo touch /var/www/public_html/index.html
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Service file &lt;code>/etc/systemd/system/caddy.service&lt;/code>:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/screen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/screen/</guid><description>&lt;h1 id="screen">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Service file &lt;code>/etc/systemd/system/caddy.service&lt;/code>:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/podman/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/podman/</guid><description>&lt;h1 id="podman">
+ Podman
+ &lt;a class="anchor" href="#podman">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>container management tool&lt;/li>
+&lt;li>does not require a daemon&lt;/li>
+&lt;li>each container is run in its own process&lt;/li>
+&lt;li>supports rootless containers&lt;/li>
+&lt;li>created by RedHat&lt;/li>
+&lt;li>is open source&lt;/li>
+&lt;/ul>
+&lt;h2 id="podman-vs-docker">
+ Podman vs Docker
+ &lt;a class="anchor" href="#podman-vs-docker">#&lt;/a>
+&lt;/h2>
+&lt;p>Differences:&lt;/p>
+&lt;ul>
+&lt;li>Podman has deamonless architecture and runs containers as processes.
+Docker utilizes a client-server architecture, docker daemon runs as a background process.&lt;/li>
+&lt;li>Podman supports rootless containers.
+Docker generally requires administrative privileges to run containers.&lt;/li>
+&lt;li>Podman is considered more secure because it does not require a deamon and can run containers as non-root.
+Docker raises security concerns because of a daemon running with root privileges.&lt;/li>
+&lt;li>Podman supports multiple image formats.
+Docker uses docker image format.&lt;/li>
+&lt;li>Podman leverages the host system networking directly.
+Docker manages networking through its own implementation.&lt;/li>
+&lt;/ul>
+&lt;p>Similarities:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/screen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/screen/</guid><description>&lt;h1 id="screen">
  Screen
  &lt;a class="anchor" href="#screen">#&lt;/a>
 &lt;/h1>
