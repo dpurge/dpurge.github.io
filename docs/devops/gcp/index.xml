@@ -72,4 +72,254 @@
 &lt;/h2>
 &lt;p>In Google Cloud VPC is global, it spans multiple regions.
 Subnets are regional and span multiple zones within a region.
-This is different from AWS.&lt;/p></description></item></channel></rss>
+This is different from AWS.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/gke/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/gke/</guid><description>&lt;h1 id="gke">
+ GKE
+ &lt;a class="anchor" href="#gke">#&lt;/a>
+&lt;/h1>
+&lt;p>
+ &lt;a href="https://github.com/antonputra/tutorials/blob/main/lessons/069/">source: Anton Putra GitHub repo&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 0-provider.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">provider&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;us-west2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;random_integer&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;this&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">min&lt;/span> = &lt;span style="color:#ae81ff">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">max&lt;/span> = &lt;span style="color:#ae81ff">1000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">terraform&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">required_providers&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">google&lt;/span> = {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">source&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;hashicorp/google&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">version&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;~&amp;gt; 3.66&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">random&lt;/span> = {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">source&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;hashicorp/random&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">version&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;~&amp;gt; 3.1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 1-locals.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">locals&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;us-west2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">org_id&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;...&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">billing_account&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;...&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">host_project_name&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;host-staging&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">service_project_name&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;k8s-staging&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">host_project_id&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">host_project_name&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">-&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">random_integer&lt;/span>.&lt;span style="color:#a6e22e">this&lt;/span>.&lt;span style="color:#a6e22e">result&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">service_project_id&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_name&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">-&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">random_integer&lt;/span>.&lt;span style="color:#a6e22e">this&lt;/span>.&lt;span style="color:#a6e22e">result&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">projects_api&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;container.googleapis.com&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">secondary_ip_ranges&lt;/span> = {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;pod-ip-range&amp;#34;&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;10.0.0.0/14&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;services-ip-range&amp;#34;&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;10.4.0.0/19&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 2-projects.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_project&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;host-staging&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">host_project_name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project_id&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">host_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">billing_account&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">billing_account&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">org_id&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">org_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">auto_create_network&lt;/span> = &lt;span style="color:#66d9ef">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_project&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;k8s-staging&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project_id&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">billing_account&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">billing_account&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">org_id&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">org&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">auto_create_network&lt;/span> = &lt;span style="color:#66d9ef">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_project_service&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;host&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">number&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">service&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">projects_api&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_project_service&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;service&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">number&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">service&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">projects_api&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 3-vpc.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_network&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;main&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;main&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#a6e22e">google_compute_shared_vpc_hosts_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>.&lt;span style="color:#a6e22e">project&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">auto_create_subnetworks&lt;/span> = &lt;span style="color:#66d9ef">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">routing_mode&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;REGIONAL&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">mtu&lt;/span> = &lt;span style="color:#ae81ff">1500&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_subnetwork&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;private&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;private&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#a6e22e">google_compute_shared_vpc_hosts_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>.&lt;span style="color:#a6e22e">project&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">ip_cidr_range&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;10.5.0.0/20&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">region&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">network&lt;/span> = &lt;span style="color:#a6e22e">google_compute_network&lt;/span>.&lt;span style="color:#a6e22e">main&lt;/span>.&lt;span style="color:#a6e22e">self_link&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">private_ip_google_access&lt;/span> = &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">dynamic&lt;/span> &lt;span style="color:#e6db74">&amp;#34;secondary_ip_range&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">for_each&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">secondary_ip_ranges&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">content&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">range_name&lt;/span> = &lt;span style="color:#a6e22e">secondary_ip_range&lt;/span>.&lt;span style="color:#a6e22e">key&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">ip_cidr_range&lt;/span> = &lt;span style="color:#a6e22e">secondary_ip_range&lt;/span>.&lt;span style="color:#a6e22e">value&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 4-router.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_router&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;router&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;router&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">region&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">hosts_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">network&lt;/span> = &lt;span style="color:#a6e22e">google_compute_network&lt;/span>.&lt;span style="color:#a6e22e">main&lt;/span>.&lt;span style="color:#a6e22e">self_link&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 5-nat.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_router_nat&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;mist_nat&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;nat&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">hosts_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">router&lt;/span> = &lt;span style="color:#a6e22e">google_compute_router&lt;/span>.&lt;span style="color:#a6e22e">router&lt;/span>.&lt;span style="color:#a6e22e">name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">region&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">nat_ip_allocate_option&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;AUTO_ONLY&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">source_subnetwork_ip_ranges_to_nat&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;ALL_SUBNETWORKS_ALL_IP_RANGES&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">depends_on&lt;/span> = [&lt;span style="color:#a6e22e">google_compute_subnetwork&lt;/span>.&lt;span style="color:#a6e22e">private&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 6-shared-vpc.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_shared_vpc_host_project&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;host&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">number&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_shared_vpc_service_project&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;service&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">host_project&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">host_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">service_project&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">depends_on&lt;/span> = [&lt;span style="color:#a6e22e">google_compute_shared_vpc_host_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_subnetwork_iam_binding&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;binding&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#a6e22e">google_compute_shared_vpc_host_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>.&lt;span style="color:#a6e22e">project&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> = &lt;span style="color:#a6e22e">google_compute_subnetwork&lt;/span>.&lt;span style="color:#a6e22e">private&lt;/span>.&lt;span style="color:#a6e22e">region&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">subnetwork&lt;/span> = &lt;span style="color:#a6e22e">google_compute_subnetwork&lt;/span>.&lt;span style="color:#a6e22e">private&lt;/span>.&lt;span style="color:#a6e22e">name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">role&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;roles/compute.networkUser&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">members&lt;/span> = [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;serviceAccount:&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">google_service_account&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">email&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;serviceAccount:&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">number&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">@cloudservices.gserviceaccount.com&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;serviceAccount:service-&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">number&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">@container-engine-robot.iam.gserviceaccount.com&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_project_iam_binding&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;container-engine&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#a6e22e">google_compute_shared_vpc_host_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>.&lt;span style="color:#a6e22e">project&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">role&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;roles/container.hostServiceAgentUser&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">members&lt;/span> = [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;serviceAccount:service-&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">number&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">@container-engine-robot.iam.gserviceaccount.com&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">depends_on&lt;/span> = [&lt;span style="color:#a6e22e">google_project_service&lt;/span>.&lt;span style="color:#a6e22e">service&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 7-kubernetes.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_service_account&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;k8s-staging&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">account_id&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;k8s-staging&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">depends_on&lt;/span> = [&lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_container_cluster&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;gke&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;gke&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">location&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">region&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">networking_mode&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;VPC_NATIVE&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">network&lt;/span> = &lt;span style="color:#a6e22e">google_compute_network&lt;/span>.&lt;span style="color:#a6e22e">main&lt;/span>.&lt;span style="color:#a6e22e">self_link&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">subnetwork&lt;/span> = &lt;span style="color:#a6e22e">google_compute_subnetwork&lt;/span>.&lt;span style="color:#a6e22e">private&lt;/span>.&lt;span style="color:#a6e22e">self_link&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">remove_default_node_pool&lt;/span> = &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">initial_node_count&lt;/span> = &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">release_channel&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">channel&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;REGULAR&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">ip_allocation_policy&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">cluster_secondary_range_name&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;pod-ip-range&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">services_secondary_range_name&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;services-ip-range&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">network_policy&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef"> provider&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;PROVIDER_UNSPECIFIED&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">enabled&lt;/span> = &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">private_cluster_config&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">enable_private_endpoint&lt;/span> = &lt;span style="color:#66d9ef">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">enable_private_nodes&lt;/span> = &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">master_ipv4_cidr_block&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;172.16.0.0/28&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">workload_identity_config&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">identity_namespace&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">project_id&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">.svc.id.goog&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_container_node_pool&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;general&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;general&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">location&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">region&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">cluster&lt;/span> = &lt;span style="color:#a6e22e">google_container_cluster&lt;/span>.&lt;span style="color:#a6e22e">gke&lt;/span>.&lt;span style="color:#a6e22e">name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">node_count&lt;/span> = &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">management&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">auto_repair&lt;/span> = &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">auto_upgrade&lt;/span> = &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">node_config&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">labels&lt;/span> = {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">role&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;general&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">machine_type&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;e2-medium&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">service_account&lt;/span> = &lt;span style="color:#a6e22e">google_service_account&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">email&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">oauth_scopes&lt;/span> = [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;https://www.googleapis.com/auth/cloud-platform&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud auth application-default login
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform fmt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform init
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform validate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform plan
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform apply
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud container clusters get-credentials gke --region us-west2 --project k8s-staging-000000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get svc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get nodes
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example load balacer in Kubernetes:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/vpc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/vpc/</guid><description>&lt;h1 id="vpc">
+ VPC
+ &lt;a class="anchor" href="#vpc">#&lt;/a>
+&lt;/h1>
+&lt;p>Create regional network with custom subnets.&lt;/p>
+&lt;p>Public subnet will have a default internet gateway.&lt;/p>
+&lt;p>Private subnet will have NAT gateway as its route.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud compute networks create main --bgp-routing-mode&lt;span style="color:#f92672">=&lt;/span>regional --subnet-mode&lt;span style="color:#f92672">=&lt;/span>custom
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Add public subnet:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud compute networks subnets create public --range&lt;span style="color:#f92672">=&lt;/span>10.0.0.0/24 --network&lt;span style="color:#f92672">=&lt;/span>main --region&lt;span style="color:#f92672">=&lt;/span>us-west2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create private subnet:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud compute networks subnets create private --range&lt;span style="color:#f92672">=&lt;/span>10.0.1.0/24 --network&lt;span style="color:#f92672">=&lt;/span>main --region&lt;span style="color:#f92672">=&lt;/span>us-west2 --enable-private-ip-google-access
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create cloud router:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud compute routers create router --network&lt;span style="color:#f92672">=&lt;/span>main --region&lt;span style="color:#f92672">=&lt;/span>us-west2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create cloud NAT gateway and select IP ranges:&lt;/p></description></item></channel></rss>
