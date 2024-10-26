@@ -1,7 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GCP on Notebook</title><link>https://dpurge.github.io/docs/devops/gcp/</link><description>Recent content in GCP on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/gcp/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/gcp/gcloud/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/gcloud/</guid><description>&lt;h1 id="gcloud">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GCP on Notebook</title><link>https://dpurge.github.io/docs/devops/gcp/</link><description>Recent content in GCP on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/gcp/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/gcp/functions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/functions/</guid><description>&lt;h1 id="cloud-functions">
+ Cloud functions
+ &lt;a class="anchor" href="#cloud-functions">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="manual-depoyment">
+ Manual depoyment
+ &lt;a class="anchor" href="#manual-depoyment">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud functions deploy my-function &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --source https://source.developers.google.com/projects/test1/repos/github_example_functions/moveable-aliases/main/paths/my-function &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --runtime nodejs16 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --trigger-http &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --entry-point helloWorld
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>When redeploying, do not specify runtime or trigger.&lt;/p>
+&lt;h2 id="cloud-build-deployment">
+ Cloud Build deployment
+ &lt;a class="anchor" href="#cloud-build-deployment">#&lt;/a>
+&lt;/h2>
+&lt;p>Get project ID and project number and grant permissions:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud projects describe test1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud iam service-accounts add-iam-policy-binding PROJECT_ID@appspot.gserviceaccount.com --member PROJECT_NUMBER@cloudbuild.gserviceaccount.com --role roles/iam.serviceAccountUser
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud projects add-iam-policy-binding PROJRCT_ID --member serviceAccount:PROJECT_NUMBER@cloudbuild.gserviceaccount.com --role roles/cloudfunctions.developer
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create &lt;code>cloudbuild.yaml&lt;/code>:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/gcloud/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/gcloud/</guid><description>&lt;h1 id="gcloud">
  GCloud
  &lt;a class="anchor" href="#gcloud">#&lt;/a>
 &lt;/h1>
+&lt;h2 id="console">
+ Console
+ &lt;a class="anchor" href="#console">#&lt;/a>
+&lt;/h2>
+&lt;p>
+ &lt;a href="https://console.cloud.google.com/">Cloud console&lt;/a>&lt;/p>
 &lt;h2 id="install">
  Install
  &lt;a class="anchor" href="#install">#&lt;/a>
