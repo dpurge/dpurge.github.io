@@ -1182,7 +1182,17 @@ K3d deploys docker based k3s clusters.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>minikube start --memory &lt;span style="color:#ae81ff">4096&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Edit service xxx:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl edit svc xxx
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/sealed-secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/sealed-secrets/</guid><description>&lt;h1 id="sealed-secrets">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/pod/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/pod/</guid><description>&lt;h1 id="pod">
+ Pod
+ &lt;a class="anchor" href="#pod">#&lt;/a>
+&lt;/h1>
+&lt;p>A &lt;code>pod&lt;/code> is a collection of containers that share network and storage.
+Containers within a pod can talk to each other on &lt;code>localhost&lt;/code> and can access the same volumes.
+Pods are ephemeral.
+Kubernetes assigns a unique IP address to a pod.
+Containers within a pod can listen on different ports.&lt;/p>
+&lt;p>When the pod restarts, it gets a different IP address.
+A &lt;code>service&lt;/code> is an abstraction that gets a stable IP address and DNS name.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/sealed-secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/sealed-secrets/</guid><description>&lt;h1 id="sealed-secrets">
  Sealed secrets
  &lt;a class="anchor" href="#sealed-secrets">#&lt;/a>
 &lt;/h1>
