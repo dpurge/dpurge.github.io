@@ -1,8 +1,37 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content='
   GKE Workload Identity
   #
-"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://dpurge.github.io/docs/devops/gcp/gke-workload-identity/"><meta property="og:site_name" content="Notebook"><meta property="og:title" content="Notebook"><meta property="og:description" content="GKE Workload Identity #"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2024-10-27T23:12:45+01:00"><title>Gke Workload Identity | Notebook</title>
-<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.0afc174c1b5ff519e0b02edff4dbbcc3cf466abe5cea1f60174470333b47183d.js integrity="sha256-CvwXTBtf9RngsC7f9Nu8w89Gar5c6h9gF0RwMztHGD0=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+
+Source: 
+  
+First create the bucket using console of gcloud command.
+Name must be globally unique.
+Separate different environments in different buckets.
+Use multi-region for the location type, standard for the storage class, enable object versioning under protection tools.
+# 1-provider.tf
+
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs
+provider "google" {
+  project = "devops-v4"
+  region  = "us-central1"
+}
+
+# https://www.terraform.io/language/settings/backends/gcs
+terraform {
+  backend "gcs" {
+    bucket = "tf-state-staging"
+    prefix = "terraform/state"
+  }
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 4.0"
+    }
+  }
+}
+Enable API services and create VPC:'><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://dpurge.github.io/docs/devops/gcp/gke-workload-identity/"><meta property="og:site_name" content="Notebook"><meta property="og:title" content="Notebook"><meta property="og:description" content='GKE Workload Identity # Source: First create the bucket using console of gcloud command. Name must be globally unique. Separate different environments in different buckets. Use multi-region for the location type, standard for the storage class, enable object versioning under protection tools.
+# 1-provider.tf # https://registry.terraform.io/providers/hashicorp/google/latest/docs provider "google" { project = "devops-v4" region = "us-central1" } # https://www.terraform.io/language/settings/backends/gcs terraform { backend "gcs" { bucket = "tf-state-staging" prefix = "terraform/state" } required_providers { google = { source = "hashicorp/google" version = "~> 4.0" } } } Enable API services and create VPC:'><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2024-10-28T00:53:45+01:00"><title>Gke Workload Identity | Notebook</title>
+<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.26dfc4b9e280acddc6277333df5bd90b94ea60e8b7222a690ccc60f7bfe7e8e0.js integrity="sha256-Jt/EueKArN3GJ3Mz31vZC5TqYOi3IippDMxg97/n6OA=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Notebook</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-749497e15d97e060a688abbb8e008e3a class=toggle checked>
 <label for=section-749497e15d97e060a688abbb8e008e3a class="flex justify-between"><a role=button>Devops</a></label><ul><li><input type=checkbox id=section-50999497f0e27fdba1c9e2dc3c444cf2 class=toggle>
 <label for=section-50999497f0e27fdba1c9e2dc3c444cf2 class="flex justify-between"><a role=button>Ansible</a></label><ul><li><a href=/docs/devops/ansible/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-9c5f1eb01a8c593106ce220aa0920de8 class=toggle>
@@ -44,6 +73,442 @@
 <label for=section-274a68fdfb79a16e14bd48bda2db09aa class="flex justify-between"><a role=button>Typescript</a></label><ul><li><a href=/docs/programming/typescript/nodejs/>Nodejs</a></li></ul></li></ul></li></ul><ul><li><a href=/posts/>Blog</a></li><li><a href=https://github.com/dpurge/dpurge.github.io target=_blank rel=noopener>Github</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
 </label><strong>Gke Workload Identity</strong>
 <label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#gke-workload-identity>GKE Workload Identity</a></li></ul></nav></aside></header><article class=markdown><h1 id=gke-workload-identity>GKE Workload Identity
-<a class=anchor href=#gke-workload-identity>#</a></h1></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/commit/86d9dde419afaa2c3334b4e03f8d473246902b03 title='Last modified by D. Purge | October 27, 2024' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<a class=anchor href=#gke-workload-identity>#</a></h1><p>Source:
+<a href=https://github.com/antonputra/tutorials/blob/main/lessons/108/></a></p><p>First create the bucket using console of <code>gcloud</code> command.
+Name must be globally unique.
+Separate different environments in different buckets.
+Use <code>multi-region</code> for the location type, <code>standard</code> for the storage class, enable <code>object versioning</code> under protection tools.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tf data-lang=tf><span style=display:flex><span><span style=color:#75715e># 1-provider.tf
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>provider</span> <span style=color:#e6db74>&#34;google&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>project</span> = <span style=color:#e6db74>&#34;devops-v4&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>region</span>  = <span style=color:#e6db74>&#34;us-central1&#34;</span>
+</span></span><span style=display:flex><span>}<span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://www.terraform.io/language/settings/backends/gcs
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>terraform</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>backend</span> <span style=color:#e6db74>&#34;gcs&#34;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>bucket</span> = <span style=color:#e6db74>&#34;tf-state-staging&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>prefix</span> = <span style=color:#e6db74>&#34;terraform/state&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>required_providers</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>google</span> = {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>source</span>  = <span style=color:#e6db74>&#34;hashicorp/google&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>version</span> = <span style=color:#e6db74>&#34;~&gt; 4.0&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Enable API services and create VPC:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tf data-lang=tf><span style=display:flex><span><span style=color:#75715e># 2-vpc.tf
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_project_service&#34;</span> <span style=color:#e6db74>&#34;compute&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>service</span> = <span style=color:#e6db74>&#34;compute.googleapis.com&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_project_service&#34;</span> <span style=color:#e6db74>&#34;container&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>service</span> = <span style=color:#e6db74>&#34;container.googleapis.com&#34;</span>
+</span></span><span style=display:flex><span>}<span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_compute_network&#34;</span> <span style=color:#e6db74>&#34;main&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span>                            = <span style=color:#e6db74>&#34;main&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>routing_mode</span>                    = <span style=color:#e6db74>&#34;REGIONAL&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>auto_create_subnetworks</span>         = <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>mtu</span>                             = <span style=color:#ae81ff>1460</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>delete_default_routes_on_create</span> = <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>depends_on</span> = [
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>google_project_service</span>.<span style=color:#a6e22e>compute</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>google_project_service</span>.<span style=color:#a6e22e>container</span>
+</span></span><span style=display:flex><span>  ]
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Create subnets:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tf data-lang=tf><span style=display:flex><span><span style=color:#75715e># 3-subnets.tf
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_compute_subnetwork&#34;</span> <span style=color:#e6db74>&#34;private&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span>                     = <span style=color:#e6db74>&#34;private&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>ip_cidr_range</span>            = <span style=color:#e6db74>&#34;10.0.0.0/18&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>region</span>                   = <span style=color:#e6db74>&#34;us-central1&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>network</span>                  = <span style=color:#a6e22e>google_compute_network</span>.<span style=color:#a6e22e>main</span>.<span style=color:#a6e22e>id</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>private_ip_google_access</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>secondary_ip_range</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>range_name</span>    = <span style=color:#e6db74>&#34;k8s-pod-range&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>ip_cidr_range</span> = <span style=color:#e6db74>&#34;10.48.0.0/14&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>secondary_ip_range</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>range_name</span>    = <span style=color:#e6db74>&#34;k8s-service-range&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>ip_cidr_range</span> = <span style=color:#e6db74>&#34;10.52.0.0/20&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Create cloud router:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tf data-lang=tf><span style=display:flex><span><span style=color:#75715e># 4-router.tf
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_compute_router&#34;</span> <span style=color:#e6db74>&#34;router&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span>    = <span style=color:#e6db74>&#34;router&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>region</span>  = <span style=color:#e6db74>&#34;us-central1&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>network</span> = <span style=color:#a6e22e>google_compute_network</span>.<span style=color:#a6e22e>main</span>.<span style=color:#a6e22e>id</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>NAT:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tf data-lang=tf><span style=display:flex><span><span style=color:#75715e># 5-nat.tf
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_nat
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_compute_router_nat&#34;</span> <span style=color:#e6db74>&#34;nat&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span>   = <span style=color:#e6db74>&#34;nat&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>router</span> = <span style=color:#a6e22e>google_compute_router</span>.<span style=color:#a6e22e>router</span>.<span style=color:#a6e22e>name</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>region</span> = <span style=color:#e6db74>&#34;us-central1&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>source_subnetwork_ip_ranges_to_nat</span> = <span style=color:#e6db74>&#34;LIST_OF_SUBNETWORKS&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>nat_ip_allocate_option</span>             = <span style=color:#e6db74>&#34;MANUAL_ONLY&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>subnetwork</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>name</span>                    = <span style=color:#a6e22e>google_compute_subnetwork</span>.<span style=color:#a6e22e>private</span>.<span style=color:#a6e22e>id</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>source_ip_ranges_to_nat</span> = [<span style=color:#e6db74>&#34;ALL_IP_RANGES&#34;</span>]
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>nat_ips</span> = [<span style=color:#a6e22e>google_compute_address</span>.<span style=color:#a6e22e>nat</span>.<span style=color:#a6e22e>self_link</span>]
+</span></span><span style=display:flex><span>}<span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_compute_address&#34;</span> <span style=color:#e6db74>&#34;nat&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span>         = <span style=color:#e6db74>&#34;nat&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>address_type</span> = <span style=color:#e6db74>&#34;EXTERNAL&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>network_tier</span> = <span style=color:#e6db74>&#34;PREMIUM&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>depends_on</span> = [<span style=color:#a6e22e>google_project_service</span>.<span style=color:#a6e22e>compute</span>]
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Firewall:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tf data-lang=tf><span style=display:flex><span><span style=color:#75715e># 6-firewalls.tf
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_compute_firewall&#34;</span> <span style=color:#e6db74>&#34;allow-ssh&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span>    = <span style=color:#e6db74>&#34;allow-ssh&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>network</span> = <span style=color:#a6e22e>google_compute_network</span>.<span style=color:#a6e22e>main</span>.<span style=color:#a6e22e>name</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>allow</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>protocol</span> = <span style=color:#e6db74>&#34;tcp&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>ports</span>    = [<span style=color:#e6db74>&#34;22&#34;</span>]
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>source_ranges</span> = [<span style=color:#e6db74>&#34;0.0.0.0/0&#34;</span>]
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Kubernetes:</p><ul><li>Availability zones go down often</li><li>Monitor costs; logging can cost more than infrastructure</li><li>You cannot disable upgrades for the Kubernetes control plane</li><li></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tf data-lang=tf><span style=display:flex><span><span style=color:#75715e># 7-kubernetes.tf
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_container_cluster&#34;</span> <span style=color:#e6db74>&#34;primary&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span>                     = <span style=color:#e6db74>&#34;primary&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>location</span>                 = <span style=color:#e6db74>&#34;us-central1-a&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>remove_default_node_pool</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>initial_node_count</span>       = <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>network</span>                  = <span style=color:#a6e22e>google_compute_network</span>.<span style=color:#a6e22e>main</span>.<span style=color:#a6e22e>self_link</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>subnetwork</span>               = <span style=color:#a6e22e>google_compute_subnetwork</span>.<span style=color:#a6e22e>private</span>.<span style=color:#a6e22e>self_link</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>logging_service</span>          = <span style=color:#e6db74>&#34;logging.googleapis.com/kubernetes&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>monitoring_service</span>       = <span style=color:#e6db74>&#34;monitoring.googleapis.com/kubernetes&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>networking_mode</span>          = <span style=color:#e6db74>&#34;VPC_NATIVE&#34;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  # Optional, if you want multi-zonal cluster
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>node_locations</span> = [
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;us-central1-b&#34;</span>
+</span></span><span style=display:flex><span>  ]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>addons_config</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>http_load_balancing</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>disabled</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>horizontal_pod_autoscaling</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>disabled</span> = <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>release_channel</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>channel</span> = <span style=color:#e6db74>&#34;REGULAR&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>workload_identity_config</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>workload_pool</span> = <span style=color:#e6db74>&#34;PROJECT_ID.svc.id.goog&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>ip_allocation_policy</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>cluster_secondary_range_name</span>  = <span style=color:#e6db74>&#34;k8s-pod-range&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>services_secondary_range_name</span> = <span style=color:#e6db74>&#34;k8s-service-range&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>private_cluster_config</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>enable_private_nodes</span>    = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>enable_private_endpoint</span> = <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>master_ipv4_cidr_block</span>  = <span style=color:#e6db74>&#34;172.16.0.0/28&#34;</span>
+</span></span><span style=display:flex><span>  }<span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  #   Jenkins use case
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  #   master_authorized_networks_config {
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  #     cidr_blocks {
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  #       cidr_block   = &#34;10.0.0.0/18&#34;
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  #       display_name = &#34;private-subnet-w-jenkins&#34;
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  #     }
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  #   }
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tf data-lang=tf><span style=display:flex><span><span style=color:#75715e># 8-node-pools.tf
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_service_account&#34;</span> <span style=color:#e6db74>&#34;kubernetes&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>account_id</span> = <span style=color:#e6db74>&#34;kubernetes&#34;</span>
+</span></span><span style=display:flex><span>}<span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_container_node_pool&#34;</span> <span style=color:#e6db74>&#34;general&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span>       = <span style=color:#e6db74>&#34;general&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cluster</span>    = <span style=color:#a6e22e>google_container_cluster</span>.<span style=color:#a6e22e>primary</span>.<span style=color:#a6e22e>id</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>node_count</span> = <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>management</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>auto_repair</span>  = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>auto_upgrade</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>node_config</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>preemptible</span>  = <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>machine_type</span> = <span style=color:#e6db74>&#34;e2-small&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>labels</span> = {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>role</span> = <span style=color:#e6db74>&#34;general&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>service_account</span> = <span style=color:#a6e22e>google_service_account</span>.<span style=color:#a6e22e>kubernetes</span>.<span style=color:#a6e22e>email</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>oauth_scopes</span> = [
+</span></span><span style=display:flex><span>      <span style=color:#e6db74>&#34;https://www.googleapis.com/auth/cloud-platform&#34;</span>
+</span></span><span style=display:flex><span>    ]
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_container_node_pool&#34;</span> <span style=color:#e6db74>&#34;spot&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span>    = <span style=color:#e6db74>&#34;spot&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cluster</span> = <span style=color:#a6e22e>google_container_cluster</span>.<span style=color:#a6e22e>primary</span>.<span style=color:#a6e22e>id</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>management</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>auto_repair</span>  = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>auto_upgrade</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>autoscaling</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>min_node_count</span> = <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>max_node_count</span> = <span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>node_config</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>preemptible</span>  = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>machine_type</span> = <span style=color:#e6db74>&#34;e2-small&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>labels</span> = {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>team</span> = <span style=color:#e6db74>&#34;devops&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>taint</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>key</span>    = <span style=color:#e6db74>&#34;instance_type&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>value</span>  = <span style=color:#e6db74>&#34;spot&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>effect</span> = <span style=color:#e6db74>&#34;NO_SCHEDULE&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>service_account</span> = <span style=color:#a6e22e>google_service_account</span>.<span style=color:#a6e22e>kubernetes</span>.<span style=color:#a6e22e>email</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>oauth_scopes</span> = [
+</span></span><span style=display:flex><span>      <span style=color:#e6db74>&#34;https://www.googleapis.com/auth/cloud-platform&#34;</span>
+</span></span><span style=display:flex><span>    ]
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>gcloud auth application-default login
+</span></span><span style=display:flex><span>terraform init
+</span></span><span style=display:flex><span>terraform apply
+</span></span><span style=display:flex><span>gcloud container clusters get-credentials primary --zone ... --project ...
+</span></span><span style=display:flex><span>kubectl get svc
+</span></span><span style=display:flex><span>kubectl get nodes
+</span></span></code></pre></div><p>Examples:</p><p>Autoscaling:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>---
+</span></span><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>apps/v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Deployment</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>nginx-deployment</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>default</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>replicas</span>: <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>selector</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>matchLabels</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>app</span>: <span style=color:#ae81ff>nginx</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>template</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>labels</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>app</span>: <span style=color:#ae81ff>nginx</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>containers</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>nginx</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>image</span>: <span style=color:#ae81ff>nginx:1.14.2</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>        - <span style=color:#f92672>containerPort</span>: <span style=color:#ae81ff>80</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>tolerations</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>key</span>: <span style=color:#ae81ff>instance_type</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>value</span>: <span style=color:#ae81ff>spot</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>effect</span>: <span style=color:#ae81ff>NoSchedule</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>operator</span>: <span style=color:#ae81ff>Equal</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>affinity</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>nodeAffinity</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>requiredDuringSchedulingIgnoredDuringExecution</span>:
+</span></span><span style=display:flex><span>            <span style=color:#f92672>nodeSelectorTerms</span>:
+</span></span><span style=display:flex><span>            - <span style=color:#f92672>matchExpressions</span>:
+</span></span><span style=display:flex><span>              - <span style=color:#f92672>key</span>: <span style=color:#ae81ff>team</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>operator</span>: <span style=color:#ae81ff>In</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>values</span>:
+</span></span><span style=display:flex><span>                - <span style=color:#ae81ff>devops</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>podAntiAffinity</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>requiredDuringSchedulingIgnoredDuringExecution</span>:
+</span></span><span style=display:flex><span>          - <span style=color:#f92672>labelSelector</span>:
+</span></span><span style=display:flex><span>              <span style=color:#f92672>matchExpressions</span>:
+</span></span><span style=display:flex><span>              - <span style=color:#f92672>key</span>: <span style=color:#ae81ff>app</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>operator</span>: <span style=color:#ae81ff>In</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>values</span>:
+</span></span><span style=display:flex><span>                - <span style=color:#ae81ff>nginx</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>topologyKey</span>: <span style=color:#ae81ff>kubernetes.io/hostname</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>kubectl apply -f example1.yaml
+</span></span><span style=display:flex><span>watch kubectl get pods
+</span></span><span style=display:flex><span>watch kubectl get nodes
+</span></span><span style=display:flex><span>kubectl describe pod nginx-deployment-... 
+</span></span></code></pre></div><p>Identity and access to list buckets:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tf data-lang=tf><span style=display:flex><span><span style=color:#75715e># 9-service-account.tf
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_service_account&#34;</span> <span style=color:#e6db74>&#34;service-a&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>account_id</span> = <span style=color:#e6db74>&#34;service-a&#34;</span>
+</span></span><span style=display:flex><span>}<span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_project_iam_member&#34;</span> <span style=color:#e6db74>&#34;service-a&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>project</span> = <span style=color:#e6db74>&#34;devops-v4&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>role</span>    = <span style=color:#e6db74>&#34;roles/storage.admin&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>member</span>  = <span style=color:#e6db74>&#34;serviceAccount:</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>google_service_account</span>.<span style=color:#a6e22e>service</span><span style=color:#f92672>-</span><span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>email</span><span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>}<span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_iam
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>resource</span> <span style=color:#e6db74>&#34;google_service_account_iam_member&#34;</span> <span style=color:#e6db74>&#34;service-a&#34;</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>service_account_id</span> = <span style=color:#a6e22e>google_service_account</span>.<span style=color:#a6e22e>service</span><span style=color:#f92672>-</span><span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>id</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>role</span>               = <span style=color:#e6db74>&#34;roles/iam.workloadIdentityUser&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>member</span>             = <span style=color:#e6db74>&#34;serviceAccount:devops-v4.svc.id.goog[staging/service-a]&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span>---
+</span></span><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Namespace</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>staging</span>
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>ServiceAccount</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>annotations</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>iam.gke.io/gcp-service-account</span>: <span style=color:#ae81ff>service-a@devops-v4.iam.gserviceaccount.com</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>service-a</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>staging</span>
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>apps/v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Deployment</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>gcloud</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>staging</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>replicas</span>: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>selector</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>matchLabels</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>app</span>: <span style=color:#ae81ff>gcloud</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>template</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>labels</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>app</span>: <span style=color:#ae81ff>gcloud</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>serviceAccountName</span>: <span style=color:#ae81ff>service-a</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>containers</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>cloud-sdk</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>image</span>: <span style=color:#ae81ff>google/cloud-sdk:latest</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>command</span>: [ <span style=color:#e6db74>&#34;/bin/bash&#34;</span>, <span style=color:#e6db74>&#34;-c&#34;</span>, <span style=color:#e6db74>&#34;--&#34;</span> ]
+</span></span><span style=display:flex><span>        <span style=color:#f92672>args</span>: [ <span style=color:#e6db74>&#34;while true; do sleep 30; done;&#34;</span> ]
+</span></span><span style=display:flex><span>      <span style=color:#f92672>affinity</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>nodeAffinity</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>requiredDuringSchedulingIgnoredDuringExecution</span>:
+</span></span><span style=display:flex><span>            <span style=color:#f92672>nodeSelectorTerms</span>:
+</span></span><span style=display:flex><span>            - <span style=color:#f92672>matchExpressions</span>:
+</span></span><span style=display:flex><span>              - <span style=color:#f92672>key</span>: <span style=color:#ae81ff>iam.gke.io/gke-metadata-server-enabled</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>operator</span>: <span style=color:#ae81ff>In</span>
+</span></span><span style=display:flex><span>                <span style=color:#f92672>values</span>:
+</span></span><span style=display:flex><span>                - <span style=color:#e6db74>&#34;true&#34;</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>terraform apply
+</span></span><span style=display:flex><span>kubectl apply -f example2.yaml
+</span></span><span style=display:flex><span>kubectl get ns
+</span></span><span style=display:flex><span>kubectl get pods -n staging
+</span></span><span style=display:flex><span>kubectl get sa -n staging
+</span></span><span style=display:flex><span>kubectl exec -n staging -it gloud-... -- bash
+</span></span><span style=display:flex><span>gcloud alpha storage ls
+</span></span></code></pre></div><p>Nginx ingress controller with Helm:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+</span></span><span style=display:flex><span>helm repo update
+</span></span><span style=display:flex><span>helm search repo nginx
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#75715e># nginx-values.yaml</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span><span style=color:#f92672>controller</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>config</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>compute-full-forwarded-for</span>: <span style=color:#e6db74>&#34;true&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>use-forwarded-headers</span>: <span style=color:#e6db74>&#34;true&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy-body-size</span>: <span style=color:#e6db74>&#34;0&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>ingressClassResource</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>external-nginx</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>default</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>affinity</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>podAntiAffinity</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>requiredDuringSchedulingIgnoredDuringExecution</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>labelSelector</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>matchExpressions</span>:
+</span></span><span style=display:flex><span>            - <span style=color:#f92672>key</span>: <span style=color:#ae81ff>app.kubernetes.io/name</span>
+</span></span><span style=display:flex><span>              <span style=color:#f92672>operator</span>: <span style=color:#ae81ff>In</span>
+</span></span><span style=display:flex><span>              <span style=color:#f92672>values</span>:
+</span></span><span style=display:flex><span>                - <span style=color:#ae81ff>ingress-nginx</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>topologyKey</span>: <span style=color:#e6db74>&#34;kubernetes.io/hostname&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>replicaCount</span>: <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>admissionWebhooks</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>service</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>annotations</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>cloud.google.com/load-balancer-type</span>: <span style=color:#ae81ff>External</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>metrics</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enabled</span>: <span style=color:#66d9ef>false</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>helm install my-ing ingress-nginx/ingress-nginx --namespace ingress --version 4.0.17 --values nginx-values.yaml --create-namespace
+</span></span><span style=display:flex><span>kubectl get pods -n ingress
+</span></span><span style=display:flex><span>kubectl get svc -n ingress
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#75715e># 3-example.yaml</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Service</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>nginx</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>default</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>selector</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>app</span>: <span style=color:#ae81ff>nginx</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>    - <span style=color:#f92672>protocol</span>: <span style=color:#ae81ff>TCP</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>port</span>: <span style=color:#ae81ff>80</span>
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>networking.k8s.io/v1</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Ingress</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>metadata</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>nginx-ing</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>default</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>spec</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>ingressClassName</span>: <span style=color:#ae81ff>external-nginx</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>rules</span>:
+</span></span><span style=display:flex><span>  - <span style=color:#f92672>host</span>: <span style=color:#ae81ff>example.com</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>http</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>paths</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>path</span>: <span style=color:#ae81ff>/</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>pathType</span>: <span style=color:#ae81ff>Prefix</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>backend</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>service</span>:
+</span></span><span style=display:flex><span>            <span style=color:#f92672>name</span>: <span style=color:#ae81ff>nginx</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>port</span>:
+</span></span><span style=display:flex><span>              <span style=color:#f92672>number</span>: <span style=color:#ae81ff>80</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>kubectl apply -f 3-example.yaml
+</span></span><span style=display:flex><span>kubectl get ingressclass
+</span></span><span style=display:flex><span>kubectl get ing
+</span></span></code></pre></div><p>Create DNS A-record with your DNS provider, eg. <code>domains.google.com</code>.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/commit/1d8b4b10191c3626590f64c9623ec0df40f3e322 title='Last modified by D. Purge | October 27, 2024' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
 <span>October 27, 2024</span></a></div><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/edit/main/content/docs/devops/gcp/gke-workload-identity.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
 <span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#gke-workload-identity>GKE Workload Identity</a></li></ul></nav></div></aside></main></body></html>

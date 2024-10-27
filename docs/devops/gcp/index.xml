@@ -105,7 +105,35 @@ Subnets are regional and span multiple zones within a region.
 This is different from AWS.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/gke-workload-identity/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/gke-workload-identity/</guid><description>&lt;h1 id="gke-workload-identity">
  GKE Workload Identity
  &lt;a class="anchor" href="#gke-workload-identity">#&lt;/a>
-&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/gke/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/gke/</guid><description>&lt;h1 id="gke">
+&lt;/h1>
+&lt;p>Source: 
+ &lt;a href="https://github.com/antonputra/tutorials/blob/main/lessons/108/">&lt;/a>&lt;/p>
+&lt;p>First create the bucket using console of &lt;code>gcloud&lt;/code> command.
+Name must be globally unique.
+Separate different environments in different buckets.
+Use &lt;code>multi-region&lt;/code> for the location type, &lt;code>standard&lt;/code> for the storage class, enable &lt;code>object versioning&lt;/code> under protection tools.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 1-provider.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># https://registry.terraform.io/providers/hashicorp/google/latest/docs
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">provider&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;devops-v4&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;us-central1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># https://www.terraform.io/language/settings/backends/gcs
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">terraform&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">backend&lt;/span> &lt;span style="color:#e6db74">&amp;#34;gcs&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bucket&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;tf-state-staging&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">prefix&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;terraform/state&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">required_providers&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">google&lt;/span> = {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">source&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;hashicorp/google&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">version&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;~&amp;gt; 4.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Enable API services and create VPC:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/gke/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/gke/</guid><description>&lt;h1 id="gke">
  GKE
  &lt;a class="anchor" href="#gke">#&lt;/a>
 &lt;/h1>
