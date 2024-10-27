@@ -1,0 +1,204 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Resource short names
+  #
+
+Short names can be displayed with a command: kubectl api-resources
+
+  
+      
+          Name
+          Short name
+          Kind
+          API version
+          Namespaced
+      
+  
+  
+      
+          pods
+          po
+          Pod
+          v1
+          true
+      
+      
+          replicasets
+          rs
+          ReplicaSet
+          apps/v1
+          true
+      
+      
+          deployments
+          deploy
+          Deployment
+          apps/v1
+          true
+      
+      
+          services
+          svc
+          Service
+          v1
+          true
+      
+      
+          statefulsets
+          sts
+          StatefulSet
+          apps/v1
+          true
+      
+      
+          daemonsets
+          ds
+          DaemonSet
+          apps/v1
+          true
+      
+      
+          persistentvolumes
+          pv
+          PersistentVolume
+          v1
+          false
+      
+      
+          persistentvolumeclaims
+          pvc
+          PersistentVolumeClaim
+          v1
+          true
+      
+      
+          configmaps
+          cm
+          ConfigMap
+          v1
+          true
+      
+      
+          namespaces
+          ns
+          Namespace
+          v1
+          false
+      
+      
+          nodes
+          no
+          Node
+          v1
+          false
+      
+      
+          secrets
+          
+          Secret
+          v1
+          true
+      
+      
+          jobs
+          
+          Job
+          batch/v1
+          true
+      
+      
+          cronjobs
+          cj
+          CronJob
+          batch/v1
+          true
+      
+      
+          endpoints
+          ep
+          Endpoints
+          v1
+          true
+      
+      
+          ingresses
+          ing
+          Ingress
+          networking.k8s.io/v1
+          true
+      
+      
+          
+          
+          
+          
+          
+      
+      
+          
+          
+          
+          
+          
+      
+      
+          
+          
+          
+          
+          
+      
+      
+          
+          
+          
+          
+          
+      
+  
+"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://dpurge.github.io/docs/devops/kubernetes/short-names/"><meta property="og:site_name" content="Notebook"><meta property="og:title" content="Notebook"><meta property="og:description" content="Resource short names # Short names can be displayed with a command: kubectl api-resources
+Name Short name Kind API version Namespaced pods po Pod v1 true replicasets rs ReplicaSet apps/v1 true deployments deploy Deployment apps/v1 true services svc Service v1 true statefulsets sts StatefulSet apps/v1 true daemonsets ds DaemonSet apps/v1 true persistentvolumes pv PersistentVolume v1 false persistentvolumeclaims pvc PersistentVolumeClaim v1 true configmaps cm ConfigMap v1 true namespaces ns Namespace v1 false nodes no Node v1 false secrets Secret v1 true jobs Job batch/v1 true cronjobs cj CronJob batch/v1 true endpoints ep Endpoints v1 true ingresses ing Ingress networking.k8s.io/v1 true"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2024-10-27T23:12:45+01:00"><title>Short Names | Notebook</title>
+<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.0afc174c1b5ff519e0b02edff4dbbcc3cf466abe5cea1f60174470333b47183d.js integrity="sha256-CvwXTBtf9RngsC7f9Nu8w89Gar5c6h9gF0RwMztHGD0=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Notebook</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-749497e15d97e060a688abbb8e008e3a class=toggle checked>
+<label for=section-749497e15d97e060a688abbb8e008e3a class="flex justify-between"><a role=button>Devops</a></label><ul><li><input type=checkbox id=section-50999497f0e27fdba1c9e2dc3c444cf2 class=toggle>
+<label for=section-50999497f0e27fdba1c9e2dc3c444cf2 class="flex justify-between"><a role=button>Ansible</a></label><ul><li><a href=/docs/devops/ansible/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-9c5f1eb01a8c593106ce220aa0920de8 class=toggle>
+<label for=section-9c5f1eb01a8c593106ce220aa0920de8 class="flex justify-between"><a role=button>ArgoCD</a></label><ul><li><a href=/docs/devops/argo/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-4ebd45af817f2a6782d30223cfb30fb8 class=toggle>
+<label for=section-4ebd45af817f2a6782d30223cfb30fb8 class="flex justify-between"><a href=/docs/devops/aws/>AWS</a></label><ul><li><a href=/docs/devops/aws/architecture/>Architecture</a></li><li><a href=/docs/devops/aws/aws-cli/>Aws CLI</a></li></ul></li><li><input type=checkbox id=section-b9ccc00dfaca5f6c9939761fd1f0d019 class=toggle>
+<label for=section-b9ccc00dfaca5f6c9939761fd1f0d019 class="flex justify-between"><a role=button>Azure</a></label><ul><li><a href=/docs/devops/azure/exploring/>Exploring</a></li><li><a href=/docs/devops/azure/snippets/>Snippets</a></li></ul></li><li><input type=checkbox id=section-7db3ac4b38d865d04e7015c54e49703e class=toggle>
+<label for=section-7db3ac4b38d865d04e7015c54e49703e class="flex justify-between"><a role=button>Blueprints</a></label><ul><li><a href=/docs/devops/blueprints/aws-3tier-webapp/>Aws 3tier Webapp</a></li><li><a href=/docs/devops/blueprints/aws-static-webapp/>Aws Static Webapp</a></li><li><a href=/docs/devops/blueprints/llm-closed-source/>Llm Closed Source</a></li></ul></li><li><input type=checkbox id=section-40d970db9e5f0628067d054bb2648776 class=toggle>
+<label for=section-40d970db9e5f0628067d054bb2648776 class="flex justify-between"><a role=button>Docker</a></label><ul><li><a href=/docs/devops/docker/azure/>Azure</a></li><li><a href=/docs/devops/docker/basics/>Basics</a></li><li><a href=/docs/devops/docker/compose/>Compose</a></li><li><a href=/docs/devops/docker/installation/>Installation</a></li><li><a href=/docs/devops/docker/volumes/>Volumes</a></li></ul></li><li><input type=checkbox id=section-4443ca79b625be26a1316c658457726a class=toggle>
+<label for=section-4443ca79b625be26a1316c658457726a class="flex justify-between"><a role=button>GCP</a></label><ul><li><a href=/docs/devops/gcp/functions/>Functions</a></li><li><a href=/docs/devops/gcp/gcloud/>Gcloud</a></li><li><a href=/docs/devops/gcp/gke-workload-identity/>Gke Workload Identity</a></li><li><a href=/docs/devops/gcp/gke/>Gke</a></li><li><a href=/docs/devops/gcp/vpc/>Vpc</a></li></ul></li><li><input type=checkbox id=section-cbbe11a9b81cf61e2a3ccb4b9b819485 class=toggle>
+<label for=section-cbbe11a9b81cf61e2a3ccb4b9b819485 class="flex justify-between"><a role=button>Git</a></label><ul><li><a href=/docs/devops/git/branches/>Branches</a></li><li><a href=/docs/devops/git/configuration/>Configuration</a></li></ul></li><li><input type=checkbox id=section-4d3fc42527ded74d4ffcde26ba409017 class=toggle>
+<label for=section-4d3fc42527ded74d4ffcde26ba409017 class="flex justify-between"><a role=button>Helm</a></label><ul><li><a href=/docs/devops/helm/charts/>Charts</a></li><li><a href=/docs/devops/helm/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-82a69a4645a3f6474bddc9249797cdcd class=toggle>
+<label for=section-82a69a4645a3f6474bddc9249797cdcd class="flex justify-between"><a role=button>K3s</a></label><ul><li><a href=/docs/devops/k3s/k3d/>K3d</a></li><li><a href=/docs/devops/k3s/k3s/>K3s</a></li></ul></li><li><input type=checkbox id=section-6ccba73423854554c7b62c837d9f8480 class=toggle checked>
+<label for=section-6ccba73423854554c7b62c837d9f8480 class="flex justify-between"><a href=/docs/devops/kubernetes/>Kubernetes</a></label><ul><li><a href=/docs/devops/kubernetes/azure-kubernetes/>Azure Kubernetes</a></li><li><a href=/docs/devops/kubernetes/deployment/>Deployment</a></li><li><a href=/docs/devops/kubernetes/design-patterns/>Design Patterns</a></li><li><a href=/docs/devops/kubernetes/ingress/>Ingress</a></li><li><a href=/docs/devops/kubernetes/k9s/>K9s</a></li><li><a href=/docs/devops/kubernetes/kubectl-config/>Kubectl Config</a></li><li><a href=/docs/devops/kubernetes/minikube/>Minikube</a></li><li><a href=/docs/devops/kubernetes/pod/>Pod</a></li><li><a href=/docs/devops/kubernetes/replica-set/>Replica Set</a></li><li><a href=/docs/devops/kubernetes/sealed-secrets/>Sealed Secrets</a></li><li><a href=/docs/devops/kubernetes/service/>Service</a></li><li><a href=/docs/devops/kubernetes/short-names/ class=active>Short Names</a></li></ul></li><li><input type=checkbox id=section-9b21c58f3ca215cb701a50b2be937f39 class=toggle>
+<label for=section-9b21c58f3ca215cb701a50b2be937f39 class="flex justify-between"><a role=button>Linux</a></label><ul><li><a href=/docs/devops/linux/blocky/>Blocky</a></li><li><a href=/docs/devops/linux/caddy/>Caddy</a></li><li><a href=/docs/devops/linux/podman/>Podman</a></li><li><a href=/docs/devops/linux/screen/>Screen</a></li><li><a href=/docs/devops/linux/searxng/>Searxng</a></li><li><a href=/docs/devops/linux/setup/>Setup</a></li><li><a href=/docs/devops/linux/ubuntu/>Ubuntu</a></li></ul></li><li><input type=checkbox id=section-12b058c01cd4ee9c367229fa0a2ae9d5 class=toggle>
+<label for=section-12b058c01cd4ee9c367229fa0a2ae9d5 class="flex justify-between"><a href=/docs/devops/macos/>MacOS</a></label><ul><li><a href=/docs/devops/macos/homebrew/>Homebrew</a></li><li><a href=/docs/devops/macos/java/>Java</a></li><li><a href=/docs/devops/macos/multipass/>Multipass</a></li><li><a href=/docs/devops/macos/python/>Python</a></li></ul></li><li><input type=checkbox id=section-20d009bc4ea64e02eccd031311200482 class=toggle>
+<label for=section-20d009bc4ea64e02eccd031311200482 class="flex justify-between"><a href=/docs/devops/ollama/>Ollama</a></label><ul></ul></li><li><input type=checkbox id=section-1529bd8f1f24c7df03d4935e0825d068 class=toggle>
+<label for=section-1529bd8f1f24c7df03d4935e0825d068 class="flex justify-between"><a role=button>Packer</a></label><ul><li><a href=/docs/devops/packer/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-9d3815e028aac865b69a582cd78417ca class=toggle>
+<label for=section-9d3815e028aac865b69a582cd78417ca class="flex justify-between"><a href=/docs/devops/qemu/>QEmu</a></label><ul></ul></li><li><input type=checkbox id=section-790ea1f7a6ea27b27a7d6974cebdf176 class=toggle>
+<label for=section-790ea1f7a6ea27b27a7d6974cebdf176 class="flex justify-between"><a href=/docs/devops/terraform/>Terraform</a></label><ul><li><a href=/docs/devops/terraform/aws/>Aws</a></li><li><a href=/docs/devops/terraform/basics/>Basics</a></li><li><a href=/docs/devops/terraform/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-0368c39eaef51566a54c8e3e2f9fa2c6 class=toggle>
+<label for=section-0368c39eaef51566a54c8e3e2f9fa2c6 class="flex justify-between"><a role=button>Terragrunt</a></label><ul><li><a href=/docs/devops/terragrunt/basics/>Basics</a></li></ul></li><li><input type=checkbox id=section-9828b447b9f40bbd108cce3889e3b4b1 class=toggle>
+<label for=section-9828b447b9f40bbd108cce3889e3b4b1 class="flex justify-between"><a role=button>Vagrant</a></label><ul><li><a href=/docs/devops/vagrant/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-942218419cbfe04f90f761579373a254 class=toggle>
+<label for=section-942218419cbfe04f90f761579373a254 class="flex justify-between"><a role=button>Windows</a></label><ul><li><a href=/docs/devops/windows/ime/>Ime</a></li><li><a href=/docs/devops/windows/winget/>Winget</a></li></ul></li><li><input type=checkbox id=section-26337bdc1e916ea8b5d36fa54e142361 class=toggle>
+<label for=section-26337bdc1e916ea8b5d36fa54e142361 class="flex justify-between"><a role=button>WSL</a></label><ul><li><a href=/docs/devops/wsl/installation/>Installation</a></li><li><a href=/docs/devops/wsl/ubuntu2004/>Ubuntu2004</a></li><li><a href=/docs/devops/wsl/ubuntu2204/>Ubuntu2204</a></li></ul></li></ul></li><li><input type=checkbox id=section-fd2a4e7f9ddea45452efb530b97de696 class=toggle>
+<label for=section-fd2a4e7f9ddea45452efb530b97de696 class="flex justify-between"><a role=button>Other</a></label><ul><li><input type=checkbox id=section-6dd47201186b4d781af10ca590ffd0e8 class=toggle>
+<label for=section-6dd47201186b4d781af10ca590ffd0e8 class="flex justify-between"><a role=button>Books</a></label><ul><li><a href=/docs/other/books/snippets/>Snippets</a></li></ul></li></ul></li><li><input type=checkbox id=section-28a50411accaecc16bc0763b9c190330 class=toggle>
+<label for=section-28a50411accaecc16bc0763b9c190330 class="flex justify-between"><a role=button>Tools</a></label><ul><li><input type=checkbox id=section-90b144b61c72c3778fdd58ee23c315dd class=toggle>
+<label for=section-90b144b61c72c3778fdd58ee23c315dd class="flex justify-between"><a role=button>AzCLI</a></label><ul></ul></li><li><input type=checkbox id=section-6cca59b4d0091eaef0a0b8007d6c65ac class=toggle>
+<label for=section-6cca59b4d0091eaef0a0b8007d6c65ac class="flex justify-between"><a role=button>GraphViz</a></label><ul></ul></li><li><input type=checkbox id=section-27083e53c922ad66777d25d74697bf3f class=toggle>
+<label for=section-27083e53c922ad66777d25d74697bf3f class="flex justify-between"><a role=button>Tesseract</a></label><ul></ul></li></ul></li><li><input type=checkbox id=section-5176c548812455d82028c9a17a394cc0 class=toggle>
+<label for=section-5176c548812455d82028c9a17a394cc0 class="flex justify-between"><a role=button>Programming</a></label><ul><li><input type=checkbox id=section-61cd9064d82baabe56040da3bf4ce6ca class=toggle>
+<label for=section-61cd9064d82baabe56040da3bf4ce6ca class="flex justify-between"><a role=button>Awk</a></label><ul><li><a href=/docs/programming/awk/basics/>Basics</a></li></ul></li><li><input type=checkbox id=section-dfae041bf653b237919ff5710c2fa09d class=toggle>
+<label for=section-dfae041bf653b237919ff5710c2fa09d class="flex justify-between"><a role=button>Bash</a></label><ul><li><a href=/docs/programming/bash/basics/>Basics</a></li></ul></li><li><input type=checkbox id=section-ed13027fc146c77e05cbbb62f0d478e8 class=toggle>
+<label for=section-ed13027fc146c77e05cbbb62f0d478e8 class="flex justify-between"><a role=button>Batch</a></label><ul><li><a href=/docs/programming/batch/basics/>Basics</a></li></ul></li><li><input type=checkbox id=section-eca9c52421e16e89406f17d6f0866bf7 class=toggle>
+<label for=section-eca9c52421e16e89406f17d6f0866bf7 class="flex justify-between"><a role=button>C#</a></label><ul><li><a href=/docs/programming/csharp/basics/>Basics</a></li></ul></li><li><input type=checkbox id=section-56c1205d614eb59f3e7257046957b00b class=toggle>
+<label for=section-56c1205d614eb59f3e7257046957b00b class="flex justify-between"><a role=button>Go</a></label><ul><li><a href=/docs/programming/go/basics/>Basics</a></li><li><a href=/docs/programming/go/cgi/>Cgi</a></li><li><a href=/docs/programming/go/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-4ca5fe0e612d1707016db6696a00da79 class=toggle>
+<label for=section-4ca5fe0e612d1707016db6696a00da79 class="flex justify-between"><a role=button>Powershell</a></label><ul><li><a href=/docs/programming/powershell/azdo/>Azdo</a></li><li><a href=/docs/programming/powershell/basics/>Basics</a></li><li><a href=/docs/programming/powershell/snippets/>Snippets</a></li></ul></li><li><input type=checkbox id=section-fe4cd509d8ca1cec30ba72d484aacd57 class=toggle>
+<label for=section-fe4cd509d8ca1cec30ba72d484aacd57 class="flex justify-between"><a role=button>Python</a></label><ul><li><a href=/docs/programming/python/basics/>Basics</a></li><li><a href=/docs/programming/python/environment/>Environment</a></li><li><a href=/docs/programming/python/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-a7951f4ea6115fa557f0ca9a84bc0cfc class=toggle>
+<label for=section-a7951f4ea6115fa557f0ca9a84bc0cfc class="flex justify-between"><a role=button>SQLite</a></label><ul><li><a href=/docs/programming/sqlite/data/>Data</a></li></ul></li><li><input type=checkbox id=section-274a68fdfb79a16e14bd48bda2db09aa class=toggle>
+<label for=section-274a68fdfb79a16e14bd48bda2db09aa class="flex justify-between"><a role=button>Typescript</a></label><ul><li><a href=/docs/programming/typescript/nodejs/>Nodejs</a></li></ul></li></ul></li></ul><ul><li><a href=/posts/>Blog</a></li><li><a href=https://github.com/dpurge/dpurge.github.io target=_blank rel=noopener>Github</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>Short Names</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#resource-short-names>Resource short names</a></li></ul></nav></aside></header><article class=markdown><h1 id=resource-short-names>Resource short names
+<a class=anchor href=#resource-short-names>#</a></h1><p>Short names can be displayed with a command: <code>kubectl api-resources</code></p><table><thead><tr><th style=text-align:left>Name</th><th style=text-align:left>Short name</th><th style=text-align:left>Kind</th><th style=text-align:left>API version</th><th style=text-align:left>Namespaced</th></tr></thead><tbody><tr><td style=text-align:left>pods</td><td style=text-align:left>po</td><td style=text-align:left>Pod</td><td style=text-align:left>v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left>replicasets</td><td style=text-align:left>rs</td><td style=text-align:left>ReplicaSet</td><td style=text-align:left>apps/v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left>deployments</td><td style=text-align:left>deploy</td><td style=text-align:left>Deployment</td><td style=text-align:left>apps/v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left>services</td><td style=text-align:left>svc</td><td style=text-align:left>Service</td><td style=text-align:left>v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left>statefulsets</td><td style=text-align:left>sts</td><td style=text-align:left>StatefulSet</td><td style=text-align:left>apps/v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left>daemonsets</td><td style=text-align:left>ds</td><td style=text-align:left>DaemonSet</td><td style=text-align:left>apps/v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left>persistentvolumes</td><td style=text-align:left>pv</td><td style=text-align:left>PersistentVolume</td><td style=text-align:left>v1</td><td style=text-align:left>false</td></tr><tr><td style=text-align:left>persistentvolumeclaims</td><td style=text-align:left>pvc</td><td style=text-align:left>PersistentVolumeClaim</td><td style=text-align:left>v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left>configmaps</td><td style=text-align:left>cm</td><td style=text-align:left>ConfigMap</td><td style=text-align:left>v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left>namespaces</td><td style=text-align:left>ns</td><td style=text-align:left>Namespace</td><td style=text-align:left>v1</td><td style=text-align:left>false</td></tr><tr><td style=text-align:left>nodes</td><td style=text-align:left>no</td><td style=text-align:left>Node</td><td style=text-align:left>v1</td><td style=text-align:left>false</td></tr><tr><td style=text-align:left>secrets</td><td style=text-align:left></td><td style=text-align:left>Secret</td><td style=text-align:left>v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left>jobs</td><td style=text-align:left></td><td style=text-align:left>Job</td><td style=text-align:left>batch/v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left>cronjobs</td><td style=text-align:left>cj</td><td style=text-align:left>CronJob</td><td style=text-align:left>batch/v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left>endpoints</td><td style=text-align:left>ep</td><td style=text-align:left>Endpoints</td><td style=text-align:left>v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left>ingresses</td><td style=text-align:left>ing</td><td style=text-align:left>Ingress</td><td style=text-align:left>networking.k8s.io/v1</td><td style=text-align:left>true</td></tr><tr><td style=text-align:left></td><td style=text-align:left></td><td style=text-align:left></td><td style=text-align:left></td><td style=text-align:left></td></tr><tr><td style=text-align:left></td><td style=text-align:left></td><td style=text-align:left></td><td style=text-align:left></td><td style=text-align:left></td></tr><tr><td style=text-align:left></td><td style=text-align:left></td><td style=text-align:left></td><td style=text-align:left></td><td style=text-align:left></td></tr><tr><td style=text-align:left></td><td style=text-align:left></td><td style=text-align:left></td><td style=text-align:left></td><td style=text-align:left></td></tr></tbody></table></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/commit/86d9dde419afaa2c3334b4e03f8d473246902b03 title='Last modified by D. Purge | October 27, 2024' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>October 27, 2024</span></a></div><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/edit/main/content/docs/devops/kubernetes/short-names.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#resource-short-names>Resource short names</a></li></ul></nav></div></aside></main></body></html>

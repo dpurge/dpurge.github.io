@@ -102,7 +102,10 @@
 &lt;/h2>
 &lt;p>In Google Cloud VPC is global, it spans multiple regions.
 Subnets are regional and span multiple zones within a region.
-This is different from AWS.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/gke/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/gke/</guid><description>&lt;h1 id="gke">
+This is different from AWS.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/gke-workload-identity/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/gke-workload-identity/</guid><description>&lt;h1 id="gke-workload-identity">
+ GKE Workload Identity
+ &lt;a class="anchor" href="#gke-workload-identity">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/gke/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/gke/</guid><description>&lt;h1 id="gke">
  GKE
  &lt;a class="anchor" href="#gke">#&lt;/a>
 &lt;/h1>
