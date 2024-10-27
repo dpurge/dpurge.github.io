@@ -7,7 +7,7 @@ Kubernetes assigns a unique IP address to a pod.
 Containers within a pod can listen on different ports.
 
 When the pod restarts, it gets a different IP address.
-A `service` is an abstraction that gets a stable IP address and DNS name.
+A `service` is an abstraction that gets a stable IP address and DNS name and acts as a load balancer for pods.
 
 All containers within a pod will get scaled together - a pod is the unit of scale.
 You cannot scale individual containers within the pod.
