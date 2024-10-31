@@ -85,6 +85,9 @@ tgswitch
 pip install jupyterlab
 deno jupyter --install
 pip install ansible
+brew install go-task/tap/go-task
+brew install k3d
+brew install podman-compose
 ```
 
 Add to `~/.zshenv`:
@@ -105,7 +108,8 @@ Use installer from [download page](https://code.visualstudio.com/download).
 Use installer from [GitHub releases](https://github.com/containers/podman/releases).
 
 ```sh
-podman machine init default
+podman machine init --cpus 4 --memory 2048 --disk-size 100 
+podman machine set --rootful
 ```
 
 ## Go
