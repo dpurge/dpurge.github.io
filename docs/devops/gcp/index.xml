@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GCP on Notebook</title><link>https://dpurge.github.io/docs/devops/gcp/</link><description>Recent content in GCP on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/gcp/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/gcp/definitions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/definitions/</guid><description>&lt;h1 id="definitions">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GCP on Notebook</title><link>https://dpurge.github.io/docs/devops/gcp/</link><description>Recent content in GCP on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/gcp/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/gcp/cloud-shell/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/cloud-shell/</guid><description>&lt;h1 id="cloud-shell">
+ Cloud shell
+ &lt;a class="anchor" href="#cloud-shell">#&lt;/a>
+&lt;/h1>
+&lt;p>Customize in &lt;code>~/.customize_environment&lt;/code> (&lt;code>edit .customize_environment&lt;/code>):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/bin/sh
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>TERRAFORM_VERSION&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;0.12.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl https://releases.hashicorp.com/terraform/&lt;span style="color:#e6db74">${&lt;/span>TERRAFORM_VERSION&lt;span style="color:#e6db74">}&lt;/span>/terraform_&lt;span style="color:#e6db74">${&lt;/span>TERRAFORM_VERSION&lt;span style="color:#e6db74">}&lt;/span>_linux_amd64.zip &amp;gt; terraform_&lt;span style="color:#e6db74">${&lt;/span>TERRAFORM_VERSION&lt;span style="color:#e6db74">}&lt;/span>_linux_amd64.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip -o terraform_&lt;span style="color:#e6db74">${&lt;/span>TERRAFORM_VERSION&lt;span style="color:#e6db74">}&lt;/span>_linux_amd64.zip -d /usr/local/bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Editor is based on Eclipse Theia.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/definitions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/definitions/</guid><description>&lt;h1 id="definitions">
  Definitions
  &lt;a class="anchor" href="#definitions">#&lt;/a>
 &lt;/h1>
@@ -151,8 +160,11 @@
  Initialize environment
  &lt;a class="anchor" href="#initialize-environment">#&lt;/a>
 &lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud init
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud auth list
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud init 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># or: gcloud init --console-only&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To switch active account:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud auth list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config set account dpurge@example.com
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="get-information">
  Get information
  &lt;a class="anchor" href="#get-information">#&lt;/a>
@@ -168,6 +180,12 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components install COMPONENT
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components remove COMPONENT
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="beta-commands-interactive-shell">
+ Beta commands interactive shell
+ &lt;a class="anchor" href="#beta-commands-interactive-shell">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud components install beta
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud beta interactive
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="switch-project">
  Switch project
  &lt;a class="anchor" href="#switch-project">#&lt;/a>
