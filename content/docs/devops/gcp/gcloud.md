@@ -28,8 +28,15 @@ gcloud help
 ## Initialize environment
 
 ```sh
-gcloud init
+gcloud init 
+# or: gcloud init --console-only
+```
+
+To switch active account:
+
+```sh
 gcloud auth list
+gcloud config set account dpurge@example.com
 ```
 
 ## Get information
@@ -47,6 +54,13 @@ gcloud components list
 gcloud components install COMPONENT
 gcloud components remove COMPONENT
 gcloud components update
+```
+
+## Beta commands interactive shell
+
+```sh
+gcloud components install beta
+gcloud beta interactive
 ```
 
 ## Switch project
