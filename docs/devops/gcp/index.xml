@@ -482,7 +482,33 @@ Use &lt;code>multi-region&lt;/code> for the location type, &lt;code>standard&lt;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud container clusters get-credentials gke --region us-west2 --project k8s-staging-000000
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get svc
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get nodes
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example load balacer in Kubernetes:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/vpc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/vpc/</guid><description>&lt;h1 id="vpc">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example load balacer in Kubernetes:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/iam/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/iam/</guid><description>&lt;h1 id="iam">
+ IAM
+ &lt;a class="anchor" href="#iam">#&lt;/a>
+&lt;/h1>
+&lt;p>IAM = Identity Access Management&lt;/p>
+&lt;p>Manages: &lt;em>Identity&lt;/em> (who?) has &lt;em>role&lt;/em> (what access) for which &lt;em>resource&lt;/em> (or organization, project, folder).&lt;/p>
+&lt;p>Use the principle of least access.&lt;/p>
+&lt;p>Permissions not granted directly to the user.
+Permissions are grouped into roles which are granted to the authenticated members.&lt;/p>
+&lt;p>IAM policy defines and enforces what roles are granted to which members.
+This policy is attached to a resource.&lt;/p>
+&lt;h2 id="policy-architecture">
+ Policy architecture
+ &lt;a class="anchor" href="#policy-architecture">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">Policy&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Metadata&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">etags&lt;/span>: &lt;span style="color:#ae81ff">concurrency control&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">version&lt;/span>: &lt;span style="color:#ae81ff">specifies schema version&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Audit-Config&lt;/span>: &lt;span style="color:#ae81ff">configures audit logging&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Binding&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Condition&lt;/span>: &lt;span style="color:#ae81ff">constrains binding&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Member&lt;/span>: []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Role&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Permissions&lt;/span>: []
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Member is an identity that can access a resource.
+Identity is an e-mail account associated with a user, service account or a Google group, a domain name associated with a GSuite or cloud identity domains.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/vpc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/vpc/</guid><description>&lt;h1 id="vpc">
  VPC
  &lt;a class="anchor" href="#vpc">#&lt;/a>
 &lt;/h1>
