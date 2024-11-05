@@ -268,3 +268,7 @@ gcloud compute instances stop instance-1 --zone us-central1-a
 gcloud compute instances set-service-account instance-1 --zone us-central1-a --service-account sa-example@{project-name}.iam.gserviceaccount.com
 gcloud compute instances start instance-1 --zone us-central1
 ```
+
+## Cloud identity
+
+Identity as a service (SSO, device management, security, reporting, directory management).
