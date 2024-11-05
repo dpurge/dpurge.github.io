@@ -926,21 +926,56 @@ This policy is attached to a resource.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Role&lt;/span>:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Permissions&lt;/span>: []
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Member is an identity that can access a resource.
-Identity is an e-mail account associated with a user, service account or a Google group, a domain name associated with a GSuite or cloud identity domains.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/vpc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/vpc/</guid><description>&lt;h1 id="vpc">
+Identity is an e-mail account associated with a user, service account or a Google group, a domain name associated with a GSuite or cloud identity domains.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/networking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/networking/</guid><description>&lt;h1 id="networking">
+ Networking
+ &lt;a class="anchor" href="#networking">#&lt;/a>
+&lt;/h1>
+&lt;p>OSI model:&lt;/p>
+&lt;ol>
+&lt;li>Physical&lt;/li>
+&lt;li>Data link&lt;/li>
+&lt;li>Network (IPv4, IPv6, ICMP)&lt;/li>
+&lt;li>Transport (TCP, UDP)&lt;/li>
+&lt;li>Session&lt;/li>
+&lt;li>Presentation&lt;/li>
+&lt;li>Application (telnet, SSH, DNS, DHCP, HTTP, HTTPS)&lt;/li>
+&lt;/ol>
+&lt;h2 id="ip-v4">
+ IP v4
+ &lt;a class="anchor" href="#ip-v4">#&lt;/a>
+&lt;/h2>
+&lt;p>Classful addressing:&lt;/p>
+&lt;p>4,294,967,296 addresses&lt;/p>
+&lt;dl>
+&lt;dt>Class A&lt;/dt>
+&lt;dd>&lt;code>0.0.0.0&lt;/code> - &lt;code>127.255.255.255&lt;/code>; 2,147,483,648 addresses; 128 networks&lt;/dd>
+&lt;dt>Class B&lt;/dt>
+&lt;dd>&lt;code>128.0.0.0&lt;/code> - &lt;code>191.255.255.255&lt;/code>; 1,073,741,824 addresses; 16,384 networks&lt;/dd>
+&lt;dt>Class C&lt;/dt>
+&lt;dd>&lt;code>192.0.0.0&lt;/code> - &lt;code>223.255.255.255&lt;/code>; 536,870,912 addresses; 2,097,152 networks&lt;/dd>
+&lt;/dl>
+&lt;p>Private IP addresses (RFC1918):&lt;/p>
+&lt;ul>
+&lt;li>class A: &lt;code>10.0.0.0&lt;/code> - &lt;code>10.255.255.255&lt;/code>; 16,777,216 addresses&lt;/li>
+&lt;li>class B: &lt;code>172.16.0.0&lt;/code> - &lt;code>172.31.255.255&lt;/code>; 1,048,576 addresses&lt;/li>
+&lt;li>class C: &lt;code>192.168.0.0&lt;/code> - &lt;code>192.168.255.255&lt;/code>; 65,536 addresses&lt;/li>
+&lt;/ul>
+&lt;h3 id="classless-inter-domain-routing">
+ Classless Inter-Domain Routing
+ &lt;a class="anchor" href="#classless-inter-domain-routing">#&lt;/a>
+&lt;/h3>
+&lt;p>CIDR = Classless Inter-Domain Routing&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/vpc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/vpc/</guid><description>&lt;h1 id="vpc">
  VPC
  &lt;a class="anchor" href="#vpc">#&lt;/a>
 &lt;/h1>
-&lt;p>Create regional network with custom subnets.&lt;/p>
-&lt;p>Public subnet will have a default internet gateway.&lt;/p>
-&lt;p>Private subnet will have NAT gateway as its route.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud compute networks create main --bgp-routing-mode&lt;span style="color:#f92672">=&lt;/span>regional --subnet-mode&lt;span style="color:#f92672">=&lt;/span>custom
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Add public subnet:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud compute networks subnets create public --range&lt;span style="color:#f92672">=&lt;/span>10.0.0.0/24 --network&lt;span style="color:#f92672">=&lt;/span>main --region&lt;span style="color:#f92672">=&lt;/span>us-west2
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create private subnet:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud compute networks subnets create private --range&lt;span style="color:#f92672">=&lt;/span>10.0.1.0/24 --network&lt;span style="color:#f92672">=&lt;/span>main --region&lt;span style="color:#f92672">=&lt;/span>us-west2 --enable-private-ip-google-access
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create cloud router:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud compute routers create router --network&lt;span style="color:#f92672">=&lt;/span>main --region&lt;span style="color:#f92672">=&lt;/span>us-west2
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create cloud NAT gateway and select IP ranges:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/git/branches/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/git/branches/</guid><description>&lt;h1 id="branches">
+&lt;p>VPC = Virtual Private Cloud&lt;/p>
+&lt;p>VPC is a virtualized, software defined network within Google Cloud.&lt;/p>
+&lt;p>VPC network, its routes and firewall rules are global resources, not associated with any particular region or zone.&lt;/p>
+&lt;p>VPC is encapsulated within a project.&lt;/p>
+&lt;p>VPCs do not have any IP address ranges associated with them.
+IP adress ranges are defined within subnetworks associated with VPC.
+Subnetworks are regional.&lt;/p>
+&lt;p>Network firewall rules control traffic flowing in and out of the VPC.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/git/branches/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/git/branches/</guid><description>&lt;h1 id="branches">
  Branches
  &lt;a class="anchor" href="#branches">#&lt;/a>
 &lt;/h1>
