@@ -520,7 +520,16 @@ It is used by Docker Desktop backend to store images and volumes.&lt;/p>
  Load Balancing
  &lt;a class="anchor" href="#load-balancing">#&lt;/a>
 &lt;/h2>
-&lt;p>Distribution of workloads across multiple instances.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/functions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/functions/</guid><description>&lt;h1 id="cloud-functions">
+&lt;p>Distribution of workloads across multiple instances.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/firewall/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/firewall/</guid><description>&lt;h1 id="firewall">
+ Firewall
+ &lt;a class="anchor" href="#firewall">#&lt;/a>
+&lt;/h1>
+&lt;p>Firewall rules apply to a given project and VPC.
+It is also possible to apply firewall rules across an organization.&lt;/p>
+&lt;p>Firewall rules apply either to incoming or outgoing connections, never both at the same timne.&lt;/p>
+&lt;p>Every VPC network functions as a distributed firewall.
+Firewall rules are defined on a network level, connections are allowed or denied on a per instance basis.
+You can imagine the acting not only on a perimeter of the network, but also between instances within the network.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/gcp/functions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/gcp/functions/</guid><description>&lt;h1 id="cloud-functions">
  Cloud functions
  &lt;a class="anchor" href="#cloud-functions">#&lt;/a>
 &lt;/h1>
