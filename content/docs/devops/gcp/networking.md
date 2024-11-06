@@ -98,3 +98,21 @@ Create global IP address:
 ```sh
 gcloud compute addresses create {address-name} --global --ip-version [IPV4|IPV6]
 ```
+
+List available IP addresses:
+
+```sh
+gcloud compute addresses list
+```
+
+Promote external IP address from ephemeral to static:
+
+```sh
+gcloud compute addresses create {address-name} --addresses 104.196.219.42 --region us-east1
+```
+
+Delete static internal IP address:
+
+```sh
+gcloud compute addresses delete {address-name}  --region us-east1
+```
