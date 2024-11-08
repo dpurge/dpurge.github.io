@@ -195,3 +195,81 @@ resource "google_compute_router_nat" "this" {
     }
 }
 ```
+
+## VPC with Private Google Access
+
+Private access = access to a VM without a public IP access.
+
+Create VPC:
+
+```sh
+gcloud compute networks create mynetwork --project=myproject --description=... --subnet-mode=custom --bgp-routing-mode=regional
+
+gcloud compute networks subnets create public --project=myproject --range=10.0.0.0/24 --network=mynetwork --region=us-east1
+
+gcloud compute networks subnets create private --project=myproject --range=10.0.5.0/24 --network=mynetwork --region=us-east4
+```
+
+Set up cloud storage:
+
+```sh
+# todo
+```
+
+Set up VM instances:
+
+```sh
+gcloud beta compute --project=myproject instances create public-instance --zone=us-east1-b --machine-type=e2-micro --subnet=public --network-tier=PREMIUM --maintenance-policy=MIGRATE --service-account=... --scopes=https://www.googleapis.com/auth/compute,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/trace.append,https://www.googleapis.com/auth/devstorage.read_write --tags=public --image=debian-10-buster-v20200910 --image-project=debian-cloud --boot-disk-size=10GB --boot-disk-type=pd-standard --boot-disk-device-name=public-instance --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --labels=env=public --reservation-affinity=any
+
+# add another machine private-instance in the private subnet without public IP
+```
+
+Add firewall rules allowing ssh and icmp access:
+
+```sh
+# todo
+```
+
+On the public machine, check access to the storage:
+
+```sh
+gsutil ls gs://mybucket-test-access
+```
+
+Check ssh from public to the private instance:
+
+```sh
+gcloud compute ssh --project myproject --zone us-east4-c private-instance --internal-ip
+```
+
+Enable private gGoogle accees on the private network:
+
+```sh
+# todo
+```
+
+## VPC network peering
+
+VPC peering is a service allowing two VPC networks to communicate privately without passing the traffic through the public Internet. (RFC 1918)
+
+All the traffic stays within Google's network.
+
+Peering can be established between the same or different projects and organizations.
+
+As compared to VPN:
+
+- reduces network latency
+- increases network security
+- reduces network costs
+
+Characteristics:
+
+- peered networks remain administratively separate (routes, firewalls, vpn are applied separately)
+- connection established for each VPC separately, configuration on both sides has to match, each side can break the peering at any time
+- VPC peers always exchange all subnet routes
+- a VPC can peer with many networks, but quotas apply
+- CIDR range in one network cannot overlap with a static route in another network.
+- to allow ingress traffic from VM instances in a peer network, you must create ingress allow firewall rules (by default ingress traffic to VMs is blocked by the implied deny ingress rule)
+- transitive peering is not supported (networks must be peered directly to allow traffic)
+- you cannot use a tag or a service account in one peered network in another peered network
+- internal DNS is not accessible for compute engine in peered networks
