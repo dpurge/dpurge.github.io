@@ -7,6 +7,13 @@ Import-Module -Name D:\src\github.com\dpurge\jdp-psmodule\src\JdpBookbind
 Invoke-Book2Image -OutputDirectory img -InputFile book.pdf
 ```
 
+## Convert TIFF to PNG
+
+```pwsh
+$files = Get-ChildItem -Filter *.tif
+$i=0; $files | %{$i++; magick $_.name ("page{0:d3}.png" -f $i)}
+```
+
 ## Merge two directories with images
 
 ```pwsh
