@@ -14,6 +14,12 @@ $files = Get-ChildItem -Filter *.tif
 $i=0; $files | %{$i++; magick $_.name ("page{0:d3}.png" -f $i)}
 ```
 
+## Convert multipage TIFF to PNG
+
+```pwsh
+magick book.tiff img/page-%03d.png
+```
+
 ## Merge two directories with images
 
 ```pwsh
