@@ -2640,8 +2640,13 @@ kernel=D:\\dat\\WSL\\kernel\\vmlinux
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write-Host $outfile
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Write-Host $printBatch.basename
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> D:\pgm\ImageMagick\convert.exe $printBatch $outfile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> magick $printBatch $outfile
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="scale-pdf-page-for-printing">
+ Scale PDF page for printing
+ &lt;a class="anchor" href="#scale-pdf-page-for-printing">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>cpdf -scale-page &lt;span style="color:#e6db74">&amp;#34;1.4 1.4&amp;#34;&lt;/span> batch-&lt;span style="color:#ae81ff">01&lt;/span>.pdf -o batch-&lt;span style="color:#ae81ff">01&lt;/span>-scaled.pdf
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/programming/awk/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/awk/basics/</guid><description>&lt;h1 id="awk-basics">
  Awk basics
  &lt;a class="anchor" href="#awk-basics">#&lt;/a>
