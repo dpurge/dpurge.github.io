@@ -141,3 +141,9 @@ foreach($batch in $batches) {
 ```pwsh
 cpdf -scale-page "1.4 1.4" batch-01.pdf -o batch-01-scaled.pdf
 ```
+
+## Scale PDF to fit and add margin
+
+```pwsh
+cpdf -scale-to-fit a4portrait -scale-to-fit-scale 0.9 book-01.pdf -o batch-01.pdf
+```
