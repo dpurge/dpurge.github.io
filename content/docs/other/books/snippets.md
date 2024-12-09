@@ -132,6 +132,12 @@ foreach($batch in $batches) {
   }
   Write-Host $outfile
   Write-Host $printBatch.basename
-  D:\pgm\ImageMagick\convert.exe $printBatch $outfile
+  magick $printBatch $outfile
 }
+```
+
+## Scale PDF page for printing
+
+```pwsh
+cpdf -scale-page "1.4 1.4" batch-01.pdf -o batch-01-scaled.pdf
 ```
