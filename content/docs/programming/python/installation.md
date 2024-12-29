@@ -66,6 +66,8 @@ Set global Python version: `pyenv global 3.11.4`
 
 Set local Python version: `pyenv local 3.11.4`
 
+Copy scripts from `https://github.com/pyenv-win/pyenv-win-venv` to `bin` directory and adjust paths in the scripts.
+
 ## Install basic packages
 
 ```sh
