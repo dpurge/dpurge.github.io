@@ -7,11 +7,11 @@
  &lt;a class="anchor" href="#cvs-data">#&lt;/a>
 &lt;/h2>
 &lt;p>Example data in &lt;code>data.csv&lt;/code>:&lt;/p>
-&lt;pre tabindex="0">&lt;code class="language-csv" data-lang="csv">index, code, name
-1, EX1, Example 1
-2, EX2, Example 2
-3, EX3, Example 3
-&lt;/code>&lt;/pre>&lt;p>Start new database:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csv" data-lang="csv">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">index&lt;/span>,&lt;span style="color:#e6db74"> code&lt;/span>,&lt;span style="color:#e6db74"> name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">1&lt;/span>,&lt;span style="color:#e6db74"> EX1&lt;/span>,&lt;span style="color:#e6db74"> Example 1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">2&lt;/span>,&lt;span style="color:#e6db74"> EX2&lt;/span>,&lt;span style="color:#e6db74"> Example 2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">3&lt;/span>,&lt;span style="color:#e6db74"> EX3&lt;/span>,&lt;span style="color:#e6db74"> Example 3&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Start new database:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sqlite3 data.db
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Load data into table and delete headers in sqlite shell:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>create table data &lt;span style="color:#f92672">(&lt;/span>index, code, name&lt;span style="color:#f92672">)&lt;/span>;

@@ -1,57 +1,31 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content='
-  Go Basics
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Podman compose
   #
 
+Podman Compose picks the services defined inside the docker-compose.yaml file and creates a container for each service.
+Podman Compose adds the containers to a single pod for the whole project, and all the containers share the same network.
 
-  Project template
+  Install
   #
 
-Set up:
-mkdir example-project
-cd ./example-project
-go mod init
-./.gitignore:
-./Makefile:
-.PHONY: clean build test
+pip3 install https://github.com/containers/podman-compose/archive/devel.tar.gz
 
-clean:
-    echo "Not implemented"
-
-build:
-    echo "Not implemented"
-
-test:
-    echo "Not implemented"
-
-install:
-    echo "Not implemented"
-./main.go:
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello, World!")
-}
-Run project:
-go run .
-
-  Taskfile
+  Running
   #
 
+What happens when you run podman-compose up in the project directory:
 
+a pod is created and named after the directory
+named volumes defined in the YAML file are created if they do not exist
+one container is created for each service listed in the YAML file and added to the pod
+localhost aliases are added to each named container
 
-  Task file home
-
-  Task file repository
-'><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://dpurge.github.io/docs/programming/go/basics/"><meta property="og:site_name" content="Notebook"><meta property="og:title" content="Notebook"><meta property="og:description" content='Go Basics # Project template # Set up:
-mkdir example-project cd ./example-project go mod init ./.gitignore:
-./Makefile:
-.PHONY: clean build test clean: echo "Not implemented" build: echo "Not implemented" test: echo "Not implemented" install: echo "Not implemented" ./main.go:
-package main import "fmt" func main() { fmt.Println("Hello, World!") } Run project:
-go run . Taskfile # Task file home Task file repository'><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-07-28T21:44:46+02:00"><title>Basics | Notebook</title>
+Containers can resolve each other by name, although they are not on a bridge network.
+To do this, use the option –add-host, ex: –add-host web:localhost."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://dpurge.github.io/docs/devops/podman/compose/"><meta property="og:site_name" content="Notebook"><meta property="og:title" content="Notebook"><meta property="og:description" content="Podman compose # Podman Compose picks the services defined inside the docker-compose.yaml file and creates a container for each service. Podman Compose adds the containers to a single pod for the whole project, and all the containers share the same network.
+Install # pip3 install https://github.com/containers/podman-compose/archive/devel.tar.gz Running # What happens when you run podman-compose up in the project directory:
+a pod is created and named after the directory named volumes defined in the YAML file are created if they do not exist one container is created for each service listed in the YAML file and added to the pod localhost aliases are added to each named container Containers can resolve each other by name, although they are not on a bridge network. To do this, use the option –add-host, ex: –add-host web:localhost."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2025-01-19T01:09:32+01:00"><title>Compose | Notebook</title>
 <link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.a83ba2bbfe9da706fb22ac37e6fca0d0de8cbf273063bf714e507cce13dba13d.js integrity="sha256-qDuiu/6dpwb7Iqw35vyg0N6MvycwY79xTlB8zhPboT0=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Notebook</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-5ed42fa188b10ac098d312d036e5db61 class=toggle>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Notebook</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-5ed42fa188b10ac098d312d036e5db61 class=toggle checked>
 <label for=section-5ed42fa188b10ac098d312d036e5db61 class="flex justify-between"><a role=button>Devops</a></label><ul><li><input type=checkbox id=section-1fcf73664521c60a632dd1a03efd1f51 class=toggle>
 <label for=section-1fcf73664521c60a632dd1a03efd1f51 class="flex justify-between"><a role=button>Ansible</a></label><ul><li><a href=/docs/devops/ansible/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-c2087d1a0cdf1643f70cd556cb17ad55 class=toggle>
 <label for=section-c2087d1a0cdf1643f70cd556cb17ad55 class="flex justify-between"><a role=button>ArgoCD</a></label><ul><li><a href=/docs/devops/argo/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-f47ce4ece0f3dbd0b0d5520f3ec152ac class=toggle>
@@ -67,8 +41,8 @@ go run . Taskfile # Task file home Task file repository'><meta property="og:loca
 <label for=section-47a6b9cf18ba8fd999da8a767a80d55c class="flex justify-between"><a role=button>Linux</a></label><ul><li><a href=/docs/devops/linux/blocky/>Blocky</a></li><li><a href=/docs/devops/linux/caddy/>Caddy</a></li><li><a href=/docs/devops/linux/podman/>Podman</a></li><li><a href=/docs/devops/linux/screen/>Screen</a></li><li><a href=/docs/devops/linux/searxng/>Searxng</a></li><li><a href=/docs/devops/linux/setup/>Setup</a></li><li><a href=/docs/devops/linux/ubuntu/>Ubuntu</a></li></ul></li><li><input type=checkbox id=section-8c295e57838921fd2d675ad856381c28 class=toggle>
 <label for=section-8c295e57838921fd2d675ad856381c28 class="flex justify-between"><a href=/docs/devops/macos/>MacOS</a></label><ul><li><a href=/docs/devops/macos/homebrew/>Homebrew</a></li><li><a href=/docs/devops/macos/java/>Java</a></li><li><a href=/docs/devops/macos/multipass/>Multipass</a></li><li><a href=/docs/devops/macos/python/>Python</a></li></ul></li><li><input type=checkbox id=section-10f7911111825950c64c7c1eaf3c1e76 class=toggle>
 <label for=section-10f7911111825950c64c7c1eaf3c1e76 class="flex justify-between"><a href=/docs/devops/ollama/>Ollama</a></label><ul></ul></li><li><input type=checkbox id=section-d425dec9d097e6d0fb451b2000e12c4b class=toggle>
-<label for=section-d425dec9d097e6d0fb451b2000e12c4b class="flex justify-between"><a role=button>Packer</a></label><ul><li><a href=/docs/devops/packer/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-61932fa60c5fb65e4442fb06867ba7dc class=toggle>
-<label for=section-61932fa60c5fb65e4442fb06867ba7dc class="flex justify-between"><a href=/docs/devops/podman/>Podman</a></label><ul><li><a href=/docs/devops/podman/compose/>Compose</a></li></ul></li><li><input type=checkbox id=section-fe27198961b1e6e0429110142052b0d0 class=toggle>
+<label for=section-d425dec9d097e6d0fb451b2000e12c4b class="flex justify-between"><a role=button>Packer</a></label><ul><li><a href=/docs/devops/packer/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-61932fa60c5fb65e4442fb06867ba7dc class=toggle checked>
+<label for=section-61932fa60c5fb65e4442fb06867ba7dc class="flex justify-between"><a href=/docs/devops/podman/>Podman</a></label><ul><li><a href=/docs/devops/podman/compose/ class=active>Compose</a></li></ul></li><li><input type=checkbox id=section-fe27198961b1e6e0429110142052b0d0 class=toggle>
 <label for=section-fe27198961b1e6e0429110142052b0d0 class="flex justify-between"><a href=/docs/devops/qemu/>QEmu</a></label><ul></ul></li><li><input type=checkbox id=section-fc00d5feb946b8fb7e89a44043aaff38 class=toggle>
 <label for=section-fc00d5feb946b8fb7e89a44043aaff38 class="flex justify-between"><a href=/docs/devops/terraform/>Terraform</a></label><ul><li><a href=/docs/devops/terraform/aws/>Aws</a></li><li><a href=/docs/devops/terraform/basics/>Basics</a></li><li><a href=/docs/devops/terraform/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-510829274d6159e3c9c28d13c09cfce3 class=toggle>
 <label for=section-510829274d6159e3c9c28d13c09cfce3 class="flex justify-between"><a role=button>Terragrunt</a></label><ul><li><a href=/docs/devops/terragrunt/basics/>Basics</a></li></ul></li><li><input type=checkbox id=section-17240d63f82733a8ccdf6e48de5bc2d7 class=toggle>
@@ -80,45 +54,73 @@ go run . Taskfile # Task file home Task file repository'><meta property="og:loca
 <label for=section-ac57b6c9cca771981a03b1ba45863f8d class="flex justify-between"><a role=button>Tools</a></label><ul><li><input type=checkbox id=section-a45750650ff56d259f4062f438098a5a class=toggle>
 <label for=section-a45750650ff56d259f4062f438098a5a class="flex justify-between"><a role=button>AzCLI</a></label><ul></ul></li><li><input type=checkbox id=section-4087f1b5bc81bf1d3302521293bf244b class=toggle>
 <label for=section-4087f1b5bc81bf1d3302521293bf244b class="flex justify-between"><a role=button>GraphViz</a></label><ul></ul></li><li><input type=checkbox id=section-86e89c76906928d0f1ba213f94c31800 class=toggle>
-<label for=section-86e89c76906928d0f1ba213f94c31800 class="flex justify-between"><a role=button>Tesseract</a></label><ul></ul></li></ul></li><li><input type=checkbox id=section-4404243c90aaf852c09add5b5557b400 class=toggle checked>
+<label for=section-86e89c76906928d0f1ba213f94c31800 class="flex justify-between"><a role=button>Tesseract</a></label><ul></ul></li></ul></li><li><input type=checkbox id=section-4404243c90aaf852c09add5b5557b400 class=toggle>
 <label for=section-4404243c90aaf852c09add5b5557b400 class="flex justify-between"><a role=button>Programming</a></label><ul><li><input type=checkbox id=section-b7178fd2927c3e62d8a4e45fb55e60a7 class=toggle>
 <label for=section-b7178fd2927c3e62d8a4e45fb55e60a7 class="flex justify-between"><a role=button>Awk</a></label><ul><li><a href=/docs/programming/awk/basics/>Basics</a></li></ul></li><li><input type=checkbox id=section-6cfd14a35e3949908c635cdeeacc0084 class=toggle>
 <label for=section-6cfd14a35e3949908c635cdeeacc0084 class="flex justify-between"><a role=button>Bash</a></label><ul><li><a href=/docs/programming/bash/basics/>Basics</a></li></ul></li><li><input type=checkbox id=section-e5ff87ffd212150f3d29c33ed735f13e class=toggle>
 <label for=section-e5ff87ffd212150f3d29c33ed735f13e class="flex justify-between"><a role=button>Batch</a></label><ul><li><a href=/docs/programming/batch/basics/>Basics</a></li></ul></li><li><input type=checkbox id=section-e5159efec64bdeff5e89f0d6097b0490 class=toggle>
-<label for=section-e5159efec64bdeff5e89f0d6097b0490 class="flex justify-between"><a role=button>C#</a></label><ul><li><a href=/docs/programming/csharp/basics/>Basics</a></li></ul></li><li><input type=checkbox id=section-b0231b0e110de6fc607111305d8ab683 class=toggle checked>
-<label for=section-b0231b0e110de6fc607111305d8ab683 class="flex justify-between"><a role=button>Go</a></label><ul><li><a href=/docs/programming/go/basics/ class=active>Basics</a></li><li><a href=/docs/programming/go/cgi/>Cgi</a></li><li><a href=/docs/programming/go/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-7d2d89e16c410986f302f6018a766478 class=toggle>
+<label for=section-e5159efec64bdeff5e89f0d6097b0490 class="flex justify-between"><a role=button>C#</a></label><ul><li><a href=/docs/programming/csharp/basics/>Basics</a></li></ul></li><li><input type=checkbox id=section-b0231b0e110de6fc607111305d8ab683 class=toggle>
+<label for=section-b0231b0e110de6fc607111305d8ab683 class="flex justify-between"><a role=button>Go</a></label><ul><li><a href=/docs/programming/go/basics/>Basics</a></li><li><a href=/docs/programming/go/cgi/>Cgi</a></li><li><a href=/docs/programming/go/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-7d2d89e16c410986f302f6018a766478 class=toggle>
 <label for=section-7d2d89e16c410986f302f6018a766478 class="flex justify-between"><a role=button>Powershell</a></label><ul><li><a href=/docs/programming/powershell/azdo/>Azdo</a></li><li><a href=/docs/programming/powershell/basics/>Basics</a></li><li><a href=/docs/programming/powershell/snippets/>Snippets</a></li></ul></li><li><input type=checkbox id=section-9574b6d1167d7327522b0f42bc5a4c8e class=toggle>
 <label for=section-9574b6d1167d7327522b0f42bc5a4c8e class="flex justify-between"><a role=button>Python</a></label><ul><li><a href=/docs/programming/python/basics/>Basics</a></li><li><a href=/docs/programming/python/environment/>Environment</a></li><li><a href=/docs/programming/python/installation/>Installation</a></li></ul></li><li><input type=checkbox id=section-b02cfcac3355f9db66ee8423a9173bb3 class=toggle>
 <label for=section-b02cfcac3355f9db66ee8423a9173bb3 class="flex justify-between"><a role=button>SQLite</a></label><ul><li><a href=/docs/programming/sqlite/data/>Data</a></li></ul></li><li><input type=checkbox id=section-90b0b18d2b29f7afc148bc24636416c6 class=toggle>
 <label for=section-90b0b18d2b29f7afc148bc24636416c6 class="flex justify-between"><a role=button>Typescript</a></label><ul><li><a href=/docs/programming/typescript/nodejs/>Nodejs</a></li></ul></li></ul></li></ul><ul><li><a href=/posts/>Blog</a></li><li><a href=https://github.com/dpurge/dpurge.github.io target=_blank rel=noopener>Github</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
-</label><strong>Basics</strong>
-<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#go-basics>Go Basics</a><ul><li><a href=#project-template>Project template</a></li><li><a href=#taskfile>Taskfile</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=go-basics>Go Basics
-<a class=anchor href=#go-basics>#</a></h1><h2 id=project-template>Project template
-<a class=anchor href=#project-template>#</a></h2><p>Set up:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>mkdir example-project
-</span></span><span style=display:flex><span>cd ./example-project
-</span></span><span style=display:flex><span>go mod init
-</span></span></code></pre></div><p><code>./.gitignore</code>:</p><pre tabindex=0><code class=language-gitignore data-lang=gitignore></code></pre><p><code>./Makefile</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-make data-lang=make><span style=display:flex><span><span style=color:#a6e22e>.PHONY</span><span style=color:#f92672>:</span> clean build test
+</label><strong>Compose</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#podman-compose>Podman compose</a><ul><li><a href=#install>Install</a></li><li><a href=#running>Running</a></li><li><a href=#samples>Samples</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=podman-compose>Podman compose
+<a class=anchor href=#podman-compose>#</a></h1><p>Podman Compose picks the services defined inside the <code>docker-compose.yaml</code> file and creates a container for each service.
+Podman Compose adds the containers to a single pod for the whole project, and all the containers share the same network.</p><h2 id=install>Install
+<a class=anchor href=#install>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>pip3 install https://github.com/containers/podman-compose/archive/devel.tar.gz
+</span></span></code></pre></div><h2 id=running>Running
+<a class=anchor href=#running>#</a></h2><p>What happens when you run <code>podman-compose up</code> in the project directory:</p><ul><li>a pod is created and named after the directory</li><li>named volumes defined in the YAML file are created if they do not exist</li><li>one container is created for each service listed in the YAML file and added to the pod</li><li>localhost aliases are added to each named container</li></ul><p>Containers can resolve each other by name, although they are not on a bridge network.
+To do this, use the option <code>–add-host</code>, ex: <code>–add-host web:localhost</code>.</p><p>Run:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>podman-compose up
+</span></span><span style=display:flex><span>podman ps
+</span></span><span style=display:flex><span>podman-compose down
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>clean</span><span style=color:#f92672>:</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Not implemented&#34;</span>
+</span></span><span style=display:flex><span>podman pod stop <span style=color:#f92672>{</span>podname<span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>podman pod rm <span style=color:#f92672>{</span>podname<span style=color:#f92672>}</span>
+</span></span></code></pre></div><h2 id=samples>Samples
+<a class=anchor href=#samples>#</a></h2><p>Wordpress:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#34;3.8&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>: 
+</span></span><span style=display:flex><span>  <span style=color:#f92672>web</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>wordpress</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>wordpress:/var/www/html</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>8080</span>:<span style=color:#ae81ff>80</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>WORDPRESS_DB_HOST</span>: <span style=color:#ae81ff>db</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>WORDPRESS_DB_USER</span>: <span style=color:#ae81ff>wordpress</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>WORDPRESS_DB_NAME</span>: <span style=color:#ae81ff>wordpress</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>WORDPRESS_DB_PASSWORD</span>: <span style=color:#ae81ff>wordpress</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>WORDPRESS_TABLE_PREFIX</span>: <span style=color:#ae81ff>cz</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>WORDPRESS_DEBUG</span>: <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>depends_on</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>db</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>networks</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>wpnet</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>db</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>mariadb:10.5</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>6603</span>:<span style=color:#ae81ff>3306</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>build</span><span style=color:#f92672>:</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Not implemented&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>wpdbvol:/var/lib/mysql</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>test</span><span style=color:#f92672>:</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Not implemented&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>MYSQL_DATABASE</span>: <span style=color:#ae81ff>wordpress</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>MYSQL_USER</span>: <span style=color:#ae81ff>wordpress</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>MYSQL_PASSWORD</span>: <span style=color:#ae81ff>wordpress</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>MYSQL_ROOT_PASSWORD</span>: <span style=color:#ae81ff>wordpress</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>networks</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>wpnet</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>wordpress</span>: {}
+</span></span><span style=display:flex><span>  <span style=color:#f92672>wpdbvol</span>: {}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>install</span><span style=color:#f92672>:</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Not implemented&#34;</span>
-</span></span></code></pre></div><p><code>./main.go</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;fmt&#34;</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Hello, World!&#34;</span>)
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>Run project:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>go run .
-</span></span></code></pre></div><h2 id=taskfile>Taskfile
-<a class=anchor href=#taskfile>#</a></h2><ul><li><a href=https://taskfile.dev/>Task file home</a></li><li><a href=https://github.com/go-task/task>Task file repository</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/commit/cac850914b446205e127d3b76c4a78681f74e468 title='Last modified by David P | July 28, 2023' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
-<span>July 28, 2023</span></a></div><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/edit/main/content/docs/programming/go/basics.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
-<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#go-basics>Go Basics</a><ul><li><a href=#project-template>Project template</a></li><li><a href=#taskfile>Taskfile</a></li></ul></li></ul></nav></div></aside></main></body></html>
+</span></span><span style=display:flex><span><span style=color:#f92672>networks</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>wpnet</span>: {}
+</span></span></code></pre></div><p>Access: <code>http://localhost:8080</code></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/commit/99120e6765c201a7808c67bcada7aa671709ce42 title='Last modified by D. Purge | January 19, 2025' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>January 19, 2025</span></a></div><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/edit/main/content/docs/devops/podman/compose.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#podman-compose>Podman compose</a><ul><li><a href=#install>Install</a></li><li><a href=#running>Running</a></li><li><a href=#samples>Samples</a></li></ul></li></ul></nav></div></aside></main></body></html>
