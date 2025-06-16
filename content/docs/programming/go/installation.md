@@ -11,6 +11,20 @@
         ```
     {{< /tab >}}
 
+    {{< tab "Ubuntu manual" >}}
+        ```sh
+        sudo apt purge golang*
+        wget https://go.dev/dl/go1.24.4.linux-amd64.tar.gz
+        tar -C /usr/local/ -xzf go1.24.4.linux-amd64.tar.gz
+        mkdir ~/.go
+        GOROOT=/usr/local/go
+        GOPATH=~/.go
+        PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+        sudo update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0
+        sudo update-alternatives --set go /usr/local/go/bin/go
+        ```
+    {{< /tab >}}
+
     {{< tab "Windows" >}}
         $go_version = "1.21.4"
         $go_archive = "https://dl.google.com/go/go${go_version}.windows-amd64.zip"

@@ -48,3 +48,13 @@ Host ssh.dev.azure.com
   PubkeyAcceptedAlgorithms +ssh-rsa
   HostkeyAlgorithms +ssh-rsa
 ```
+
+Or simpler for all hosts:
+
+```
+Host *
+  IgnoreUnknown UseKeychain
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+```
