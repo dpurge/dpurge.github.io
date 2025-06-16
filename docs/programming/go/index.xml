@@ -89,7 +89,21 @@
  ```
 &lt;/code>&lt;/pre>
 &lt;/div>&lt;input type="radio" class="toggle" name="tabs-go-setup" id="tabs-go-setup-1" />
- &lt;label for="tabs-go-setup-1">Windows&lt;/label>
+ &lt;label for="tabs-go-setup-1">Ubuntu manual&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;pre>&lt;code> ```sh
+ sudo apt purge golang*
+ wget https://go.dev/dl/go1.24.4.linux-amd64.tar.gz
+ tar -C /usr/local/ -xzf go1.24.4.linux-amd64.tar.gz
+ mkdir ~/.go
+ GOROOT=/usr/local/go
+ GOPATH=~/.go
+ PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+ sudo update-alternatives --install &amp;quot;/usr/bin/go&amp;quot; &amp;quot;go&amp;quot; &amp;quot;/usr/local/go/bin/go&amp;quot; 0
+ sudo update-alternatives --set go /usr/local/go/bin/go
+ ```
+&lt;/code>&lt;/pre>
+&lt;/div>&lt;input type="radio" class="toggle" name="tabs-go-setup" id="tabs-go-setup-2" />
+ &lt;label for="tabs-go-setup-2">Windows&lt;/label>
  &lt;div class="book-tabs-content markdown-inner">&lt;pre>&lt;code> $go_version = &amp;quot;1.21.4&amp;quot;
  $go_archive = &amp;quot;https://dl.google.com/go/go${go_version}.windows-amd64.zip&amp;quot;
  Invoke-WebRequest -Uri $go_archive -OutFile &amp;quot;${pwd}/go${go_version}.windows-amd64.zip&amp;quot;
