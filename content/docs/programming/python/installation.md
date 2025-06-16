@@ -30,13 +30,24 @@ Install PyEnv scripts:
 curl https://pyenv.run | bash
 ```
 
+```sh
+sudo git clone https://github.com/pyenv/pyenv.git /opt/pyenv
+sudo git clone https://github.com/pyenv/pyenv-doctor.git /opt/pyenv/plugins/pyenv-doctor
+sudo git clone https://github.com/pyenv/pyenv-update.git /opt/pyenv/plugins/pyenv-update
+sudo git clone https://github.com/pyenv/pyenv-virtualenv.git /opt/pyenv/plugins/pyenv-virtualenv
+```
+
 Add to `~/.profile`:
 
 ```sh
-export PATH="$HOME/.pyenv/bin:$PATH"
+if [ -d "/opt/pyenv" ] ; then
+    export PYENV_ROOT="/opt/pyenv"
+    PATH="$PYENV_ROOT/bin:$PATH"
+fi
 
 if command -v pyenv 1>/dev/null 2>&1; then
- eval "$(pyenv init -)"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
 fi
 ```
 
@@ -58,15 +69,17 @@ Add to PATH:
 - `E:\pgm\pyenv-win\bin`
 - `E:\pgm\pyenv-win\shims`
 
+Copy scripts from `https://github.com/pyenv-win/pyenv-win-venv` to `bin` directory and adjust paths in the scripts.
+
+## Install Python
+
 List available versions: `pyenv install -l`
 
-Install chosen version: `pyenv install 3.11.4`
+Install chosen version: `pyenv install 3.12.11`
 
-Set global Python version: `pyenv global 3.11.4`
+Set global Python version: `pyenv global 3.12.11`
 
-Set local Python version: `pyenv local 3.11.4`
-
-Copy scripts from `https://github.com/pyenv-win/pyenv-win-venv` to `bin` directory and adjust paths in the scripts.
+Set local Python version: `pyenv local 3.12.11`
 
 ## Install basic packages
 

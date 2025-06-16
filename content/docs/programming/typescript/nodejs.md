@@ -5,7 +5,7 @@
 ```sh
 git clone https://github.com/nvm-sh/nvm.git /opt/nvm
 cd /opt/nvm
-git checkout v0.39.3
+git checkout v0.40.3
 ```
 
 Add to `~/.profile`:
@@ -13,12 +13,12 @@ Add to `~/.profile`:
 ```sh
 export NVM_DIR="$HOME/.nvm"
 
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-  . "$NVM_DIR/nvm.sh"
+if [ -s "/opt/nvm/nvm.sh" ]; then
+  . "/opt/nvm/nvm.sh"
 fi
 
-if [ -s "$NVM_DIR/bash_completion" ]; then
-  . "$NVM_DIR/bash_completion"
+if [ -s "/opt/nvm/bash_completion" ]; then
+  . "/opt/nvm/bash_completion"
 fi
 ```
 
