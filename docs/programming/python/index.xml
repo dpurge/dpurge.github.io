@@ -79,15 +79,8 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> liblzma-dev
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Install PyEnv scripts:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>curl https://pyenv.run | bash
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Add to &lt;code>~/.profile&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>export PATH&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>$HOME&lt;span style="color:#e6db74">/.pyenv/bin:&lt;/span>$PATH&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> command -v pyenv 1&amp;gt;/dev/null 2&amp;gt;&amp;amp;1; &lt;span style="color:#66d9ef">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> eval &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>pyenv init -&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pyenv-on-windows">
- PyEnv on Windows
- &lt;a class="anchor" href="#pyenv-on-windows">#&lt;/a>
-&lt;/h2>
-&lt;p>Copy &lt;code>pyenv-win&lt;/code> from 
- &lt;a href="https://github.com/pyenv-win/pyenv-win/archive/master.zip">https://github.com/pyenv-win/pyenv-win/archive/master.zip&lt;/a> to &lt;code>E:\pgm\pyenv-win&lt;/code>.&lt;/p></description></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo git clone https://github.com/pyenv/pyenv.git /opt/pyenv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo git clone https://github.com/pyenv/pyenv-doctor.git /opt/pyenv/plugins/pyenv-doctor
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo git clone https://github.com/pyenv/pyenv-update.git /opt/pyenv/plugins/pyenv-update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo git clone https://github.com/pyenv/pyenv-virtualenv.git /opt/pyenv/plugins/pyenv-virtualenv
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Add to &lt;code>~/.profile&lt;/code>:&lt;/p></description></item></channel></rss>
