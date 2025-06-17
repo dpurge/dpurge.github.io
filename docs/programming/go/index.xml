@@ -76,11 +76,13 @@
  Installation
  &lt;a class="anchor" href="#installation">#&lt;/a>
 &lt;/h1>
-&lt;h2 id="linux">
- Linux
- &lt;a class="anchor" href="#linux">#&lt;/a>
-&lt;/h2>
-&lt;p>On Ubuntu, remove system packages:&lt;/p>
+
+
+
+
+&lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-go-setup" id="tabs-go-setup-0" checked="checked" />
+ &lt;label for="tabs-go-setup-0">Linux&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;p>On Ubuntu, remove system packages:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo apt purge golang*
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Install Go:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>wget https://go.dev/dl/go1.24.4.linux-amd64.tar.gz
@@ -99,11 +101,9 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>On Ubuntu, you may install as alternative:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo update-alternatives --install &lt;span style="color:#e6db74">&amp;#34;/usr/bin/go&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;go&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;/usr/local/go/bin/go&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo update-alternatives --set go /usr/local/go/bin/go
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="windows">
- Windows
- &lt;a class="anchor" href="#windows">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$go_version = &lt;span style="color:#e6db74">&amp;#34;1.21.4&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-go-setup" id="tabs-go-setup-1" />
+ &lt;label for="tabs-go-setup-1">Windows&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$go_version = &lt;span style="color:#e6db74">&amp;#34;1.21.4&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$go_archive = &lt;span style="color:#e6db74">&amp;#34;https://dl.google.com/go/go&lt;/span>${go_version}&lt;span style="color:#e6db74">.windows-amd64.zip&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-WebRequest -Uri $go_archive -OutFile &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${pwd}&lt;span style="color:#e6db74">/go&lt;/span>${go_version}&lt;span style="color:#e6db74">.windows-amd64.zip&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
@@ -116,15 +116,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> $path_string = ($path_list + &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${pwd}&lt;span style="color:#e6db74">\go\bin&amp;#34;&lt;/span>) -join &lt;span style="color:#e6db74">&amp;#39;;&amp;#39;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [&lt;span style="color:#66d9ef">System.Environment&lt;/span>]::SetEnvironmentVariable(&lt;span style="color:#e6db74">&amp;#39;PATH&amp;#39;&lt;/span>, $path_string, &lt;span style="color:#e6db74">&amp;#39;Machine&amp;#39;&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-
-
-
-&lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-go-setup" id="tabs-go-setup-0" checked="checked" />
- &lt;label for="tabs-go-setup-0">Linux&lt;/label>
- &lt;div class="book-tabs-content markdown-inner">&lt;/div>&lt;input type="radio" class="toggle" name="tabs-go-setup" id="tabs-go-setup-1" />
- &lt;label for="tabs-go-setup-1">Windows&lt;/label>
- &lt;div class="book-tabs-content markdown-inner">&lt;/div>&lt;input type="radio" class="toggle" name="tabs-go-setup" id="tabs-go-setup-2" />
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-go-setup" id="tabs-go-setup-2" />
  &lt;label for="tabs-go-setup-2">MacOS&lt;/label>
  &lt;div class="book-tabs-content markdown-inner">&lt;/div>&lt;/div>
 

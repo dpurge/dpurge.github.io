@@ -3,10 +3,12 @@
   #
 
 
-  Linux
-  #
 
-On Ubuntu, remove system packages:
+
+
+
+  Linux
+  On Ubuntu, remove system packages:
 sudo apt purge golang*
 Install Go:
 wget https://go.dev/dl/go1.24.4.linux-amd64.tar.gz
@@ -27,9 +29,7 @@ sudo update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0
 sudo update-alternatives --set go /usr/local/go/bin/go
 
   Windows
-  #
-
-$go_version = "1.21.4"
+  $go_version = "1.21.4"
 $go_archive = "https://dl.google.com/go/go${go_version}.windows-amd64.zip"
 Invoke-WebRequest -Uri $go_archive -OutFile "${pwd}/go${go_version}.windows-amd64.zip"
 
@@ -43,22 +43,14 @@ if ($path_list -notcontains "${pwd}\go\bin") {
     [System.Environment]::SetEnvironmentVariable(&#39;PATH&#39;, $path_string, &#39;Machine&#39;)
 }
 
-
-
-
-
-  Linux
-  
-  Windows
-  
   MacOS
   
 
-Check version: go version'><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://dpurge.github.io/docs/programming/go/installation/"><meta property="og:site_name" content="Notebook"><meta property="og:title" content="Notebook"><meta property="og:description" content='Installation # Linux # On Ubuntu, remove system packages:
+Check version: go version'><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://dpurge.github.io/docs/programming/go/installation/"><meta property="og:site_name" content="Notebook"><meta property="og:title" content="Notebook"><meta property="og:description" content='Installation # Linux On Ubuntu, remove system packages:
 sudo apt purge golang* Install Go:
 wget https://go.dev/dl/go1.24.4.linux-amd64.tar.gz tar -C /opt/ -xzf go1.24.4.linux-amd64.tar.gz mkdir ~/.go Setup ~/.profile:
 if [ -d "/opt/go" ] ; then export GOROOT=/opt/go PATH="$GOROOT/bin:$PATH" fi if [ -d "$HOME/.go" ] ; then export GOPATH="$HOME/.go" PATH="$GOPATH/bin:$PATH" fi On Ubuntu, you may install as alternative:
-sudo update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0 sudo update-alternatives --set go /usr/local/go/bin/go Windows # $go_version = "1.21.4" $go_archive = "https://dl.google.com/go/go${go_version}.windows-amd64.zip" Invoke-WebRequest -Uri $go_archive -OutFile "${pwd}/go${go_version}.windows-amd64.zip" Add-Type -Assembly System.IO.Compression.FileSystem [System.IO.Compression.ZipFile]::ExtractToDirectory("${pwd}/go${go_version}.windows-amd64.zip", "${pwd}") Remove-Item -Path "${pwd}/go${go_version}.windows-amd64.zip" $path_list = [System.Environment]::GetEnvironmentVariable(&#39;PATH&#39;, &#39;Machine&#39;) -split &#39;;&#39; if ($path_list -notcontains "${pwd}\go\bin") { $path_string = ($path_list + "${pwd}\go\bin") -join &#39;;&#39; [System.Environment]::SetEnvironmentVariable(&#39;PATH&#39;, $path_string, &#39;Machine&#39;) } Linux Windows MacOS Check version: go version'><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2025-06-16T14:37:05+00:00"><title>Installation | Notebook</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.0fe3d81805de7f5a7b09de616e3724ea45f869d4bb2f1a5a96e2f23079f334b0.css integrity="sha256-D+PYGAXef1p7Cd5hbjck6kX4adS7LxpaluLyMHnzNLA=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.f01d0b91e8305249eefd0e7b813b5aeeacccd5148fb60e5b4005597b724474e5.js integrity="sha256-8B0LkegwUknu/Q57gTta7qzM1RSPtg5bQAVZe3JEdOU=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+sudo update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0 sudo update-alternatives --set go /usr/local/go/bin/go Windows $go_version = "1.21.4" $go_archive = "https://dl.google.com/go/go${go_version}.windows-amd64.zip" Invoke-WebRequest -Uri $go_archive -OutFile "${pwd}/go${go_version}.windows-amd64.zip" Add-Type -Assembly System.IO.Compression.FileSystem [System.IO.Compression.ZipFile]::ExtractToDirectory("${pwd}/go${go_version}.windows-amd64.zip", "${pwd}") Remove-Item -Path "${pwd}/go${go_version}.windows-amd64.zip" $path_list = [System.Environment]::GetEnvironmentVariable(&#39;PATH&#39;, &#39;Machine&#39;) -split &#39;;&#39; if ($path_list -notcontains "${pwd}\go\bin") { $path_string = ($path_list + "${pwd}\go\bin") -join &#39;;&#39; [System.Environment]::SetEnvironmentVariable(&#39;PATH&#39;, $path_string, &#39;Machine&#39;) } MacOS Check version: go version'><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2025-06-17T22:22:33+02:00"><title>Installation | Notebook</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.0fe3d81805de7f5a7b09de616e3724ea45f869d4bb2f1a5a96e2f23079f334b0.css integrity="sha256-D+PYGAXef1p7Cd5hbjck6kX4adS7LxpaluLyMHnzNLA=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.fc53f172ba173fde5c7fde76297b51a10b211169ed31fdac458a795bee1d9018.js integrity="sha256-/FPxcroXP95cf952KXtRoQshEWntMf2sRYp5W+4dkBg=" crossorigin=anonymous></script><script defer src=/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js integrity="sha256-b2+Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC+NdcPIvZhzk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Notebook</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-b3e57c63be2c57d00ec76a5cb2658d3e class=toggle>
 <label for=section-b3e57c63be2c57d00ec76a5cb2658d3e class="flex justify-between"><a role=button>Cloud</a></label><ul><li><input type=checkbox id=section-27a69859cb82009e6ade03686ce2c2d0 class=toggle>
 <label for=section-27a69859cb82009e6ade03686ce2c2d0 class="flex justify-between"><a href=/docs/cloud/aws/>AWS</a></label><ul><li><a href=/docs/cloud/aws/access/>Access</a></li><li><a href=/docs/cloud/aws/architecture/>Architecture</a></li><li><a href=/docs/cloud/aws/cli/>CLI</a></li><li><a href=/docs/cloud/aws/databases/>Databases</a></li><li><a href=/docs/cloud/aws/messaging/>Messaging</a></li><li><a href=/docs/cloud/aws/networking/>Networking</a></li><li><a href=/docs/cloud/aws/storage/>Storage</a></li><li><a href=/docs/cloud/aws/workloads/>Workloads</a></li></ul></li><li><input type=checkbox id=section-5a5a8dd6492635604917f76a20706f1b class=toggle>
@@ -101,9 +93,9 @@ sudo update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0 s
 <label for=section-b02cfcac3355f9db66ee8423a9173bb3 class="flex justify-between"><a role=button>SQLite</a></label><ul><li><a href=/docs/programming/sqlite/data/>Data</a></li></ul></li><li><input type=checkbox id=section-90b0b18d2b29f7afc148bc24636416c6 class=toggle>
 <label for=section-90b0b18d2b29f7afc148bc24636416c6 class="flex justify-between"><a role=button>Typescript</a></label><ul><li><a href=/docs/programming/typescript/nodejs/>Nodejs</a></li></ul></li></ul></li></ul><ul><li><a href=/posts/>Blog</a></li><li><a href=https://github.com/dpurge/dpurge.github.io target=_blank rel=noopener>Github</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
 </label><strong>Installation</strong>
-<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#installation>Installation</a><ul><li><a href=#linux>Linux</a></li><li><a href=#windows>Windows</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=installation>Installation
-<a class=anchor href=#installation>#</a></h1><h2 id=linux>Linux
-<a class=anchor href=#linux>#</a></h2><p>On Ubuntu, remove system packages:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>sudo apt purge golang*
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#installation>Installation</a></li></ul></nav></aside></header><article class=markdown><h1 id=installation>Installation
+<a class=anchor href=#installation>#</a></h1><div class=book-tabs><input type=radio class=toggle name=tabs-go-setup id=tabs-go-setup-0 checked>
+<label for=tabs-go-setup-0>Linux</label><div class="book-tabs-content markdown-inner"><p>On Ubuntu, remove system packages:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>sudo apt purge golang*
 </span></span></code></pre></div><p>Install Go:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>wget https://go.dev/dl/go1.24.4.linux-amd64.tar.gz
 </span></span><span style=display:flex><span>tar -C /opt/ -xzf go1.24.4.linux-amd64.tar.gz
 </span></span><span style=display:flex><span>mkdir ~/.go
@@ -118,8 +110,8 @@ sudo update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0 s
 </span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
 </span></span></code></pre></div><p>On Ubuntu, you may install as alternative:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>sudo update-alternatives --install <span style=color:#e6db74>&#34;/usr/bin/go&#34;</span> <span style=color:#e6db74>&#34;go&#34;</span> <span style=color:#e6db74>&#34;/usr/local/go/bin/go&#34;</span> <span style=color:#ae81ff>0</span>
 </span></span><span style=display:flex><span>sudo update-alternatives --set go /usr/local/go/bin/go
-</span></span></code></pre></div><h2 id=windows>Windows
-<a class=anchor href=#windows>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-pwsh data-lang=pwsh><span style=display:flex><span>$go_version = <span style=color:#e6db74>&#34;1.21.4&#34;</span>
+</span></span></code></pre></div></div><input type=radio class=toggle name=tabs-go-setup id=tabs-go-setup-1>
+<label for=tabs-go-setup-1>Windows</label><div class="book-tabs-content markdown-inner"><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-pwsh data-lang=pwsh><span style=display:flex><span>$go_version = <span style=color:#e6db74>&#34;1.21.4&#34;</span>
 </span></span><span style=display:flex><span>$go_archive = <span style=color:#e6db74>&#34;https://dl.google.com/go/go</span>${go_version}<span style=color:#e6db74>.windows-amd64.zip&#34;</span>
 </span></span><span style=display:flex><span>Invoke-WebRequest -Uri $go_archive -OutFile <span style=color:#e6db74>&#34;</span>${pwd}<span style=color:#e6db74>/go</span>${go_version}<span style=color:#e6db74>.windows-amd64.zip&#34;</span>
 </span></span><span style=display:flex><span>
@@ -132,9 +124,7 @@ sudo update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0 s
 </span></span><span style=display:flex><span>    $path_string = ($path_list + <span style=color:#e6db74>&#34;</span>${pwd}<span style=color:#e6db74>\go\bin&#34;</span>) -join <span style=color:#e6db74>&#39;;&#39;</span>
 </span></span><span style=display:flex><span>    [<span style=color:#66d9ef>System.Environment</span>]::SetEnvironmentVariable(<span style=color:#e6db74>&#39;PATH&#39;</span>, $path_string, <span style=color:#e6db74>&#39;Machine&#39;</span>)
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div><div class=book-tabs><input type=radio class=toggle name=tabs-go-setup id=tabs-go-setup-0 checked>
-<label for=tabs-go-setup-0>Linux</label><div class="book-tabs-content markdown-inner"></div><input type=radio class=toggle name=tabs-go-setup id=tabs-go-setup-1>
-<label for=tabs-go-setup-1>Windows</label><div class="book-tabs-content markdown-inner"></div><input type=radio class=toggle name=tabs-go-setup id=tabs-go-setup-2>
-<label for=tabs-go-setup-2>MacOS</label><div class="book-tabs-content markdown-inner"></div></div><p>Check version: <code>go version</code></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/commit/1e3c009e4fdb45c1585a5e2e25c5830495f9eff3 title='Last modified by D. Purge | June 16, 2025' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
-<span>June 16, 2025</span></a></div><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/edit/main/content/docs/programming/go/installation.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
-<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#installation>Installation</a><ul><li><a href=#linux>Linux</a></li><li><a href=#windows>Windows</a></li></ul></li></ul></nav></div></aside></main></body></html>
+</span></span></code></pre></div></div><input type=radio class=toggle name=tabs-go-setup id=tabs-go-setup-2>
+<label for=tabs-go-setup-2>MacOS</label><div class="book-tabs-content markdown-inner"></div></div><p>Check version: <code>go version</code></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/commit/1ac7fdf0a59c189dbbde33bb99d832c043418951 title='Last modified by D. Purge | June 17, 2025' target=_blank rel=noopener><img src=/svg/calendar.svg class=book-icon alt=Calendar>
+<span>June 17, 2025</span></a></div><div><a class="flex align-center" href=https://github.com/dpurge/dpurge.github.io/edit/main/content/docs/programming/go/installation.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#installation>Installation</a></li></ul></nav></div></aside></main></body></html>
