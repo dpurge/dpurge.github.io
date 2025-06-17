@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS on Notebook</title><link>https://dpurge.github.io/docs/cloud/aws/</link><description>Recent content in AWS on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/cloud/aws/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/cloud/aws/access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/aws/access/</guid><description>&lt;h1 id="identity-and-access-management">
+ Identity and access management
+ &lt;a class="anchor" href="#identity-and-access-management">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/aws/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/aws/architecture/</guid><description>&lt;h1 id="learn-architecture">
+ Learn architecture
+ &lt;a class="anchor" href="#learn-architecture">#&lt;/a>
+&lt;/h1>
+&lt;!--
+See:
+ - [Gherkin](https://cucumber.io/docs/gherkin/reference/)
+ - [Markdown with Gherkin](https://github.com/cucumber/gherkin/blob/main/MARKDOWN_WITH_GHERKIN.md)
+
+VSCode tip: `Ctr-K V` for preview
+-->
+&lt;p>Exercises in simple application architecture design.&lt;/p>
+&lt;p>Tutorial: 
+ &lt;a href="https://aws.amazon.com/prescriptive-guidance/">AWS Prescriptive Guidance&lt;/a>&lt;/p>
+&lt;h2 id="static-website">
+ Static website
+ &lt;a class="anchor" href="#static-website">#&lt;/a>
+&lt;/h2>
+&lt;p>
+ &lt;img src="https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/aws/architecture_static_website.drawio.svg" alt="static web application" />&lt;/p>
+&lt;h2 id="web-application-with-relational-database">
+ Web application with relational database
+ &lt;a class="anchor" href="#web-application-with-relational-database">#&lt;/a>
+&lt;/h2>
+&lt;p>Use Fargate for ECS.&lt;/p>
+&lt;p>
+ &lt;img src="https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/aws/architecture_webapp_with_database.drawio.svg" alt="web application with relational database" />&lt;/p>
+&lt;h2 id="data-processing">
+ Data processing
+ &lt;a class="anchor" href="#data-processing">#&lt;/a>
+&lt;/h2>
+&lt;p>
+ &lt;img src="https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/aws/architecture_data_processing.drawio.svg" alt="data processing application" />&lt;/p>
+&lt;h2 id="serverless-data-source-monitoring">
+ Serverless data source monitoring
+ &lt;a class="anchor" href="#serverless-data-source-monitoring">#&lt;/a>
+&lt;/h2>
+&lt;p>Problems:&lt;/p>
+&lt;ul>
+&lt;li>Monitoring&lt;/li>
+&lt;li>Statistics&lt;/li>
+&lt;li>Secrets management&lt;/li>
+&lt;li>Configuration for Lambda functions&lt;/li>
+&lt;/ul>
+&lt;p>
+ &lt;img src="https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/aws/architecture_rest_data_monitoring.drawio.svg" alt="serverless application for monitoring rest data over time" />&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/aws/cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/aws/cli/</guid><description>&lt;h1 id="command-line-interface">
+ Command line interface
+ &lt;a class="anchor" href="#command-line-interface">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>
+ &lt;a href="https://github.com/aws/aws-cli/tree/v2">GitHub project&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/aws/databases/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/aws/databases/</guid><description>&lt;h1 id="databases">
+ Databases
+ &lt;a class="anchor" href="#databases">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/aws/messaging/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/aws/messaging/</guid><description>&lt;h1 id="messaging">
+ Messaging
+ &lt;a class="anchor" href="#messaging">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/aws/networking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/aws/networking/</guid><description>&lt;h1 id="networking">
+ Networking
+ &lt;a class="anchor" href="#networking">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/aws/storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/aws/storage/</guid><description>&lt;h1 id="storage">
+ Storage
+ &lt;a class="anchor" href="#storage">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/aws/workloads/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/aws/workloads/</guid><description>&lt;h1 id="workloads">
+ Workloads
+ &lt;a class="anchor" href="#workloads">#&lt;/a>
+&lt;/h1></description></item></channel></rss>

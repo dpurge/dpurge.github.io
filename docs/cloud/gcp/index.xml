@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GCP on Notebook</title><link>https://dpurge.github.io/docs/cloud/gcp/</link><description>Recent content in GCP on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/cloud/gcp/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/access/</guid><description>&lt;h1 id="identity-and-access-management">
+ Identity and access management
+ &lt;a class="anchor" href="#identity-and-access-management">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/cli/</guid><description>&lt;h1 id="command-line-interface">
+ Command line interface
+ &lt;a class="anchor" href="#command-line-interface">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/cloud-shell/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/cloud-shell/</guid><description>&lt;h1 id="cloud-shell">
+ Cloud shell
+ &lt;a class="anchor" href="#cloud-shell">#&lt;/a>
+&lt;/h1>
+&lt;p>Customize in &lt;code>~/.customize_environment&lt;/code> (&lt;code>edit .customize_environment&lt;/code>):&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/bin/sh
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>TERRAFORM_VERSION&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;0.12.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl https://releases.hashicorp.com/terraform/&lt;span style="color:#e6db74">${&lt;/span>TERRAFORM_VERSION&lt;span style="color:#e6db74">}&lt;/span>/terraform_&lt;span style="color:#e6db74">${&lt;/span>TERRAFORM_VERSION&lt;span style="color:#e6db74">}&lt;/span>_linux_amd64.zip &amp;gt; terraform_&lt;span style="color:#e6db74">${&lt;/span>TERRAFORM_VERSION&lt;span style="color:#e6db74">}&lt;/span>_linux_amd64.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip -o terraform_&lt;span style="color:#e6db74">${&lt;/span>TERRAFORM_VERSION&lt;span style="color:#e6db74">}&lt;/span>_linux_amd64.zip -d /usr/local/bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Editor is based on Eclipse Theia.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/databases/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/databases/</guid><description>&lt;h1 id="databases">
+ Databases
+ &lt;a class="anchor" href="#databases">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/definitions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/definitions/</guid><description>&lt;h1 id="definitions">
+ Definitions
+ &lt;a class="anchor" href="#definitions">#&lt;/a>
+&lt;/h1>
+&lt;dl>
+&lt;dt>What is cloud computing?&lt;/dt>
+&lt;dd>The delivery of a &lt;em>shared pool&lt;/em> of &lt;em>on-demand computing services&lt;/em> over the &lt;em>public internet&lt;/em>, that can be &lt;em>rapidly provisioned and released&lt;/em> with &lt;em>minimal&lt;/em> management effort or service provider interaction.&lt;/dd>
+&lt;/dl>
+&lt;ul>
+&lt;li>provision resources automatically without requiring human interaction&lt;/li>
+&lt;li>available over the network&lt;/li>
+&lt;li>pooled resources to support a multi-tenant model allowing multiple customers to share the same applications or the same physical infrastructure&lt;/li>
+&lt;li>rapidly provision and de-provision any of the cloud computing resources&lt;/li>
+&lt;li>resource usage can be monitored, controlled and reported using metering capabilities&lt;/li>
+&lt;/ul>
+&lt;dl>
+&lt;dt>Zone&lt;/dt>
+&lt;dd>a deployment area within a region; the smallest entity of global infrastructure&lt;/dd>
+&lt;dt>Region&lt;/dt>
+&lt;dd>an indepenedent geographic area holding a collection of zones&lt;/dd>
+&lt;dt>Multi-Region&lt;/dt>
+&lt;dd>large geographic area holding two or more regions&lt;/dd>
+&lt;/dl>
+&lt;h2 id="compute">
+ Compute
+ &lt;a class="anchor" href="#compute">#&lt;/a>
+&lt;/h2>
+&lt;dl>
+&lt;dt>Compute Engine&lt;/dt>
+&lt;dd>(IaaS) virtual machines called &lt;em>instances&lt;/em> deployed from public or private images in a specific region and zone; pre-configured images on Google Cloud Marketplace; multiple instances managed with &lt;em>instance groups&lt;/em> and &lt;em>autoscaling&lt;/em>; attach/detach additional &lt;em>disks&lt;/em>; can use &lt;em>Google Cloud Storage&lt;/em>; accessed with &lt;em>ssh&lt;/em>&lt;/dd>
+&lt;dt>GKE (Google Kubernetes Engine)&lt;/dt>
+&lt;dd>(CaaS) container orchestrating system; built on open source Kubernetes; can integrate with on-premise Kubernetes; uses Compute Engine instances as nodes in a cluster&lt;/dd>
+&lt;dt>App Engine&lt;/dt>
+&lt;dd>(PaaS) managed serverless platform for hosting web applications at scale; provisions and patches servers and scales the application instances based on demand; build your app in Go, Java, .NET, NodeJS, PHP, Python, Ruby; seamlessly connects with Google services (storage, databases, &amp;hellip;); can connect to other cloud providers or external databases; integrates with &lt;em>Web Security Scanner&lt;/em> to identify vulnerabilities&lt;/dd>
+&lt;dt>Cloud Functions&lt;/dt>
+&lt;dd>(FaaS) serverless execution environment; simple, single-purpose functions triggered when a watched event is fired, executing in a fully managed environment; written in Java Script, Python 3, Go, Java; good for ETL, webhooks, APIs, mobile backend functions&lt;/dd>
+&lt;dt>Cloud Run&lt;/dt>
+&lt;dd>(FaaS) serverless for containers; managed compute platform for deploying and scaling containerized applications; built upon an open standard &lt;em>Knative&lt;/em>; abstracts away all infrastructure management; any language, library or binary&lt;/dd>
+&lt;/dl>
+&lt;h2 id="storage">
+ Storage
+ &lt;a class="anchor" href="#storage">#&lt;/a>
+&lt;/h2>
+&lt;dl>
+&lt;dt>Cloud Storage&lt;/dt>
+&lt;dd>consistent, scalable, large capacity, highly durable object storage; unlimited storage with no minimum object size; eleven nines durability (99.999999999%); excellent for content delivery, data lakes, backups; comes in different &lt;em>storage classes&lt;/em> (standard, nearline, coldline, archive) and &lt;em>availability&lt;/em> (region, dual-region, multi-region)&lt;/dd>
+&lt;dt>Filestore&lt;/dt>
+&lt;dd>fully managed NFS file server compliant with NFSv3; stores data for running applications in VM instances or Kubernetes clusters&lt;/dd>
+&lt;dt>Persistent Disks&lt;/dt>
+&lt;dd>durable block storage for instances; comes in two options (standard, solid state); available in zonal and regional option&lt;/dd>
+&lt;/dl>
+&lt;h2 id="databases">
+ Databases
+ &lt;a class="anchor" href="#databases">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="sqlrelational">
+ SQL/relational
+ &lt;a class="anchor" href="#sqlrelational">#&lt;/a>
+&lt;/h3>
+&lt;dl>
+&lt;dt>Cloud SQL&lt;/dt>
+&lt;dd>managed PostgreSQL, MySQL or SQL Server; high availability across zones&lt;/dd>
+&lt;dt>Cloud Spanner&lt;/dt>
+&lt;dd>scalable relational database service; supports transactions, strong consistency, synchronous replication; high availability across regions and globally&lt;/dd>
+&lt;/dl>
+&lt;h3 id="nosql">
+ NoSQL
+ &lt;a class="anchor" href="#nosql">#&lt;/a>
+&lt;/h3>
+&lt;dl>
+&lt;dt>Bigtable&lt;/dt>
+&lt;dd>fully managed, scalable NoSQL DB; high throughput with low latency; cluster resizing without downtime&lt;/dd>
+&lt;dt>Datastore&lt;/dt>
+&lt;dd>fast, fully managed, serverless, NoSQL document database; for mobile, web and IoT apps; multi-region replication; ACID transactions&lt;/dd>
+&lt;dt>Firestore&lt;/dt>
+&lt;dd>NoSQL realtime database optimized for offline us; cluster resizing without downtime&lt;/dd>
+&lt;dt>Memorystore&lt;/dt>
+&lt;dd>fully managed, highly available in-memory service for Redis and Memcached&lt;/dd>
+&lt;/dl>
+&lt;h2 id="networking">
+ Networking
+ &lt;a class="anchor" href="#networking">#&lt;/a>
+&lt;/h2>
+&lt;dl>
+&lt;dt>VPC (Virtual Private Cloud)&lt;/dt>
+&lt;dd>core networking service, virtualized network within Google Cloud; global resource; each VPC contains a default network; additional networks can be created in your project, but networks cannot be shared between projects&lt;/dd>
+&lt;dt>Firewall Rules&lt;/dt>
+&lt;dd>a global distributed firewall that governs traffic comming into instances on a network; default network has a default set of firewall rules; custom rules can be created&lt;/dd>
+&lt;dt>Routes&lt;/dt>
+&lt;dd>advanced networking functions for instances; specifies how packets leaving an instance should be directed&lt;/dd>
+&lt;/dl>
+&lt;h2 id="load-balancing">
+ Load Balancing
+ &lt;a class="anchor" href="#load-balancing">#&lt;/a>
+&lt;/h2>
+&lt;p>Distribution of workloads across multiple instances.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/firewall/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/firewall/</guid><description>&lt;h1 id="firewall">
+ Firewall
+ &lt;a class="anchor" href="#firewall">#&lt;/a>
+&lt;/h1>
+&lt;p>Firewall rules apply to a given project and VPC.
+It is also possible to apply firewall rules across an organization.&lt;/p>
+&lt;p>Firewall rules apply either to incoming or outgoing connections, never both at the same timne.&lt;/p>
+&lt;p>Every VPC network functions as a distributed firewall.
+Firewall rules are defined on a network level, connections are allowed or denied on a per instance basis.
+You can imagine the acting not only on a perimeter of the network, but also between instances within the network.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/functions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/functions/</guid><description>&lt;h1 id="cloud-functions">
+ Cloud functions
+ &lt;a class="anchor" href="#cloud-functions">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="manual-depoyment">
+ Manual depoyment
+ &lt;a class="anchor" href="#manual-depoyment">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud functions deploy my-function &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --source https://source.developers.google.com/projects/test1/repos/github_example_functions/moveable-aliases/main/paths/my-function &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --runtime nodejs16 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --trigger-http &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --entry-point helloWorld
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>When redeploying, do not specify runtime or trigger.&lt;/p>
+&lt;h2 id="cloud-build-deployment">
+ Cloud Build deployment
+ &lt;a class="anchor" href="#cloud-build-deployment">#&lt;/a>
+&lt;/h2>
+&lt;p>Get project ID and project number and grant permissions:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud projects describe test1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud iam service-accounts add-iam-policy-binding PROJECT_ID@appspot.gserviceaccount.com --member PROJECT_NUMBER@cloudbuild.gserviceaccount.com --role roles/iam.serviceAccountUser
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud projects add-iam-policy-binding PROJRCT_ID --member serviceAccount:PROJECT_NUMBER@cloudbuild.gserviceaccount.com --role roles/cloudfunctions.developer
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create &lt;code>cloudbuild.yaml&lt;/code>:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/gcloud/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/gcloud/</guid><description>&lt;h1 id="gcloud">
+ GCloud
+ &lt;a class="anchor" href="#gcloud">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="console">
+ Console
+ &lt;a class="anchor" href="#console">#&lt;/a>
+&lt;/h2>
+&lt;p>
+ &lt;a href="https://console.cloud.google.com/">Cloud console&lt;/a>&lt;/p>
+&lt;h2 id="install">
+ Install
+ &lt;a class="anchor" href="#install">#&lt;/a>
+&lt;/h2>
+&lt;p>
+ &lt;a href="https://cloud.google.com/sdk/docs/install-sdk">Google documentation&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># using snapcraft&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl status snapd
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>snap search google-cloud-sdk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo snap install google-cloud-sdk --classic
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo snap remove google-cloud-sdk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rm -rf ~/.config/gcloud
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># check&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>which gcloud
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>which gsutil
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>which bq
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud help
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="initialize-environment">
+ Initialize environment
+ &lt;a class="anchor" href="#initialize-environment">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud init 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># or: gcloud init --console-only&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To switch active account:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud auth list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config set account dpurge@example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="get-information">
+ Get information
+ &lt;a class="anchor" href="#get-information">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud info
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config configurations list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="modify-installation">
+ Modify installation
+ &lt;a class="anchor" href="#modify-installation">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud components list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components install COMPONENT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components remove COMPONENT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud components update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="beta-commands-interactive-shell">
+ Beta commands interactive shell
+ &lt;a class="anchor" href="#beta-commands-interactive-shell">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud components install beta
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud beta interactive
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="switch-project">
+ Switch project
+ &lt;a class="anchor" href="#switch-project">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud projects list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config get-value project
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config set project PROJECT_ID
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="switch-account">
+ Switch account
+ &lt;a class="anchor" href="#switch-account">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud config configurations list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config configurations activate ACCOUNT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls ~/.config/gcloud/configurations
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config configurations describe ACCOUNT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># you can delete non-active configuration&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud config configurations delete ACCOUNT
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="connect-to-cloud-shell">
+ Connect to Cloud Shell
+ &lt;a class="anchor" href="#connect-to-cloud-shell">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># create key-pair and connect&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud alpha cloud-shell ssh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="create-a-vpc">
+ Create a VPC
+ &lt;a class="anchor" href="#create-a-vpc">#&lt;/a>
+&lt;/h2>
+&lt;p>In Google Cloud VPC is global, it spans multiple regions.
+Subnets are regional and span multiple zones within a region.
+This is different from AWS.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/gke-workload-identity/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/gke-workload-identity/</guid><description>&lt;h1 id="gke-workload-identity">
+ GKE Workload Identity
+ &lt;a class="anchor" href="#gke-workload-identity">#&lt;/a>
+&lt;/h1>
+&lt;p>Source: 
+ &lt;a href="https://github.com/antonputra/tutorials/blob/main/lessons/108/">&lt;/a>&lt;/p>
+&lt;p>First create the bucket using console of &lt;code>gcloud&lt;/code> command.
+Name must be globally unique.
+Separate different environments in different buckets.
+Use &lt;code>multi-region&lt;/code> for the location type, &lt;code>standard&lt;/code> for the storage class, enable &lt;code>object versioning&lt;/code> under protection tools.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 1-provider.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># https://registry.terraform.io/providers/hashicorp/google/latest/docs
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">provider&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;devops-v4&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;us-central1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># https://www.terraform.io/language/settings/backends/gcs
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">terraform&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">backend&lt;/span> &lt;span style="color:#e6db74">&amp;#34;gcs&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bucket&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;tf-state-staging&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">prefix&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;terraform/state&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">required_providers&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">google&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">source&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;hashicorp/google&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">version&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;~&amp;gt; 4.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Enable API services and create VPC:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/gke/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/gke/</guid><description>&lt;h1 id="gke">
+ GKE
+ &lt;a class="anchor" href="#gke">#&lt;/a>
+&lt;/h1>
+&lt;p>
+ &lt;a href="https://github.com/antonputra/tutorials/blob/main/lessons/069/">source: Anton Putra GitHub repo&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 0-provider.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">provider&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;us-west2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;random_integer&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;this&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> min &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> max &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">terraform&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">required_providers&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">google&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">source&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;hashicorp/google&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">version&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;~&amp;gt; 3.66&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">random&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">source&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;hashicorp/random&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">version&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;~&amp;gt; 3.1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 1-locals.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">locals&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;us-west2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">org_id&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;...&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">billing_account&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;...&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">host_project_name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;host-staging&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">service_project_name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;k8s-staging&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">host_project_id&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">host_project_name&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">-&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">random_integer&lt;/span>.&lt;span style="color:#a6e22e">this&lt;/span>.&lt;span style="color:#a6e22e">result&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">service_project_id&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_name&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">-&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">random_integer&lt;/span>.&lt;span style="color:#a6e22e">this&lt;/span>.&lt;span style="color:#a6e22e">result&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">projects_api&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;container.googleapis.com&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">secondary_ip_ranges&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;pod-ip-range&amp;#34;&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;10.0.0.0/14&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;services-ip-range&amp;#34;&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;10.4.0.0/19&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 2-projects.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_project&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;host-staging&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">host_project_name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project_id&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">host_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">billing_account&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">billing_account&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">org_id&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">org_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">auto_create_network&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_project&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;k8s-staging&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project_id&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">billing_account&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">billing_account&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">org_id&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">org&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">auto_create_network&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_project_service&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;host&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">number&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">service&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">projects_api&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_project_service&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;service&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">number&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">service&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">projects_api&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 3-vpc.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_network&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;main&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;main&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_compute_shared_vpc_hosts_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>.&lt;span style="color:#a6e22e">project&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">auto_create_subnetworks&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">routing_mode&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;REGIONAL&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">mtu&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1500&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_subnetwork&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;private&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;private&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_compute_shared_vpc_hosts_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>.&lt;span style="color:#a6e22e">project&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">ip_cidr_range&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;10.5.0.0/20&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">region&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">network&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_compute_network&lt;/span>.&lt;span style="color:#a6e22e">main&lt;/span>.&lt;span style="color:#a6e22e">self_link&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">private_ip_google_access&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">dynamic&lt;/span> &lt;span style="color:#e6db74">&amp;#34;secondary_ip_range&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">for_each&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">secondary_ip_ranges&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">content&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">range_name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">secondary_ip_range&lt;/span>.&lt;span style="color:#a6e22e">key&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">ip_cidr_range&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">secondary_ip_range&lt;/span>.&lt;span style="color:#a6e22e">value&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 4-router.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_router&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;router&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;router&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">region&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">hosts_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">network&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_compute_network&lt;/span>.&lt;span style="color:#a6e22e">main&lt;/span>.&lt;span style="color:#a6e22e">self_link&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 5-nat.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_router_nat&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;mist_nat&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;nat&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">hosts_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">router&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_compute_router&lt;/span>.&lt;span style="color:#a6e22e">router&lt;/span>.&lt;span style="color:#a6e22e">name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">region&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">nat_ip_allocate_option&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;AUTO_ONLY&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">source_subnetwork_ip_ranges_to_nat&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;ALL_SUBNETWORKS_ALL_IP_RANGES&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">depends_on&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#a6e22e">google_compute_subnetwork&lt;/span>.&lt;span style="color:#a6e22e">private&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 6-shared-vpc.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_shared_vpc_host_project&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;host&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">number&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_shared_vpc_service_project&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;service&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">host_project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">host_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">service_project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">depends_on&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#a6e22e">google_compute_shared_vpc_host_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_compute_subnetwork_iam_binding&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;binding&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_compute_shared_vpc_host_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>.&lt;span style="color:#a6e22e">project&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_compute_subnetwork&lt;/span>.&lt;span style="color:#a6e22e">private&lt;/span>.&lt;span style="color:#a6e22e">region&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">subnetwork&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_compute_subnetwork&lt;/span>.&lt;span style="color:#a6e22e">private&lt;/span>.&lt;span style="color:#a6e22e">name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">role&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;roles/compute.networkUser&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">members&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;serviceAccount:&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">google_service_account&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">email&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;serviceAccount:&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">number&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">@cloudservices.gserviceaccount.com&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;serviceAccount:service-&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">number&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">@container-engine-robot.iam.gserviceaccount.com&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_project_iam_binding&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;container-engine&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_compute_shared_vpc_host_project&lt;/span>.&lt;span style="color:#a6e22e">host&lt;/span>.&lt;span style="color:#a6e22e">project&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">role&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;roles/container.hostServiceAgentUser&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">members&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;serviceAccount:service-&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">number&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">@container-engine-robot.iam.gserviceaccount.com&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">depends_on&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#a6e22e">google_project_service&lt;/span>.&lt;span style="color:#a6e22e">service&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tf" data-lang="tf">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 7-kubernetes.tf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_service_account&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;k8s-staging&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">account_id&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;k8s-staging&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">depends_on&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_container_cluster&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;gke&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;gke&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">location&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">region&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">networking_mode&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;VPC_NATIVE&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">network&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_compute_network&lt;/span>.&lt;span style="color:#a6e22e">main&lt;/span>.&lt;span style="color:#a6e22e">self_link&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">subnetwork&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_compute_subnetwork&lt;/span>.&lt;span style="color:#a6e22e">private&lt;/span>.&lt;span style="color:#a6e22e">self_link&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">remove_default_node_pool&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">initial_node_count&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">release_channel&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">channel&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;REGULAR&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">ip_allocation_policy&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">cluster_secondary_range_name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;pod-ip-range&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">services_secondary_range_name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;services-ip-range&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">network_policy&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">provider&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;PROVIDER_UNSPECIFIED&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">enabled&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">private_cluster_config&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">enable_private_endpoint&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">enable_private_nodes&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">master_ipv4_cidr_block&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;172.16.0.0/28&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">workload_identity_config&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">identity_namespace&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>&lt;span style="color:#a6e22e">google_project&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">project_id&lt;/span>&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">.svc.id.goog&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">resource&lt;/span> &lt;span style="color:#e6db74">&amp;#34;google_container_node_pool&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;general&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;general&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">location&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">region&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">cluster&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_container_cluster&lt;/span>.&lt;span style="color:#a6e22e">gke&lt;/span>.&lt;span style="color:#a6e22e">name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">project&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">local&lt;/span>.&lt;span style="color:#a6e22e">service_project_id&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">node_count&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">management&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">auto_repair&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">auto_upgrade&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">node_config&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">labels&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">role&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;general&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">machine_type&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;e2-medium&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">service_account&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">google_service_account&lt;/span>.&lt;span style="color:#a6e22e">k8s&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">staging&lt;/span>.&lt;span style="color:#a6e22e">email&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">oauth_scopes&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;https://www.googleapis.com/auth/cloud-platform&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>gcloud auth application-default login
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform fmt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform init
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform validate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform plan
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>terraform apply
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gcloud container clusters get-credentials gke --region us-west2 --project k8s-staging-000000
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get svc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get nodes
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example load balacer in Kubernetes:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/iam/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/iam/</guid><description>&lt;h1 id="iam">
+ IAM
+ &lt;a class="anchor" href="#iam">#&lt;/a>
+&lt;/h1>
+&lt;p>IAM = Identity Access Management&lt;/p>
+&lt;p>Manages: &lt;em>Identity&lt;/em> (who?) has &lt;em>role&lt;/em> (what access) for which &lt;em>resource&lt;/em> (or organization, project, folder).&lt;/p>
+&lt;p>Use the principle of least access.&lt;/p>
+&lt;p>Permissions not granted directly to the user.
+Permissions are grouped into roles which are granted to the authenticated members.&lt;/p>
+&lt;p>IAM policy defines and enforces what roles are granted to which members.
+This policy is attached to a resource.&lt;/p>
+&lt;h2 id="policy-architecture">
+ Policy architecture
+ &lt;a class="anchor" href="#policy-architecture">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">Policy&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Metadata&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">etags&lt;/span>: &lt;span style="color:#ae81ff">concurrency control&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">version&lt;/span>: &lt;span style="color:#ae81ff">specifies schema version&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Audit-Config&lt;/span>: &lt;span style="color:#ae81ff">configures audit logging&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Binding&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Condition&lt;/span>: &lt;span style="color:#ae81ff">constrains binding&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Member&lt;/span>: []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Role&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">Permissions&lt;/span>: []
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Member is an identity that can access a resource.
+Identity is an e-mail account associated with a user, service account or a Google group, a domain name associated with a GSuite or cloud identity domains.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/messaging/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/messaging/</guid><description>&lt;h1 id="messaging">
+ Messaging
+ &lt;a class="anchor" href="#messaging">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/networking-copy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/networking-copy/</guid><description>&lt;h1 id="networking">
+ Networking
+ &lt;a class="anchor" href="#networking">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/networking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/networking/</guid><description>&lt;h1 id="networking">
+ Networking
+ &lt;a class="anchor" href="#networking">#&lt;/a>
+&lt;/h1>
+&lt;p>OSI model:&lt;/p>
+&lt;ol>
+&lt;li>Physical&lt;/li>
+&lt;li>Data link&lt;/li>
+&lt;li>Network (IPv4, IPv6, ICMP)&lt;/li>
+&lt;li>Transport (TCP, UDP)&lt;/li>
+&lt;li>Session&lt;/li>
+&lt;li>Presentation&lt;/li>
+&lt;li>Application (telnet, SSH, DNS, DHCP, HTTP, HTTPS)&lt;/li>
+&lt;/ol>
+&lt;h2 id="ip-v4">
+ IP v4
+ &lt;a class="anchor" href="#ip-v4">#&lt;/a>
+&lt;/h2>
+&lt;p>Classful addressing:&lt;/p>
+&lt;p>4,294,967,296 addresses&lt;/p>
+&lt;dl>
+&lt;dt>Class A&lt;/dt>
+&lt;dd>&lt;code>0.0.0.0&lt;/code> - &lt;code>127.255.255.255&lt;/code>; 2,147,483,648 addresses; 128 networks&lt;/dd>
+&lt;dt>Class B&lt;/dt>
+&lt;dd>&lt;code>128.0.0.0&lt;/code> - &lt;code>191.255.255.255&lt;/code>; 1,073,741,824 addresses; 16,384 networks&lt;/dd>
+&lt;dt>Class C&lt;/dt>
+&lt;dd>&lt;code>192.0.0.0&lt;/code> - &lt;code>223.255.255.255&lt;/code>; 536,870,912 addresses; 2,097,152 networks&lt;/dd>
+&lt;/dl>
+&lt;p>Private IP addresses (RFC1918):&lt;/p>
+&lt;ul>
+&lt;li>class A: &lt;code>10.0.0.0&lt;/code> - &lt;code>10.255.255.255&lt;/code>; 16,777,216 addresses&lt;/li>
+&lt;li>class B: &lt;code>172.16.0.0&lt;/code> - &lt;code>172.31.255.255&lt;/code>; 1,048,576 addresses&lt;/li>
+&lt;li>class C: &lt;code>192.168.0.0&lt;/code> - &lt;code>192.168.255.255&lt;/code>; 65,536 addresses&lt;/li>
+&lt;/ul>
+&lt;h3 id="classless-inter-domain-routing">
+ Classless Inter-Domain Routing
+ &lt;a class="anchor" href="#classless-inter-domain-routing">#&lt;/a>
+&lt;/h3>
+&lt;p>CIDR = Classless Inter-Domain Routing&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/storage/</guid><description>&lt;h1 id="storage">
+ Storage
+ &lt;a class="anchor" href="#storage">#&lt;/a>
+&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/vpc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/vpc/</guid><description>&lt;h1 id="vpc">
+ VPC
+ &lt;a class="anchor" href="#vpc">#&lt;/a>
+&lt;/h1>
+&lt;p>VPC = Virtual Private Cloud&lt;/p>
+&lt;p>VPC is a virtualized, software defined network within Google Cloud.&lt;/p>
+&lt;p>VPC network, its routes and firewall rules are global resources, not associated with any particular region or zone.&lt;/p>
+&lt;p>VPC is encapsulated within a project.&lt;/p>
+&lt;p>VPCs do not have any IP address ranges associated with them.
+IP adress ranges are defined within subnetworks associated with VPC.
+Subnetworks are regional.&lt;/p>
+&lt;p>Network firewall rules control traffic flowing in and out of the VPC.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/gcp/workloads/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/gcp/workloads/</guid><description>&lt;h1 id="workloads">
+ Workloads
+ &lt;a class="anchor" href="#workloads">#&lt;/a>
+&lt;/h1></description></item></channel></rss>
