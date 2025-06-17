@@ -1,6 +1,10 @@
-# NodeJS
+# Installation
 
-## Installation on Linux
+## NodeJS
+
+{{< tabs "install-bodejs" >}}
+
+{{< tab "Linux" >}}
 
 ```sh
 git clone https://github.com/nvm-sh/nvm.git /opt/nvm
@@ -30,7 +34,9 @@ nvm install-latest-npm
 npm install -g yarn
 ```
 
-## Installation on Windows
+{{< /tab >}}
+
+{{< tab "Windows" >}}
 
 Install [NVM for Windows](https://github.com/coreybutler/nvm-windows)
 
@@ -49,9 +55,17 @@ nvm install latest
 nvm use newest
 ```
 
+{{< /tab >}}
+
+{{< tab "MacOS" >}}
+{{< /tab >}}
+
+{{< /tabs >}}
+
+## Basic tools
+
 Install `yarn`:
 
 ```sh
 npm install -g yarn
 ```
-
