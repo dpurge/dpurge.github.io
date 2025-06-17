@@ -1,12 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Typescript on Notebook</title><link>https://dpurge.github.io/docs/programming/typescript/</link><description>Recent content in Typescript on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/typescript/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/typescript/nodejs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/typescript/nodejs/</guid><description>&lt;h1 id="nodejs">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Typescript on Notebook</title><link>https://dpurge.github.io/docs/programming/typescript/</link><description>Recent content in Typescript on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/typescript/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/typescript/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/typescript/installation/</guid><description>&lt;h1 id="installation">
+ Installation
+ &lt;a class="anchor" href="#installation">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="nodejs">
  NodeJS
  &lt;a class="anchor" href="#nodejs">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="installation-on-linux">
- Installation on Linux
- &lt;a class="anchor" href="#installation-on-linux">#&lt;/a>
 &lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git clone https://github.com/nvm-sh/nvm.git /opt/nvm
+
+
+
+
+&lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-install-bodejs" id="tabs-install-bodejs-0" checked="checked" />
+ &lt;label for="tabs-install-bodejs-0">Linux&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git clone https://github.com/nvm-sh/nvm.git /opt/nvm
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /opt/nvm
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git checkout v0.40.3
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Add to &lt;code>~/.profile&lt;/code>:&lt;/p>
@@ -23,11 +29,9 @@
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>nvm install node
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nvm install-latest-npm
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npm install -g yarn
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="installation-on-windows">
- Installation on Windows
- &lt;a class="anchor" href="#installation-on-windows">#&lt;/a>
-&lt;/h2>
-&lt;p>Install 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-install-bodejs" id="tabs-install-bodejs-1" />
+ &lt;label for="tabs-install-bodejs-1">Windows&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;p>Install 
  &lt;a href="https://github.com/coreybutler/nvm-windows">NVM for Windows&lt;/a>&lt;/p>
 &lt;p>Settings:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-txt" data-lang="txt">&lt;span style="display:flex;">&lt;span>root: D:\pgm\nvm
@@ -36,4 +40,12 @@
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cmd" data-lang="cmd">&lt;span style="display:flex;">&lt;span>nvm list available
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nvm install latest
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nvm use newest
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Install &lt;code>yarn&lt;/code>:&lt;/p></description></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-install-bodejs" id="tabs-install-bodejs-2" />
+ &lt;label for="tabs-install-bodejs-2">MacOS&lt;/label>
+ &lt;div class="book-tabs-content markdown-inner">&lt;/div>&lt;/div>
+
+&lt;h2 id="basic-tools">
+ Basic tools
+ &lt;a class="anchor" href="#basic-tools">#&lt;/a>
+&lt;/h2>
+&lt;p>Install &lt;code>yarn&lt;/code>:&lt;/p></description></item></channel></rss>
