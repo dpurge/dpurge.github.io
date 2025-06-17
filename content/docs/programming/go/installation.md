@@ -1,6 +1,8 @@
 # Installation
 
-## Linux
+{{< tabs "go-setup" >}}
+
+{{< tab "Linux" >}}
 
 On Ubuntu, remove system packages:
 
@@ -37,7 +39,9 @@ sudo update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0
 sudo update-alternatives --set go /usr/local/go/bin/go
 ```
 
-## Windows
+{{< /tab >}}
+
+{{< tab "Windows" >}}
 
 ```pwsh
 $go_version = "1.21.4"
@@ -55,16 +59,10 @@ if ($path_list -notcontains "${pwd}\go\bin") {
 }
 ```
 
-{{< tabs "go-setup" >}}
+{{< /tab >}}
 
-    {{< tab "Linux" >}}
-    {{< /tab >}}
-
-    {{< tab "Windows" >}}
-    {{< /tab >}}
-
-    {{< tab "MacOS" >}}
-    {{< /tab >}}
+{{< tab "MacOS" >}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
