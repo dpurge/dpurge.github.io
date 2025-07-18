@@ -71,7 +71,21 @@ VSCode tip: `Ctr-K V` for preview
 &lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/access/</guid><description>&lt;h1 id="identity-and-access-management">
  Identity and access management
  &lt;a class="anchor" href="#identity-and-access-management">#&lt;/a>
-&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/cli/</guid><description>&lt;h1 id="command-line-interface">
+&lt;/h1>
+&lt;h2 id="microsoft-entra-id">
+ Microsoft Entra ID
+ &lt;a class="anchor" href="#microsoft-entra-id">#&lt;/a>
+&lt;/h2>
+&lt;p>Identity and access management service.
+Enables you to sign in and access Microsoft cloud applications and cloud applications that you develop.&lt;/p>
+&lt;p>Provides:&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>Authentication&lt;/em>: verifying identity to access applications and resources; self-service password reset; multifactor authentication; a custom list of banned passwords; smart lockout services&lt;/li>
+&lt;li>&lt;em>Single sign-on&lt;/em>: one username and one password to access multiple applications&lt;/li>
+&lt;li>&lt;em>Application management&lt;/em>: manage cloud and on-premises apps&lt;/li>
+&lt;li>&lt;em>Device management&lt;/em>: registration of devices; enables devices to be managed through tools like Microsoft Intune; allows for device-based Conditional Access policies&lt;/li>
+&lt;/ul>
+&lt;p>You can connect on-prem Active Directory with Microsoft Entra ID, enabling a consistent identity experience between cloud and on-premises.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/cli/</guid><description>&lt;h1 id="command-line-interface">
  Command line interface
  &lt;a class="anchor" href="#command-line-interface">#&lt;/a>
 &lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/databases/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/databases/</guid><description>&lt;h1 id="databases">
