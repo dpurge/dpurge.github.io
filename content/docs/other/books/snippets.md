@@ -7,6 +7,10 @@ Import-Module -Name D:\src\github.com\dpurge\jdp-psmodule\src\JdpBookbind
 Invoke-Book2Image -OutputDirectory img -InputFile book.pdf
 ```
 
+```pwsh
+C:\jdp\pgm\poppler\bin\pdfimages.exe -png .\book.pdf img\page
+```
+
 ## Convert TIFF to PNG
 
 ```pwsh
