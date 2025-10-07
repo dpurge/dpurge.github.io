@@ -1,551 +1,551 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on Notebook</title><link>https://dpurge.github.io/docs/devops/kubernetes/</link><description>Recent content in Kubernetes on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/azure-kubernetes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/azure-kubernetes/</guid><description>&lt;h1 id="kubernetes-on-azure">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on Notebook</title><link>https://dpurge.github.io/docs/devops/kubernetes/</link><description>Recent content in Kubernetes on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/azure-kubernetes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/azure-kubernetes/</guid><description>&lt;h1 id="kubernetes-on-azure"&gt;
  Kubernetes on Azure
- &lt;a class="anchor" href="#kubernetes-on-azure">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="deployment-to-cluster">
+ &lt;a class="anchor" href="#kubernetes-on-azure"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="deployment-to-cluster"&gt;
  Deployment to cluster
- &lt;a class="anchor" href="#deployment-to-cluster">#&lt;/a>
-&lt;/h2>
-&lt;p>Connect to Azure container registry:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>az account set --subscription $SubscriptionID
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az aks get-credentials --resource-group ResGrp-Name001 --name acrname001
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create namespace YAML:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl create namespace my-namespace-name -o yaml --dry-run&lt;span style="color:#f92672">=&lt;/span>client
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create deployment YAML:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl create deployment image-name --image&lt;span style="color:#f92672">=&lt;/span>acrname001.azurecr.io/image_name:1.0.0 -o yaml --dry-run&lt;span style="color:#f92672">=&lt;/span>client
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Apply namespace YAML:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl apply -f namespace.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get namespaces
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Apply deployment YAML:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl apply -f image-name-deployment.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl logs -f deployment/image-name --namespace my-namespace-name
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Check deployments:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/deployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/deployment/</guid><description>&lt;h1 id="deployment">
+ &lt;a class="anchor" href="#deployment-to-cluster"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Connect to Azure container registry:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az account set --subscription $SubscriptionID
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az aks get-credentials --resource-group ResGrp-Name001 --name acrname001
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create namespace YAML:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl create namespace my-namespace-name -o yaml --dry-run&lt;span style="color:#f92672"&gt;=&lt;/span&gt;client
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create deployment YAML:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl create deployment image-name --image&lt;span style="color:#f92672"&gt;=&lt;/span&gt;acrname001.azurecr.io/image_name:1.0.0 -o yaml --dry-run&lt;span style="color:#f92672"&gt;=&lt;/span&gt;client
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Apply namespace YAML:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl apply -f namespace.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get namespaces
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Apply deployment YAML:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl apply -f image-name-deployment.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl logs -f deployment/image-name --namespace my-namespace-name
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check deployments:&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/deployment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/deployment/</guid><description>&lt;h1 id="deployment"&gt;
  Deployment
- &lt;a class="anchor" href="#deployment">#&lt;/a>
-&lt;/h1>
-&lt;p>&lt;code>Deployment&lt;/code> is a wrapper around replica set, which allows to do controlled updates to pods.
-When we update the pod template in the deployment, it will update the pods.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">apiVersion&lt;/span>: &lt;span style="color:#ae81ff">apps/v1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">Deployment&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">hello&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app.kubernetes.io/name&lt;/span>: &lt;span style="color:#ae81ff">hello&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">replicas&lt;/span>: &lt;span style="color:#ae81ff">3&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">selector&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">matchLabels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app.kubernetes.io/name&lt;/span>: &lt;span style="color:#ae81ff">hello&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">template&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app.kubernetes.io/name&lt;/span>: &lt;span style="color:#ae81ff">hello&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">containers&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">hello-container&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">image&lt;/span>: &lt;span style="color:#ae81ff">busybox&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">command&lt;/span>: [&lt;span style="color:#e6db74">&amp;#39;sh&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;-c&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;echo Hello from deployment! &amp;amp;&amp;amp; sleep 3600&amp;#39;&lt;/span>]
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl apply -f deployment.yaml --record
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get deployment
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get rs
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get pod
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl scale deployment hello --replicas&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get po --watch
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl scale deploy hello --replicas&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl set image deploy hello hello-container&lt;span style="color:#f92672">=&lt;/span>busybox:1.31.1 --record
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl rollout history deploy hello
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl rollout undo deploy hello
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Deployment strategies:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/design-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/design-patterns/</guid><description>&lt;h1 id="kubernetes-design-patterns">
+ &lt;a class="anchor" href="#deployment"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Deployment&lt;/code&gt; is a wrapper around replica set, which allows to do controlled updates to pods.
+When we update the pod template in the deployment, it will update the pods.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;apiVersion&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;apps/v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;kind&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;Deployment&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;hello&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;labels&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;app.kubernetes.io/name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;hello&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;replicas&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;selector&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;matchLabels&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;app.kubernetes.io/name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;hello&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;template&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;labels&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;app.kubernetes.io/name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;hello&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;containers&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;hello-container&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;image&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;busybox&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;command&lt;/span&gt;: [&lt;span style="color:#e6db74"&gt;&amp;#39;sh&amp;#39;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#39;-c&amp;#39;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#39;echo Hello from deployment! &amp;amp;&amp;amp; sleep 3600&amp;#39;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl apply -f deployment.yaml --record
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get deployment
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get rs
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get pod
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl scale deployment hello --replicas&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get po --watch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl scale deploy hello --replicas&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl set image deploy hello hello-container&lt;span style="color:#f92672"&gt;=&lt;/span&gt;busybox:1.31.1 --record
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl rollout history deploy hello
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl rollout undo deploy hello
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Deployment strategies:&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/design-patterns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/design-patterns/</guid><description>&lt;h1 id="kubernetes-design-patterns"&gt;
  Kubernetes design patterns
- &lt;a class="anchor" href="#kubernetes-design-patterns">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="foundational">
+ &lt;a class="anchor" href="#kubernetes-design-patterns"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="foundational"&gt;
  Foundational
- &lt;a class="anchor" href="#foundational">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="health-probe">
+ &lt;a class="anchor" href="#foundational"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id="health-probe"&gt;
  Health probe
- &lt;a class="anchor" href="#health-probe">#&lt;/a>
-&lt;/h3>
-&lt;p>Every container should implement APIs allowing the platform to observe and manage the application.&lt;/p>
-&lt;h3 id="predictable-demands">
+ &lt;a class="anchor" href="#health-probe"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;Every container should implement APIs allowing the platform to observe and manage the application.&lt;/p&gt;
+&lt;h3 id="predictable-demands"&gt;
  Predictable demands
- &lt;a class="anchor" href="#predictable-demands">#&lt;/a>
-&lt;/h3>
-&lt;p>Every container should declare its resource requirements and runtime dependencies and stay confined to them.&lt;/p>
-&lt;h3 id="automated-placement">
+ &lt;a class="anchor" href="#predictable-demands"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;Every container should declare its resource requirements and runtime dependencies and stay confined to them.&lt;/p&gt;
+&lt;h3 id="automated-placement"&gt;
  Automated placement
- &lt;a class="anchor" href="#automated-placement">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="declarative-deployment">
+ &lt;a class="anchor" href="#automated-placement"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="declarative-deployment"&gt;
  Declarative Deployment
- &lt;a class="anchor" href="#declarative-deployment">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="managed-lifecycle">
+ &lt;a class="anchor" href="#declarative-deployment"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="managed-lifecycle"&gt;
  Managed Lifecycle
- &lt;a class="anchor" href="#managed-lifecycle">#&lt;/a>
-&lt;/h3>
-&lt;h2 id="structural">
+ &lt;a class="anchor" href="#managed-lifecycle"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h2 id="structural"&gt;
  Structural
- &lt;a class="anchor" href="#structural">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="init-container">
+ &lt;a class="anchor" href="#structural"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id="init-container"&gt;
  Init Container
- &lt;a class="anchor" href="#init-container">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="sidecar">
+ &lt;a class="anchor" href="#init-container"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="sidecar"&gt;
  Sidecar
- &lt;a class="anchor" href="#sidecar">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="adapter">
+ &lt;a class="anchor" href="#sidecar"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="adapter"&gt;
  Adapter
- &lt;a class="anchor" href="#adapter">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="ambassador">
+ &lt;a class="anchor" href="#adapter"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="ambassador"&gt;
  Ambassador
- &lt;a class="anchor" href="#ambassador">#&lt;/a>
-&lt;/h3>
-&lt;h2 id="configuration">
+ &lt;a class="anchor" href="#ambassador"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h2 id="configuration"&gt;
  Configuration
- &lt;a class="anchor" href="#configuration">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="envvar-configuration">
+ &lt;a class="anchor" href="#configuration"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id="envvar-configuration"&gt;
  EnvVar Configuration
- &lt;a class="anchor" href="#envvar-configuration">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="immutable-configuration">
+ &lt;a class="anchor" href="#envvar-configuration"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="immutable-configuration"&gt;
  Immutable Configuration
- &lt;a class="anchor" href="#immutable-configuration">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="configuration-template">
+ &lt;a class="anchor" href="#immutable-configuration"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="configuration-template"&gt;
  Configuration Template
- &lt;a class="anchor" href="#configuration-template">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="configuration-resource">
+ &lt;a class="anchor" href="#configuration-template"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="configuration-resource"&gt;
  Configuration Resource
- &lt;a class="anchor" href="#configuration-resource">#&lt;/a>
-&lt;/h3>
-&lt;h2 id="behavioral">
+ &lt;a class="anchor" href="#configuration-resource"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h2 id="behavioral"&gt;
  Behavioral
- &lt;a class="anchor" href="#behavioral">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="batch-job">
+ &lt;a class="anchor" href="#behavioral"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id="batch-job"&gt;
  Batch Job
- &lt;a class="anchor" href="#batch-job">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="stateful-service">
+ &lt;a class="anchor" href="#batch-job"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="stateful-service"&gt;
  Stateful Service
- &lt;a class="anchor" href="#stateful-service">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="service-discovery">
+ &lt;a class="anchor" href="#stateful-service"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="service-discovery"&gt;
  Service Discovery
- &lt;a class="anchor" href="#service-discovery">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="periodic-job">
+ &lt;a class="anchor" href="#service-discovery"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="periodic-job"&gt;
  Periodic Job
- &lt;a class="anchor" href="#periodic-job">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="stateless-service">
+ &lt;a class="anchor" href="#periodic-job"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="stateless-service"&gt;
  Stateless Service
- &lt;a class="anchor" href="#stateless-service">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="singleton-service">
+ &lt;a class="anchor" href="#stateless-service"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="singleton-service"&gt;
  Singleton Service
- &lt;a class="anchor" href="#singleton-service">#&lt;/a>
-&lt;/h3>
-&lt;h2 id="higher-level">
+ &lt;a class="anchor" href="#singleton-service"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h2 id="higher-level"&gt;
  Higher Level
- &lt;a class="anchor" href="#higher-level">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="controller">
+ &lt;a class="anchor" href="#higher-level"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id="controller"&gt;
  Controller
- &lt;a class="anchor" href="#controller">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="operator">
+ &lt;a class="anchor" href="#controller"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="operator"&gt;
  Operator
- &lt;a class="anchor" href="#operator">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="serverless-serving">
+ &lt;a class="anchor" href="#operator"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="serverless-serving"&gt;
  Serverless Serving
- &lt;a class="anchor" href="#serverless-serving">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="serverless-eventing">
+ &lt;a class="anchor" href="#serverless-serving"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="serverless-eventing"&gt;
  Serverless Eventing
- &lt;a class="anchor" href="#serverless-eventing">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="elastic-scale">
+ &lt;a class="anchor" href="#serverless-eventing"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="elastic-scale"&gt;
  Elastic Scale
- &lt;a class="anchor" href="#elastic-scale">#&lt;/a>
-&lt;/h3>
-&lt;h3 id="image-builder">
+ &lt;a class="anchor" href="#elastic-scale"&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;h3 id="image-builder"&gt;
  Image Builder
- &lt;a class="anchor" href="#image-builder">#&lt;/a>
-&lt;/h3></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/ingress/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/ingress/</guid><description>&lt;h1 id="ingress">
+ &lt;a class="anchor" href="#image-builder"&gt;#&lt;/a&gt;
+&lt;/h3&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/ingress/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/ingress/</guid><description>&lt;h1 id="ingress"&gt;
  Ingress
- &lt;a class="anchor" href="#ingress">#&lt;/a>
-&lt;/h1>
-&lt;p>&lt;code>Ingress&lt;/code> resource exposes multiple services to the outside of the cluster and manages access.
-It is a collection of rules and paths but needs something to apply these rules the &lt;code>Ingress controller&lt;/code>.
-Ingress controller acts as a gateway and routes external traffic to services based on the Ingress resource and its rules.&lt;/p>
-&lt;p>Ingress controller is a collection of:&lt;/p>
-&lt;ul>
-&lt;li>kubernetes deployment, with pods running containers with a gateway or proxy server, eg. nginx, ambassador&lt;/li>
-&lt;li>kubernetes service that exposes ingress controller pods&lt;/li>
-&lt;li>supporting resources: configuration maps, secrets etc.&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">apiVersion&lt;/span>: &lt;span style="color:#ae81ff">networking.k8s.io/v1beta1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">Ingress&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">ingress-example&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">rules&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">host&lt;/span>: &lt;span style="color:#ae81ff">example.com&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">http&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">paths&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">path&lt;/span>: &lt;span style="color:#ae81ff">/blog&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">backend&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">serviceName&lt;/span>: &lt;span style="color:#ae81ff">blogservice&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">servicePort&lt;/span>: &lt;span style="color:#ae81ff">80&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">path&lt;/span>: &lt;span style="color:#ae81ff">/music&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">backend&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">serviceName&lt;/span>: &lt;span style="color:#ae81ff">musicservice&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">servicePort&lt;/span>: &lt;span style="color:#ae81ff">8080&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ingress controller will have annotations that depend on the type of Ingress Controller you are using (Traeffik. Nginx, HAProxy, Ambassador, &amp;hellip;)&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/k9s/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/k9s/</guid><description>&lt;h1 id="k9s">
+ &lt;a class="anchor" href="#ingress"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Ingress&lt;/code&gt; resource exposes multiple services to the outside of the cluster and manages access.
+It is a collection of rules and paths but needs something to apply these rules the &lt;code&gt;Ingress controller&lt;/code&gt;.
+Ingress controller acts as a gateway and routes external traffic to services based on the Ingress resource and its rules.&lt;/p&gt;
+&lt;p&gt;Ingress controller is a collection of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;kubernetes deployment, with pods running containers with a gateway or proxy server, eg. nginx, ambassador&lt;/li&gt;
+&lt;li&gt;kubernetes service that exposes ingress controller pods&lt;/li&gt;
+&lt;li&gt;supporting resources: configuration maps, secrets etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;apiVersion&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;networking.k8s.io/v1beta1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;kind&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;Ingress&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;ingress-example&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;rules&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#f92672"&gt;host&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;example.com&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;http&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;paths&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#f92672"&gt;path&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;/blog&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;backend&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;serviceName&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;blogservice&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;servicePort&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#f92672"&gt;path&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;/music&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;backend&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;serviceName&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;musicservice&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;servicePort&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;8080&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ingress controller will have annotations that depend on the type of Ingress Controller you are using (Traeffik. Nginx, HAProxy, Ambassador, &amp;hellip;)&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/k9s/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/k9s/</guid><description>&lt;h1 id="k9s"&gt;
  K9s
- &lt;a class="anchor" href="#k9s">#&lt;/a>
-&lt;/h1>
-&lt;ul>
-&lt;li>
- &lt;a href="https://k9scli.io/">Home page&lt;/a>&lt;/li>
-&lt;li>
- &lt;a href="https://github.com/derailed/k9s">GitHub repository&lt;/a>&lt;/li>
-&lt;li>
- &lt;a href="https://github.com/derailed/k9s/releases">Releases&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="installation">
+ &lt;a class="anchor" href="#k9s"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+ &lt;a href="https://k9scli.io/"&gt;Home page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+ &lt;a href="https://github.com/derailed/k9s"&gt;GitHub repository&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+ &lt;a href="https://github.com/derailed/k9s/releases"&gt;Releases&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="installation"&gt;
  Installation
- &lt;a class="anchor" href="#installation">#&lt;/a>
-&lt;/h2>
+ &lt;a class="anchor" href="#installation"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
 
 
 
 
-&lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-k9s-setup" id="tabs-k9s-setup-0" checked="checked" />
- &lt;label for="tabs-k9s-setup-0">Windows&lt;/label>
- &lt;div class="book-tabs-content markdown-inner">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>$K9s_Version = &lt;span style="color:#e6db74">&amp;#34;0.27.4&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$K2s_Archive = &lt;span style="color:#e6db74">&amp;#34;https://github.com/derailed/k9s/releases/download/v&lt;/span>${K9s_Version}&lt;span style="color:#e6db74">/k9s_Windows_amd64.zip&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-WebRequest -Uri $K2s_Archive -OutFile &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${pwd}&lt;span style="color:#e6db74">/k9s_Windows_amd64_&lt;/span>${K9s_Version}&lt;span style="color:#e6db74">.zip&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Add-Type -Assembly System.IO.Compression.FileSystem
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$zip = [&lt;span style="color:#66d9ef">IO.Compression.ZipFile&lt;/span>]::OpenRead(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>${pwd}&lt;span style="color:#e6db74">/k9s_Windows_amd64_&lt;/span>${K9s_Version}&lt;span style="color:#e6db74">.zip&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Executables = $zip.Entries | Where-Object {$_.Name &lt;span style="color:#f92672">-like&lt;/span> &lt;span style="color:#e6db74">&amp;#39;*.exe&amp;#39;&lt;/span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">foreach&lt;/span> ($Executable &lt;span style="color:#66d9ef">in&lt;/span> $Executables) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [&lt;span style="color:#66d9ef">System.IO.Compression.ZipFileExtensions&lt;/span>]::ExtractToFile($Executable, &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${pwd}&lt;span style="color:#e6db74">/&lt;/span>$($Executable.Name)&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, $True)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$zip.Dispose()
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Remove-Item -Path &lt;span style="color:#e6db74">&amp;#34;&lt;/span>${pwd}&lt;span style="color:#e6db74">/k9s_Windows_amd64_&lt;/span>${K9s_Version}&lt;span style="color:#e6db74">.zip&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-k9s-setup" id="tabs-k9s-setup-1" />
- &lt;label for="tabs-k9s-setup-1">Linux&lt;/label>
- &lt;div class="book-tabs-content markdown-inner">TODO&lt;/div>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/kubectl-config/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/kubectl-config/</guid><description>&lt;h1 id="kubectl-configuration">
+&lt;div class="book-tabs"&gt;&lt;input type="radio" class="toggle" name="tabs-k9s-setup" id="tabs-k9s-setup-0" checked="checked" /&gt;
+ &lt;label for="tabs-k9s-setup-0"&gt;Windows&lt;/label&gt;
+ &lt;div class="book-tabs-content markdown-inner"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-pwsh" data-lang="pwsh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$K9s_Version = &lt;span style="color:#e6db74"&gt;&amp;#34;0.27.4&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$K2s_Archive = &lt;span style="color:#e6db74"&gt;&amp;#34;https://github.com/derailed/k9s/releases/download/v&lt;/span&gt;${K9s_Version}&lt;span style="color:#e6db74"&gt;/k9s_Windows_amd64.zip&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Invoke-WebRequest -Uri $K2s_Archive -OutFile &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;${pwd}&lt;span style="color:#e6db74"&gt;/k9s_Windows_amd64_&lt;/span&gt;${K9s_Version}&lt;span style="color:#e6db74"&gt;.zip&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Add-Type -Assembly System.IO.Compression.FileSystem
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$zip = [&lt;span style="color:#66d9ef"&gt;IO.Compression.ZipFile&lt;/span&gt;]::OpenRead(&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;${pwd}&lt;span style="color:#e6db74"&gt;/k9s_Windows_amd64_&lt;/span&gt;${K9s_Version}&lt;span style="color:#e6db74"&gt;.zip&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$Executables = $zip.Entries | Where-Object {$_.Name &lt;span style="color:#f92672"&gt;-like&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;*.exe&amp;#39;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;foreach&lt;/span&gt; ($Executable &lt;span style="color:#66d9ef"&gt;in&lt;/span&gt; $Executables) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; [&lt;span style="color:#66d9ef"&gt;System.IO.Compression.ZipFileExtensions&lt;/span&gt;]::ExtractToFile($Executable, &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;${pwd}&lt;span style="color:#e6db74"&gt;/&lt;/span&gt;$($Executable.Name)&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;, $True)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$zip.Dispose()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Remove-Item -Path &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;${pwd}&lt;span style="color:#e6db74"&gt;/k9s_Windows_amd64_&lt;/span&gt;${K9s_Version}&lt;span style="color:#e6db74"&gt;.zip&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;input type="radio" class="toggle" name="tabs-k9s-setup" id="tabs-k9s-setup-1" /&gt;
+ &lt;label for="tabs-k9s-setup-1"&gt;Linux&lt;/label&gt;
+ &lt;div class="book-tabs-content markdown-inner"&gt;TODO&lt;/div&gt;&lt;/div&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/kubectl-config/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/kubectl-config/</guid><description>&lt;h1 id="kubectl-configuration"&gt;
  KubeCtl configuration
- &lt;a class="anchor" href="#kubectl-configuration">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="configuration-files">
+ &lt;a class="anchor" href="#kubectl-configuration"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="configuration-files"&gt;
  Configuration files
- &lt;a class="anchor" href="#configuration-files">#&lt;/a>
-&lt;/h2>
-&lt;p>Default file:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>~/.kube/config&lt;/code>&lt;/li>
-&lt;li>&lt;code>%USERPROFILE%\.kube\config&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>Multiple files defined in environment variable:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cmd" data-lang="cmd">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> KUBECONFIG=%USERPROFILE%\.kube\config;%USERPROFILE%\.kube\jdpnas02.yaml
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>KUBECONFIG&lt;span style="color:#f92672">=&lt;/span>~/.kube/config:~/.kube/jdpnas02.yaml
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Display configured contexts:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl config get-contexts
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Display merged configs:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl config view
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Show current context:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl config current-context
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Set default context:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl config use-context jdpnas02
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Examples:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>az account set --subscription xxxxxxxxxxx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az aks get-credentials --resource-group ResGrp-xxx-K8s --name xxxx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl config current-context
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get all --namespace xxx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get cronjob --namespace xxx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl describe cronjob --namespace xxx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get pods --namespace xxx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl logs --namespace xxx integration-sync-28023457-cbg4j
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete job --namespace xxx integration-sync-28023332
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete cronjob integration-sync --namespace xxx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl exec --stdin --tty xxx-867d77f465-tkcdk --namespace xxx -- /bin/bash
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl -X POST 127.0.0.1/sync --data &lt;span style="color:#e6db74">&amp;#39;{&amp;#34;time_to_sync&amp;#34;: 240}&amp;#39;&lt;/span> --header &lt;span style="color:#e6db74">&amp;#34;Content-Type: application/json&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/minikube/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/minikube/</guid><description>&lt;h1 id="minikube">
+ &lt;a class="anchor" href="#configuration-files"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Default file:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;~/.kube/config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%USERPROFILE%\.kube\config&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Multiple files defined in environment variable:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;set&lt;/span&gt; KUBECONFIG=%USERPROFILE%\.kube\config;%USERPROFILE%\.kube\jdpnas02.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;KUBECONFIG&lt;span style="color:#f92672"&gt;=&lt;/span&gt;~/.kube/config:~/.kube/jdpnas02.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Display configured contexts:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl config get-contexts
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Display merged configs:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl config view
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Show current context:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl config current-context
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Set default context:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl config use-context jdpnas02
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Examples:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az account set --subscription xxxxxxxxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az aks get-credentials --resource-group ResGrp-xxx-K8s --name xxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl config current-context
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get all --namespace xxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get cronjob --namespace xxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl describe cronjob --namespace xxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get pods --namespace xxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl logs --namespace xxx integration-sync-28023457-cbg4j
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl delete job --namespace xxx integration-sync-28023332
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl delete cronjob integration-sync --namespace xxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl exec --stdin --tty xxx-867d77f465-tkcdk --namespace xxx -- /bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -X POST 127.0.0.1/sync --data &lt;span style="color:#e6db74"&gt;&amp;#39;{&amp;#34;time_to_sync&amp;#34;: 240}&amp;#39;&lt;/span&gt; --header &lt;span style="color:#e6db74"&gt;&amp;#34;Content-Type: application/json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/minikube/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/minikube/</guid><description>&lt;h1 id="minikube"&gt;
  Minikube
- &lt;a class="anchor" href="#minikube">#&lt;/a>
-&lt;/h1>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>minikube delete
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>minikube start --memory &lt;span style="color:#ae81ff">4096&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Edit service xxx:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl edit svc xxx
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/pod/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/pod/</guid><description>&lt;h1 id="pod">
+ &lt;a class="anchor" href="#minikube"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;minikube delete
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;minikube start --memory &lt;span style="color:#ae81ff"&gt;4096&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Edit service xxx:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl edit svc xxx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/pod/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/pod/</guid><description>&lt;h1 id="pod"&gt;
  Pod
- &lt;a class="anchor" href="#pod">#&lt;/a>
-&lt;/h1>
-&lt;p>A &lt;code>pod&lt;/code> is a collection of containers that share network and storage.
-Containers within a pod can talk to each other on &lt;code>localhost&lt;/code> and can access the same volumes.
+ &lt;a class="anchor" href="#pod"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;A &lt;code&gt;pod&lt;/code&gt; is a collection of containers that share network and storage.
+Containers within a pod can talk to each other on &lt;code&gt;localhost&lt;/code&gt; and can access the same volumes.
 Pods are ephemeral.
 Kubernetes assigns a unique IP address to a pod.
-Containers within a pod can listen on different ports.&lt;/p>
-&lt;p>When the pod restarts, it gets a different IP address.
-A &lt;code>service&lt;/code> is an abstraction that gets a stable IP address and DNS name and acts as a load balancer for pods.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/replica-set/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/replica-set/</guid><description>&lt;h1 id="replica-set">
+Containers within a pod can listen on different ports.&lt;/p&gt;
+&lt;p&gt;When the pod restarts, it gets a different IP address.
+A &lt;code&gt;service&lt;/code&gt; is an abstraction that gets a stable IP address and DNS name and acts as a load balancer for pods.&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/replica-set/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/replica-set/</guid><description>&lt;h1 id="replica-set"&gt;
  Replica set
- &lt;a class="anchor" href="#replica-set">#&lt;/a>
-&lt;/h1>
-&lt;p>&lt;code>Replica set&lt;/code> maintains a stamble number of pod copies (replicas).&lt;/p>
-&lt;p>Replica set controller guarantees that a specified nymber of identical pods are running at all times.
-It uses the selector field and pod labels to find pods that it owns.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">apiVersion&lt;/span>: &lt;span style="color:#ae81ff">apps/v1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">ReplicaSet&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">hello&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app.kubernetes.io/name&lt;/span>: &lt;span style="color:#ae81ff">hello&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">replicas&lt;/span>: &lt;span style="color:#ae81ff">3&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">selector&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">matchLabels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app.kubernetes.io/name&lt;/span>: &lt;span style="color:#ae81ff">hello&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">template&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app.kubernetes.io/name&lt;/span>: &lt;span style="color:#ae81ff">hello&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">containers&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">hello-container&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">image&lt;/span>: &lt;span style="color:#ae81ff">busybox&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">command&lt;/span>: [&lt;span style="color:#e6db74">&amp;#34;sh&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;-c&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;echo Hello from replica set! &amp;amp;&amp;amp; sleep 3600&amp;#34;&lt;/span>]
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl apply -f replicaset.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get replicaset
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get pods -l app.kubernetes.io/name&lt;span style="color:#f92672">=&lt;/span>hello
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get pods hello-xxxxx -o yaml | grep -A5 ownerReferences
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete po hello-xxxxx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl edit rs hello
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get po hello-xxxxx | grep Image
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete rs hello
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Replica set can be managed by a &lt;code>deployment&lt;/code>, which can update pods managed by this replica set in a controlled, zero-downtime manner.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/sealed-secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/sealed-secrets/</guid><description>&lt;h1 id="sealed-secrets">
+ &lt;a class="anchor" href="#replica-set"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Replica set&lt;/code&gt; maintains a stamble number of pod copies (replicas).&lt;/p&gt;
+&lt;p&gt;Replica set controller guarantees that a specified nymber of identical pods are running at all times.
+It uses the selector field and pod labels to find pods that it owns.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;apiVersion&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;apps/v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;kind&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;ReplicaSet&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;hello&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;labels&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;app.kubernetes.io/name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;hello&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;replicas&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;selector&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;matchLabels&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;app.kubernetes.io/name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;hello&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;template&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;labels&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;app.kubernetes.io/name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;hello&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;containers&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;hello-container&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;image&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;busybox&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;command&lt;/span&gt;: [&lt;span style="color:#e6db74"&gt;&amp;#34;sh&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;-c&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;echo Hello from replica set! &amp;amp;&amp;amp; sleep 3600&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl apply -f replicaset.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get replicaset
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get pods -l app.kubernetes.io/name&lt;span style="color:#f92672"&gt;=&lt;/span&gt;hello
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get pods hello-xxxxx -o yaml | grep -A5 ownerReferences
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl delete po hello-xxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl edit rs hello
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get po hello-xxxxx | grep Image
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl delete rs hello
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Replica set can be managed by a &lt;code&gt;deployment&lt;/code&gt;, which can update pods managed by this replica set in a controlled, zero-downtime manner.&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/sealed-secrets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/sealed-secrets/</guid><description>&lt;h1 id="sealed-secrets"&gt;
  Sealed secrets
- &lt;a class="anchor" href="#sealed-secrets">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="install-kubeseal">
- Install &lt;code>kubeseal&lt;/code>
- &lt;a class="anchor" href="#install-kubeseal">#&lt;/a>
-&lt;/h2>
-&lt;p>Command line:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>curl -sSL https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.3/kubeseal-0.19.3-linux-amd64.tar.gz -o kubeseal-linux-amd64.tar.gz
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar -xf kubeseal-linux-amd64.tar.gz kubeseal
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mv kubeseal /usr/local/bin/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubeseal --version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Controller:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.3/controller.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get pods -n kube-system | grep sealed-secrets-controller
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl logs sealed-secrets-controller-xxx-xxx -n kube-system
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get secret -n kube-system -l sealedsecrets.bitnami.com/sealed-secrets-key -o yaml
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/service/</guid><description>&lt;h1 id="service">
+ &lt;a class="anchor" href="#sealed-secrets"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="install-kubeseal"&gt;
+ Install &lt;code&gt;kubeseal&lt;/code&gt;
+ &lt;a class="anchor" href="#install-kubeseal"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Command line:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -sSL https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.3/kubeseal-0.19.3-linux-amd64.tar.gz -o kubeseal-linux-amd64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -xf kubeseal-linux-amd64.tar.gz kubeseal
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mv kubeseal /usr/local/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubeseal --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Controller:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.3/controller.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get pods -n kube-system | grep sealed-secrets-controller
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl logs sealed-secrets-controller-xxx-xxx -n kube-system
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get secret -n kube-system -l sealedsecrets.bitnami.com/sealed-secrets-key -o yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/service/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/service/</guid><description>&lt;h1 id="service"&gt;
  Service
- &lt;a class="anchor" href="#service">#&lt;/a>
-&lt;/h1>
-&lt;p>Pods are ephemeral, so we cannot rely on pod IP addresses.&lt;/p>
-&lt;p>Example deployment:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">apiVersion&lt;/span>: &lt;span style="color:#ae81ff">apps/v1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">kind&lt;/span>: &lt;span style="color:#ae81ff">Deployment&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">web-frontend&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app.kubernetes.io/name&lt;/span>: &lt;span style="color:#ae81ff">web-frontend&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">replicas&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">selector&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">matchLabels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app.kubernetes.io/name&lt;/span>: &lt;span style="color:#ae81ff">web-frontend&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">template&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">metadata&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">labels&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">app.kubernetes.io/name&lt;/span>: &lt;span style="color:#ae81ff">web-frontend&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">spec&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">containers&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">web-frontend-container&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">image&lt;/span>: &lt;span style="color:#ae81ff">projectid/helloworld:0.1.0&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">ports&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">containerPort&lt;/span>: &lt;span style="color:#ae81ff">3000&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>kubectl apply -f web-frontend.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get po -o wide
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl run curl --image&lt;span style="color:#f92672">=&lt;/span>radial/busyboxplus:curl -i --tty
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl 172.17.0.6:3000
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pod&amp;rsquo;s IP is available only from within the cluster.&lt;/p>
-&lt;p>Kubernetes &lt;code>service&lt;/code> is an abstraction which gives us access to pod&amp;rsquo;s IP in a reliable way.
+ &lt;a class="anchor" href="#service"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Pods are ephemeral, so we cannot rely on pod IP addresses.&lt;/p&gt;
+&lt;p&gt;Example deployment:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;apiVersion&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;apps/v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;kind&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;Deployment&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;web-frontend&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;labels&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;app.kubernetes.io/name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;web-frontend&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;replicas&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;selector&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;matchLabels&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;app.kubernetes.io/name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;web-frontend&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;template&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;labels&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;app.kubernetes.io/name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;web-frontend&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;containers&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#f92672"&gt;name&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;web-frontend-container&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;image&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;projectid/helloworld:0.1.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#f92672"&gt;containerPort&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;3000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl apply -f web-frontend.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl get po -o wide
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kubectl run curl --image&lt;span style="color:#f92672"&gt;=&lt;/span&gt;radial/busyboxplus:curl -i --tty
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl 172.17.0.6:3000
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Pod&amp;rsquo;s IP is available only from within the cluster.&lt;/p&gt;
+&lt;p&gt;Kubernetes &lt;code&gt;service&lt;/code&gt; is an abstraction which gives us access to pod&amp;rsquo;s IP in a reliable way.
 Service controller maintains a list of pod endpoints/IP addresses.
-It uses selectors and labels to find its pods.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/short-names/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/short-names/</guid><description>&lt;h1 id="resource-short-names">
+It uses selectors and labels to find its pods.&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/kubernetes/short-names/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/kubernetes/short-names/</guid><description>&lt;h1 id="resource-short-names"&gt;
  Resource short names
- &lt;a class="anchor" href="#resource-short-names">#&lt;/a>
-&lt;/h1>
-&lt;p>Short names can be displayed with a command: &lt;code>kubectl api-resources&lt;/code>&lt;/p>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th style="text-align: left">Name&lt;/th>
- &lt;th style="text-align: left">Short name&lt;/th>
- &lt;th style="text-align: left">Kind&lt;/th>
- &lt;th style="text-align: left">API version&lt;/th>
- &lt;th style="text-align: left">Namespaced&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td style="text-align: left">pods&lt;/td>
- &lt;td style="text-align: left">po&lt;/td>
- &lt;td style="text-align: left">Pod&lt;/td>
- &lt;td style="text-align: left">v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">replicasets&lt;/td>
- &lt;td style="text-align: left">rs&lt;/td>
- &lt;td style="text-align: left">ReplicaSet&lt;/td>
- &lt;td style="text-align: left">apps/v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">deployments&lt;/td>
- &lt;td style="text-align: left">deploy&lt;/td>
- &lt;td style="text-align: left">Deployment&lt;/td>
- &lt;td style="text-align: left">apps/v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">services&lt;/td>
- &lt;td style="text-align: left">svc&lt;/td>
- &lt;td style="text-align: left">Service&lt;/td>
- &lt;td style="text-align: left">v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">statefulsets&lt;/td>
- &lt;td style="text-align: left">sts&lt;/td>
- &lt;td style="text-align: left">StatefulSet&lt;/td>
- &lt;td style="text-align: left">apps/v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">daemonsets&lt;/td>
- &lt;td style="text-align: left">ds&lt;/td>
- &lt;td style="text-align: left">DaemonSet&lt;/td>
- &lt;td style="text-align: left">apps/v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">persistentvolumes&lt;/td>
- &lt;td style="text-align: left">pv&lt;/td>
- &lt;td style="text-align: left">PersistentVolume&lt;/td>
- &lt;td style="text-align: left">v1&lt;/td>
- &lt;td style="text-align: left">false&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">persistentvolumeclaims&lt;/td>
- &lt;td style="text-align: left">pvc&lt;/td>
- &lt;td style="text-align: left">PersistentVolumeClaim&lt;/td>
- &lt;td style="text-align: left">v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">configmaps&lt;/td>
- &lt;td style="text-align: left">cm&lt;/td>
- &lt;td style="text-align: left">ConfigMap&lt;/td>
- &lt;td style="text-align: left">v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">namespaces&lt;/td>
- &lt;td style="text-align: left">ns&lt;/td>
- &lt;td style="text-align: left">Namespace&lt;/td>
- &lt;td style="text-align: left">v1&lt;/td>
- &lt;td style="text-align: left">false&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">nodes&lt;/td>
- &lt;td style="text-align: left">no&lt;/td>
- &lt;td style="text-align: left">Node&lt;/td>
- &lt;td style="text-align: left">v1&lt;/td>
- &lt;td style="text-align: left">false&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">secrets&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">Secret&lt;/td>
- &lt;td style="text-align: left">v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">jobs&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">Job&lt;/td>
- &lt;td style="text-align: left">batch/v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">cronjobs&lt;/td>
- &lt;td style="text-align: left">cj&lt;/td>
- &lt;td style="text-align: left">CronJob&lt;/td>
- &lt;td style="text-align: left">batch/v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">endpoints&lt;/td>
- &lt;td style="text-align: left">ep&lt;/td>
- &lt;td style="text-align: left">Endpoints&lt;/td>
- &lt;td style="text-align: left">v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">ingresses&lt;/td>
- &lt;td style="text-align: left">ing&lt;/td>
- &lt;td style="text-align: left">Ingress&lt;/td>
- &lt;td style="text-align: left">networking.k8s.io/v1&lt;/td>
- &lt;td style="text-align: left">true&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;td style="text-align: left">&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table></description></item></channel></rss>
+ &lt;a class="anchor" href="#resource-short-names"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Short names can be displayed with a command: &lt;code&gt;kubectl api-resources&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;Name&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;Short name&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;Kind&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;API version&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;Namespaced&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;pods&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;po&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Pod&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;replicasets&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;rs&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;ReplicaSet&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;apps/v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;deployments&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;deploy&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Deployment&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;apps/v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;services&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;svc&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Service&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;statefulsets&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;sts&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;StatefulSet&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;apps/v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;daemonsets&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;ds&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;DaemonSet&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;apps/v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;persistentvolumes&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;pv&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;PersistentVolume&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;false&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;persistentvolumeclaims&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;pvc&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;PersistentVolumeClaim&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;configmaps&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;cm&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;ConfigMap&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;namespaces&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;ns&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Namespace&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;false&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;nodes&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;no&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Node&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;false&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;secrets&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Secret&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;jobs&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Job&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;batch/v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;cronjobs&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;cj&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;CronJob&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;batch/v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;endpoints&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;ep&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Endpoints&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;ingresses&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;ing&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Ingress&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;networking.k8s.io/v1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;true&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;</description></item></channel></rss>

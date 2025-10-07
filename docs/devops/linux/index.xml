@@ -1,233 +1,233 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Notebook</title><link>https://dpurge.github.io/docs/devops/linux/</link><description>Recent content in Linux on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/linux/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/linux/blocky/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/blocky/</guid><description>&lt;h1 id="blocky">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Notebook</title><link>https://dpurge.github.io/docs/devops/linux/</link><description>Recent content in Linux on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/linux/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/linux/blocky/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/blocky/</guid><description>&lt;h1 id="blocky"&gt;
  Blocky
- &lt;a class="anchor" href="#blocky">#&lt;/a>
-&lt;/h1>
-&lt;p>Blocky is a DNS proxy and ad-blocker.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>wget -q &lt;span style="color:#e6db74">&amp;#34;https://github.com/0xERR0R/blocky/releases/download/v0.21/blocky_v0.21_Linux_x86_64.tar.gz&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xf blocky_v0.21_Linux_x86_64.tar.gz
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mv blocky /usr/local/bin/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo setcap cap_net_bind_service&lt;span style="color:#f92672">=&lt;/span>ep /usr/local/bin/blocky
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create user:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo groupadd --system blocky
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo useradd --system --gid blocky --create-home --home-dir /var/lib/blocky --shell /usr/sbin/nologin --comment &lt;span style="color:#e6db74">&amp;#34;Blocky DNS proxy&amp;#34;&lt;/span> blocky
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Configuration file &lt;code>/etc/blocky/config.yml&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yml" data-lang="yml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">upstream&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">default&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">8.8.8.8&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">1.1.1.1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">blocking&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">blackLists&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">ads&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">https://raw.githubusercontent.com/dpurge/dns-hole/main/blacklist/dpurge.txt&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">whiteLists&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">ads&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">https://raw.githubusercontent.com/dpurge/dns-hole/main/whitelist/dpurge.txt&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">clientGroupsBlock&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">default&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">ads&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">downloadTimeout&lt;/span>: &lt;span style="color:#ae81ff">4m&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">downloadAttempts&lt;/span>: &lt;span style="color:#ae81ff">5&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">downloadCooldown&lt;/span>: &lt;span style="color:#ae81ff">10s&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">customDNS&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">mapping&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">example.home.arpa&lt;/span>: &lt;span style="color:#ae81ff">127.0.0.1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">ports&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">dns&lt;/span>: &lt;span style="color:#ae81ff">53&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">bootstrapDns&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">8.8.8.8&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">1.1.1.1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">log&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">level&lt;/span>: &lt;span style="color:#ae81ff">warn&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Service file &lt;code>/etc/systemd/system/blocky.service&lt;/code>:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/caddy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/caddy/</guid><description>&lt;h1 id="caddy">
+ &lt;a class="anchor" href="#blocky"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Blocky is a DNS proxy and ad-blocker.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget -q &lt;span style="color:#e6db74"&gt;&amp;#34;https://github.com/0xERR0R/blocky/releases/download/v0.21/blocky_v0.21_Linux_x86_64.tar.gz&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar xf blocky_v0.21_Linux_x86_64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo mv blocky /usr/local/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo setcap cap_net_bind_service&lt;span style="color:#f92672"&gt;=&lt;/span&gt;ep /usr/local/bin/blocky
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create user:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo groupadd --system blocky
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo useradd --system --gid blocky --create-home --home-dir /var/lib/blocky --shell /usr/sbin/nologin --comment &lt;span style="color:#e6db74"&gt;&amp;#34;Blocky DNS proxy&amp;#34;&lt;/span&gt; blocky
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Configuration file &lt;code&gt;/etc/blocky/config.yml&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-yml" data-lang="yml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;upstream&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;default&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ae81ff"&gt;8.8.8.8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ae81ff"&gt;1.1.1.1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;blocking&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;blackLists&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;ads&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ae81ff"&gt;https://raw.githubusercontent.com/dpurge/dns-hole/main/blacklist/dpurge.txt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ae81ff"&gt;https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;whiteLists&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;ads&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ae81ff"&gt;https://raw.githubusercontent.com/dpurge/dns-hole/main/whitelist/dpurge.txt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;clientGroupsBlock&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;default&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ae81ff"&gt;ads&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;downloadTimeout&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;4m&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;downloadAttempts&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;downloadCooldown&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;10s&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;customDNS&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;mapping&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;example.home.arpa&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;127.0.0.1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;dns&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;53&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;bootstrapDns&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ae81ff"&gt;8.8.8.8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ae81ff"&gt;1.1.1.1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;log&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;level&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;warn&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Service file &lt;code&gt;/etc/systemd/system/blocky.service&lt;/code&gt;:&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/caddy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/caddy/</guid><description>&lt;h1 id="caddy"&gt;
  Caddy
- &lt;a class="anchor" href="#caddy">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="install-xcaddy">
- Install &lt;code>xcaddy&lt;/code>
- &lt;a class="anchor" href="#install-xcaddy">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>wget -q https://github.com/caddyserver/xcaddy/releases/download/v0.3.4/xcaddy_0.3.4_linux_amd64.tar.gz
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xf xcaddy_0.3.4_linux_amd64.tar.gz
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mv xcaddy /usr/local/bin/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="build-caddy">
- Build &lt;code>caddy&lt;/code>
- &lt;a class="anchor" href="#build-caddy">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>xcaddy build &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --with github.com/wxh06/caddy-uwsgi-transport
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mv caddy /usr/local/bin/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo setcap cap_net_bind_service+eip /usr/local/bin/caddy
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="install-caddy">
- Install &lt;code>caddy&lt;/code>
- &lt;a class="anchor" href="#install-caddy">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo groupadd --system caddy
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo useradd --system --gid caddy --create-home --home-dir /var/lib/caddy --shell /usr/sbin/nologin --comment &lt;span style="color:#e6db74">&amp;#34;Caddy web server&amp;#34;&lt;/span> caddy
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create files and directories:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo mkdir /etc/caddy
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo touch /etc/caddy/Caddyfile
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chown -R root:caddy /etc/caddy
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mkdir /etc/ssl/caddy
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chown -R root:caddy /etc/ssl/caddy
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chmod &lt;span style="color:#ae81ff">0770&lt;/span> /etc/ssl/caddy
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mkdir -p /var/www/public_html
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chown caddy:caddy /var/www/public_html
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo touch /etc/systemd/system/caddy.service
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chmod &lt;span style="color:#ae81ff">644&lt;/span> /etc/systemd/system/caddy.service
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo touch /var/www/public_html/index.html
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Service file &lt;code>/etc/systemd/system/caddy.service&lt;/code>:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/podman/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/podman/</guid><description>&lt;h1 id="podman">
+ &lt;a class="anchor" href="#caddy"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="install-xcaddy"&gt;
+ Install &lt;code&gt;xcaddy&lt;/code&gt;
+ &lt;a class="anchor" href="#install-xcaddy"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget -q https://github.com/caddyserver/xcaddy/releases/download/v0.3.4/xcaddy_0.3.4_linux_amd64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar xf xcaddy_0.3.4_linux_amd64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo mv xcaddy /usr/local/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="build-caddy"&gt;
+ Build &lt;code&gt;caddy&lt;/code&gt;
+ &lt;a class="anchor" href="#build-caddy"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;xcaddy build &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; --with github.com/wxh06/caddy-uwsgi-transport
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo mv caddy /usr/local/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo setcap cap_net_bind_service+eip /usr/local/bin/caddy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="install-caddy"&gt;
+ Install &lt;code&gt;caddy&lt;/code&gt;
+ &lt;a class="anchor" href="#install-caddy"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo groupadd --system caddy
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo useradd --system --gid caddy --create-home --home-dir /var/lib/caddy --shell /usr/sbin/nologin --comment &lt;span style="color:#e6db74"&gt;&amp;#34;Caddy web server&amp;#34;&lt;/span&gt; caddy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create files and directories:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo mkdir /etc/caddy
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo touch /etc/caddy/Caddyfile
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo chown -R root:caddy /etc/caddy
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo mkdir /etc/ssl/caddy
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo chown -R root:caddy /etc/ssl/caddy
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo chmod &lt;span style="color:#ae81ff"&gt;0770&lt;/span&gt; /etc/ssl/caddy
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo mkdir -p /var/www/public_html
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo chown caddy:caddy /var/www/public_html
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo touch /etc/systemd/system/caddy.service
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo chmod &lt;span style="color:#ae81ff"&gt;644&lt;/span&gt; /etc/systemd/system/caddy.service
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo touch /var/www/public_html/index.html
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Service file &lt;code&gt;/etc/systemd/system/caddy.service&lt;/code&gt;:&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/podman/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/podman/</guid><description>&lt;h1 id="podman"&gt;
  Podman
- &lt;a class="anchor" href="#podman">#&lt;/a>
-&lt;/h1>
-&lt;ul>
-&lt;li>container management tool&lt;/li>
-&lt;li>does not require a daemon&lt;/li>
-&lt;li>each container is run in its own process&lt;/li>
-&lt;li>supports rootless containers&lt;/li>
-&lt;li>created by RedHat&lt;/li>
-&lt;li>is open source&lt;/li>
-&lt;/ul>
-&lt;h2 id="podman-vs-docker">
+ &lt;a class="anchor" href="#podman"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;container management tool&lt;/li&gt;
+&lt;li&gt;does not require a daemon&lt;/li&gt;
+&lt;li&gt;each container is run in its own process&lt;/li&gt;
+&lt;li&gt;supports rootless containers&lt;/li&gt;
+&lt;li&gt;created by RedHat&lt;/li&gt;
+&lt;li&gt;is open source&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="podman-vs-docker"&gt;
  Podman vs Docker
- &lt;a class="anchor" href="#podman-vs-docker">#&lt;/a>
-&lt;/h2>
-&lt;p>Differences:&lt;/p>
-&lt;ul>
-&lt;li>Podman has deamonless architecture and runs containers as processes.
-Docker utilizes a client-server architecture, docker daemon runs as a background process.&lt;/li>
-&lt;li>Podman supports rootless containers.
-Docker generally requires administrative privileges to run containers.&lt;/li>
-&lt;li>Podman is considered more secure because it does not require a deamon and can run containers as non-root.
-Docker raises security concerns because of a daemon running with root privileges.&lt;/li>
-&lt;li>Podman supports multiple image formats.
-Docker uses docker image format.&lt;/li>
-&lt;li>Podman leverages the host system networking directly.
-Docker manages networking through its own implementation.&lt;/li>
-&lt;/ul>
-&lt;p>Similarities:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/screen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/screen/</guid><description>&lt;h1 id="screen">
+ &lt;a class="anchor" href="#podman-vs-docker"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Differences:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Podman has deamonless architecture and runs containers as processes.
+Docker utilizes a client-server architecture, docker daemon runs as a background process.&lt;/li&gt;
+&lt;li&gt;Podman supports rootless containers.
+Docker generally requires administrative privileges to run containers.&lt;/li&gt;
+&lt;li&gt;Podman is considered more secure because it does not require a deamon and can run containers as non-root.
+Docker raises security concerns because of a daemon running with root privileges.&lt;/li&gt;
+&lt;li&gt;Podman supports multiple image formats.
+Docker uses docker image format.&lt;/li&gt;
+&lt;li&gt;Podman leverages the host system networking directly.
+Docker manages networking through its own implementation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Similarities:&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/screen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/screen/</guid><description>&lt;h1 id="screen"&gt;
  Screen
- &lt;a class="anchor" href="#screen">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="basics">
+ &lt;a class="anchor" href="#screen"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="basics"&gt;
  Basics
- &lt;a class="anchor" href="#basics">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>Start &lt;code>screen&lt;/code> session and give it a name: &lt;code>screen -S ScreenTest&lt;/code>&lt;/li>
-&lt;li>Detach from current session: &lt;code>Ctrl-A d&lt;/code>&lt;/li>
-&lt;li>List sessions: &lt;code>screen -ls&lt;/code>&lt;/li>
-&lt;li>Re-attach to an existing session: &lt;code>screen -r &amp;lt;PID&amp;gt;&lt;/code>&lt;/li>
-&lt;li>Re-attach session, if necessary detach or create: &lt;code>screen -dRR ScreenTest&lt;/code>&lt;/li>
-&lt;li>Force-exit screen: &lt;code>Ctrl-A Ctrl-\&lt;/code>&lt;/li>
-&lt;li>Kill session: &lt;code>screen -S ScreenTest -X quit&lt;/code>&lt;/li>
-&lt;li>Clean all dead screen sessions: &lt;code>screen -wipe&lt;/code>&lt;/li>
-&lt;/ul></description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/searxng/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/searxng/</guid><description>&lt;h1 id="searxng">
+ &lt;a class="anchor" href="#basics"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Start &lt;code&gt;screen&lt;/code&gt; session and give it a name: &lt;code&gt;screen -S ScreenTest&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Detach from current session: &lt;code&gt;Ctrl-A d&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;List sessions: &lt;code&gt;screen -ls&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Re-attach to an existing session: &lt;code&gt;screen -r &amp;lt;PID&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Re-attach session, if necessary detach or create: &lt;code&gt;screen -dRR ScreenTest&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Force-exit screen: &lt;code&gt;Ctrl-A Ctrl-\&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Kill session: &lt;code&gt;screen -S ScreenTest -X quit&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Clean all dead screen sessions: &lt;code&gt;screen -wipe&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/searxng/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/searxng/</guid><description>&lt;h1 id="searxng"&gt;
  SearXNG
- &lt;a class="anchor" href="#searxng">#&lt;/a>
-&lt;/h1>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo apt update -y
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt upgrade -y
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y python3-dev python3-babel python3-venv uwsgi uwsgi-plugin-python3 git build-essential libxslt-dev zlib1g-dev libffi-dev libssl-dev
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="install">
+ &lt;a class="anchor" href="#searxng"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt update -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt upgrade -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install -y python3-dev python3-babel python3-venv uwsgi uwsgi-plugin-python3 git build-essential libxslt-dev zlib1g-dev libffi-dev libssl-dev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="install"&gt;
  Install
- &lt;a class="anchor" href="#install">#&lt;/a>
-&lt;/h2>
-&lt;p>Create user:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo groupadd --system searxng
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo useradd --system --gid searxng --create-home --home-dir /var/lib/searxng --shell /bin/bash --comment &lt;span style="color:#e6db74">&amp;#34;Privacy-respecting metasearch engine&amp;#34;&lt;/span> searxng
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo -u searxng -i
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>searxng&lt;span style="color:#f92672">)&lt;/span>$ git clone &lt;span style="color:#e6db74">&amp;#34;https://github.com/searxng/searxng&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;/var/lib/searxng/searxng-src&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>searxng&lt;span style="color:#f92672">)&lt;/span>$ python3 -m venv &lt;span style="color:#e6db74">&amp;#34;/var/lib/searxng/searxng-pyenv&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Autoload virtual enviroment in &lt;code>/var/lib/searxng/.profile&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Automatically load virtual environment&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">[&lt;/span> -f &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$HOME&lt;span style="color:#e6db74">/searxng-pyenv/bin/activate&amp;#34;&lt;/span> &lt;span style="color:#f92672">]&lt;/span> ; &lt;span style="color:#66d9ef">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> . &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$HOME&lt;span style="color:#e6db74">/searxng-pyenv/bin/activate&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Exit and start in a new session.
-Make sure that pyenv was activated automatically:&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/setup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/setup/</guid><description>&lt;h1 id="setup">
+ &lt;a class="anchor" href="#install"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Create user:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo groupadd --system searxng
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo useradd --system --gid searxng --create-home --home-dir /var/lib/searxng --shell /bin/bash --comment &lt;span style="color:#e6db74"&gt;&amp;#34;Privacy-respecting metasearch engine&amp;#34;&lt;/span&gt; searxng
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo -u searxng -i
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;(&lt;/span&gt;searxng&lt;span style="color:#f92672"&gt;)&lt;/span&gt;$ git clone &lt;span style="color:#e6db74"&gt;&amp;#34;https://github.com/searxng/searxng&amp;#34;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;/var/lib/searxng/searxng-src&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;(&lt;/span&gt;searxng&lt;span style="color:#f92672"&gt;)&lt;/span&gt;$ python3 -m venv &lt;span style="color:#e6db74"&gt;&amp;#34;/var/lib/searxng/searxng-pyenv&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Autoload virtual enviroment in &lt;code&gt;/var/lib/searxng/.profile&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Automatically load virtual environment&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#f92672"&gt;[&lt;/span&gt; -f &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$HOME&lt;span style="color:#e6db74"&gt;/searxng-pyenv/bin/activate&amp;#34;&lt;/span&gt; &lt;span style="color:#f92672"&gt;]&lt;/span&gt; ; &lt;span style="color:#66d9ef"&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; . &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$HOME&lt;span style="color:#e6db74"&gt;/searxng-pyenv/bin/activate&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Exit and start in a new session.
+Make sure that pyenv was activated automatically:&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/setup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/setup/</guid><description>&lt;h1 id="setup"&gt;
  Setup
- &lt;a class="anchor" href="#setup">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="boot-in-text-mode">
+ &lt;a class="anchor" href="#setup"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="boot-in-text-mode"&gt;
  Boot in text mode
- &lt;a class="anchor" href="#boot-in-text-mode">#&lt;/a>
-&lt;/h2>
-&lt;p>Change the &lt;code>grub&lt;/code> configuration file (&lt;code>/etc/default/grub&lt;/code>):&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;quiet splash&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">GRUB_CMDLINE_LINUX&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;text&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">GRUB_TERMINAL&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">console&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo update-grub
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl set-default multi-user.target
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>shutdown -r now
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ssh">
+ &lt;a class="anchor" href="#boot-in-text-mode"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Change the &lt;code&gt;grub&lt;/code&gt; configuration file (&lt;code&gt;/etc/default/grub&lt;/code&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-ini" data-lang="ini"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;quiet splash&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;GRUB_CMDLINE_LINUX&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;text&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;GRUB_TERMINAL&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;console&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo update-grub
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl set-default multi-user.target
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;shutdown -r now
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="ssh"&gt;
  SSH
- &lt;a class="anchor" href="#ssh">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo apt update
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install openssh-server
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl status ssh
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow ssh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Check network configuration:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo apt install net-tools
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ifconfig
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="docker">
+ &lt;a class="anchor" href="#ssh"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install openssh-server
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl status ssh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ufw allow ssh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check network configuration:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install net-tools
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ifconfig
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="docker"&gt;
  Docker
- &lt;a class="anchor" href="#docker">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo apt install docker.io -y
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install docker-compose -y
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="git">
+ &lt;a class="anchor" href="#docker"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install docker.io -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install docker-compose -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="git"&gt;
  Git
- &lt;a class="anchor" href="#git">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/ubuntu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/ubuntu/</guid><description>&lt;h1 id="ubuntu">
+ &lt;a class="anchor" href="#git"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/linux/ubuntu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/linux/ubuntu/</guid><description>&lt;h1 id="ubuntu"&gt;
  Ubuntu
- &lt;a class="anchor" href="#ubuntu">#&lt;/a>
-&lt;/h1>
-&lt;p>Get network configuration:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>ip a s
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ifconfig -a
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Static IP in &lt;code>/etc/netplan/10-hostname.yaml&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">network&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">version&lt;/span>: &lt;span style="color:#ae81ff">2&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">ethernets&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">eth0&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">dhcp4&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">dhcp6&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">dhcp-identifier&lt;/span>: &lt;span style="color:#ae81ff">mac&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">addresses&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">192.168.0.11&lt;/span>&lt;span style="color:#ae81ff">/24&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">routes&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">to&lt;/span>: &lt;span style="color:#ae81ff">default&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">via&lt;/span>: &lt;span style="color:#ae81ff">192.168.0.1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">nameservers&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">addresses&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">192.168.0.1&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Check disk size:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>lsblk --scsi
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo fdisk -l /dev/sda
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo parted -l
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>df -h
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Check memory:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>free
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Resize logical volume to all disk:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>vgdisplay
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lvdisplay
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="generalize-cloud-image">
+ &lt;a class="anchor" href="#ubuntu"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Get network configuration:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip a s
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ifconfig -a
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Static IP in &lt;code&gt;/etc/netplan/10-hostname.yaml&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;network&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;version&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;ethernets&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;eth0&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;dhcp4&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;dhcp6&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;dhcp-identifier&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;mac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;addresses&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ae81ff"&gt;192.168.0.11&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;/24&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;routes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#f92672"&gt;to&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;default&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;via&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;192.168.0.1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;nameservers&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;addresses&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - &lt;span style="color:#ae81ff"&gt;192.168.0.1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check disk size:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lsblk --scsi
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo fdisk -l /dev/sda
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo parted -l
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;df -h
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check memory:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;free
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Resize logical volume to all disk:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vgdisplay
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lvdisplay
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="generalize-cloud-image"&gt;
  Generalize cloud image
- &lt;a class="anchor" href="#generalize-cloud-image">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo cloud-init clean
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo rm -rf /var/lib/cloud/instances
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo truncate -s &lt;span style="color:#ae81ff">0&lt;/span> /etc/machine-id
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo rm /var/lib/dbus/machine-id
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ln -s /etc/machine-id /var/lib/dbus/machine-id
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo poweroff
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="lxc-server-setup">
+ &lt;a class="anchor" href="#generalize-cloud-image"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo cloud-init clean
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo rm -rf /var/lib/cloud/instances
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo truncate -s &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; /etc/machine-id
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo rm /var/lib/dbus/machine-id
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo ln -s /etc/machine-id /var/lib/dbus/machine-id
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo poweroff
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="lxc-server-setup"&gt;
  LXC server setup
- &lt;a class="anchor" href="#lxc-server-setup">#&lt;/a>
-&lt;/h2>
-&lt;p>Add user and install basic software:&lt;/p></description></item></channel></rss>
+ &lt;a class="anchor" href="#lxc-server-setup"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Add user and install basic software:&lt;/p&gt;</description></item></channel></rss>

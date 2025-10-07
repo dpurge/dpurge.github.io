@@ -1,94 +1,94 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Azure on Notebook</title><link>https://dpurge.github.io/docs/cloud/azure/</link><description>Recent content in Azure on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/cloud/azure/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/cloud/azure/access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/access/</guid><description>&lt;h1 id="identity-and-access-management">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Azure on Notebook</title><link>https://dpurge.github.io/docs/cloud/azure/</link><description>Recent content in Azure on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/cloud/azure/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/cloud/azure/access/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/access/</guid><description>&lt;h1 id="identity-and-access-management"&gt;
  Identity and access management
- &lt;a class="anchor" href="#identity-and-access-management">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="microsoft-entra-id">
+ &lt;a class="anchor" href="#identity-and-access-management"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="microsoft-entra-id"&gt;
  Microsoft Entra ID
- &lt;a class="anchor" href="#microsoft-entra-id">#&lt;/a>
-&lt;/h2>
-&lt;p>Identity and access management service.
-Enables you to sign in and access Microsoft cloud applications and cloud applications that you develop.&lt;/p>
-&lt;p>Provides:&lt;/p>
-&lt;ul>
-&lt;li>&lt;em>Authentication&lt;/em>: verifying identity to access applications and resources; self-service password reset; multifactor authentication; a custom list of banned passwords; smart lockout services&lt;/li>
-&lt;li>&lt;em>Single sign-on&lt;/em>: one username and one password to access multiple applications&lt;/li>
-&lt;li>&lt;em>Application management&lt;/em>: manage cloud and on-premises apps&lt;/li>
-&lt;li>&lt;em>Device management&lt;/em>: registration of devices; enables devices to be managed through tools like Microsoft Intune; allows for device-based Conditional Access policies&lt;/li>
-&lt;/ul>
-&lt;p>You can connect on-prem Active Directory with Microsoft Entra ID, enabling a consistent identity experience between cloud and on-premises.&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/cli/</guid><description>&lt;h1 id="command-line-interface">
+ &lt;a class="anchor" href="#microsoft-entra-id"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Identity and access management service.
+Enables you to sign in and access Microsoft cloud applications and cloud applications that you develop.&lt;/p&gt;
+&lt;p&gt;Provides:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Authentication&lt;/em&gt;: verifying identity to access applications and resources; self-service password reset; multifactor authentication; a custom list of banned passwords; smart lockout services&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Single sign-on&lt;/em&gt;: one username and one password to access multiple applications&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Application management&lt;/em&gt;: manage cloud and on-premises apps&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Device management&lt;/em&gt;: registration of devices; enables devices to be managed through tools like Microsoft Intune; allows for device-based Conditional Access policies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can connect on-prem Active Directory with Microsoft Entra ID, enabling a consistent identity experience between cloud and on-premises.&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/cli/</guid><description>&lt;h1 id="command-line-interface"&gt;
  Command line interface
- &lt;a class="anchor" href="#command-line-interface">#&lt;/a>
-&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/databases/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/databases/</guid><description>&lt;h1 id="databases">
+ &lt;a class="anchor" href="#command-line-interface"&gt;#&lt;/a&gt;
+&lt;/h1&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/databases/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/databases/</guid><description>&lt;h1 id="databases"&gt;
  Databases
- &lt;a class="anchor" href="#databases">#&lt;/a>
-&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/exploring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/exploring/</guid><description>&lt;h1 id="exploring-azure-resources">
+ &lt;a class="anchor" href="#databases"&gt;#&lt;/a&gt;
+&lt;/h1&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/exploring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/exploring/</guid><description>&lt;h1 id="exploring-azure-resources"&gt;
  Exploring Azure resources
- &lt;a class="anchor" href="#exploring-azure-resources">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="list-subscription-and-tenant">
+ &lt;a class="anchor" href="#exploring-azure-resources"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="list-subscription-and-tenant"&gt;
  List subscription and tenant
- &lt;a class="anchor" href="#list-subscription-and-tenant">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>az account show --query &lt;span style="color:#e6db74">&amp;#34;{subscriptionId:id, tenantId:tenantId}&amp;#34;&lt;/span> -o table
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>az login
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az account subscription list
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="create-service-principal-for-rbac">
+ &lt;a class="anchor" href="#list-subscription-and-tenant"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az account show --query &lt;span style="color:#e6db74"&gt;&amp;#34;{subscriptionId:id, tenantId:tenantId}&amp;#34;&lt;/span&gt; -o table
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az login
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az account subscription list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="create-service-principal-for-rbac"&gt;
  Create service principal for RBAC
- &lt;a class="anchor" href="#create-service-principal-for-rbac">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>az ad sp create-for-rbac --role Contributor --name my-name-001 --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>az cloud set -n AzureCloud
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az login --service-principal -u *** --password&lt;span style="color:#f92672">=&lt;/span>*** --tenant xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --allow-no-subscriptions
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az aks get-credentials --resource-group &lt;span style="color:#66d9ef">$(&lt;/span>ResourceGroup&lt;span style="color:#66d9ef">)&lt;/span> --name &lt;span style="color:#66d9ef">$(&lt;/span>KubernetesService&lt;span style="color:#66d9ef">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="find-vm-images">
+ &lt;a class="anchor" href="#create-service-principal-for-rbac"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az ad sp create-for-rbac --role Contributor --name my-name-001 --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az cloud set -n AzureCloud
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az login --service-principal -u *** --password&lt;span style="color:#f92672"&gt;=&lt;/span&gt;*** --tenant xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --allow-no-subscriptions
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az aks get-credentials --resource-group &lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;ResourceGroup&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt; --name &lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;KubernetesService&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="find-vm-images"&gt;
  Find VM images
- &lt;a class="anchor" href="#find-vm-images">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>az vm image list-offers --publisher Canonical --location westeurope -o table
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az vm image list-skus --publisher Canonical --offer 0001-com-ubuntu-server-jammy --location westeurope -o table
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az vm image list --all --publisher Canonical --offer 0001-com-ubuntu-server-jammy --sku 22_04-lts --location westeurope -o table
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Refer to this image: &lt;code>Canonical:0001-com-ubuntu-server-jammy:22_04-lts&lt;/code>&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/messaging/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/messaging/</guid><description>&lt;h1 id="messaging">
+ &lt;a class="anchor" href="#find-vm-images"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az vm image list-offers --publisher Canonical --location westeurope -o table
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az vm image list-skus --publisher Canonical --offer 0001-com-ubuntu-server-jammy --location westeurope -o table
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az vm image list --all --publisher Canonical --offer 0001-com-ubuntu-server-jammy --sku 22_04-lts --location westeurope -o table
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Refer to this image: &lt;code&gt;Canonical:0001-com-ubuntu-server-jammy:22_04-lts&lt;/code&gt;&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/messaging/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/messaging/</guid><description>&lt;h1 id="messaging"&gt;
  Messaging
- &lt;a class="anchor" href="#messaging">#&lt;/a>
-&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/networking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/networking/</guid><description>&lt;h1 id="networking">
+ &lt;a class="anchor" href="#messaging"&gt;#&lt;/a&gt;
+&lt;/h1&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/networking/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/networking/</guid><description>&lt;h1 id="networking"&gt;
  Networking
- &lt;a class="anchor" href="#networking">#&lt;/a>
-&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/snippets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/snippets/</guid><description>&lt;h1 id="snippets">
+ &lt;a class="anchor" href="#networking"&gt;#&lt;/a&gt;
+&lt;/h1&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/snippets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/snippets/</guid><description>&lt;h1 id="snippets"&gt;
  Snippets
- &lt;a class="anchor" href="#snippets">#&lt;/a>
-&lt;/h1>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>az group create -g $group -l northeurope
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az vm create &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -n vm1 &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -g $group &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -l northeurope &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --image Win2019Datacenter &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --admin-username $username &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --admin-password $password &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --nsg-rule rdp
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az appservice plan create &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -n web-plan &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -g $group &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -l northeurope &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --sku S1
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az webapp create &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -n $appname &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -g $group &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -p web-plan
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az webapp list -g $group --query &lt;span style="color:#e6db74">&amp;#34;[].enabledHostNames&amp;#34;&lt;/span> -o jsonc
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>az group delete -g $group
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/storage/</guid><description>&lt;h1 id="storage">
+ &lt;a class="anchor" href="#snippets"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az group create -g $group -l northeurope
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az vm create &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -n vm1 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -g $group &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -l northeurope &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; --image Win2019Datacenter &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; --admin-username $username &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; --admin-password $password &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; --nsg-rule rdp
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az appservice plan create &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -n web-plan &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -g $group &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -l northeurope &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; --sku S1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az webapp create &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -n $appname &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -g $group &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -p web-plan
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az webapp list -g $group --query &lt;span style="color:#e6db74"&gt;&amp;#34;[].enabledHostNames&amp;#34;&lt;/span&gt; -o jsonc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;az group delete -g $group
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/storage/</guid><description>&lt;h1 id="storage"&gt;
  Storage
- &lt;a class="anchor" href="#storage">#&lt;/a>
-&lt;/h1></description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/workloads/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/workloads/</guid><description>&lt;h1 id="workloads">
+ &lt;a class="anchor" href="#storage"&gt;#&lt;/a&gt;
+&lt;/h1&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/cloud/azure/workloads/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/cloud/azure/workloads/</guid><description>&lt;h1 id="workloads"&gt;
  Workloads
- &lt;a class="anchor" href="#workloads">#&lt;/a>
-&lt;/h1></description></item></channel></rss>
+ &lt;a class="anchor" href="#workloads"&gt;#&lt;/a&gt;
+&lt;/h1&gt;</description></item></channel></rss>

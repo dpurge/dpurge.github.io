@@ -1,40 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vagrant on Notebook</title><link>https://dpurge.github.io/docs/devops/vagrant/</link><description>Recent content in Vagrant on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/vagrant/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/vagrant/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/vagrant/installation/</guid><description>&lt;h1 id="installation">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vagrant on Notebook</title><link>https://dpurge.github.io/docs/devops/vagrant/</link><description>Recent content in Vagrant on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/vagrant/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/vagrant/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/vagrant/installation/</guid><description>&lt;h1 id="installation"&gt;
  Installation
- &lt;a class="anchor" href="#installation">#&lt;/a>
-&lt;/h1>
-&lt;h1 id="windows">
+ &lt;a class="anchor" href="#installation"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h1 id="windows"&gt;
  Windows
- &lt;a class="anchor" href="#windows">#&lt;/a>
-&lt;/h1>
-&lt;ul>
-&lt;li>Install Hyper-V&lt;/li>
-&lt;li>Check Samba configuration&lt;/li>
-&lt;li>Configure Hyper-V as default Vagrant provider&lt;/li>
-&lt;li>Install Vagrant&amp;rsquo;s &lt;code>reload&lt;/code> plugin&lt;/li>
-&lt;li>Create NAT switch for Hyper-V&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>Get-SmbServerConfiguration
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[&lt;span style="color:#66d9ef">Environment&lt;/span>]::SetEnvironmentVariable(&lt;span style="color:#e6db74">&amp;#34;VAGRANT_DEFAULT_PROVIDER&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;hyperv&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;User&amp;#34;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>vagrant plugin install vagrant-reload
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Get-NetAdapter | Format-Table -AutoSize&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Get-VMSwitch | Select-Object -ExpandProperty Name
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># if NatSwitch not listed&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New-VMSwitch -SwitchName &lt;span style="color:#e6db74">&amp;#34;NATSwitch&amp;#34;&lt;/span> -SwitchType Internal
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Get-NetIPAddress | Select-Object -ExpandProperty IPAddress
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># if 192.168.200.1 not listed&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New-NetIPAddress -IPAddress &lt;span style="color:#ae81ff">192.168&lt;/span>.200.1 -PrefixLength &lt;span style="color:#ae81ff">24&lt;/span> -InterfaceAlias &lt;span style="color:#e6db74">&amp;#34;vEthernet (NATSwitch)&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Get-NetNAT | Select-Object -ExpandProperty InternalIPInterfaceAddressPrefix
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># if 192.168.200.0/24 not listed&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New-NetNAT -Name &lt;span style="color:#e6db74">&amp;#34;NATNetwork&amp;#34;&lt;/span> -InternalIPInterfaceAddressPrefix &lt;span style="color:#ae81ff">192.168&lt;/span>.200.&lt;span style="color:#ae81ff">0&lt;/span>/&lt;span style="color:#ae81ff">24&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="vagrantfile">
+ &lt;a class="anchor" href="#windows"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Install Hyper-V&lt;/li&gt;
+&lt;li&gt;Check Samba configuration&lt;/li&gt;
+&lt;li&gt;Configure Hyper-V as default Vagrant provider&lt;/li&gt;
+&lt;li&gt;Install Vagrant&amp;rsquo;s &lt;code&gt;reload&lt;/code&gt; plugin&lt;/li&gt;
+&lt;li&gt;Create NAT switch for Hyper-V&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-pwsh" data-lang="pwsh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Get-SmbServerConfiguration
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[&lt;span style="color:#66d9ef"&gt;Environment&lt;/span&gt;]::SetEnvironmentVariable(&lt;span style="color:#e6db74"&gt;&amp;#34;VAGRANT_DEFAULT_PROVIDER&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;hyperv&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;User&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vagrant plugin install vagrant-reload
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Get-NetAdapter | Format-Table -AutoSize&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Get-VMSwitch | Select-Object -ExpandProperty Name
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# if NatSwitch not listed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;New-VMSwitch -SwitchName &lt;span style="color:#e6db74"&gt;&amp;#34;NATSwitch&amp;#34;&lt;/span&gt; -SwitchType Internal
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Get-NetIPAddress | Select-Object -ExpandProperty IPAddress
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# if 192.168.200.1 not listed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;New-NetIPAddress -IPAddress &lt;span style="color:#ae81ff"&gt;192.168&lt;/span&gt;.200.1 -PrefixLength &lt;span style="color:#ae81ff"&gt;24&lt;/span&gt; -InterfaceAlias &lt;span style="color:#e6db74"&gt;&amp;#34;vEthernet (NATSwitch)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Get-NetNAT | Select-Object -ExpandProperty InternalIPInterfaceAddressPrefix
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# if 192.168.200.0/24 not listed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;New-NetNAT -Name &lt;span style="color:#e6db74"&gt;&amp;#34;NATNetwork&amp;#34;&lt;/span&gt; -InternalIPInterfaceAddressPrefix &lt;span style="color:#ae81ff"&gt;192.168&lt;/span&gt;.200.&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;/&lt;span style="color:#ae81ff"&gt;24&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="vagrantfile"&gt;
  Vagrantfile
- &lt;a class="anchor" href="#vagrantfile">#&lt;/a>
-&lt;/h2>
-&lt;p>This template is ready to create several VMs on Hyper-V
-and set static address to all of them.&lt;/p></description></item></channel></rss>
+ &lt;a class="anchor" href="#vagrantfile"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;This template is ready to create several VMs on Hyper-V
+and set static address to all of them.&lt;/p&gt;</description></item></channel></rss>

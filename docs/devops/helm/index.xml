@@ -1,69 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Helm on Notebook</title><link>https://dpurge.github.io/docs/devops/helm/</link><description>Recent content in Helm on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/helm/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/helm/charts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/helm/charts/</guid><description>&lt;h1 id="charts">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Helm on Notebook</title><link>https://dpurge.github.io/docs/devops/helm/</link><description>Recent content in Helm on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/helm/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/helm/charts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/helm/charts/</guid><description>&lt;h1 id="charts"&gt;
  Charts
- &lt;a class="anchor" href="#charts">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="download">
+ &lt;a class="anchor" href="#charts"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="download"&gt;
  Download
- &lt;a class="anchor" href="#download">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>mkdir cluster-config
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd cluster-config
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>helm pull --help
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>helm pull bitnami/mysql --untar&lt;span style="color:#f92672">=&lt;/span>true
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>helm install mysql ./mysql/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>helm upgrade mysql --values&lt;span style="color:#f92672">=&lt;/span>./mysql/custom-values.yaml ./mysql/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="convert-to-k8s-configuration">
+ &lt;a class="anchor" href="#download"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir cluster-config
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd cluster-config
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm pull --help
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm pull bitnami/mysql --untar&lt;span style="color:#f92672"&gt;=&lt;/span&gt;true
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm install mysql ./mysql/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm upgrade mysql --values&lt;span style="color:#f92672"&gt;=&lt;/span&gt;./mysql/custom-values.yaml ./mysql/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="convert-to-k8s-configuration"&gt;
  Convert to k8s configuration
- &lt;a class="anchor" href="#convert-to-k8s-configuration">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>helm template mysql ./mysql/ --values&lt;span style="color:#f92672">=&lt;/span>./mysql/custom-values.yaml &amp;gt; mysql-installation.yaml
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="create-charts">
+ &lt;a class="anchor" href="#convert-to-k8s-configuration"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm template mysql ./mysql/ --values&lt;span style="color:#f92672"&gt;=&lt;/span&gt;./mysql/custom-values.yaml &amp;gt; mysql-installation.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="create-charts"&gt;
  Create charts
- &lt;a class="anchor" href="#create-charts">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>helm create example-helm-chart
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd example-helm-chart/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>helm template . &lt;span style="color:#75715e"># to test the output&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Reference values in the template: &lt;code>{{ .Values.MyKey }}&lt;/code>&lt;/p>
-&lt;p>Call function in the template with space-separated list of parameters: &lt;code>{{ lower .Values.MyKey }}&lt;/code>&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/helm/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/helm/installation/</guid><description>&lt;h1 id="installation">
+ &lt;a class="anchor" href="#create-charts"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm create example-helm-chart
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd example-helm-chart/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm template . &lt;span style="color:#75715e"&gt;# to test the output&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Reference values in the template: &lt;code&gt;{{ .Values.MyKey }}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Call function in the template with space-separated list of parameters: &lt;code&gt;{{ lower .Values.MyKey }}&lt;/code&gt;&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/helm/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/helm/installation/</guid><description>&lt;h1 id="installation"&gt;
  Installation
- &lt;a class="anchor" href="#installation">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="linux">
+ &lt;a class="anchor" href="#installation"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="linux"&gt;
  Linux
- &lt;a class="anchor" href="#linux">#&lt;/a>
-&lt;/h2>
-&lt;p>TODO&lt;/p>
-&lt;p>Install &lt;code>Helm&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>export HELM_VERSION&lt;span style="color:#f92672">=&lt;/span>3.9.2
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /tmp
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -sSL https://get.helm.sh/helm-v&lt;span style="color:#e6db74">${&lt;/span>HELM_VERSION&lt;span style="color:#e6db74">}&lt;/span>-linux-amd64.tar.gz &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -o helm.tar.gz
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar xf helm.tar.gz linux-amd64/helm
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mv linux-amd64/helm /usr/local/bin/helm
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rmdir linux-amd64
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rm helm.tar.gz
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="packages">
+ &lt;a class="anchor" href="#linux"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;TODO&lt;/p&gt;
+&lt;p&gt;Install &lt;code&gt;Helm&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;export HELM_VERSION&lt;span style="color:#f92672"&gt;=&lt;/span&gt;3.9.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /tmp
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -sSL https://get.helm.sh/helm-v&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;HELM_VERSION&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;-linux-amd64.tar.gz &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -o helm.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar xf helm.tar.gz linux-amd64/helm
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mv linux-amd64/helm /usr/local/bin/helm
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;rmdir linux-amd64
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;rm helm.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="packages"&gt;
  Packages
- &lt;a class="anchor" href="#packages">#&lt;/a>
-&lt;/h2>
-&lt;p>Find helm charts on 
- &lt;a href="https://artifacthub.io/">https://artifacthub.io/&lt;/a>&lt;/p>
-&lt;h2 id="example-usage">
+ &lt;a class="anchor" href="#packages"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Find helm charts on 
+ &lt;a href="https://artifacthub.io/"&gt;https://artifacthub.io/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="example-usage"&gt;
  Example usage
- &lt;a class="anchor" href="#example-usage">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>helm repo list
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>helm repo add bitnami https://charts.bitnami.com/bitnami
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>helm repo update
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>helm install mysql bitnami/mysql
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>helm list
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>helm uninstall mysql
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Find chart values:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>helm show values bitnami/mysql &amp;gt; values.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>vim values.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>helm upgrade mysql bitnami/mysql --set section.name&lt;span style="color:#f92672">=&lt;/span>value
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>helm upgrade mysql bitnami/mysql --values&lt;span style="color:#f92672">=&lt;/span>values.yaml
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+ &lt;a class="anchor" href="#example-usage"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm repo list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm repo add bitnami https://charts.bitnami.com/bitnami
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm repo update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm install mysql bitnami/mysql
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm uninstall mysql
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Find chart values:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm show values bitnami/mysql &amp;gt; values.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vim values.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm upgrade mysql bitnami/mysql --set section.name&lt;span style="color:#f92672"&gt;=&lt;/span&gt;value
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helm upgrade mysql bitnami/mysql --values&lt;span style="color:#f92672"&gt;=&lt;/span&gt;values.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

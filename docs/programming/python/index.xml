@@ -1,86 +1,86 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Notebook</title><link>https://dpurge.github.io/docs/programming/python/</link><description>Recent content in Python on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/python/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/python/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/basics/</guid><description>&lt;h1 id="python-basics">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Notebook</title><link>https://dpurge.github.io/docs/programming/python/</link><description>Recent content in Python on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/programming/python/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/programming/python/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/basics/</guid><description>&lt;h1 id="python-basics"&gt;
  Python basics
- &lt;a class="anchor" href="#python-basics">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="application-structure">
+ &lt;a class="anchor" href="#python-basics"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="application-structure"&gt;
  Application structure
- &lt;a class="anchor" href="#application-structure">#&lt;/a>
-&lt;/h2>
-&lt;p>TODO&lt;/p>
-&lt;h2 id="class-structure">
+ &lt;a class="anchor" href="#application-structure"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;TODO&lt;/p&gt;
+&lt;h2 id="class-structure"&gt;
  Class structure
- &lt;a class="anchor" href="#class-structure">#&lt;/a>
-&lt;/h2>
-&lt;p>TODO&lt;/p>
-&lt;h2 id="executable-module">
+ &lt;a class="anchor" href="#class-structure"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;TODO&lt;/p&gt;
+&lt;h2 id="executable-module"&gt;
  Executable module
- &lt;a class="anchor" href="#executable-module">#&lt;/a>
-&lt;/h2>
-&lt;p>TODO&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/programming/python/environment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/environment/</guid><description>&lt;h1 id="virtual-environment">
+ &lt;a class="anchor" href="#executable-module"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;TODO&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/programming/python/environment/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/environment/</guid><description>&lt;h1 id="virtual-environment"&gt;
  Virtual environment
- &lt;a class="anchor" href="#virtual-environment">#&lt;/a>
-&lt;/h1>
-&lt;p>TODO&lt;/p>
-&lt;h2 id="venv">
+ &lt;a class="anchor" href="#virtual-environment"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;TODO&lt;/p&gt;
+&lt;h2 id="venv"&gt;
  Venv
- &lt;a class="anchor" href="#venv">#&lt;/a>
-&lt;/h2>
-&lt;p>Create and activate virtual environment:&lt;/p>
+ &lt;a class="anchor" href="#venv"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Create and activate virtual environment:&lt;/p&gt;
 
 
 
 
-&lt;div class="book-tabs">&lt;input type="radio" class="toggle" name="tabs-venv-setup" id="tabs-venv-setup-0" checked="checked" />
- &lt;label for="tabs-venv-setup-0">Bash&lt;/label>
- &lt;div class="book-tabs-content markdown-inner">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>echo Hello
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-venv-setup" id="tabs-venv-setup-1" />
- &lt;label for="tabs-venv-setup-1">Powershell&lt;/label>
- &lt;div class="book-tabs-content markdown-inner">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-pwsh" data-lang="pwsh">&lt;span style="display:flex;">&lt;span>python -m venv .venv
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.venv\Scripts\activate.ps1
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;input type="radio" class="toggle" name="tabs-venv-setup" id="tabs-venv-setup-2" />
- &lt;label for="tabs-venv-setup-2">Cmd&lt;/label>
- &lt;div class="book-tabs-content markdown-inner">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cmd" data-lang="cmd">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">echo&lt;/span> Hello
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>&lt;/div>
+&lt;div class="book-tabs"&gt;&lt;input type="radio" class="toggle" name="tabs-venv-setup" id="tabs-venv-setup-0" checked="checked" /&gt;
+ &lt;label for="tabs-venv-setup-0"&gt;Bash&lt;/label&gt;
+ &lt;div class="book-tabs-content markdown-inner"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo Hello
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;input type="radio" class="toggle" name="tabs-venv-setup" id="tabs-venv-setup-1" /&gt;
+ &lt;label for="tabs-venv-setup-1"&gt;Powershell&lt;/label&gt;
+ &lt;div class="book-tabs-content markdown-inner"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-pwsh" data-lang="pwsh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python -m venv .venv
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.venv\Scripts\activate.ps1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;input type="radio" class="toggle" name="tabs-venv-setup" id="tabs-venv-setup-2" /&gt;
+ &lt;label for="tabs-venv-setup-2"&gt;Cmd&lt;/label&gt;
+ &lt;div class="book-tabs-content markdown-inner"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;echo&lt;/span&gt; Hello
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p>Upgrade &lt;code>pip&lt;/code> and install &lt;code>requirements.txt&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>python -m pip install --upgrade pip
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pip install -r requirements.txt
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Deactivate virtual environment:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>deactivate
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pipenv">
+&lt;p&gt;Upgrade &lt;code&gt;pip&lt;/code&gt; and install &lt;code&gt;requirements.txt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python -m pip install --upgrade pip
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip install -r requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Deactivate virtual environment:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;deactivate
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="pipenv"&gt;
  Pipenv
- &lt;a class="anchor" href="#pipenv">#&lt;/a>
-&lt;/h2>
-&lt;p>TODO&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/programming/python/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/installation/</guid><description>&lt;h1 id="installation">
+ &lt;a class="anchor" href="#pipenv"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;TODO&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/programming/python/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/programming/python/installation/</guid><description>&lt;h1 id="installation"&gt;
  Installation
- &lt;a class="anchor" href="#installation">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="pyenv-on-linux">
+ &lt;a class="anchor" href="#installation"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="pyenv-on-linux"&gt;
  PyEnv on Linux
- &lt;a class="anchor" href="#pyenv-on-linux">#&lt;/a>
-&lt;/h2>
-&lt;p>Install build dependencies:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo apt update
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> build-essential &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libssl-dev &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> zlib1g-dev &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libbz2-dev &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libreadline-dev &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libsqlite3-dev &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> curl &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> llvm &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libncursesw5-dev &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> xz-utils &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> tk-dev &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libxml2-dev &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libxmlsec1-dev &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> libffi-dev &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> liblzma-dev
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Install PyEnv scripts:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>curl https://pyenv.run | bash
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>sudo git clone https://github.com/pyenv/pyenv.git /opt/pyenv
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo git clone https://github.com/pyenv/pyenv-doctor.git /opt/pyenv/plugins/pyenv-doctor
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo git clone https://github.com/pyenv/pyenv-update.git /opt/pyenv/plugins/pyenv-update
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo git clone https://github.com/pyenv/pyenv-virtualenv.git /opt/pyenv/plugins/pyenv-virtualenv
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Add to &lt;code>~/.profile&lt;/code>:&lt;/p></description></item></channel></rss>
+ &lt;a class="anchor" href="#pyenv-on-linux"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Install build dependencies:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; build-essential &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; libssl-dev &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; zlib1g-dev &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; libbz2-dev &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; libreadline-dev &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; libsqlite3-dev &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; curl &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; llvm &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; libncursesw5-dev &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; xz-utils &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; tk-dev &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; libxml2-dev &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; libxmlsec1-dev &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; libffi-dev &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; liblzma-dev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install PyEnv scripts:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl https://pyenv.run | bash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo git clone https://github.com/pyenv/pyenv.git /opt/pyenv
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo git clone https://github.com/pyenv/pyenv-doctor.git /opt/pyenv/plugins/pyenv-doctor
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo git clone https://github.com/pyenv/pyenv-update.git /opt/pyenv/plugins/pyenv-update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo git clone https://github.com/pyenv/pyenv-virtualenv.git /opt/pyenv/plugins/pyenv-virtualenv
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add to &lt;code&gt;~/.profile&lt;/code&gt;:&lt;/p&gt;</description></item></channel></rss>

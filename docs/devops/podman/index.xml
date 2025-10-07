@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Podman on Notebook</title><link>https://dpurge.github.io/docs/devops/podman/</link><description>Recent content in Podman on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/podman/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/podman/compose/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/podman/compose/</guid><description>&lt;h1 id="podman-compose">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Podman on Notebook</title><link>https://dpurge.github.io/docs/devops/podman/</link><description>Recent content in Podman on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/podman/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/podman/compose/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/podman/compose/</guid><description>&lt;h1 id="podman-compose"&gt;
  Podman compose
- &lt;a class="anchor" href="#podman-compose">#&lt;/a>
-&lt;/h1>
-&lt;p>Podman Compose picks the services defined inside the &lt;code>docker-compose.yaml&lt;/code> file and creates a container for each service.
-Podman Compose adds the containers to a single pod for the whole project, and all the containers share the same network.&lt;/p>
-&lt;h2 id="install">
+ &lt;a class="anchor" href="#podman-compose"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Podman Compose picks the services defined inside the &lt;code&gt;docker-compose.yaml&lt;/code&gt; file and creates a container for each service.
+Podman Compose adds the containers to a single pod for the whole project, and all the containers share the same network.&lt;/p&gt;
+&lt;h2 id="install"&gt;
  Install
- &lt;a class="anchor" href="#install">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>pip3 install https://github.com/containers/podman-compose/archive/devel.tar.gz
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="running">
+ &lt;a class="anchor" href="#install"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip3 install https://github.com/containers/podman-compose/archive/devel.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="running"&gt;
  Running
- &lt;a class="anchor" href="#running">#&lt;/a>
-&lt;/h2>
-&lt;p>What happens when you run &lt;code>podman-compose up&lt;/code> in the project directory:&lt;/p>
-&lt;ul>
-&lt;li>a pod is created and named after the directory&lt;/li>
-&lt;li>named volumes defined in the YAML file are created if they do not exist&lt;/li>
-&lt;li>one container is created for each service listed in the YAML file and added to the pod&lt;/li>
-&lt;li>localhost aliases are added to each named container&lt;/li>
-&lt;/ul>
-&lt;p>Containers can resolve each other by name, although they are not on a bridge network.
-To do this, use the option &lt;code>–add-host&lt;/code>, ex: &lt;code>–add-host web:localhost&lt;/code>.&lt;/p></description></item></channel></rss>
+ &lt;a class="anchor" href="#running"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;What happens when you run &lt;code&gt;podman-compose up&lt;/code&gt; in the project directory:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a pod is created and named after the directory&lt;/li&gt;
+&lt;li&gt;named volumes defined in the YAML file are created if they do not exist&lt;/li&gt;
+&lt;li&gt;one container is created for each service listed in the YAML file and added to the pod&lt;/li&gt;
+&lt;li&gt;localhost aliases are added to each named container&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Containers can resolve each other by name, although they are not on a bridge network.
+To do this, use the option &lt;code&gt;–add-host&lt;/code&gt;, ex: &lt;code&gt;–add-host web:localhost&lt;/code&gt;.&lt;/p&gt;</description></item></channel></rss>

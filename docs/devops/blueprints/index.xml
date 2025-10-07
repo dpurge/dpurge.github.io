@@ -1,108 +1,108 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blueprints on Notebook</title><link>https://dpurge.github.io/docs/devops/blueprints/</link><description>Recent content in Blueprints on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/blueprints/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/blueprints/aws-3tier-webapp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/blueprints/aws-3tier-webapp/</guid><description>&lt;h1 id="aws-3-tier-webapp">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blueprints on Notebook</title><link>https://dpurge.github.io/docs/devops/blueprints/</link><description>Recent content in Blueprints on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/blueprints/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/blueprints/aws-3tier-webapp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/blueprints/aws-3tier-webapp/</guid><description>&lt;h1 id="aws-3-tier-webapp"&gt;
  AWS 3-Tier webapp
- &lt;a class="anchor" href="#aws-3-tier-webapp">#&lt;/a>
-&lt;/h1>
-&lt;p>
- &lt;img src="https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/blueprints/aws-3tier-webapp.excalidraw.svg" alt="AWS 3-Tier webapp" />&lt;/p></description></item><item><title/><link>https://dpurge.github.io/docs/devops/blueprints/aws-static-webapp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/blueprints/aws-static-webapp/</guid><description>&lt;h1 id="aws-static-web-application">
+ &lt;a class="anchor" href="#aws-3-tier-webapp"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;
+ &lt;img src="https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/blueprints/aws-3tier-webapp.excalidraw.svg" alt="AWS 3-Tier webapp" /&gt;&lt;/p&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/blueprints/aws-static-webapp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/blueprints/aws-static-webapp/</guid><description>&lt;h1 id="aws-static-web-application"&gt;
  AWS static web application
- &lt;a class="anchor" href="#aws-static-web-application">#&lt;/a>
-&lt;/h1>
-&lt;p>
- &lt;img src="https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/blueprints/aws-static-webapp.png" alt="AWS static web application" />&lt;/p>
-&lt;p>Components:&lt;/p>
-&lt;ul>
-&lt;li>&lt;em>AWS Shield Standard&lt;/em> - free protection against common DDoS attacks,
-applied automatically to CloudFront and Route 53.&lt;/li>
-&lt;li>&lt;em>Route 53&lt;/em> - Domain Name System web service, performs domain registration,
-DNS routing and health checking.&lt;/li>
-&lt;li>&lt;em>Hosted Zone&lt;/em> - container for records specifying how to route traffic for a
-specific domain.&lt;/li>
-&lt;li>&lt;em>CloudFront&lt;/em> - content delivery network for distributing static content from
-edge locations.&lt;/li>
-&lt;li>&lt;em>S3 bucket&lt;/em> - cloud storage for web content&lt;/li>
-&lt;li>&lt;em>Argo Workflows&lt;/em> - pipelines producing web content and publishing it to the
-cloud storage&lt;/li>
-&lt;/ul></description></item><item><title/><link>https://dpurge.github.io/docs/devops/blueprints/llm-closed-source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/blueprints/llm-closed-source/</guid><description>&lt;h1 id="large-language-model-closed-source">
+ &lt;a class="anchor" href="#aws-static-web-application"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;
+ &lt;img src="https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/blueprints/aws-static-webapp.png" alt="AWS static web application" /&gt;&lt;/p&gt;
+&lt;p&gt;Components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;AWS Shield Standard&lt;/em&gt; - free protection against common DDoS attacks,
+applied automatically to CloudFront and Route 53.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Route 53&lt;/em&gt; - Domain Name System web service, performs domain registration,
+DNS routing and health checking.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Hosted Zone&lt;/em&gt; - container for records specifying how to route traffic for a
+specific domain.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;CloudFront&lt;/em&gt; - content delivery network for distributing static content from
+edge locations.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;S3 bucket&lt;/em&gt; - cloud storage for web content&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Argo Workflows&lt;/em&gt; - pipelines producing web content and publishing it to the
+cloud storage&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/blueprints/llm-closed-source/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/blueprints/llm-closed-source/</guid><description>&lt;h1 id="large-language-model-closed-source"&gt;
  Large language model (closed source)
- &lt;a class="anchor" href="#large-language-model-closed-source">#&lt;/a>
-&lt;/h1>
-&lt;p>
- &lt;img src="https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/blueprints/llm-closed-source.excalidraw.svg" alt="LLM closed source" />&lt;/p>
-&lt;h2 id="business-logic">
+ &lt;a class="anchor" href="#large-language-model-closed-source"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;
+ &lt;img src="https://raw.githubusercontent.com/dpurge/dpurge.github.io/gh-pages/docs/devops/blueprints/llm-closed-source.excalidraw.svg" alt="LLM closed source" /&gt;&lt;/p&gt;
+&lt;h2 id="business-logic"&gt;
  Business logic
- &lt;a class="anchor" href="#business-logic">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>
- &lt;a href="https://python.langchain.com/">LangChain&lt;/a>&lt;/li>
-&lt;li>
- &lt;a href="https://www.llamaindex.ai/">LlamaIndex&lt;/a>&lt;/li>
-&lt;li>
- &lt;a href="https://streamlit.io/">Streamlit&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="vector-database">
+ &lt;a class="anchor" href="#business-logic"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+ &lt;a href="https://python.langchain.com/"&gt;LangChain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+ &lt;a href="https://www.llamaindex.ai/"&gt;LlamaIndex&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+ &lt;a href="https://streamlit.io/"&gt;Streamlit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vector-database"&gt;
  Vector database
- &lt;a class="anchor" href="#vector-database">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>
- &lt;a href="https://www.trychroma.com/">ChromaDB&lt;/a>&lt;/li>
-&lt;li>
- &lt;a href="https://qdrant.tech/">Qdrant&lt;/a>&lt;/li>
-&lt;li>PostgreSQL/
- &lt;a href="https://github.com/pgvector/pgvector">PgVector&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="data-ingestion">
+ &lt;a class="anchor" href="#vector-database"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+ &lt;a href="https://www.trychroma.com/"&gt;ChromaDB&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+ &lt;a href="https://qdrant.tech/"&gt;Qdrant&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PostgreSQL/
+ &lt;a href="https://github.com/pgvector/pgvector"&gt;PgVector&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="data-ingestion"&gt;
  Data ingestion
- &lt;a class="anchor" href="#data-ingestion">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>
- &lt;a href="https://spark.apache.org/">Spark&lt;/a>&lt;/li>
-&lt;li>
- &lt;a href="https://airflow.apache.org/">Airflow&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="cache">
+ &lt;a class="anchor" href="#data-ingestion"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+ &lt;a href="https://spark.apache.org/"&gt;Spark&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+ &lt;a href="https://airflow.apache.org/"&gt;Airflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="cache"&gt;
  Cache
- &lt;a class="anchor" href="#cache">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>
- &lt;a href="https://redis.io/">Redis&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="feature-store">
+ &lt;a class="anchor" href="#cache"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+ &lt;a href="https://redis.io/"&gt;Redis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="feature-store"&gt;
  Feature store
- &lt;a class="anchor" href="#feature-store">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>
- &lt;a href="https://feast.dev/">Feast&lt;/a>&lt;/li>
-&lt;li>
- &lt;a href="https://www.databricks.com/product/feature-store">Databricks feature store&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="prompt-management">
+ &lt;a class="anchor" href="#feature-store"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+ &lt;a href="https://feast.dev/"&gt;Feast&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+ &lt;a href="https://www.databricks.com/product/feature-store"&gt;Databricks feature store&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="prompt-management"&gt;
  Prompt management
- &lt;a class="anchor" href="#prompt-management">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>
- &lt;a href="https://www.prompthub.us/">PromptHub&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="observability">
+ &lt;a class="anchor" href="#prompt-management"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+ &lt;a href="https://www.prompthub.us/"&gt;PromptHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="observability"&gt;
  Observability
- &lt;a class="anchor" href="#observability">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>
- &lt;a href="https://arize.com/">Arize&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="llm-provider">
+ &lt;a class="anchor" href="#observability"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+ &lt;a href="https://arize.com/"&gt;Arize&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="llm-provider"&gt;
  LLM provider
- &lt;a class="anchor" href="#llm-provider">#&lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>
- &lt;a href="https://openai.com/">OpenAI ChatGPT&lt;/a>&lt;/li>
-&lt;li>
- &lt;a href="https://www.anthropic.com/">Anthropic Claude&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+ &lt;a class="anchor" href="#llm-provider"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+ &lt;a href="https://openai.com/"&gt;OpenAI ChatGPT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+ &lt;a href="https://www.anthropic.com/"&gt;Anthropic Claude&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

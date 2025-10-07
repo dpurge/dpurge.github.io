@@ -1,53 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Notebook</title><link>https://dpurge.github.io/docs/devops/git/</link><description>Recent content in Git on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/git/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/git/branches/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/git/branches/</guid><description>&lt;h1 id="branches">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Notebook</title><link>https://dpurge.github.io/docs/devops/git/</link><description>Recent content in Git on Notebook</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://dpurge.github.io/docs/devops/git/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://dpurge.github.io/docs/devops/git/branches/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/git/branches/</guid><description>&lt;h1 id="branches"&gt;
  Branches
- &lt;a class="anchor" href="#branches">#&lt;/a>
-&lt;/h1>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git remote rm origin
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git remote add origin https://xxxx/xxxx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push origin --all
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>New branch:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git checkout -b &amp;lt;branch&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push -u origin &amp;lt;branch&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Merge:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git checkout master
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git merge hotfix
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>List tags:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git fetch --tags
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push --tags
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title/><link>https://dpurge.github.io/docs/devops/git/configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/git/configuration/</guid><description>&lt;h1 id="configuration-of-git">
+ &lt;a class="anchor" href="#branches"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git remote rm origin
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git remote add origin https://xxxx/xxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git push origin --all
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;New branch:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git checkout -b &amp;lt;branch&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git push -u origin &amp;lt;branch&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Merge:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git checkout master
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git merge hotfix
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;List tags:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git fetch --tags
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git push --tags
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title/><link>https://dpurge.github.io/docs/devops/git/configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://dpurge.github.io/docs/devops/git/configuration/</guid><description>&lt;h1 id="configuration-of-git"&gt;
  Configuration of git
- &lt;a class="anchor" href="#configuration-of-git">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="username-and-email">
+ &lt;a class="anchor" href="#configuration-of-git"&gt;#&lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="username-and-email"&gt;
  Username and email
- &lt;a class="anchor" href="#username-and-email">#&lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git config --global user.name &lt;span style="color:#e6db74">&amp;#34;D. Purge&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global user.email &lt;span style="color:#e6db74">&amp;#34;my@email.com&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global core.autocrlf false
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ssh-checkouts-from-azure-devops">
+ &lt;a class="anchor" href="#username-and-email"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git config --global user.name &lt;span style="color:#e6db74"&gt;&amp;#34;D. Purge&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git config --global user.email &lt;span style="color:#e6db74"&gt;&amp;#34;my@email.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git config --global core.autocrlf false
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="ssh-checkouts-from-azure-devops"&gt;
  SSH checkouts from Azure DevOps
- &lt;a class="anchor" href="#ssh-checkouts-from-azure-devops">#&lt;/a>
-&lt;/h2>
-&lt;p>Generate SSH keypair:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>ssh-keygen -t rsa
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Full parameters:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>ssh-keygen &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -m PEM &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -t rsa &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -b &lt;span style="color:#ae81ff">4096&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -C &lt;span style="color:#e6db74">&amp;#34;user@server.example.com&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -f ~/.ssh/mykeys/privatekey &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -N passphrase
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Parameters:&lt;/p>
-&lt;ul>
-&lt;li>&lt;em>-m PEM&lt;/em> = format key as PEM&lt;/li>
-&lt;li>&lt;em>-t RSA&lt;/em> = type of the key, RSA format&lt;/li>
-&lt;li>&lt;em>-b 4096&lt;/em> = number of bits in the key, 4096 bits&lt;/li>
-&lt;li>&lt;em>-C &amp;ldquo;
- &lt;a href="mailto:user@server.example.com">user@server.example.com&lt;/a>&amp;rdquo;&lt;/em> = a comment appended at the end of the public key, to identify it&lt;/li>
-&lt;li>&lt;em>-f ~/.ssh/mykeys/privatekey&lt;/em> = the filename of the private key filet,
-a corresponding public key file appended with &lt;code>.pub&lt;/code> is generated in the same directory which must exist&lt;/li>
-&lt;li>&lt;em>-N passphrase&lt;/em> = a passphrase used to access the private key file&lt;/li>
-&lt;/ul>
-&lt;p>Add configuration in &lt;code>~/.ssh/config&lt;/code>:&lt;/p></description></item></channel></rss>
+ &lt;a class="anchor" href="#ssh-checkouts-from-azure-devops"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Generate SSH keypair:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ssh-keygen -t rsa
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Full parameters:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ssh-keygen &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -m PEM &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -t rsa &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -b &lt;span style="color:#ae81ff"&gt;4096&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -C &lt;span style="color:#e6db74"&gt;&amp;#34;user@server.example.com&amp;#34;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -f ~/.ssh/mykeys/privatekey &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;&lt;/span&gt; -N passphrase
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Parameters:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;-m PEM&lt;/em&gt; = format key as PEM&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;-t RSA&lt;/em&gt; = type of the key, RSA format&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;-b 4096&lt;/em&gt; = number of bits in the key, 4096 bits&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;-C &amp;ldquo;
+ &lt;a href="mailto:user@server.example.com"&gt;user@server.example.com&lt;/a&gt;&amp;rdquo;&lt;/em&gt; = a comment appended at the end of the public key, to identify it&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;-f ~/.ssh/mykeys/privatekey&lt;/em&gt; = the filename of the private key filet,
+a corresponding public key file appended with &lt;code&gt;.pub&lt;/code&gt; is generated in the same directory which must exist&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;-N passphrase&lt;/em&gt; = a passphrase used to access the private key file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Add configuration in &lt;code&gt;~/.ssh/config&lt;/code&gt;:&lt;/p&gt;</description></item></channel></rss>
