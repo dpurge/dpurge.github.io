@@ -20,12 +20,12 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/phraseforge-web/">
+            href="https://dpurge.github.io/hanzi-trainer/phraseforge-web/">
             PhraseForge Web
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="/hanzi-trainer/">
+            href="https://dpurge.github.io/hanzi-trainer/hanzi-trainer/">
             Hanzi Trainer
           </Link>
         </div>
