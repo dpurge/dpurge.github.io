@@ -101,6 +101,12 @@ const config: Config = {
           position: 'left',
         },
         {
+          label: 'Other',
+          type: 'docSidebar',
+          sidebarId: 'otherSidebar',
+          position: 'left',
+        },
+        {
           label: 'Blog',
           to: '/blog',
           position: 'left',
