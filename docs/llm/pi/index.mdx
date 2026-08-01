@@ -1,0 +1,79 @@
+---
+sidebar_position: 300
+---
+
+# Pi Coding Agent
+
+Configuration in `~/.pi/agent/auth.json`:
+
+```json
+{
+  "openrouter": {
+    "type": "api_key",
+    "key": "sk-or-v1-..."
+  },
+  "ollama": {
+    "type": "api_key",
+    "key": "ollama"
+  }
+}
+```
+
+Configuration in `~/.pi/agent/settings.json`:
+
+```json
+{
+  "lastChangelogVersion": "0.80.3",
+  "defaultProvider": "openrouter",
+  "defaultModel": "openrouter/free",
+  "defaultThinkingLevel": "low",
+  "theme": "dpurge-dark-default",
+  
+  "enabledModels": [
+    "openrouter/*",
+    "ollama/*"
+  ],
+  
+  "packages": [
+    "npm:pi-web-access"
+  ]
+}
+```
+
+Configuration in `~/.pi/agent/models.json`:
+
+```json
+{
+  "providers": {
+    "openrouter": {
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "openrouter/free"
+        },
+        {
+          "id": "minimax/minimax-m2.7"
+        },
+        {
+          "id": "deepseek/deepseek-v3.2"
+        }
+      ]
+    },
+    
+    "ollama": {
+      "baseUrl": "http://localhost:11434/v1",
+      "api": "openai-completions",
+      "models": [
+        { "id": "deepseek-ocr:3b" },
+        { "id": "codegemma:7b" },
+        { "id": "translategemma:27b" }
+      ]
+    }
+    
+  }
+}
+```
+
+Usage: `pi --provider openrouter --model "openrouter/google/gemini-2.5-pro"`.
+Or use the model picker (`Ctrl+L`).

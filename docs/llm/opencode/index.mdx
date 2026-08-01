@@ -1,0 +1,38 @@
+---
+sidebar_position: 200
+---
+
+# OpenCode
+
+Configuration in `~/.config/opencode/opencode.jsonc`:
+
+```jsonc
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+
+    "openrouter": {
+      "models": {
+        "google/gemma-4-31b-it:free": {},
+        "openrouter/free": {}
+      }
+    },
+
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama",
+      "options": {
+        "baseURL": "http://localhost:11434/v1",
+        "num_ctx": 65536
+      },
+      "models": {
+        "qwen3-coder:30b": {},
+        "gpt-oss:20b": {},
+        "gemma3:27b": {}
+      }
+    }
+
+  }
+}
+```
+
