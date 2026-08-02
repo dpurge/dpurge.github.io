@@ -95,6 +95,12 @@ const config: Config = {
           position: 'left',
         },
         {
+          label: 'LLM',
+          type: 'docSidebar',
+          sidebarId: 'llmSidebar',
+          position: 'left',
+        },
+        {
           label: 'Programming',
           type: 'docSidebar',
           sidebarId: 'programmingSidebar',
