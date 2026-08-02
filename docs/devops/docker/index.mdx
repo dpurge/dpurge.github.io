@@ -4,4 +4,68 @@ sidebar_position: 100
 
 # Docker
 
-TODO
+## Shrinking disks on Windows
+
+```sh
+docker builder prune -a --force
+docker system prune -a --volumes --force
+
+# check:
+docker system df -v
+```
+
+In WSL shell:
+
+```sh
+sudo fstrim -av
+```
+
+As Admin:
+
+```sh
+wsl --shutdown
+```
+
+Windows Subsystem for Linux (WSL2) stores everything inside a Virtual Hard Disk (.vhdx file).
+
+- When you run Docker inside WSL, Docker saves all of its heavy images, containers, and layers inside your personal WSL distribution's filesystem.
+- The underlying technology of Windows .vhdx files allows them to expand easily when you download files, but Windows never shrinks them automatically when you delete things.
+- Even though your Docker prune successfully wiped the data inside Linux, the Windows .vhdx container is still ballooned on your C: drive.
+
+Find big .vhdx files with WizTree.
+
+```sh
+diskpart
+select vdisk file="C:\Users\YOUR_USERNAME\AppData\Local\...\ext4.vhdx"
+attach vdisk readonly
+compact vdisk
+detach vdisk
+exit
+```
+
+Sometimes the background Windows service that manages WSL gets stuck in a loop trying to access the locked file.
+We need to force-restart it.
+
+```pwsh
+taskkill /f /im wsl.exe /im wslhost.exe
+Restart-Service -Name "LxssManager" -Force
+```
+
+Find places consuming space in your homedir on Windows:
+
+```pwsh
+Get-ChildItem -Path "C:\Users\david" -Directory -ErrorAction SilentlyContinue | 
+ForEach-Object { 
+    $size = (Get-ChildItem $_.FullName -Recurse -File -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum).Sum
+    [PSCustomObject]@{ Folder = $_.Name; SizeGB = [math]::round($size / 1GB, 2) } 
+} | Sort-Object SizeGB -Descending | Select-Object -First 15
+```
+
+Candidates:
+
+```sh
+pip cache purge
+rmdir /s /q "C:\Users\david\AppData\Local\Chromium\User Data\Default\Cache"
+ollama rm <model_name>
+```
+
